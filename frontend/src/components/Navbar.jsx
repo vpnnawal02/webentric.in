@@ -7,7 +7,7 @@ import { images } from "../assets/imgs/assets.js"
 const NAV_LINKS = [
     { label: "Home", to: "/" },
     { label: "Portfolio", to: "/portfolio" },
-    { label: "Services", to: "/services" },
+    { label: "Pricing", to: "/pricing" },
     { label: "Contact", to: "/contact" },
 ];
 
@@ -74,7 +74,7 @@ const Navbar = () => {
                                     isActive
                                         ? {
                                             textDecoration: 'underline',
-                                            textDecorationColor: 'blue',
+                                            textDecorationColor: '#2196f3',
                                             textDecorationThickness: '4px',
                                             textUnderlineOffset: '30px'
                                         }

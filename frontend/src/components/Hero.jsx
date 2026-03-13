@@ -82,7 +82,7 @@ const Hero = () => {
                     </div>
 
                     {/* RIGHT: Hero image */}
-                    <div className="order-2 flex justify-center md:justify-end">
+                    <div className="hidden md:flex order-2 flex justify-center md:justify-end">
                         <div>
                             <img src={images.hero_img} alt="" />
                         </div>
