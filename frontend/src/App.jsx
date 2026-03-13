@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import ContactButtons from "./utils/ContactButtons"
 import Pricing from "./pages/Pricing"
+import PrivacyPolicy from "./pages/PrivacyPolicy"
+import TermsOfService from "./pages/TermsOfService"
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
       </Routes>
       <Footer />
     </>

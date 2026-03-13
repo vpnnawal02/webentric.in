@@ -160,3 +160,97 @@ export const CONTACT_ITEMS = [
         bg: "bg-pink-500",
     },
 ];
+
+export const testimonials = [
+    {
+        name: "Rahul Sharma",
+        role: "Founder, Cafe Aroma",
+        text: "The website Webentric built for our restaurant completely transformed our online presence. Customers can now easily find us and view our menu.",
+        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=48&h=48&fit=crop&crop=face",
+        rating: 5,
+    },
+    {
+        name: "Neha Verma",
+        role: "Marketing Consultant",
+        text: "The development process was smooth and professional. The final website exceeded our expectations and helped us generate more leads.",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=48&h=48&fit=crop&crop=face",
+        rating: 5,
+    },
+    {
+        name: "Amit Mehta",
+        role: "Startup Founder",
+        text: "Highly recommended for businesses looking for modern, fast, and well-designed websites.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face",
+        rating: 5,
+    },
+];
+
+export const pricingPackages = [
+    {
+        title: "Starter Website",
+        price: "₹7,999",
+        delivery: "5–7 Days",
+        features: [
+            { name: "Up to 5 Pages", desc: "Home, About, Services, Portfolio, Contact pages included." },
+            { name: "Mobile Responsive Design", desc: "Fully responsive across all devices and screen sizes." },
+            { name: "Basic SEO Setup", desc: "Page titles, meta descriptions, and search indexing." },
+            { name: "Contact Form", desc: "Professional form with email notifications and spam protection." },
+            { name: "Fast Loading Pages", desc: "Optimized images, minified CSS/JS, performance best practices." },
+        ],
+    },
+    {
+        title: "Business Website",
+        price: "₹14,999",
+        delivery: "7–10 Days",
+        popular: true,
+        features: [
+            { name: "Up to 10 Pages", desc: "Everything in Starter + Blog, Team, FAQ pages." },
+            { name: "Custom Design", desc: "Unique design tailored to your brand identity." },
+            { name: "Advanced UI/UX", desc: "Interactive elements, smooth animations, modern interactions." },
+            { name: "SEO Optimized Structure", desc: "Complete on-page SEO, schema markup, sitemap." },
+            { name: "Speed Optimization", desc: "Core Web Vitals, lazy loading, advanced caching." },
+            { name: "Social Media Integration", desc: "Instagram, LinkedIn, WhatsApp, Facebook links." },
+        ],
+    },
+    {
+        title: "E-Commerce Website",
+        price: "₹24,999",
+        delivery: "10–14 Days",
+        features: [
+            { name: "Product Catalog", desc: "Unlimited products with categories and filtering." },
+            { name: "Shopping Cart", desc: "Persistent cart, quantity controls, wishlist." },
+            { name: "Payment Gateway", desc: "Razorpay, Stripe, UPI, PayPal integration." },
+            { name: "Order Management", desc: "Order tracking, status updates, customer dashboard." },
+            { name: "Mobile Store", desc: "Optimized e-commerce experience on all devices." },
+            { name: "Admin Dashboard", desc: "Complete backend to manage products, orders, customers." },
+        ],
+    },
+];
+
+export const addons = [
+    { name: "Extra Page", price: "₹500" },
+    { name: "Blog Setup", price: "₹1,000" },
+    { name: "SEO Optimization", price: "₹2,000" },
+    { name: "Website Maintenance", price: "₹1,500/month" },
+    { name: "Speed Optimization", price: "₹1,000" },
+    { name: "Content Upload", price: "₹800" },
+];
+
+export const faqs = [
+    {
+        question: "How long does it take to build a website?",
+        answer: "Most websites take 5–14 days depending on complexity. Starter packages deliver in 5–7 days, while e-commerce sites take 10–14 days.",
+    },
+    {
+        question: "Do you provide hosting?",
+        answer: "Yes! We help set up hosting with providers like Vercel, Netlify, or traditional hosting. Deployment and domain setup included.",
+    },
+    {
+        question: "Will my website work on mobile devices?",
+        answer: "Absolutely. All websites are fully responsive and optimized for phones, tablets, and desktops using modern responsive frameworks.",
+    },
+    {
+        question: "Can I update my website later?",
+        answer: "Yes! We provide documentation and training. Optional maintenance packages available for ongoing updates and support.",
+    },
+];

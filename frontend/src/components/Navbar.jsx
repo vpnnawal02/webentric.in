@@ -54,7 +54,7 @@ const Navbar = () => {
 
                     {/* LEFT — Logo */}
                     <NavLink to="/" className="text-xl font-bold tracking-tight text-gray-900">
-                        <h1 className='text-4xl py-5'><span className='text-blue-500'>WEB</span>ENTRIC <span className='text-blue-500'>.</span></h1>
+                        <h1 className='text-4xl py-5'><span className='text-blue-500'>WEB</span>ENTRIC<span className='text-blue-500'>.</span></h1>
                     </NavLink>
 
                     {/* RIGHT — Desktop Nav */}
