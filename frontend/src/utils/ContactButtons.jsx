@@ -1,11 +1,87 @@
 import React from 'react'
+import { useState } from "react";
+import { icons } from '../assets/imgs/assets';
+
+const CONTACT_ITEMS = [
+    {
+        id: "phone",
+        label: "Call",
+        icon: icons.phone_icon,
+        href: "tel:+918851948143",
+        bg: "bg-emerald-500",
+    },
+    {
+        id: "whatsapp",
+        label: "WhatsApp",
+        icon: icons.whatsapp_icon,
+        href: "https://wa.me/918851948143",
+        bg: "bg-green-500",
+    },
+    {
+        id: "linkedin",
+        label: "LinkedIn",
+        icon: icons.linkedin_icon,
+        href: "https://www.linkedin.com/in/your-profile", // change
+        bg: "bg-sky-600",
+    },
+    {
+        id: "facebook",
+        label: "Facebook",
+        icon: icons.facebook_icon,
+        href: "https://www.facebook.com/your-page", // change
+        bg: "bg-blue-600",
+    },
+    {
+        id: "instagram",
+        label: "Instagram",
+        icon: icons.instagram_icon,
+        href: "https://www.instagram.com/your-handle", // change
+        bg: "bg-pink-500",
+    },
+];
 
 const ContactButtons = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <div>
+        <div
+            className="fixed right-0 top-3/4 md:top-60 -translate-y-1/2 z-40 flex  items-center"
+        >
+            {/* Toggle / collapsed handle */}
+            <div
+
+                onMouseLeave={() => setIsOpen(false)}
+                className={`ml-2 bg-white border border-gray-200 shadow-xl flex flex-col gap-2 px-3 py-3 transition-all duration-300
+                            ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
+                {CONTACT_ITEMS.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                        <a
+                            key={item.id}
+                            href={item.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group flex items-center gap-2 text-xs text-gray-700 hover:text-gray-900 min-w-[150px]"
+                        >
+                            <span
+                                className={`inline-flex h-8 w-8 items-center justify-center text-white ${item.bg} shadow-md transition-transform group-hover:-translate-y-0.5`}
+                            >
+                                <Icon className="text-[14px]" />
+                            </span>
+                            <span className="font-medium">{item.label}</span>
+                        </a>
+                    );
+                })}
+            </div>
+            <button
+                type="button"
+                onMouseEnter={() => setIsOpen(true)}
+                className=" h-40 w-10 md:w-15 bg-blue-600/80 text-white text-[10px] font-semibold flex items-center justify-center tracking-[0.12em] uppercase rotate-180 [writing-mode:vertical-rl] shadow-lg hover:bg-blue-700 transition-colors ">
+                Contact
+            </button>
 
         </div>
-    )
+    );
 }
 
 export default ContactButtons

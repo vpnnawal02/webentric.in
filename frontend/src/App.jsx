@@ -6,11 +6,13 @@ import Portfolio from "./pages/Portfolio"
 import Services from "./pages/Services"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import ContactButtons from "./utils/ContactButtons"
 
 function App() {
   return (
     <>
       <Navbar />
+      <ContactButtons />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />

@@ -48,13 +48,13 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <nav className="bg-white border-b border-gray-200 sticky top-0 z-45">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-auto">
 
                     {/* LEFT — Logo */}
                     <NavLink to="/" className="text-xl font-bold tracking-tight text-gray-900">
-                        <img src={images.navbar_logo} className='w-50 lg:w-60' />
+                        <h1 className='text-4xl py-5'><span className='text-blue-500'>WEB</span>ENTRIC <span className='text-blue-500'>.</span></h1>
                     </NavLink>
 
                     {/* RIGHT — Desktop Nav */}
@@ -67,13 +67,14 @@ const Navbar = () => {
                                 className={({ isActive }) =>
                                     `px-3 py-1.5 text-md font-medium transition-colors duration-200 ${isActive
                                         ? "font-semibold"
-                                        : "text-gray-600 hover:underline decoration-gray-400 underline-offset-30 decoration-4"
+                                        : "text-gray-600 hover:underline decoration-blue-400 underline-offset-30 decoration-4"
                                     }`
                                 }
                                 style={({ isActive }) =>
                                     isActive
                                         ? {
                                             textDecoration: 'underline',
+                                            textDecorationColor: 'blue',
                                             textDecorationThickness: '4px',
                                             textUnderlineOffset: '30px'
                                         }
@@ -129,7 +130,7 @@ const Navbar = () => {
                         className="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
                         aria-label="Toggle menu"
                     >
-                        {mobileOpen ? <X size={25} /> : <Menu size={25} />}
+                        {mobileOpen ? <X size={35} /> : <Menu size={35} />}
                     </button>
                 </div>
             </div>
