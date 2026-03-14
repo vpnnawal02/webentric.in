@@ -28,7 +28,14 @@ import {
     ChevronDown as arrowDown_icon,
     ChevronUp as arrowUp_icon,
     ArrowRight as arrowRight_icon,
-    Send as send_icon
+    Send as send_icon,
+    CheckCircle as check_circle_icon,
+    Code2 as code2_icon,
+    Smartphone as smartphone_icon,
+    Search as search_icon,
+    Shield as shield_icon,
+    Clock as clock_icon,
+    Users as users_icon
 } from 'lucide-react';
 
 
@@ -56,5 +63,12 @@ export const icons = {
     arrowDown_icon,
     arrowUp_icon,
     arrowRight_icon,
-    send_icon
+    send_icon,
+    check_circle_icon,
+    code2_icon,
+    smartphone_icon,
+    search_icon,
+    shield_icon,
+    clock_icon,
+    users_icon
 }

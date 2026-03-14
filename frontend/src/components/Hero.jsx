@@ -16,25 +16,25 @@ const Hero = () => {
                     <div className="order-1 mt-10">
                         {/* Headline */}
                         <h1
-                            className="font-extrabold leading-tight text-gray-900 text-4xl sm:text-5xl lg:text-[56px] max-w-[600px]">
+                            className="font-bold md:font-extrabold leading-tight text-gray-900 text-3xl md:text-4xl sm:text-5xl lg:text-[56px] max-w-[600px]">
                             High-Performance Websites Built to{" "}
-                            <span className="text-blue-600">Grow Your Business</span>
+                            <span className="text-blue-500">Grow Your Business</span>
                         </h1>
 
                         {/* Subheadline */}
-                        <p className="mt-5 max-w-[550px] text-[18px] sm:text-[20px] text-gray-600">
+                        <p className="mt-5 max-w-[550px] text-md md:text-[18px] sm:text-[20px] text-gray-600">
                             Custom websites designed for speed, mobile responsiveness, and SEO—helping businesses attract visitors, build credibility, and convert leads into customers.
                         </p>
 
                         {/* CTA buttons */}
                         <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
                             <button
-                                className=" w-full sm:w-auto px-7 sm:px-8  py-3.5 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-xs shadow-sm  hover:bg-blue-700  transition-color">
+                                className=" w-full sm:w-auto px-7 sm:px-8  py-3.5 bg-blue-500 text-white text-sm sm:text-base font-semibold rounded-xs shadow-sm  hover:bg-blue-700  transition-color">
                                 Get a Free Website Quote
                             </button>
                             <Link to='portfolio'>
                                 <button
-                                    className="w-full sm:w-auto px-7 sm:px-8 py-3.5 border-2 border-blue-600 text-blue-700 text-sm sm:text-base font-semibold rounded-xs bg-transparent hover:bg-blue-50 transition-color">
+                                    className="w-full sm:w-auto px-7 sm:px-8 py-3.5 border-2 border-blue-500 text-blue-700 text-sm sm:text-base font-semibold rounded-xs bg-transparent hover:bg-blue-50 transition-color">
                                     View Our Work
                                 </button>
                             </Link>
@@ -55,25 +55,25 @@ const Hero = () => {
                         {/* Benefits list */}
                         <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-[14px] text-gray-700">
                             <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-green-100 text-[10px] text-green-600">
+                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full text-[15px] text-blue-600 ">
                                     ✓
                                 </span>
                                 <span>Fast Loading Websites</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-green-100 text-[10px] text-green-600">
+                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full text-[15px] text-blue-600">
                                     ✓
                                 </span>
                                 <span>Mobile-Responsive Design</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-green-100 text-[10px] text-green-600">
+                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-fu text-[15px] text-blue-600">
                                     ✓
                                 </span>
                                 <span>SEO-Optimized Structure</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-green-100 text-[10px] text-green-600">
+                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full text-[15px] text-blue-600">
                                     ✓
                                 </span>
                                 <span>Affordable Pricing</span>
@@ -83,7 +83,7 @@ const Hero = () => {
 
                     {/* RIGHT: Hero image */}
                     <div className="hidden md:flex order-2 flex justify-center md:justify-end">
-                        <div>
+                        <div data-aos="zoom-in">
                             <img src={images.hero_img} alt="" />
                         </div>
                     </div>

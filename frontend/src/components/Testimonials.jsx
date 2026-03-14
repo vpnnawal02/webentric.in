@@ -32,7 +32,7 @@ const Testimonials = () => {
     };
 
     return (
-        <section className="bg-gray-50 py-24" id="testimonials">
+        <section className="bg-gray-50 py-5" id="testimonials">
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
                 <div className="text-center max-w-[700px] mx-auto">

@@ -397,26 +397,6 @@ export default function ProjectCostCalculator() {
                                 <p className="text-center text-xs text-gray-400 mt-2.5 pb-1">No commitment required</p>
                             </div>
                         </div>
-
-                        {/* Quick Stats */}
-                        <div className="grid grid-cols-3 gap-2 mt-3">
-                            <div className="bg-white rounded-xs border border-gray-200 p-3 text-center shadow-sm">
-                                <p className="text-base font-extrabold text-blue-600">{pages}</p>
-                                <p className="text-xs text-gray-500 mt-0.5">Pages</p>
-                            </div>
-                            <div className="bg-white rounded-xs border border-gray-200 p-3 text-center shadow-sm">
-                                <p className="text-base font-extrabold text-violet-600">
-                                    {FEATURE_LIST.filter((f) => features[f.key]).length}
-                                </p>
-                                <p className="text-xs text-gray-500 mt-0.5">Features</p>
-                            </div>
-                            <div className="bg-white rounded-xs border border-gray-200 p-3 text-center shadow-sm">
-                                <p className="text-base font-extrabold text-emerald-600">
-                                    {TIMELINE_OPTIONS.find((t) => t.key === timeline)?.desc}
-                                </p>
-                                <p className="text-xs text-gray-500 mt-0.5">Timeline</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

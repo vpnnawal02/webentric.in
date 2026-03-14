@@ -261,21 +261,21 @@ export const WEBSITE_TYPES = [
         label: "Landing Page",
         desc: "Perfect for product launches & campaigns",
         price: 7999,
-        highlights: ["1–5 pages", "Conversion-focused", "Fast delivery", "5-7 days"],
+        highlights: ["Up to 4 pages", "Mobile Responsive Design", "Basic SEO Setup", "Contact Form", "Fast Delivery"],
     },
     {
         key: "business",
         label: "Business Website",
         desc: "Ideal for companies & service providers",
         price: 14999,
-        highlights: ["Up to 5 pages", "Professional design", "Admin Dashboard", "2-3 weeks"],
+        highlights: ["Up to 10 pages", "Professional design", "Speed Optimization", "2-3 weeks"],
     },
     {
         key: "ecommerce",
         label: "E-Commerce Store",
         desc: "Full-featured online store with cart & checkout",
         price: 24999,
-        highlights: ["Product catalog", "Cart & checkout", "Order management", "4-6 weeks"],
+        highlights: ["Upto 25 pages", "Product catalog", "Cart & checkout", "Admin Dashboard", "Payment Gateway", "4-6 weeks"],
     },
 ];
 

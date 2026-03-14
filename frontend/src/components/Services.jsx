@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { services } from "../assets/data.js";
+import { motion } from "framer-motion"
 
 
 const Services = () => {
@@ -8,7 +8,7 @@ const Services = () => {
         <section className="bg-[#f9fafb] py-24" id="services">
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
-                <div className="text-center max-w-[700px] mx-auto">
+                <div data-aos="fade-right" className="text-center max-w-[700px] mx-auto">
                     <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900">
                         <span className="text-blue-500 underline underline-offset-4">Website Solutions</span> Designed for Modern Businesses
                     </h2>
@@ -19,7 +19,9 @@ const Services = () => {
                 </div>
 
                 {/* Services grid */}
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div
+                    data-aos="fade-up"
+                    className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {services.map((service) => {
                         const Icon = service.icon;
                         return (
@@ -40,22 +42,8 @@ const Services = () => {
                         );
                     })}
                 </div>
-
-                {/* Bottom CTA */}
-                <div className="mt-12 text-center">
-                    <p className="text-sm sm:text-base text-gray-700 mb-4">
-                        Need a custom website for your business?
-                    </p>
-                    <Link to='/contact'>
-                        <button
-                            className=" inline-flex items-center justify-center px-7 py-3.5 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-xs hover:bg-blue-700 transition-colors w-full sm:w-auto"
-                        >
-                            Get a Free Website Quote
-                        </button>
-                    </Link>
-                </div>
             </div>
-        </section>
+        </section >
     );
 }
 

@@ -20,7 +20,7 @@ const Portfolio = () => {
                 {/* Projects grid */}
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {projects.map((project, index) => (
-                        <div
+                        <div data-aos="fade-up"
                             key={index}
                             className=" group bg-white rounded-xs overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                         >

@@ -8,7 +8,7 @@ const ContactButtons = () => {
 
     return (
         <div
-            className="fixed right-0 top-3/4 md:top-60 -translate-y-1/2 z-40 flex  items-center">
+            className="fixed right-0 top-3/4 md:top-60 -translate-y-1/2 z-40 hidden md:flex items-center">
             {/* Toggle / collapsed handle */}
             <div
 

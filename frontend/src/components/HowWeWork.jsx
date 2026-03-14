@@ -2,10 +2,10 @@ import React from 'react'
 import { processSteps } from '../assets/data.js';
 const HowWeWork = () => {
     return (
-        <section className="bg-white py-24" id="process">
+        <section className="bg-white py-5" id="process">
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
-                <div className="text-center max-w-[700px] mx-auto">
+                <div data-aos="fade-right" className="text-center max-w-[700px] mx-auto">
                     <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900">
                         How We Turn <span className='text-blue-500 underline underline-offset-4'>Your Idea</span> Into a Powerful Website
                     </h2>
@@ -20,7 +20,7 @@ const HowWeWork = () => {
                     {/* Desktop connector lines */}
                     <div className="hidden lg:flex absolute top-1/2 left-16 right-16 -translate-y-1/2 h-px bg-blue-600" />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    <div data-aos="fade-left" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         {processSteps.map((step, index) => {
                             const Icon = step.icon;
                             const isFirst = index === 0;
@@ -55,18 +55,6 @@ const HowWeWork = () => {
                             );
                         })}
                     </div>
-                </div>
-
-                {/* Bottom CTA */}
-                <div className="mt-20 text-center">
-                    <p className="text-sm sm:text-base text-gray-700 mb-6">
-                        Ready to start building your website?
-                    </p>
-                    <button
-                        className=" inline-flex items-center justify-center px-7 py-3.5 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-xs hover:bg-blue-700 transition-colors w-full sm:w-auto"
-                    >
-                        Get a Free Website Quote
-                    </button>
                 </div>
             </div>
         </section>

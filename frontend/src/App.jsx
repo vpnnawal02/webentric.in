@@ -1,4 +1,7 @@
 import React from "react"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Contact from "./pages/Contact"
@@ -10,8 +13,16 @@ import Pricing from "./pages/Pricing"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
 import TermsOfService from "./pages/TermsOfService"
 import CalculateProjectCost from "./pages/CalculateProjectCost"
+import CustomWebsitePage from "./pages/CustomWebsitePage"
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true
+    })
+  }, [])
+
   return (
     <>
       <Navbar />
