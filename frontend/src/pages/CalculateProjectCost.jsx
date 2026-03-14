@@ -1,0 +1,433 @@
+// ProjectCostCalculator.jsx
+import { useState, useMemo } from "react";
+import { WEBSITE_TYPES, PRICE_PER_EXTRA_PAGE, BASE_PAGES, FEATURE_LIST, TIMELINE_OPTIONS } from "../assets/data";
+
+// ─── Constants ────────────────────────────────────────────────────────────────
+
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+const formatINR = (n) =>
+    new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 0,
+    }).format(n);
+
+const buildMessage = (siteType, pages, features, timeline, total) => {
+    const type = WEBSITE_TYPES.find((t) => t.key === siteType);
+    const feats = FEATURE_LIST.filter((f) => features[f.key]).map((f) => f.label);
+    const tl = TIMELINE_OPTIONS.find((t) => t.key === timeline);
+    return [
+        `Website Type: ${type?.label}`,
+        `Pages: ${pages}`,
+        `Features: ${feats.length ? feats.join(", ") : "None selected"}`,
+        `Timeline: ${tl?.label}`,
+        `─────────────────────`,
+        `Estimated Total: ${formatINR(total)}`,
+    ].join("\n");
+};
+
+// ─── Modal ────────────────────────────────────────────────────────────────────
+function ContactModal({ onClose, defaultMessage }) {
+    const [form, setForm] = useState({ name: "", email: "", message: defaultMessage });
+    const [sent, setSent] = useState(false);
+    const handle = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+            <div className="bg-white rounded-xs shadow-2xl w-full max-w-lg p-6 relative">
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors text-xl font-bold"
+                >✕</button>
+
+                {sent ? (
+                    <div className="flex flex-col items-center py-10 gap-4 text-center">
+                        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-3xl">✓</div>
+                        <h3 className="text-xl font-semibold text-gray-800">Estimate Sent!</h3>
+                        <p className="text-gray-500 text-sm">We'll get back to you within 24 hours.</p>
+                        <button
+                            onClick={onClose}
+                            className="mt-2 px-6 py-2.5 bg-blue-600 text-white rounded-xs text-sm font-semibold hover:bg-blue-700 transition-colors"
+                        >Close</button>
+                    </div>
+                ) : (
+                    <>
+                        <h2 className="text-xl font-bold text-gray-900 mb-1">Contact Us With Your Estimate</h2>
+                        <p className="text-sm text-gray-500 mb-5">We'll review your requirements and get back to you shortly.</p>
+                        <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="flex flex-col gap-4">
+                            <div>
+                                <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Name</label>
+                                <input required name="name" value={form.name} onChange={handle} placeholder="Your full name"
+                                    className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Email</label>
+                                <input required type="email" name="email" value={form.email} onChange={handle} placeholder="you@example.com"
+                                    className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Project Details</label>
+                                <textarea required name="message" value={form.message} onChange={handle} rows={7}
+                                    className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none font-mono" />
+                            </div>
+                            <button type="submit"
+                                className="w-full py-3 bg-blue-600 text-white rounded-xs font-semibold text-sm hover:bg-blue-700 active:scale-95 transition-all">
+                                Send Estimate Request →
+                            </button>
+                        </form>
+                    </>
+                )}
+            </div>
+        </div>
+    );
+}
+
+// ─── Feature Card ─────────────────────────────────────────────────────────────
+function FeatureCard({ label, price, checked, onChange }) {
+    return (
+        <label className={`flex items-center justify-between gap-3 p-3.5 rounded-xs border cursor-pointer transition-all duration-200 select-none
+      ${checked ? "border-gray-200 shadow-md" : "border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50"}`}>
+            <div className="flex items-center gap-2.5 min-w-0">
+                <div className={`w-4 h-4 rounded flex-shrink-0 flex items-center justify-center border transition-colors
+          ${checked ? "bg-blue-600 border-blue-600" : "border-gray-300 bg-white"}`}>
+                    {checked && (
+                        <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    )}
+                </div>
+                <span className="text-sm font-medium text-gray-700 truncate">{label}</span>
+            </div>
+            <span className={`text-xs font-semibold flex-shrink-0 ${checked ? "text-blue-600" : "text-gray-500"}`}>
+                +{formatINR(price)}
+            </span>
+            <input type="checkbox" className="hidden" checked={checked} onChange={onChange} />
+        </label>
+    );
+}
+
+// ─── Timeline Card ────────────────────────────────────────────────────────────
+function TimelineCard({ option, selected, onChange }) {
+    const active = selected === option.key;
+    return (
+        <label className={`flex items-center justify-between gap-3 p-4 rounded-xs border cursor-pointer transition-all duration-200 select-none
+      ${active ? "border-blue-500 bg-blue-50 shadow-sm" : "border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50"}`}>
+            <div className="flex items-center gap-3">
+                <div className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors
+          ${active ? "border-blue-600" : "border-gray-300"}`}>
+                    {active && <div className="w-2 h-2 rounded-full bg-blue-600" />}
+                </div>
+                <div>
+                    <p className="text-sm font-semibold text-gray-800">{option.label}</p>
+                    <p className="text-xs text-gray-400 mt-0.5">{option.desc}</p>
+                </div>
+            </div>
+            <span className={`text-xs font-bold flex-shrink-0 ${active ? "text-blue-600" : "text-gray-500"}`}>
+                {option.price === 0 ? "Free" : `+${formatINR(option.price)}`}
+            </span>
+            <input type="radio" className="hidden" checked={active} onChange={onChange} />
+        </label>
+    );
+}
+
+// ─── Summary Row ──────────────────────────────────────────────────────────────
+function SummaryRow({ label, value, sub, highlight }) {
+    return (
+        <div className={`flex items-start justify-between py-2 gap-2 ${highlight ? "border-t border-gray-200 mt-1 pt-3" : ""}`}>
+            <div>
+                <span className={`text-sm ${highlight ? "font-bold text-gray-900" : "text-gray-600"}`}>{label}</span>
+                {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
+            </div>
+            <span className={`text-sm font-semibold whitespace-nowrap ${highlight ? "text-blue-700 text-base" : "text-gray-800"}`}>{value}</span>
+        </div>
+    );
+}
+
+// ─── Main Component ───────────────────────────────────────────────────────────
+export default function ProjectCostCalculator() {
+    const [siteType, setSiteType] = useState("business");
+    const [pages, setPages] = useState(5);
+    const [features, setFeatures] = useState(Object.fromEntries(FEATURE_LIST.map((f) => [f.key, false])));
+    const [timeline, setTimeline] = useState("standard");
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const selectedType = WEBSITE_TYPES.find((t) => t.key === siteType);
+    const basePrice = selectedType?.price ?? 0;
+    const extraPages = Math.max(0, pages - BASE_PAGES);
+    const extraPageCost = extraPages * PRICE_PER_EXTRA_PAGE;
+    const featureCost = useMemo(
+        () => FEATURE_LIST.filter((f) => features[f.key]).reduce((s, f) => s + f.price, 0),
+        [features]
+    );
+    const timelineCost = TIMELINE_OPTIONS.find((t) => t.key === timeline)?.price ?? 0;
+    const total = basePrice + extraPageCost + featureCost + timelineCost;
+
+    const handlePages = (val) => {
+        const n = parseInt(val, 10);
+        if (!isNaN(n)) setPages(Math.max(BASE_PAGES, Math.min(50, n)));
+    };
+
+    const toggleFeature = (key) => setFeatures((p) => ({ ...p, [key]: !p[key] }));
+
+    // Reset pages & features when switching type
+    const handleTypeChange = (key) => {
+        setSiteType(key);
+        setPages(5);
+        setFeatures(Object.fromEntries(FEATURE_LIST.map((f) => [f.key, false])));
+        setTimeline("standard");
+    };
+
+    return (
+        <section className="min-h-screen bg-transparent from-slate-50 to-blue-50/30 py-12 px-4">
+            <div className="max-w-6xl mx-auto">
+
+                {/* ── Header ── */}
+                <div className="text-center mb-10">
+                    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
+                        Calculate Your Project Cost
+                    </h1>
+                    <p className="text-gray-500 text-base max-w-xl mx-auto">
+                        Select the features you need to estimate the cost of your website or web application.
+                    </p>
+                </div>
+
+                <div className="flex flex-col lg:flex-row gap-6 items-start">
+
+                    {/* ══ LEFT: Calculator ══ */}
+                    <div className="w-full lg:flex-1 flex flex-col gap-5">
+
+                        {/* ── SECTION 1: Website Type Selector ── */}
+                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
+                            <h2 className="text-base font-bold text-gray-900 mb-1">Choose Website Type</h2>
+                            <p className="text-xs text-gray-500 mb-4">Select the type that best fits your project needs.</p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                {WEBSITE_TYPES.map((type) => {
+                                    const active = siteType === type.key;
+                                    return (
+                                        <button
+                                            key={type.key}
+                                            onClick={() => handleTypeChange(type.key)}
+                                            className={`relative flex flex-col items-start text-left p-4 rounded-xs border-2 transition-all duration-200 group
+                        ${active
+                                                    ? "border-blue-500 bg-blue-50 shadow-md shadow-blue-100"
+                                                    : "border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50"
+                                                }`}
+                                        >
+                                            {active && (
+                                                <span className="absolute top-3 right-3 w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
+                                                    <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </span>
+                                            )}
+                                            <span className="text-2xl mb-2">{type.icon}</span>
+                                            <p className={`text-sm font-bold mb-0.5 ${active ? "text-blue-700" : "text-gray-800"}`}>
+                                                {type.label}
+                                            </p>
+                                            <p className="text-xs text-gray-400 mb-3 leading-snug">{type.desc}</p>
+                                            <p className={`text-lg font-extrabold ${active ? "text-blue-600" : "text-gray-700"}`}>
+                                                {formatINR(type.price)}
+                                            </p>
+                                            <ul className="mt-2.5 flex flex-col gap-1">
+                                                {type.highlights.map((h) => (
+                                                    <li key={h} className="flex items-center gap-1.5 text-xs text-gray-500">
+                                                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${active ? "bg-blue-400" : "bg-gray-300"}`} />
+                                                        {h}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {/* ── SECTION 3: Additional Pages ── */}
+                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
+                            <h2 className="text-base font-bold text-gray-900 mb-1">Number of Pages</h2>
+                            <p className="text-xs text-gray-500 mb-4">
+                                First 5 pages are free. Additional pages cost {formatINR(PRICE_PER_EXTRA_PAGE)}/page.
+                            </p>
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={() => handlePages(pages - 1)}
+                                    disabled={pages <= BASE_PAGES}
+                                    className="w-9 h-9 rounded-xs border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-blue-50 hover:border-blue-300 disabled:opacity-30 disabled:cursor-not-allowed transition-all font-bold text-lg"
+                                >−</button>
+                                <input
+                                    type="number"
+                                    value={pages}
+                                    min={BASE_PAGES}
+                                    max={50}
+                                    onChange={(e) => handlePages(e.target.value)}
+                                    className="w-16 text-center text-lg font-bold text-gray-800 border border-gray-200 rounded-xs py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                                <button
+                                    onClick={() => handlePages(pages + 1)}
+                                    className="w-9 h-9 rounded-xs border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-blue-50 hover:border-blue-300 transition-all font-bold text-lg"
+                                >+</button>
+                                <div className="ml-2 flex-1">
+                                    <input
+                                        type="range"
+                                        min={BASE_PAGES}
+                                        max={25}
+                                        value={pages}
+                                        onChange={(e) => handlePages(e.target.value)}
+                                        className="w-full accent-blue-600 h-2 cursor-pointer"
+                                    />
+                                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                                        <span>5</span><span>15</span><span>25</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {extraPages > 0 && (
+                                <div className="mt-3 flex items-center justify-between bg-amber-50 border border-amber-200 rounded-xs px-3 py-2">
+                                    <span className="text-xs text-amber-700 font-medium">
+                                        {extraPages} extra page{extraPages > 1 ? "s" : ""} × {formatINR(PRICE_PER_EXTRA_PAGE)}
+                                    </span>
+                                    <span className="text-xs font-bold text-amber-700">+{formatINR(extraPageCost)}</span>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* ── SECTION 4: Optional Features ── */}
+                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
+                            <div className="flex items-center justify-between mb-4">
+                                <div>
+                                    <h2 className="text-base font-bold text-gray-900">Optional Features</h2>
+                                    <p className="text-xs text-gray-500 mt-0.5">Add capabilities to your project</p>
+                                </div>
+                                {featureCost > 0 && (
+                                    <span className="text-xs bg-blue-100 text-blue-700 font-semibold px-2.5 py-1 rounded-full">
+                                        +{formatINR(featureCost)}
+                                    </span>
+                                )}
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                {FEATURE_LIST.map((f) => (
+                                    <FeatureCard
+                                        key={f.key}
+                                        label={f.label}
+                                        price={f.price}
+                                        checked={features[f.key]}
+                                        onChange={() => toggleFeature(f.key)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* ── SECTION 5: Delivery Timeline ── */}
+                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
+                            <h2 className="text-base font-bold text-gray-900 mb-1">Delivery Timeline</h2>
+                            <p className="text-xs text-gray-500 mb-4">How fast do you need your project?</p>
+                            <div className="flex flex-col gap-2.5">
+                                {TIMELINE_OPTIONS.map((opt) => (
+                                    <TimelineCard
+                                        key={opt.key}
+                                        option={opt}
+                                        selected={timeline}
+                                        onChange={() => setTimeline(opt.key)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ══ RIGHT: Sticky Summary ══ */}
+                    <div className="w-full lg:w-80 xl:w-96 self-start sticky top-6">
+                        <div className="bg-white rounded-xs border border-gray-200 shadow-lg overflow-hidden">
+                            <div className="bg-white border-b border-gray-200 px-5 py-4 ">
+                                <h2 className="text-black font-bold text-base">Cost Summary</h2>
+                            </div>
+
+                            <div className="px-5 py-4 flex flex-col gap-0.5">
+                                <SummaryRow
+                                    label={`${selectedType?.icon} ${selectedType?.label}`}
+                                    value={formatINR(basePrice)}
+                                    sub="Base package"
+                                />
+                                <SummaryRow
+                                    label={`Additional Pages (${extraPages})`}
+                                    value={extraPageCost > 0 ? `+${formatINR(extraPageCost)}` : "—"}
+                                    sub={extraPages > 0 ? `${extraPages} × ₹500` : "5 pages included"}
+                                />
+                                <SummaryRow
+                                    label="Optional Features"
+                                    value={featureCost > 0 ? `+${formatINR(featureCost)}` : "—"}
+                                    sub={featureCost > 0
+                                        ? `${FEATURE_LIST.filter((f) => features[f.key]).length} feature(s) selected`
+                                        : "None selected"}
+                                />
+                                <SummaryRow
+                                    label="Timeline Add-on"
+                                    value={timelineCost > 0 ? `+${formatINR(timelineCost)}` : "Free"}
+                                />
+                                <SummaryRow label="Estimated Total" value={formatINR(total)} highlight />
+                            </div>
+
+                            {/* Selected Feature Tags */}
+                            {FEATURE_LIST.some((f) => features[f.key]) && (
+                                <div className="px-5 pb-4">
+                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Selected Features</p>
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {FEATURE_LIST.filter((f) => features[f.key]).map((f) => (
+                                            <span key={f.key}
+                                                className="text-xs bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 rounded-xs font-medium">
+                                                {f.label}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="px-5">
+                                <div className="mb-4 ">
+                                    <p className="text-xs text-gray-500 leading-relaxed text-right">
+                                        This is an estimate. Final price may vary based on detailed project requirements.
+                                    </p>
+                                </div>
+                                <button
+                                    onClick={() => setModalOpen(true)}
+                                    className="w-full py-3.5 bg-blue-500 text-white rounded-xs font-semibold text-sm active:scale-95 transition-all duration-200 shadow-md shadow-blue-200"
+                                >
+                                    Contact Us With This Estimate →
+                                </button>
+                                <p className="text-center text-xs text-gray-400 mt-2.5 pb-1">No commitment required</p>
+                            </div>
+                        </div>
+
+                        {/* Quick Stats */}
+                        <div className="grid grid-cols-3 gap-2 mt-3">
+                            <div className="bg-white rounded-xs border border-gray-200 p-3 text-center shadow-sm">
+                                <p className="text-base font-extrabold text-blue-600">{pages}</p>
+                                <p className="text-xs text-gray-500 mt-0.5">Pages</p>
+                            </div>
+                            <div className="bg-white rounded-xs border border-gray-200 p-3 text-center shadow-sm">
+                                <p className="text-base font-extrabold text-violet-600">
+                                    {FEATURE_LIST.filter((f) => features[f.key]).length}
+                                </p>
+                                <p className="text-xs text-gray-500 mt-0.5">Features</p>
+                            </div>
+                            <div className="bg-white rounded-xs border border-gray-200 p-3 text-center shadow-sm">
+                                <p className="text-base font-extrabold text-emerald-600">
+                                    {TIMELINE_OPTIONS.find((t) => t.key === timeline)?.desc}
+                                </p>
+                                <p className="text-xs text-gray-500 mt-0.5">Timeline</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* ── Modal ── */}
+            {modalOpen && (
+                <ContactModal
+                    onClose={() => setModalOpen(false)}
+                    defaultMessage={buildMessage(siteType, pages, features, timeline, total)}
+                />
+            )}
+        </section>
+    );
+}

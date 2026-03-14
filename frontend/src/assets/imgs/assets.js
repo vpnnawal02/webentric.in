@@ -24,6 +24,13 @@ import {
     FiCode as code_icon,
 } from 'react-icons/fi'
 
+import {
+    ChevronDown as arrowDown_icon,
+    ChevronUp as arrowUp_icon,
+    ArrowRight as arrowRight_icon,
+    Send as send_icon
+} from 'lucide-react';
+
 
 export const images = {
     navbar_logo,
@@ -46,4 +53,8 @@ export const icons = {
     layout_icon,
     code_icon,
     rocket_icon,
+    arrowDown_icon,
+    arrowUp_icon,
+    arrowRight_icon,
+    send_icon
 }

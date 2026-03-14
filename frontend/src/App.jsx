@@ -9,6 +9,7 @@ import ContactButtons from "./utils/ContactButtons"
 import Pricing from "./pages/Pricing"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
 import TermsOfService from "./pages/TermsOfService"
+import CalculateProjectCost from "./pages/CalculateProjectCost"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/price-calculator" element={<CalculateProjectCost />} />
       </Routes>
       <Footer />
     </>

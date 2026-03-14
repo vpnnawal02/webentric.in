@@ -254,3 +254,49 @@ export const faqs = [
         answer: "Yes! We provide documentation and training. Optional maintenance packages available for ongoing updates and support.",
     },
 ];
+
+export const WEBSITE_TYPES = [
+    {
+        key: "landing",
+        label: "Landing Page",
+        desc: "Perfect for product launches & campaigns",
+        price: 7999,
+        highlights: ["1–5 pages", "Conversion-focused", "Fast delivery", "5-7 days"],
+    },
+    {
+        key: "business",
+        label: "Business Website",
+        desc: "Ideal for companies & service providers",
+        price: 14999,
+        highlights: ["Up to 5 pages", "Professional design", "Admin Dashboard", "2-3 weeks"],
+    },
+    {
+        key: "ecommerce",
+        label: "E-Commerce Store",
+        desc: "Full-featured online store with cart & checkout",
+        price: 24999,
+        highlights: ["Product catalog", "Cart & checkout", "Order management", "4-6 weeks"],
+    },
+];
+
+export const PRICE_PER_EXTRA_PAGE = 500;
+export const BASE_PAGES = 5;
+
+export const FEATURE_LIST = [
+    { key: "auth", label: "User Authentication", price: 6000 },
+    { key: "payment", label: "Payment Integration", price: 12000 },
+    { key: "adminDashboard", label: "Admin Dashboard", price: 15000 },
+    { key: "blog", label: "Blog System", price: 7000 },
+    { key: "cms", label: "CMS Integration", price: 10000 },
+    { key: "api", label: "API Integration", price: 8000 },
+    { key: "seo", label: "SEO Optimization", price: 6000 },
+    { key: "performance", label: "Performance Optimization", price: 7000 },
+    { key: "animations", label: "Custom Animations", price: 4000 },
+    { key: "integrations", label: "Third-party Integrations", price: 6000 },
+];
+
+export const TIMELINE_OPTIONS = [
+    { key: "standard", label: "Standard Timeline", desc: "", price: 0 },
+    { key: "fast", label: "Fast Delivery", desc: "20%-30% faster", price: 5000 },
+    { key: "priority", label: "Priority Delivery", desc: "Priority Delivery", price: 10000 },
+];

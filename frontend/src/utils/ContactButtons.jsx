@@ -38,7 +38,7 @@ const ContactButtons = () => {
             <button
                 type="button"
                 onMouseEnter={() => setIsOpen(true)}
-                className=" h-40 w-10 md:w-15 bg-blue-600/40 border border-blue-400 text-black text-[10px] font-semibold flex items-center justify-center tracking-[0.12em] uppercase rotate-180 [writing-mode:vertical-rl] shadow-lg hover:bg-blue-700 transition-colors ">
+                className=" h-40 w-10 md:w-15 bg-blue-500/80 text-black text-[10px] font-semibold flex items-center justify-center tracking-[0.12em] uppercase rotate-180 [writing-mode:vertical-rl] shadow-lg hover:bg-blue-700 transition-colors ">
                 Contact
             </button>
 

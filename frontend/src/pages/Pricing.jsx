@@ -93,15 +93,15 @@ const Pricing = () => {
                 {tooltip.show && (
                     <div
                         className="fixed z-50 bg-black text-white text-sm px-4 py-3 rounded-xs shadow-2xl max-w-[260px] whitespace-pre-wrap opacity-0 
-                        translate-y-2 transition-all mt-15 duration-200 border border-gray-800"
+                        translate-y-2 transition-all mt-16 right-0 left-0 duration-200 border border-gray-800"
                         style={{
                             left: `${tooltip.x}px`,
                             top: `${tooltip.y}px`,
-                            transform: 'translateX(-90%) translateY(-20%)',
+                            transform: 'translateX(-80%) translateY(0)',
                             opacity: 1,
                         }}>
                         {tooltip.content}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black" />
+                        <div className="absolute bottom-full left-1/2 transform  w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black" />
                     </div>
                 )}
 
