@@ -35,7 +35,8 @@ import {
     Search as search_icon,
     Shield as shield_icon,
     Clock as clock_icon,
-    Users as users_icon
+    Users as users_icon,
+    X as cross_icon
 } from 'lucide-react';
 
 
@@ -70,5 +71,6 @@ export const icons = {
     search_icon,
     shield_icon,
     clock_icon,
-    users_icon
+    users_icon,
+    cross_icon
 }

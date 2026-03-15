@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { testimonials } from '../assets/data.js';
+import PopUpForm from "./PopUpForm.jsx";
 
 
 const Testimonials = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const containerRef = useRef(null);
+    const [open, setOpen] = useState(false);
 
     // Auto-advance on mobile
     useEffect(() => {
@@ -18,6 +20,7 @@ const Testimonials = () => {
     }, []);
 
     const renderStars = (rating) => {
+
         return Array(5)
             .fill(0)
             .map((_, i) => (
@@ -33,6 +36,7 @@ const Testimonials = () => {
 
     return (
         <section className="bg-gray-50 py-5" id="testimonials">
+            <PopUpForm open={open} setOpen={setOpen} />
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
                 <div className="text-center max-w-[700px] mx-auto">
@@ -138,6 +142,7 @@ const Testimonials = () => {
                         Ready to build your website?
                     </p>
                     <button
+                        onClick={() => setOpen(true)}
                         className=" inline-flex items-center justify-center px-7 py-3.5 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-xs hover:bg-blue-700 transition-colors w-full sm:w-auto"
                     >
                         Get a Free Website Quote

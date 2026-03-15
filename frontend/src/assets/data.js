@@ -196,6 +196,7 @@ export const pricingPackages = [
             { name: "Basic SEO Setup", desc: "Page titles, meta descriptions, and search indexing." },
             { name: "Contact Form", desc: "Professional form with email notifications and spam protection." },
             { name: "Fast Loading Pages", desc: "Optimized images, minified CSS/JS, performance best practices." },
+            { name: "Fast Delivery", desc: "Sites to be delivered within 5 days" }
         ],
     },
     {

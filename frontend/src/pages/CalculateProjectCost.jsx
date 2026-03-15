@@ -1,6 +1,7 @@
 // ProjectCostCalculator.jsx
 import { useState, useMemo } from "react";
 import { WEBSITE_TYPES, PRICE_PER_EXTRA_PAGE, BASE_PAGES, FEATURE_LIST, TIMELINE_OPTIONS } from "../assets/data";
+import PopUpForm from "../components/PopUpForm";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -35,6 +36,7 @@ function ContactModal({ onClose, defaultMessage }) {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+
             <div className="bg-white rounded-xs shadow-2xl w-full max-w-lg p-6 relative">
                 <button
                     onClick={onClose}
@@ -151,6 +153,8 @@ export default function ProjectCostCalculator() {
     const [features, setFeatures] = useState(Object.fromEntries(FEATURE_LIST.map((f) => [f.key, false])));
     const [timeline, setTimeline] = useState("standard");
     const [modalOpen, setModalOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+
 
     const selectedType = WEBSITE_TYPES.find((t) => t.key === siteType);
     const basePrice = selectedType?.price ?? 0;
@@ -179,24 +183,23 @@ export default function ProjectCostCalculator() {
     };
 
     return (
-        <section className="min-h-screen bg-transparent from-slate-50 to-blue-50/30 py-12 px-4">
+        <section className="min-h-screen bg-transparent from-slate-50 to-blue-50/30 py-5 px-4">
+            <PopUpForm open={open} setOpen={setOpen} />
             <div className="max-w-6xl mx-auto">
 
                 {/* ── Header ── */}
                 <div className="text-center mb-10">
-                    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
+                    <h1 className="text-2xl md:text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
                         Calculate Your Project Cost
                     </h1>
-                    <p className="text-gray-500 text-base max-w-xl mx-auto">
+                    <p className="text-gray-500 hidden md:flex text-base max-w-xl mx-auto">
                         Select the features you need to estimate the cost of your website or web application.
                     </p>
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-6 items-start">
-
                     {/* ══ LEFT: Calculator ══ */}
                     <div className="w-full lg:flex-1 flex flex-col gap-5">
-
                         {/* ── SECTION 1: Website Type Selector ── */}
                         <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
                             <h2 className="text-base font-bold text-gray-900 mb-1">Choose Website Type</h2>
@@ -388,16 +391,16 @@ export default function ProjectCostCalculator() {
                                         This is an estimate. Final price may vary based on detailed project requirements.
                                     </p>
                                 </div>
-                                <button
-                                    onClick={() => setModalOpen(true)}
-                                    className="w-full py-3.5 bg-blue-500 text-white rounded-xs font-semibold text-sm active:scale-95 transition-all duration-200 shadow-md shadow-blue-200"
-                                >
-                                    Contact Us With This Estimate →
-                                </button>
-                                <p className="text-center text-xs text-gray-400 mt-2.5 pb-1">No commitment required</p>
                             </div>
                         </div>
+                        <button
+                            onClick={() => setOpen(true)}
+                            className="w-full py-3.5 bg-blue-500 text-white rounded-xs font-semibold text-sm active:scale-95 transition-all duration-200 shadow-md shadow-blue-200"
+                        >
+                            Contact Us
+                        </button>
                     </div>
+
                 </div>
             </div>
 

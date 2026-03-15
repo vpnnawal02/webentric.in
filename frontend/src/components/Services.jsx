@@ -1,7 +1,5 @@
 import React from "react";
 import { services } from "../assets/data.js";
-import { motion } from "framer-motion"
-
 
 const Services = () => {
     return (

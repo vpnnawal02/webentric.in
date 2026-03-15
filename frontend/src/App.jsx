@@ -14,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy"
 import TermsOfService from "./pages/TermsOfService"
 import CalculateProjectCost from "./pages/CalculateProjectCost"
 import CustomWebsitePage from "./pages/CustomWebsitePage"
+import PopUpForm from "./components/PopUpForm"
 
 function App() {
   useEffect(() => {

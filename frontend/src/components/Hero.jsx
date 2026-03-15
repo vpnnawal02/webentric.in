@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { images } from '../assets/imgs/assets';
 import { Link } from 'react-router-dom';
+import PopUpForm from './PopUpForm';
 
 const Hero = () => {
+    const [open, setOpen] = useState(false);
     return (
         <section
             className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+            <PopUpForm open={open} setOpen={setOpen} />
             {/* Blurred background shapes */}
             <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 bg-blue-300/40 blur-3xl" />
             <div className="invisible lg:visible z-50 pointer-events-none absolute bottom-0 right-0 h-80 w-80 bg-blue-400/30 blur-3xl" />
@@ -29,6 +32,7 @@ const Hero = () => {
                         {/* CTA buttons */}
                         <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
                             <button
+                                onClick={() => setOpen(true)}
                                 className=" w-full sm:w-auto px-7 sm:px-8  py-3.5 bg-blue-500 text-white text-sm sm:text-base font-semibold rounded-xs shadow-sm  hover:bg-blue-700  transition-color">
                                 Get a Free Website Quote
                             </button>

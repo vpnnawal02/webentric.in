@@ -9,6 +9,7 @@ const NAV_LINKS = [
     { label: "Portfolio", to: "/portfolio" },
     { label: "Pricing", to: "/pricing" },
     { label: "Contact", to: "/contact" },
+
 ];
 
 const DROPDOWN_LINKS = [
@@ -33,18 +34,24 @@ const Navbar = () => {
     // Close dropdown on outside click
     useEffect(() => {
         const handler = (e) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+            if (!dropdownRef.current) return;
+            if (mobileOpen) return;
+            if (!dropdownRef.current.contains(e.target)) {
                 setDropdownOpen(false);
             }
         };
         document.addEventListener("mousedown", handler);
-        return () => document.removeEventListener("mousedown", handler);
-    }, []);
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        };
+    }, [mobileOpen]);
 
     // Close mobile menu on route change
     const handleMobileLinkClick = () => {
-        setMobileOpen(false);
-        setDropdownOpen(false);
+        setTimeout(() => {
+            setMobileOpen(false);
+            setDropdownOpen(false);
+        }, 50);
     };
 
     return (
@@ -179,13 +186,16 @@ const Navbar = () => {
                                     <NavLink
                                         key={to}
                                         to={to}
-                                        onClick={handleMobileLinkClick}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleMobileLinkClick();
+                                        }}
                                         className={({ isActive }) =>
                                             `block px-3 py-2 text-sm transition-colors ${isActive ? "font-semibold" : "text-gray-500"
                                             }`
                                         }
                                         style={({ isActive }) =>
-                                            isActive ? { backgroundColor: 'black', color: 'white' } : {}
+                                            isActive ? { backgroundColor: "black", color: "white" } : {}
                                         }
                                     >
                                         {label}

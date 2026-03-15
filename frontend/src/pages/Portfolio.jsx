@@ -1,17 +1,21 @@
 import { FiArrowRight } from "react-icons/fi";
 import { projects } from "../assets/data.js";
+import PopUpForm from "../components/PopUpForm.jsx";
+import React, { useState } from "react";
 
 
 const Portfolio = () => {
+    const [open, setOpen] = useState(false);
     return (
-        <section className="bg-gray-50 py-24" id="portfolio">
+        <section className="bg-gray-50 py-10" id="portfolio">
+            <PopUpForm open={open} setOpen={setOpen} />
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
                 <div className="text-center max-w-[700px] mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900">
+                    <h2 className="text-2xl md:text-3xl sm:text-4xl font-bold leading-tight text-gray-900">
                         Projects That Help Businesses Succeed Online
                     </h2>
-                    <p className="mt-4 text-lg text-gray-600">
+                    <p className="mt-4 text-sm md:text-md lg:text-lg text-gray-600">
                         Explore some of the websites and digital experiences we've built for
                         startups and growing businesses.
                     </p>
@@ -60,6 +64,7 @@ const Portfolio = () => {
                         Want a website like these for your business?
                     </p>
                     <button
+                        onClick={() => setOpen(true)}
                         className=" inline-flex items-center justify-center px-7 py-3.5 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-xs hover:bg-blue-700 transition-colors w-full sm:w-auto"
                     >
                         Start Your Project
