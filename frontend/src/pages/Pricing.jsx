@@ -47,7 +47,7 @@ const Pricing = () => {
                 </div>
 
                 {/* 2. Pricing Packages */}
-                <div data-aos="fade-in" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+                <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
                     {pricingPackages.map((plan, index) => (
                         <div
                             key={index}

@@ -1,17 +1,14 @@
-import React from 'react'
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 const Contact = () => {
     const [form, setForm] = useState({
         name: "",
         email: "",
         phone: "",
-        projectType: "",
-        budget: "",
-        message: "",
-        honeypot: "",
+        details: "",
     });
+
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState(null);
     const [openFaq, setOpenFaq] = useState(null);
@@ -23,46 +20,36 @@ const Contact = () => {
         setStatus(null);
     };
 
-    const validate = () => {
-        const newErrors = {};
-        if (!form.name.trim()) newErrors.name = "Name is required.";
-        if (!form.email.trim()) {
-            newErrors.email = "Email is required.";
-        } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-            newErrors.email = "Enter a valid email address.";
-        }
-        if (!form.projectType) newErrors.projectType = "Select a project type.";
-        if (!form.budget) newErrors.budget = "Select a budget range.";
-        if (!form.message.trim()) newErrors.message = "Message is required.";
-        return newErrors;
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (form.honeypot) {
-            setStatus({ type: "error", message: "Spam detected." });
-            return;
+        const { data, error } = await supabase
+            .from("quote_requests")
+            .insert([
+                {
+                    name: form.name,
+                    email: form.email,
+                    phone: form.phone,
+                    details: form.message
+                }
+            ])
+
+        if (error) {
+            console.error(error)
+            alert("Submission failed")
         }
-        const validationErrors = validate();
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
-            setStatus(null);
-            return;
-        }
+
         // Simulate success
         setStatus({ type: "success", message: "Thanks! Your message has been sent. We’ll get back within 24 hours." });
         setForm({
             name: "",
             email: "",
             phone: "",
-            projectType: "",
-            budget: "",
             message: "",
             honeypot: "",
         });
     };
-
     return (
+
         <div className="bg-gray-50 min-h-screen">
             <div className="max-w-7xl mx-auto px-6 py-5 space-y-10">
                 {/* Contact Hero */}
@@ -98,6 +85,7 @@ const Contact = () => {
                                         Name <span className="text-red-500">*</span>
                                     </label>
                                     <input
+                                        required
                                         type="text"
                                         name="name"
                                         value={form.name}
@@ -110,93 +98,41 @@ const Contact = () => {
                                     />
                                     {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
                                 </div>
-
-                                {/* Email */}
+                                {/* Phone */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Email <span className="text-red-500">*</span>
+                                        Phone <span className="text-red-500">*</span>
                                     </label>
                                     <input
-                                        type="email"
-                                        name="email"
-                                        value={form.email}
+                                        required
+                                        type="tel"
+                                        name="phone"
+                                        value={form.phone}
                                         onChange={handleChange}
-                                        className={`w-full px-3 py-2 rounded-xs border text-sm outline-none transition-colors ${errors.email
-                                            ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-200"
-                                            : "border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-200"
-                                            }`}
-                                        placeholder="you@company.com"
+                                        className="w-full px-3 py-2 rounded-xs border border-gray-300 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-200"
+                                        placeholder="+91 98765 43210"
                                     />
-                                    {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                                 </div>
+
                             </div>
 
-                            {/* Phone */}
+                            {/* Email */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                                    Phone (optional)
+                                    Email
                                 </label>
                                 <input
-                                    type="tel"
-                                    name="phone"
-                                    value={form.phone}
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 rounded-xs border border-gray-300 text-sm outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-200"
-                                    placeholder="+91 98765 43210"
+                                    className={`w-full px-3 py-2 rounded-xs border text-sm outline-none transition-colors ${errors.email
+                                        ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-200"
+                                        : "border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-200"
+                                        }`}
+                                    placeholder="you@company.com"
                                 />
-                            </div>
-
-                            {/* Project Type & Budget */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {/* Project Type */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Project Type <span className="text-red-500">*</span>
-                                    </label>
-                                    <select
-                                        name="projectType"
-                                        value={form.projectType}
-                                        onChange={handleChange}
-                                        className={`w-full px-3 py-2 rounded-xs border text-sm outline-none bg-white ${errors.projectType
-                                            ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-200"
-                                            : "border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-200"
-                                            }`}
-                                    >
-                                        <option value="">Select project type</option>
-                                        <option value="website">Website</option>
-                                        <option value="web-app">Web App</option>
-                                        <option value="maintenance">Maintenance</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    {errors.projectType && (
-                                        <p className="mt-1 text-xs text-red-500">{errors.projectType}</p>
-                                    )}
-                                </div>
-
-                                {/* Budget */}
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Budget Range <span className="text-red-500">*</span>
-                                    </label>
-                                    <select
-                                        name="budget"
-                                        value={form.budget}
-                                        onChange={handleChange}
-                                        className={`w-full px-3 py-2 rounded-xs border text-sm outline-none bg-white ${errors.budget
-                                            ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-200"
-                                            : "border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-200"
-                                            }`}
-                                    >
-                                        <option value="">Select budget</option>
-                                        <option value="under-10000">Under ₹10,000</option>
-                                        <option value="10000-25000">₹10,000 – ₹25,000</option>
-                                        <option value="25000-50000">₹25,000 – ₹50,000</option>
-                                        <option value="50000-plus">₹50,000+</option>
-                                    </select>
-                                    {errors.budget && (
-                                        <p className="mt-1 text-xs text-red-500">{errors.budget}</p>
-                                    )}
-                                </div>
+                                {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
                             </div>
 
                             {/* Message */}
@@ -306,7 +242,7 @@ const Contact = () => {
                 </section>
 
                 {/* Location Section */}
-                <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                {/* <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <div className="space-y-3">
                         <h2 className="text-2xl font-semibold text-gray-900">
                             Location
@@ -319,20 +255,7 @@ const Contact = () => {
                     <div className="hidden bg-white border border-gray-200 rounded-sm shadow-sm h-56 items-center justify-center text-xs text-gray-500">
                         Google Map / Location Embed Placeholder
                     </div>
-                </section>
-
-                {/* Final CTA */}
-                <section className="text-center max-w-2xl mx-auto space-y-4 pt-10 border-t border-gray-200">
-                    <h2 className="text-3xl font-semibold text-gray-900">
-                        Ready to start your project?
-                    </h2>
-                    <p className="text-lg text-gray-600">
-                        Share your idea with us and we&apos;ll help you turn it into a fast, modern, and conversion-focused website.
-                    </p>
-                    <button className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xs hover:bg-blue-700 transition-colors">
-                        Send Us a Message
-                    </button>
-                </section>
+                </section> */}
             </div>
         </div>
     );

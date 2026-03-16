@@ -15,6 +15,8 @@ import TermsOfService from "./pages/TermsOfService"
 import CalculateProjectCost from "./pages/CalculateProjectCost"
 import CustomWebsitePage from "./pages/CustomWebsitePage"
 import PopUpForm from "./components/PopUpForm"
+import AdminDashboard from "./admin_dashboard/AdminDashboard"
+import Login from "./pages/Login"
 
 function App() {
   useEffect(() => {
@@ -29,6 +31,7 @@ function App() {
       <Navbar />
       <ContactButtons />
       <Routes>
+        {/* Public Routes  */}
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
@@ -36,6 +39,10 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/price-calculator" element={<CalculateProjectCost />} />
+
+        {/* Admin Routes  */}
+        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
       <Footer />
     </>

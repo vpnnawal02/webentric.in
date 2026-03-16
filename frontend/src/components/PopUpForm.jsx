@@ -1,7 +1,9 @@
 import React from 'react'
 import { useEffect, useRef, useState } from "react";
 import { icons } from '../assets/imgs/assets';
+import { supabase } from '../lib/supabase';
 
+// form structure
 export default function PopUpForm({ open, setOpen }) {
     const overlayRef = useRef(null);
     const [submitted, setSubmitted] = useState(false);
@@ -9,8 +11,6 @@ export default function PopUpForm({ open, setOpen }) {
         name: "",
         email: "",
         phone: "",
-        projectType: "",
-        budget: "",
         details: "",
     });
 
@@ -34,18 +34,40 @@ export default function PopUpForm({ open, setOpen }) {
         if (!open) {
             setTimeout(() => {
                 setSubmitted(false);
-                setForm({ name: "", email: "", phone: "", projectType: "", budget: "", details: "" });
+                setForm({ name: "", email: "", phone: "", details: "" });
             }, 300);
         }
     }, [open]);
 
     const handleChange = (e) =>
-        setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+        setForm((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        })
+        );
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setSubmitted(true);
-    };
+    // submit function
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const { data, error } = await supabase
+            .from("quote_requests")
+            .insert([
+                {
+                    name: form.name,
+                    email: form.email,
+                    phone: form.phone,
+                    details: form.message
+                }
+            ])
+
+        if (error) {
+            console.error(error)
+            alert("Submission failed")
+        } else {
+            alert("Request submitted successfully")
+        }
+    }
 
     const handleOverlayClick = (e) => {
         if (e.target === overlayRef.current) setOpen(false);
@@ -134,29 +156,13 @@ export default function PopUpForm({ open, setOpen }) {
                                 />
                             </div>
 
-                            {/* Email */}
-                            <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                                    Email Address <span className="text-red-500">*</span>
-                                </label>
-                                <input
-                                    required
-                                    type="email"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    placeholder="Enter your email"
-                                    className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900 placeholder-gray-400
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                />
-                            </div>
-
                             {/* Phone */}
                             <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                                    Phone / WhatsApp
+                                    Phone / WhatsApp <span className="text-red-500">*</span>
                                 </label>
                                 <input
+                                    required
                                     type="tel"
                                     name="phone"
                                     value={form.phone}
@@ -167,47 +173,20 @@ export default function PopUpForm({ open, setOpen }) {
                                 />
                             </div>
 
-                            {/* Project Type + Budget — side by side on sm+ */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                                        Project Type
-                                    </label>
-                                    <select
-                                        name="projectType"
-                                        value={form.projectType}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900
-                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
-                                    >
-                                        <option value="" disabled>Select type</option>
-                                        <option value="business">Business Website</option>
-                                        <option value="ecommerce">E-commerce Website</option>
-                                        <option value="webapp">Web Application</option>
-                                        <option value="landing">Landing Page</option>
-                                        <option value="redesign">Website Redesign</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                                        Estimated Budget
-                                    </label>
-                                    <select
-                                        name="budget"
-                                        value={form.budget}
-                                        onChange={handleChange}
-                                        className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900
-                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
-                                    >
-                                        <option value="" disabled>Select budget</option>
-                                        <option value="5k-10k">₹5,000 – ₹10,000</option>
-                                        <option value="10k-25k">₹10,000 – ₹25,000</option>
-                                        <option value="25k-50k">₹25,000 – ₹50,000</option>
-                                        <option value="50k+">₹50,000+</option>
-                                    </select>
-                                </div>
+                            {/* Email */}
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                                    Email Address
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    placeholder="Enter your email"
+                                    className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900 placeholder-gray-400
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                />
                             </div>
 
                             {/* Project Details */}
