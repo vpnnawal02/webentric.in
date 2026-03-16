@@ -11,7 +11,7 @@ export default function PopUpForm({ open, setOpen }) {
         name: "",
         email: "",
         phone: "",
-        details: "",
+        message: "",
     });
 
     // ── Close on Escape key ──
@@ -57,7 +57,7 @@ export default function PopUpForm({ open, setOpen }) {
                     name: form.name,
                     email: form.email,
                     phone: form.phone,
-                    details: form.message
+                    details: form.details
                 }
             ])
 
