@@ -9,7 +9,7 @@ import LeadModal from "./LeadModal";
 const STATUS_OPTIONS = ["new", "contacted", "negotiation", "closed", "lost"];
 
 export default function AdminDashboard() {
-    // 🔥 ALL HOOKS FIRST - NO EXCEPTIONS
+
     const navigate = useNavigate();
     const [session, setSession] = useState(null);
     const [leads, setLeads] = useState([]);
@@ -18,7 +18,7 @@ export default function AdminDashboard() {
     const [selectedLead, setSelectedLead] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // 🔥 useMemos ALWAYS RUN - even during loading
+
     const filteredLeads = useMemo(() => {
         if (loading || leads.length === 0) return [];
         return leads.filter((lead) => {
@@ -110,7 +110,7 @@ export default function AdminDashboard() {
         supabase.auth.signOut().then(() => navigate("/admin/login", { replace: true }));
     }, [navigate]);
 
-    // 🔥 NO EARLY RETURNS - Render everything always
+
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900">
             <div className="mx-auto max-w-6xl px-4 py-6">

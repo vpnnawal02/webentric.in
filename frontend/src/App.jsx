@@ -31,6 +31,7 @@ function App() {
       <Navbar />
       <ContactButtons />
       <Routes>
+
         {/* Public Routes  */}
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />

@@ -20,7 +20,7 @@ const Hero = () => {
                         {/* Headline */}
                         <h1
                             className="font-bold md:font-extrabold leading-tight text-gray-900 text-3xl md:text-4xl sm:text-5xl lg:text-[56px] max-w-[600px]">
-                            High-Performance Websites Built to{" "}
+                            We Provide best Web Development Services that help to{" "}
                             <span className="text-blue-500">Grow Your Business</span>
                         </h1>
 
