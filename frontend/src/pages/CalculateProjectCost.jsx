@@ -3,9 +3,6 @@ import { useState, useMemo } from "react";
 import { WEBSITE_TYPES, PRICE_PER_EXTRA_PAGE, BASE_PAGES, FEATURE_LIST, TIMELINE_OPTIONS } from "../assets/data";
 import PopUpForm from "../components/PopUpForm";
 
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const formatINR = (n) =>
     new Intl.NumberFormat("en-IN", {
@@ -149,7 +146,7 @@ function SummaryRow({ label, value, sub, highlight }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function ProjectCostCalculator() {
     const [siteType, setSiteType] = useState("business");
-    const [pages, setPages] = useState(5);
+    const [pages, setPages] = useState(0);
     const [features, setFeatures] = useState(Object.fromEntries(FEATURE_LIST.map((f) => [f.key, false])));
     const [timeline, setTimeline] = useState("standard");
     const [modalOpen, setModalOpen] = useState(false);
@@ -339,7 +336,7 @@ export default function ProjectCostCalculator() {
                     </div>
 
                     {/* ══ RIGHT: Sticky Summary ══ */}
-                    <div className="w-full lg:w-80 xl:w-96 self-start sticky top-6">
+                    <div className="w-full lg:w-80 xl:w-96 self-start sticky top-21">
                         <div className="bg-white rounded-xs border border-gray-200 shadow-lg overflow-hidden">
                             <div className="bg-white border-b border-gray-200 px-5 py-4 ">
                                 <h2 className="text-black font-bold text-base">Cost Summary</h2>

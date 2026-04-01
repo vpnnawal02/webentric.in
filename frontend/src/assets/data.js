@@ -262,14 +262,14 @@ export const WEBSITE_TYPES = [
         label: "Landing Page",
         desc: "Perfect for product launches & campaigns",
         price: 7999,
-        highlights: ["Up to 4 pages", "Mobile Responsive Design", "Basic SEO Setup", "Contact Form", "Fast Delivery"],
+        highlights: ["Up to 5-7 pages", "Mobile Responsive Design", "Basic SEO Setup", "Contact Form", "Fast Delivery"],
     },
     {
         key: "business",
         label: "Business Website",
         desc: "Ideal for companies & service providers",
         price: 14999,
-        highlights: ["Up to 10 pages", "Professional design", "Speed Optimization", "2-3 weeks"],
+        highlights: ["Up to 10-12 pages", "Professional design", "Speed Optimization", "2-3 weeks"],
     },
     {
         key: "ecommerce",
@@ -281,23 +281,23 @@ export const WEBSITE_TYPES = [
 ];
 
 export const PRICE_PER_EXTRA_PAGE = 500;
-export const BASE_PAGES = 5;
+export const BASE_PAGES = 0;
 
 export const FEATURE_LIST = [
-    { key: "auth", label: "User Authentication", price: 6000 },
-    { key: "payment", label: "Payment Integration", price: 12000 },
-    { key: "adminDashboard", label: "Admin Dashboard", price: 15000 },
-    { key: "blog", label: "Blog System", price: 7000 },
+    { key: "auth", label: "User Authentication", price: 5000 },
+    { key: "payment", label: "Payment Integration", price: 10000 },
+    { key: "adminDashboard", label: "Admin Dashboard", price: 7000 },
+    { key: "blog", label: "Blog System", price: 10000 },
     { key: "cms", label: "CMS Integration", price: 10000 },
     { key: "api", label: "API Integration", price: 8000 },
-    { key: "seo", label: "SEO Optimization", price: 6000 },
+    { key: "seo", label: "SEO Optimization", price: 5000 },
     { key: "performance", label: "Performance Optimization", price: 7000 },
-    { key: "animations", label: "Custom Animations", price: 4000 },
+    { key: "animations", label: "Custom Animations", price: 3000 },
     { key: "integrations", label: "Third-party Integrations", price: 6000 },
 ];
 
 export const TIMELINE_OPTIONS = [
     { key: "standard", label: "Standard Timeline", desc: "", price: 0 },
-    { key: "fast", label: "Fast Delivery", desc: "20%-30% faster", price: 5000 },
-    { key: "priority", label: "Priority Delivery", desc: "Priority Delivery", price: 10000 },
+    { key: "fast", label: "Fast Delivery", desc: "20%-30% faster", price: 3000 },
+    { key: "priority", label: "Priority Delivery", desc: "Priority Delivery", price: 6000 },
 ];

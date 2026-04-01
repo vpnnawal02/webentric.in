@@ -14,7 +14,9 @@ const Hero = () => {
             <div className="invisible lg:visible z-50 pointer-events-none absolute bottom-0 right-0 h-80 w-80 bg-blue-400/30 blur-3xl" />
 
             <div className="relative w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+
                 <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+
                     {/* LEFT: Text content */}
                     <div className="order-1 mt-10">
                         {/* Headline */}

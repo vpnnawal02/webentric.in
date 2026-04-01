@@ -48,7 +48,7 @@ const Footer = () => {
                         <nav className="space-y-3">
                             <a href="#home" className="text-sm hover:text-blue-400 transition-colors block">Home</a>
                             <a href="#services" className="text-sm hover:text-blue-400 transition-colors block">Services</a>
-                            <a href="#portfolio" className="text-sm hover:text-blue-400 transition-colors block">Portfolio</a>
+                            <a href="/portfolio" className="text-sm hover:text-blue-400 transition-colors block">Portfolio</a>
                             <a href="#process" className="text-sm hover:text-blue-400 transition-colors block">How We Work</a>
                             <a href="/#testimonials" className="text-sm hover:text-blue-400 transition-colors block">Testimonials</a>
                             <a href="/contact" className="text-sm hover:text-blue-400 transition-colors block">Contact</a>
@@ -78,7 +78,7 @@ const Footer = () => {
                             </div>
                             <div>
                                 <p className="text-sm mb-1">Email:</p>
-                                <a href="vn.nawal02@gmail.com" className="text-sm hover:text-blue-400 transition-colors">vn.nawal02@gmail.com</a>
+                                <a href="vn.nawal02@gmail.com" className="text-sm hover:text-blue-400 transition-colors">webentric2026@gmail.com</a>
                             </div>
                             <div>
                                 <p className="text-sm mb-1">Location:</p>

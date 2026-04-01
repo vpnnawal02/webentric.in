@@ -11,7 +11,6 @@ const Contact = () => {
 
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState(null);
-    const [openFaq, setOpenFaq] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -190,7 +189,7 @@ const Contact = () => {
                                         href="mailto:vn.nawal02@gmail.com"
                                         className="text-blue-600 hover:underline"
                                     >
-                                        vn.nawal02gmail.com
+                                        webentric2026@gmail.com
                                     </a>
                                 </div>
                                 <div>

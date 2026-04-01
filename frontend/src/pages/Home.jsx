@@ -1,6 +1,5 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
-
 import Hero from '../components/Hero'
 import Services from '../components/Services'
 import HowWeWork from '../components/HowWeWork'
@@ -20,7 +19,7 @@ const Home = () => {
 
                 <meta
                     name="keywords"
-                    content="web development Delhi, website design Delhi, web developer Delhi, business website Delhi"
+                    content="website development, website design, web development, website development services"
                 />
 
                 {/* Open Graph (for sharing preview) */}
