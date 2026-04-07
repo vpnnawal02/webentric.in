@@ -1,3 +1,9 @@
-/*    /index.html   200
+# Force HTTPS
 http://webentric.in/* https://webentric.in/:splat 301!
+http://www.webentric.in/* https://webentric.in/:splat 301!
+
+# Force non-www
 https://www.webentric.in/* https://webentric.in/:splat 301!
+
+# SPA fallback
+/* /index.html 200
