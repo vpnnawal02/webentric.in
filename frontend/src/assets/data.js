@@ -128,35 +128,35 @@ export const CONTACT_ITEMS = [
         id: "phone",
         label: "Call",
         icon: icons.phone_icon,
-        href: "tel:+918851948143",
+        href: "tel:+919560342636",
         bg: "bg-emerald-500",
     },
     {
         id: "whatsapp",
         label: "WhatsApp",
         icon: icons.whatsapp_icon,
-        href: "https://wa.me/918851948143",
+        href: "https://wa.me/919560342636",
         bg: "bg-green-500",
     },
     {
         id: "linkedin",
         label: "LinkedIn",
         icon: icons.linkedin_icon,
-        href: "https://www.linkedin.com/in/your-profile", // change
+        href: "https://www.linkedin.com/company/webentric", // change
         bg: "bg-sky-600",
     },
     {
         id: "facebook",
         label: "Facebook",
         icon: icons.facebook_icon,
-        href: "https://www.facebook.com/your-page", // change
+        href: "https://www.facebook.com/profile.php?id=61574354051186", // change
         bg: "bg-blue-600",
     },
     {
         id: "instagram",
         label: "Instagram",
         icon: icons.instagram_icon,
-        href: "https://www.instagram.com/your-handle", // change
+        href: "https://www.instagram.com/webentric.in/", // change
         bg: "bg-pink-500",
     },
 ];
