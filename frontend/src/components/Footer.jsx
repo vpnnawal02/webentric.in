@@ -80,7 +80,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <a
-                            href="https://wa.me/919560342636"
+                            href="https://wa.me/message/IK7VVIWKOELZL1"
                             className=" inline-flex items-center gap-2 px-5 py-2.5 bg-green-500 text-white text-sm font-medium rounded-xs hover:bg-green-600 transition-colors shadow-sm"
                         >
                             Chat on WhatsApp

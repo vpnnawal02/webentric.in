@@ -135,7 +135,7 @@ export const CONTACT_ITEMS = [
         id: "whatsapp",
         label: "WhatsApp",
         icon: icons.whatsapp_icon,
-        href: "https://wa.me/919560342636",
+        href: "https://wa.me/message/IK7VVIWKOELZL1",
         bg: "bg-green-500",
     },
     {
