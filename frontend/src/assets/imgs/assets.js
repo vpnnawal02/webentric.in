@@ -1,6 +1,11 @@
 // importing images 
 import navbar_logo from './webentric_logo_with_name_hr.png'
 import hero_img from './hero_img.png'
+import interior_design from './interior-design-project.png'
+import ecommerce from './ecommerce.png'
+import portfolio from './portfolio.png'
+import business from './business.png'
+import cafe from './cats-cafe.png'
 
 // importing icons
 import {
@@ -43,6 +48,11 @@ import {
 export const images = {
     navbar_logo,
     hero_img,
+    interior_design,
+    ecommerce,
+    portfolio,
+    business,
+    cafe
 }
 
 export const icons = {

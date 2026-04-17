@@ -1,12 +1,21 @@
 import { icons } from "./imgs/assets.js";
+import { images } from "./imgs/assets.js"
 
 export const projects = [
+    {
+        title: "Interior Design",
+        description:
+            "A sleek interior design website showcasing stylish spaces, services, and easy ways to connect with designers.",
+        tech: "React • Tailwind",
+        image: images.interior_design,
+        link: 'https://69e1fc47d738729194709684--heartfelt-valkyrie-f8acf5.netlify.app/'
+    },
     {
         title: "Portfolio Website",
         description:
             "Modern Portfolio website featuring your skills, education, and mobile-friendly design.",
         tech: "React • Tailwind",
-        image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=450&fit=crop",
+        image: images.portfolio,
         link: 'https://vipin-portfolio-web.netlify.app/'
     },
     {
@@ -14,7 +23,7 @@ export const projects = [
         description:
             "Custom online store with product listings, shopping cart functionality, and secure checkout integration.",
         tech: "React • Stripe • Firebase",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
+        image: images.ecommerce,
         link: 'https://e-commerce-vipin.netlify.app/'
     },
     {
@@ -22,8 +31,16 @@ export const projects = [
         description:
             "Professional business website designed to showcase services and generate leads through optimized landing sections.",
         tech: "React • Tailwind",
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=450&fit=crop",
-        link: 'https://vipin-salon.netlify.app/'
+        image: images.business,
+        link: 'https://webentric.in/'
+    },
+    {
+        title: "Landing Page for a Cafe",
+        description:
+            "Modern Cafe website featuring your Vibe, Menu, and cats.",
+        tech: "React • Tailwind",
+        image: images.cafe,
+        link: 'https://frabjous-elf-35e678.netlify.app/'
     },
     {
         title: "EdTech Platform Landing Page",
@@ -41,14 +58,7 @@ export const projects = [
         image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=450&fit=crop",
         link: 'https://gymshala-static-website.onrender.com'
     },
-    {
-        title: "Landing Page for a Cafe",
-        description:
-            "Modern Cafe website featuring your Vibe, Menu, and cats.",
-        tech: "React • Tailwind",
-        image: "https://images.unsplash.com/photo-1494346480775-936a9f0d0877?q=80&w=1116&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: 'https://frabjous-elf-35e678.netlify.app/'
-    },
+
 ];
 
 export const services = [

@@ -26,10 +26,10 @@ const Portfolio = () => {
                     {projects.map((project, index) => (
                         <div data-aos="fade-up"
                             key={index}
-                            className=" group bg-white rounded-xs overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                            className="group bg-white rounded-xs overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
                         >
                             {/* Project image */}
-                            <div className="relative overflow-hidden aspect-[16/9]">
+                            <div className="relative overflow-hidden aspect-auto">
                                 <img
                                     src={project.image}
                                     alt={project.title}
