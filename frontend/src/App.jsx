@@ -17,6 +17,7 @@ import CustomWebsitePage from "./pages/CustomWebsitePage"
 import PopUpForm from "./components/PopUpForm"
 import AdminDashboard from "./admin_dashboard/AdminDashboard"
 import Login from "./pages/Login"
+import OfferPopup from "./utils/OfferPopUp"
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <>
+      <OfferPopup />
       <Navbar />
       <ContactButtons />
       <Routes>

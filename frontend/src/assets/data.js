@@ -43,11 +43,11 @@ export const projects = [
         link: 'https://frabjous-elf-35e678.netlify.app/'
     },
     {
-        title: "EdTech Platform Landing Page",
+        title: "Dental Clinic Website",
         description:
-            "Modern landing page designed for an online education platform with clear call-to-actions and engaging visuals.",
+            "Modern landing page designed for Dental Clinic platform with clear call-to-actions and engaging visuals.",
         tech: "React • Tailwind",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=450&fit=crop",
+        image: images.dental_clinic,
         link: ''
     },
     {

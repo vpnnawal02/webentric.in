@@ -6,6 +6,7 @@ import ecommerce from './ecommerce.png'
 import portfolio from './portfolio.png'
 import business from './business.png'
 import cafe from './cats-cafe.png'
+import dental_clinic from './dental_clinic.png'
 
 // importing icons
 import {
@@ -52,7 +53,8 @@ export const images = {
     ecommerce,
     portfolio,
     business,
-    cafe
+    cafe,
+    dental_clinic
 }
 
 export const icons = {

@@ -3,13 +3,12 @@ import { projects } from "../assets/data.js";
 import PopUpForm from "../components/PopUpForm.jsx";
 import React, { useState } from "react";
 
-
 const Portfolio = () => {
     const [open, setOpen] = useState(false);
     return (
         <section className="bg-gray-50 py-10" id="portfolio">
             <PopUpForm open={open} setOpen={setOpen} />
-            <div className="max-w-[1200px] mx-auto px-6">
+            <div className="max-w-full mx-auto md:px-20 px-5 ">
                 {/* Heading */}
                 <div className="text-center max-w-[700px] mx-auto">
                     <h2 className="text-2xl md:text-3xl sm:text-4xl font-bold leading-tight text-gray-900">
