@@ -11,12 +11,12 @@ export const projects = [
         link: 'https://69e1fc47d738729194709684--heartfelt-valkyrie-f8acf5.netlify.app/'
     },
     {
-        title: "Portfolio Website",
+        title: "Salon Website",
         description:
-            "Modern Portfolio website featuring your skills, education, and mobile-friendly design.",
+            "A fully responsive salon landing page built using React, featuring clean UI, smooth animations, and optimized performance for a modern web experience.",
         tech: "React • Tailwind",
-        image: images.portfolio,
-        link: 'https://vipin-portfolio-web.netlify.app/'
+        image: images.salon,
+        link: 'https://salonwebsitebywebentric.netlify.app/'
     },
     {
         title: "E-Commerce Store",
@@ -49,6 +49,14 @@ export const projects = [
         tech: "React • Tailwind",
         image: images.dental_clinic,
         link: ''
+    },
+    {
+        title: "Portfolio Website",
+        description:
+            "Modern Portfolio website featuring your skills, education, and mobile-friendly design.",
+        tech: "React • Tailwind",
+        image: images.portfolio,
+        link: 'https://vipin-portfolio-web.netlify.app/'
     },
     {
         title: "Gym & Fitness Website",
