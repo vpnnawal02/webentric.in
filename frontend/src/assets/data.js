@@ -19,6 +19,14 @@ export const projects = [
         link: 'https://salonwebsitebywebentric.netlify.app/'
     },
     {
+        title: "Cafe Website",
+        description:
+            "A fully responsive cafe website page built using React, featuring clean UI, smooth animations, and optimized performance for a modern web experience.",
+        tech: "React • Tailwind",
+        image: images.my_cafe,
+        link: 'https://my-cafe-webentric.netlify.app/'
+    },
+    {
         title: "E-Commerce Store",
         description:
             "Custom online store with product listings, shopping cart functionality, and secure checkout integration.",
