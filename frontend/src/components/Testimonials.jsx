@@ -35,7 +35,8 @@ const Testimonials = () => {
     };
 
     return (
-        <section className="bg-gray-50 py-5" id="testimonials">
+        //hidden
+        <section className="hidden bg-gray-50 py-5" id="testimonials"> 
             <PopUpForm open={open} setOpen={setOpen} />
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
