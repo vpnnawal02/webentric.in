@@ -18,6 +18,7 @@ import PopUpForm from "./components/PopUpForm"
 import AdminDashboard from "./admin_dashboard/AdminDashboard"
 import Login from "./pages/Login"
 import OfferPopup from "./utils/OfferPopUp"
+import ScrollToTop from "./utils/ScrollToTop"
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <>
+    <ScrollToTop />
       <OfferPopup />
       <Navbar />
       <ContactButtons />
