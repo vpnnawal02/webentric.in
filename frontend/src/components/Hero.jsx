@@ -1,102 +1,708 @@
-import React, { useState } from 'react'
-import { images } from '../assets/imgs/assets';
-import { Link } from 'react-router-dom';
-import PopUpForm from './PopUpForm';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  FiArrowRight,
+  FiArrowLeft,
+  FiExternalLink,
+  FiZap,
+  FiShield,
+  FiSearch,
+  FiSmartphone,
+} from "react-icons/fi";
+
+import {
+  HiOutlineGlobeAlt,
+  HiOutlineShoppingCart,
+  HiOutlineChartBar,
+  HiOutlineWrenchScrewdriver,
+  HiOutlineMegaphone,
+  HiOutlineCursorArrowRays,
+} from "react-icons/hi2";
+
+import PopUpForm from "./PopUpForm";
+
+// ─────────────────────────────────────────────────────────────
+// Slide Data
+// ─────────────────────────────────────────────────────────────
+
+const slides = [
+  {
+    id: "web-dev",
+    tag: "WEB DEVELOPMENT AGENCY",
+    title: "Build Modern Websites That Grow Your Business",
+    description:
+      "Webentric creates high-performance websites, e-commerce platforms, and digital experiences designed to increase visibility, generate leads, and help businesses scale online.",
+
+    primaryBtn: {
+      label: "Start Your Project",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "Explore Services",
+      to: "/services",
+    },
+
+    icon: HiOutlineGlobeAlt,
+
+    accentColor: "#3b82f6",
+    glowColor: "rgba(59, 130, 246, 0.15)",
+
+    stats: [
+      { value: "150+", label: "Projects Delivered" },
+      { value: "98%", label: "Client Satisfaction" },
+      { value: "5★", label: "Avg Rating" },
+    ],
+
+    features: [
+      { icon: FiZap, text: "Fast Loading Websites" },
+      { icon: FiSmartphone, text: "Mobile-Responsive Design" },
+      { icon: FiSearch, text: "SEO-Optimized Structure" },
+      { icon: FiShield, text: "Affordable Pricing" },
+    ],
+
+    badge: "Trusted by 150+ Businesses",
+  },
+
+  {
+    id: "corporate",
+    tag: "CORPORATE WEBSITE SOLUTIONS",
+    title: "Professional Corporate Websites Built for Trust & Growth",
+
+    description:
+      "Custom corporate websites designed to establish credibility, improve brand presence, and convert visitors into long-term customers.",
+
+    primaryBtn: {
+      label: "Build Corporate Website",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "View Portfolio",
+      to: "/portfolio",
+    },
+
+    icon: HiOutlineGlobeAlt,
+
+    accentColor: "#2563eb",
+    glowColor: "rgba(37, 99, 235, 0.15)",
+
+    stats: [
+      { value: "60+", label: "Corporate Clients" },
+      { value: "3x", label: "Avg Lead Growth" },
+      { value: "100%", label: "Custom Built" },
+    ],
+
+    features: [
+      { icon: FiShield, text: "Brand-Aligned Design" },
+      { icon: FiZap, text: "Performance Optimized" },
+      { icon: FiSearch, text: "Lead Generation Ready" },
+      { icon: FiSmartphone, text: "Fully Responsive" },
+    ],
+
+    badge: "Enterprise-Grade Quality",
+  },
+
+  {
+    id: "ecommerce",
+    tag: "E-COMMERCE DEVELOPMENT",
+    title: "Launch Scalable E-Commerce Websites That Drive Sales",
+
+    description:
+      "Fast, secure, and conversion-focused online stores with seamless checkout systems, payment integration, inventory management, and mobile optimization.",
+
+    primaryBtn: {
+      label: "Launch Online Store",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "See Features",
+      to: "/services",
+    },
+
+    icon: HiOutlineShoppingCart,
+
+    accentColor: "#0ea5e9",
+    glowColor: "rgba(14, 165, 233, 0.15)",
+
+    stats: [
+      { value: "40+", label: "Stores Launched" },
+      { value: "2.5x", label: "Avg Conversion Lift" },
+      { value: "99.9%", label: "Uptime" },
+    ],
+
+    features: [
+      { icon: FiShield, text: "Secure Payments" },
+      { icon: FiZap, text: "Blazing-Fast Checkout" },
+      { icon: FiSmartphone, text: "Mobile-First Commerce" },
+      { icon: FiSearch, text: "Product SEO Built-In" },
+    ],
+
+    badge: "Payments & Inventory Ready",
+  },
+
+  {
+    id: "landing",
+    tag: "LANDING PAGE DESIGN",
+    title: "High-Converting Landing Pages for Ads & Campaigns",
+
+    description:
+      "Optimized landing pages built to maximize conversions, improve ad performance, and turn traffic into qualified leads.",
+
+    primaryBtn: {
+      label: "Create Landing Page",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "See Examples",
+      to: "/portfolio",
+    },
+
+    icon: HiOutlineMegaphone,
+
+    accentColor: "#6366f1",
+    glowColor: "rgba(99, 102, 241, 0.12)",
+
+    stats: [
+      { value: "3x", label: "Higher CTR" },
+      { value: "80+", label: "Pages Built" },
+      { value: "48hr", label: "Avg Turnaround" },
+    ],
+
+    features: [
+      { icon: FiZap, text: "Speed-Optimized" },
+      { icon: FiSearch, text: "Ad Score Friendly" },
+      { icon: HiOutlineCursorArrowRays, text: "CTA-Focused Layout" },
+      { icon: FiShield, text: "A/B Test Ready" },
+    ],
+
+    badge: "Built for Ad Performance",
+  },
+
+  {
+    id: "seo",
+    tag: "SEO OPTIMIZATION SERVICES",
+    title: "Improve Google Rankings & Grow Organic Traffic",
+
+    description:
+      "Technical SEO, on-page optimization, and performance-focused strategies that help your business rank higher and attract targeted customers.",
+
+    primaryBtn: {
+      label: "Boost SEO Rankings",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "Learn More",
+      to: "/services",
+    },
+
+    icon: HiOutlineChartBar,
+
+    accentColor: "#10b981",
+    glowColor: "rgba(16, 185, 129, 0.12)",
+
+    stats: [
+      { value: "Top 3", label: "Avg Ranking Goal" },
+      { value: "5x", label: "Organic Traffic Lift" },
+      { value: "30+", label: "Brands Ranked" },
+    ],
+
+    features: [
+      { icon: FiSearch, text: "Technical SEO Audit" },
+      { icon: FiZap, text: "Core Web Vitals" },
+      { icon: FiShield, text: "On-Page Optimization" },
+      { icon: HiOutlineChartBar, text: "Monthly Reporting" },
+    ],
+
+    badge: "Google-Certified Strategies",
+  },
+
+  {
+    id: "management",
+    tag: "WEBSITE MANAGEMENT",
+    title: "Keep Your Website Fast, Secure & Always Updated",
+
+    description:
+      "Ongoing website maintenance, security monitoring, performance optimization, backups, and technical support for uninterrupted business operations.",
+
+    primaryBtn: {
+      label: "Manage My Website",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "View Support Plans",
+      to: "/services",
+    },
+
+    icon: HiOutlineWrenchScrewdriver,
+
+    accentColor: "#f59e0b",
+    glowColor: "rgba(245, 158, 11, 0.12)",
+
+    stats: [
+      { value: "99.9%", label: "Uptime Guarantee" },
+      { value: "24/7", label: "Monitoring" },
+      { value: "<4hr", label: "Response Time" },
+    ],
+
+    features: [
+      { icon: FiShield, text: "Security Monitoring" },
+      { icon: FiZap, text: "Performance Tuning" },
+      { icon: FiSearch, text: "Regular Backups" },
+      { icon: FiSmartphone, text: "Tech Support Included" },
+    ],
+
+    badge: "Always-On Website Care",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────
+// Animation Variants
+// ─────────────────────────────────────────────────────────────
+
+const textVariants = {
+  hidden: {
+    opacity: 0,
+    y: 28,
+  },
+
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+
+    transition: {
+      delay: i * 0.1,
+      duration: 0.55,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+
+  exit: {
+    opacity: 0,
+    y: -20,
+
+    transition: {
+      duration: 0.3,
+      ease: [0.4, 0, 1, 1],
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.96,
+    x: 30,
+  },
+
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+
+  exit: {
+    opacity: 0,
+    scale: 0.97,
+    x: -20,
+
+    transition: {
+      duration: 0.35,
+      ease: [0.4, 0, 1, 1],
+    },
+  },
+};
+
+// ─────────────────────────────────────────────────────────────
+// Visual Panel
+// ─────────────────────────────────────────────────────────────
+
+const VisualPanel = ({ slide, isVisible }) => {
+  const Icon = slide.icon;
+
+  return (
+    <div className="relative w-full h-full flex items-center  justify-center">
+      <div
+        className="absolute inset-0     blur-3xl opacity-40 transition-all duration-1000"
+        style={{
+          background: slide.glowColor,
+        }}
+      />
+
+      <AnimatePresence mode="wait">
+        {isVisible && (
+          <motion.div
+            key={slide.id}
+            variants={imageVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="relative w-full max-w-[420px] bg-white/90 backdrop-blur-sm shadow-2xl border border-gray-300 p-7 overflow-hidden    "
+          >
+            <div className="flex items-center gap-2 mb-5">
+              <div className="w-3 h-3 rounded-full bg-red-400" />
+              <div className="w-3 h-3 rounded-full bg-yellow-400" />
+              <div className="w-3 h-3 rounded-full bg-green-400" />
+
+              <div className="ml-auto flex items-center gap-1 text-xs text-gray-400">
+                <FiShield size={11} />
+                <span>webentric.in</span>
+              </div>
+            </div>
+
+            <div
+              className="w-16 h-16    flex items-center justify-center mb-5"
+              style={{
+                background: `${slide.accentColor}18`,
+              }}
+            >
+              <Icon
+                size={32}
+                style={{
+                  color: slide.accentColor,
+                }}
+              />
+            </div>
+
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-1"
+              style={{
+                color: slide.accentColor,
+              }}
+            >
+              {slide.tag}
+            </p>
+
+            <h3 className="text-gray-900 font-bold text-lg leading-snug mb-4">
+              {slide.title}
+            </h3>
+
+            <div className="grid grid-cols-3 gap-3 mb-5">
+              {slide.stats.map((s) => (
+                <div
+                  key={s.label}
+                  className="bg-gray-50/80   p-2.5 text-center"
+                >
+                  <p className="font-extrabold text-gray-900 text-base leading-none">
+                    {s.value}
+                  </p>
+
+                  <p className="text-gray-400 text-[10px] mt-1 leading-tight">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// ─────────────────────────────────────────────────────────────
+// Main Hero Component
+// ─────────────────────────────────────────────────────────────
 
 const Hero = () => {
-    const [open, setOpen] = useState(false);
-    return (
-        <section
-            className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-            <PopUpForm open={open} setOpen={setOpen} />
-            {/* Blurred background shapes */}
-            <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 bg-blue-300/40 blur-3xl" />
-            <div className="invisible lg:visible z-50 pointer-events-none absolute bottom-0 right-0 h-80 w-80 bg-blue-400/30 blur-3xl" />
+  const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
 
-            <div className="relative w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+  const intervalRef = useRef(null);
+  const progressRef = useRef(null);
 
-                <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+  const SLIDE_DURATION = 10000;
 
-                    {/* LEFT: Text content */}
-                    <div className="order-1 mt-10">
-                        {/* Headline */}
-                        <h1
-                            className="font-bold md:font-extrabold leading-tight text-gray-900 text-3xl md:text-4xl sm:text-5xl lg:text-[56px] max-w-[600px]">
-                            We Provide best Web Development Services that help to{" "}
-                            <span className="text-blue-500">Grow Your Business</span>
-                        </h1>
+  const total = slides.length;
 
-                        {/* Subheadline */}
-                        <p className="mt-5 max-w-[550px] text-md md:text-[18px] sm:text-[20px] text-gray-600">
-                            Custom websites designed for speed, mobile responsiveness, and SEO—helping businesses attract visitors, build credibility, and convert leads into customers.
-                        </p>
+  const goTo = useCallback(
+    (index) => {
+      setCurrent((index + total) % total);
+      setProgress(0);
+    },
+    [total]
+  );
 
-                        {/* CTA buttons */}
-                        <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <button
-                                onClick={() => setOpen(true)}
-                                className=" w-full sm:w-auto px-7 sm:px-8  py-3.5 bg-blue-500 text-white text-sm sm:text-base font-semibold rounded-xs shadow-sm  hover:bg-blue-700  transition-color">
-                                Get a Free Website Quote
-                            </button>
-                            <Link to='portfolio'>
-                                <button
-                                    className="w-full sm:w-auto px-7 sm:px-8 py-3.5 border-2 border-blue-500 text-blue-700 text-sm sm:text-base font-semibold rounded-xs bg-transparent hover:bg-blue-50 transition-color">
-                                    View Our Work
-                                </button>
-                            </Link>
-                        </div>
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % total);
+    setProgress(0);
+  }, [total]);
 
-                        {/* Trust indicator */}
-                        <div className="mt-5 flex items-center gap-2 text-sm text-gray-500">
-                            <div className="flex text-yellow-400">
-                                <span>★</span>
-                                <span>★</span>
-                                <span>★</span>
-                                <span>★</span>
-                                <span>★</span>
-                            </div>
-                            <p>Trusted by startups and growing businesses.</p>
-                        </div>
+  const prev = useCallback(() => {
+    setCurrent((c) => (c - 1 + total) % total);
+    setProgress(0);
+  }, [total]);
 
-                        {/* Benefits list */}
-                        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-[14px] text-gray-700">
-                            <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full text-[15px] text-blue-600 ">
-                                    ✓
-                                </span>
-                                <span>Fast Loading Websites</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full text-[15px] text-blue-600">
-                                    ✓
-                                </span>
-                                <span>Mobile-Responsive Design</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-fu text-[15px] text-blue-600">
-                                    ✓
-                                </span>
-                                <span>SEO-Optimized Structure</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full text-[15px] text-blue-600">
-                                    ✓
-                                </span>
-                                <span>Affordable Pricing</span>
-                            </div>
-                        </div>
+  // Auto slide
+
+  useEffect(() => {
+    if (paused) return;
+
+    intervalRef.current = setInterval(() => {
+      setCurrent((c) => (c + 1) % total);
+      setProgress(0);
+    }, SLIDE_DURATION);
+
+    return () => clearInterval(intervalRef.current);
+  }, [paused, total]);
+
+  // Progress animation
+
+  useEffect(() => {
+    if (paused) return;
+
+    setProgress(0);
+
+    const start = Date.now();
+
+    const tick = () => {
+      const elapsed = Date.now() - start;
+
+      setProgress(
+        Math.min((elapsed / SLIDE_DURATION) * 100, 100)
+      );
+
+      if (elapsed < SLIDE_DURATION) {
+        progressRef.current = requestAnimationFrame(tick);
+      }
+    };
+
+    progressRef.current = requestAnimationFrame(tick);
+
+    return () => cancelAnimationFrame(progressRef.current);
+  }, [current, paused]);
+
+  const slide = slides[current];
+
+  return (
+    <>
+      <PopUpForm open={open} setOpen={setOpen} />
+
+      <section className="relative overflow-hidden flex flex-col justify-around bg-white">
+        {/* Background */}
+
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl" />
+
+          <div className="absolute top-1/2 -right-24 w-80 h-80 bg-blue-50/60 rounded-full blur-3xl" />
+
+          <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-indigo-50/40 rounded-full blur-3xl" />
+        </div>
+
+        {/* Main */}
+
+        <div className="relative z-10 w-full max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10 py-10">
+          <div className="flex flex-col lg:flex-row gap-12 xl:gap-20 items-center min-h-[70vh]">
+            {/* LEFT */}
+
+            <div className="flex flex-col justify-center flex-1">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={slide.id}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="flex flex-col"
+                >
+                  <motion.div
+                    variants={textVariants}
+                    custom={0}
+                    className="mb-5"
+                  >
+                    <span
+                      className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] px-3.5 py-1.5 border rounded-full"
+                      style={{
+                        color: slide.accentColor,
+                        borderColor: `${slide.accentColor}40`,
+                        background: `${slide.accentColor}0d`,
+                      }}
+                    >
+                      <span
+                        className="w-1.5 h-1.5 rounded-full"
+                        style={{
+                          background: slide.accentColor,
+                        }}
+                      />
+
+                      {slide.tag}
+                    </span>
+                  </motion.div>
+
+                  <motion.h1
+                    variants={textVariants}
+                    custom={1}
+                    className="text-gray-900 font-extrabold leading-[1.1] tracking-tight text-[clamp(2.5rem,4.5vw,3.8rem)] max-w-[620px] mb-5"
+                  >
+                    {slide.title}
+                  </motion.h1>
+
+                  <motion.p
+                    variants={textVariants}
+                    custom={2}
+                    className="text-gray-600 text-[clamp(1rem,1.6vw,1.125rem)] leading-relaxed max-w-[560px] mb-8"
+                  >
+                    {slide.description}
+                  </motion.p>
+
+                  <motion.div
+                    variants={textVariants}
+                    custom={3}
+                    className="flex flex-col sm:flex-row gap-3 mb-8"
+                  >
+                    <button
+                      onClick={() => setOpen(true)}
+                      className="group inline-flex items-center justify-center gap-2 px-7 py-3.5   text-white text-sm font-semibold shadow-lg transition-all duration-200 hover:scale-[1.02]"
+                      style={{
+                        background: `linear-gradient(135deg, ${slide.accentColor}, ${slide.accentColor}cc)`,
+                      }}
+                    >
+                      {slide.primaryBtn.label}
+
+                      <FiArrowRight
+                        size={16}
+                        className="transition-transform duration-200 group-hover:translate-x-1"
+                      />
+                    </button>
+
+                    <Link to={slide.secondaryBtn.to}>
+                      <button className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5   text-sm font-semibold border-2 border-gray-200 text-gray-700 bg-white hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-200">
+                        {slide.secondaryBtn.label}
+
+                        <FiExternalLink size={14} />
+                      </button>
+                    </Link>
+                  </motion.div>
+
+                  <motion.div
+                    variants={textVariants}
+                    custom={4}
+                  >
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="flex gap-0.5 text-yellow-400 text-md">
+                        {"★★★★★".split("").map((s, i) => (
+                          <span key={i}>{s}</span>
+                        ))}
+                      </div>
+
+                      <span className="text-gray-400 text-sm font-medium">
+                        Trusted by startups and growing businesses
+                      </span>
                     </div>
 
-                    {/* RIGHT: Hero image */}
-                    <div className="hidden md:flex order-2 flex justify-center md:justify-end">
-                        <div data-aos="zoom-in">
-                            <img src={images.hero_img} alt="" />
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                      {slide.features.map(({ icon: Icon, text }) => (
+                        <div
+                          key={text}
+                          className="flex items-center gap-2"
+                        >
+                          <div
+                            className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0"
+                            style={{
+                              background: `${slide.accentColor}18`,
+                            }}
+                          >
+                            <Icon
+                              size={14}
+                              style={{
+                                color: slide.accentColor,
+                              }}
+                            />
+                          </div>
+
+                          <span className="text-gray-600 text-sm font-medium">
+                            {text}
+                          </span>
                         </div>
+                      ))}
                     </div>
-                </div>
+                  </motion.div>
+                </motion.div>
+              </AnimatePresence>
             </div>
-        </section>
-    );
-}
 
-export default Hero
+            {/* RIGHT */}
+
+            <div className="w-full lg:w-auto hidden lg:flex items-center justify-center">
+              <VisualPanel
+                slide={slide}
+                isVisible={true}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Controls */}
+
+        <div className="relative z-20 w-full max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10 pb-10">
+          <div className="flex flex-row-reverse items-center justify-between gap-6">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={prev}
+                aria-label="Previous Slide"
+                className="w-10 h-10 border-2 border-gray-200   flex items-center justify-center text-gray-500 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+              >
+                <FiArrowLeft size={17} />
+              </button>
+
+              <button
+                onClick={next}
+                aria-label="Next Slide"
+                className="w-10 h-10 border-2 border-gray-200   flex items-center justify-center text-gray-500 hover:border-blue-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+              >
+                <FiArrowRight size={17} />
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2 flex-1">
+              {slides.map((s, i) => (
+                <button
+                  key={s.id}
+                  onClick={() => goTo(i)}
+                  className="relative flex-1 max-w-[80px] h-1 rounded-full bg-gray-200 overflow-hidden"
+                >
+                  {i === current && (
+                    <motion.div
+                      className="absolute inset-y-0 left-0 rounded-full bg-blue-500"
+                      style={{
+                        width: `${progress}%`,
+                      }}
+                    />
+                  )}
+
+                  {i < current && (
+                    <div className="absolute inset-0 rounded-full bg-blue-500/60" />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            <div className="text-xs font-mono font-semibold text-gray-400 tabular-nums whitespace-nowrap">
+              <span className="text-gray-800">
+                {String(current + 1).padStart(2, "0")}
+              </span>
+
+              {" / "}
+
+              {String(total).padStart(2, "0")}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Hero;

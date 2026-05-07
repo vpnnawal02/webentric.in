@@ -55,7 +55,7 @@ const WhyChooseUs = () => {
                                 <div
                                     data-aos="fade-left"
                                     key={benefit.title}
-                                    className="group flex items-start gap-4 p-4 hover:bg-white/50 backdrop-blur-sm rounded-xl transition-all duration-300 hover:shadow-md hover:shadow-blue-100 hover:-translate-x-2 border border-transparent hover:border-blue-100"
+                                    className="group flex items-start gap-4 p-4 hover:bg-white/50 backdrop-blur-sm rounded-xl transition-all duration-300 hover:shadow-md hover:shadow-blue-100 hover:-translate-x-2 border border-transparent hover:border-blue-100 overflow-hidden"
                                 >
 
 
