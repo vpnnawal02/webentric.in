@@ -5,7 +5,7 @@ const HowWeWork = () => {
         <section className="bg-white py-5" id="process">
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
-                <div data-aos="fade-right" className="text-center max-w-[700px] mx-auto">
+                <div data-aos="fade-right" className="text-center max-w-[700px] mx-auto overflow-hidden">
                     <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900">
                         How We Turn <span className='text-blue-500 underline underline-offset-4'>Your Idea</span> Into a Powerful Website
                     </h2>
@@ -20,7 +20,7 @@ const HowWeWork = () => {
                     {/* Desktop connector lines */}
                     <div className="hidden lg:flex absolute top-1/2 left-16 right-16 -translate-y-1/2 h-px bg-blue-600" />
 
-                    <div data-aos="fade-left" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    <div data-aos="fade-right" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 ">
                         {processSteps.map((step, index) => {
                             const Icon = step.icon;
                             const isFirst = index === 0;

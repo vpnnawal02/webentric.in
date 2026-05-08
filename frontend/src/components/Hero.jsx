@@ -42,7 +42,7 @@ const slides = [
 
     secondaryBtn: {
       label: "Explore Services",
-      to: "/services",
+      to: "/portfolio",
     },
 
     icon: HiOutlineGlobeAlt,
@@ -120,7 +120,7 @@ const slides = [
 
     secondaryBtn: {
       label: "See Features",
-      to: "/services",
+      to: "/portfolio",
     },
 
     icon: HiOutlineShoppingCart,
@@ -198,7 +198,7 @@ const slides = [
 
     secondaryBtn: {
       label: "Learn More",
-      to: "/services",
+      to: "/portfolio",
     },
 
     icon: HiOutlineChartBar,
@@ -237,7 +237,7 @@ const slides = [
 
     secondaryBtn: {
       label: "View Support Plans",
-      to: "/services",
+      to: "/portfolio",
     },
 
     icon: HiOutlineWrenchScrewdriver,
