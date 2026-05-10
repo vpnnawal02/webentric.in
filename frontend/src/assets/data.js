@@ -189,24 +189,24 @@ export const CONTACT_ITEMS = [
 
 export const testimonials = [
     {
-        name: "Rahul Sharma",
-        role: "Founder, Cafe Aroma",
-        text: "The website Webentric built for our restaurant completely transformed our online presence. Customers can now easily find us and view our menu.",
-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=48&h=48&fit=crop&crop=face",
+        name: "Vipin",
+        role: "Landing Page",
+        text: "Tried Webentric for a website project. Pretty satisfied with the work. Design looks modern and the site runs well.",
+        avatar: "",
         rating: 5,
     },
     {
-        name: "Neha Verma",
-        role: "Marketing Consultant",
-        text: "The development process was smooth and professional. The final website exceeded our expectations and helped us generate more leads.",
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=48&h=48&fit=crop&crop=face",
+        name: "Neha Kumari",
+        role: "Salon Owner",
+        text: "Had a great experience working with Webentric for our salon website. Vipin was very cooperative, easy to communicate with, and handled all our suggestions patiently. The whole process felt smooth and stress free, especially since it was our first time getting a website made. Really happy with the support and overall experience.",
+        avatar: "",
         rating: 5,
     },
     {
-        name: "Amit Mehta",
+        name: "Kishanshu Mehra",
         role: "Startup Founder",
-        text: "Highly recommended for businesses looking for modern, fast, and well-designed websites.",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face",
+        text: "Working with Webentric was honestly a very smooth experience. Vipin was patient, easy to communicate with, and genuinely interested in understanding our business properly before starting. Since this was our first website, we had a lot of questions and confusion, but everything was explained clearly and the whole process felt comfortable. The support, responsiveness, and attention to detail throughout the project were really appreciated. Would definitely recommend Webentric to anyone looking to get their business online.",
+        avatar: "",
         rating: 5,
     },
 ];
