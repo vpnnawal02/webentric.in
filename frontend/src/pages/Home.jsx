@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
 import Hero from '../components/Hero'
+import About from '../components/About'
 import Services from '../components/Services'
 import HowWeWork from '../components/HowWeWork'
 import Testimonials from '../components/Testimonials'
@@ -27,9 +28,8 @@ const Home = () => {
                 <meta property="og:description" content="We build modern, high-converting websites for businesses in Delhi." />
                 <meta property="og:type" content="website" />
             </Helmet>
-
-
             <Hero />
+            <About />
             <Services />
             <WhyChooseUs />
             <HowWeWork />
