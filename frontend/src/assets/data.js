@@ -241,7 +241,7 @@ export const pricingPackages = [
     },
     {
         title: "E-Commerce Website",
-        price: "₹24,999",
+        price: "₹25,999",
         delivery: "10–14 Days",
         features: [
             { name: "Product Catalog", desc: "Unlimited products with categories and filtering." },
