@@ -9,6 +9,8 @@ import cafe from './cats-cafe.png'
 import dental_clinic from './dental_clinic.png'
 import salon from './salon.png'
 import my_cafe from './my-cafe.png'
+import dashboard from './dashboard.png'
+import booking_platform from './booking-platform.png'
 
 // importing icons
 import {
@@ -58,7 +60,9 @@ export const images = {
     cafe,
     dental_clinic,
     salon,
-    my_cafe
+    my_cafe,
+    dashboard,
+    booking_platform
 }
 
 export const icons = {

@@ -57,140 +57,240 @@ function injectStyles() {
 const slides = [
   {
     id: "web-dev",
-    tag: "WEB DEVELOPMENT AGENCY",
-    title: "Build Modern Websites That Grow Your Business",
+    tag: "WEB DESIGN & DEVELOPMENT SERVICES IN DELHI",
+
+    title: "Web Design & Website Development Services in Delhi",
+
     description:
-      "Webentric creates high-performance websites, e-commerce platforms, and digital experiences designed to increase visibility, generate leads, and help businesses scale online.",
-    primaryBtn: { label: "Start Your Project", action: "popup" },
-    secondaryBtn: { label: "Explore Services", to: "/portfolio" },
+      "Webentric builds modern, fast, and SEO-friendly websites for businesses, startups, and brands looking to grow online, generate leads, and create a strong digital presence.",
+
+    primaryBtn: {
+      label: "Start Your Project",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "View Portfolio",
+      to: "/portfolio",
+    },
+
     icon: HiOutlineGlobeAlt,
+
     accentColor: "#2563eb",
+
     glowColor: "rgba(37, 99, 235, 0.15)",
+
     stats: [
-      { value: "150+", label: "Projects Delivered" },
-      { value: "98%", label: "Client Satisfaction" },
-      { value: "5★", label: "Avg Rating" },
+      { value: "Fast", label: "Performance Focused" },
+      { value: "SEO", label: "Optimized Structure" },
+      { value: "100%", label: "Responsive Design" },
     ],
+
     features: [
       { icon: FiZap, text: "Fast Loading Websites" },
       { icon: FiSmartphone, text: "Mobile-Responsive Design" },
-      { icon: FiSearch, text: "SEO-Optimized Structure" },
-      { icon: FiShield, text: "Affordable Pricing" },
+      { icon: FiSearch, text: "SEO-Friendly Development" },
+      { icon: FiShield, text: "Modern UI & Clean Code" },
     ],
   },
+
   {
     id: "corporate",
-    tag: "CORPORATE WEBSITE SOLUTIONS",
-    title: "Professional Corporate Websites Built for Trust & Growth",
+
+    tag: "CORPORATE WEBSITE DEVELOPMENT",
+
+    title: "Professional Corporate Websites Built for Modern Businesses",
+
     description:
-      "Custom corporate websites designed to establish credibility, improve brand presence, and convert visitors into long-term customers.",
-    primaryBtn: { label: "Build Corporate Website", action: "popup" },
-    secondaryBtn: { label: "View Portfolio", to: "/portfolio" },
+      "Custom corporate websites designed to improve brand credibility, showcase services professionally, and help businesses build trust with potential clients.",
+
+    primaryBtn: {
+      label: "Build Corporate Website",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "View Portfolio",
+      to: "/portfolio",
+    },
+
     icon: HiOutlineGlobeAlt,
+
     accentColor: "#2563eb",
+
     glowColor: "rgba(37, 99, 235, 0.15)",
+
     stats: [
-      { value: "60+", label: "Corporate Clients" },
-      { value: "3x", label: "Avg Lead Growth" },
-      { value: "100%", label: "Custom Built" },
+      { value: "Professional", label: "Business Presence" },
+      { value: "Modern", label: "Responsive Design" },
+      { value: "Custom", label: "Built Solutions" },
     ],
+
     features: [
-      { icon: FiShield, text: "Brand-Aligned Design" },
-      { icon: FiZap, text: "Performance Optimized" },
-      { icon: FiSearch, text: "Lead Generation Ready" },
-      { icon: FiSmartphone, text: "Fully Responsive" },
+      { icon: FiShield, text: "Professional Brand Design" },
+      { icon: FiZap, text: "Optimized Performance" },
+      { icon: FiSearch, text: "SEO-Friendly Structure" },
+      { icon: FiSmartphone, text: "Fully Responsive Layout" },
     ],
   },
+
   {
     id: "ecommerce",
-    tag: "E-COMMERCE DEVELOPMENT",
-    title: "Launch Scalable E-Commerce Websites That Drive Sales",
+
+    tag: "E-COMMERCE WEBSITE DEVELOPMENT",
+
+    title: "E-Commerce Websites Designed to Increase Online Sales",
+
     description:
-      "Fast, secure, and conversion-focused online stores with seamless checkout systems, payment integration, inventory management, and mobile optimization.",
-    primaryBtn: { label: "Launch Online Store", action: "popup" },
-    secondaryBtn: { label: "See Features", to: "/portfolio" },
+      "Conversion-focused e-commerce websites with secure payments, mobile optimization, inventory management, and seamless shopping experiences.",
+
+    primaryBtn: {
+      label: "Launch Online Store",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "View Portfolio",
+      to: "/portfolio",
+    },
+
     icon: HiOutlineShoppingCart,
+
     accentColor: "#2563eb",
+
     glowColor: "rgba(37, 99, 235, 0.15)",
+
     stats: [
-      { value: "40+", label: "Stores Launched" },
-      { value: "2.5x", label: "Avg Conversion Lift" },
-      { value: "99.9%", label: "Uptime" },
+      { value: "Secure", label: "Payment Integration" },
+      { value: "Mobile", label: "Optimized Shopping" },
+      { value: "Fast", label: "Checkout Experience" },
     ],
+
     features: [
-      { icon: FiShield, text: "Secure Payments" },
-      { icon: FiZap, text: "Blazing-Fast Checkout" },
-      { icon: FiSmartphone, text: "Mobile-First Commerce" },
-      { icon: FiSearch, text: "Product SEO Built-In" },
+      { icon: FiShield, text: "Secure Payment Systems" },
+      { icon: FiZap, text: "Fast Store Performance" },
+      { icon: FiSmartphone, text: "Mobile-First Shopping" },
+      { icon: FiSearch, text: "SEO-Ready Product Pages" },
     ],
   },
+
   {
     id: "landing",
-    tag: "LANDING PAGE DESIGN",
-    title: "High-Converting Landing Pages for Ads & Campaigns",
+
+    tag: "LANDING PAGE DESIGN SERVICES",
+
+    title: "High-Converting Landing Pages for Marketing Campaigns",
+
     description:
-      "Optimized landing pages built to maximize conversions, improve ad performance, and turn traffic into qualified leads.",
-    primaryBtn: { label: "Create Landing Page", action: "popup" },
-    secondaryBtn: { label: "See Examples", to: "/portfolio" },
+      "Custom landing pages optimized for lead generation, paid ads, product launches, and higher conversion rates across devices.",
+
+    primaryBtn: {
+      label: "Create Landing Page",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "See Examples",
+      to: "/portfolio",
+    },
+
     icon: HiOutlineMegaphone,
+
     accentColor: "#2563eb",
+
     glowColor: "rgba(37, 99, 235, 0.15)",
+
     stats: [
-      { value: "3x", label: "Higher CTR" },
-      { value: "80+", label: "Pages Built" },
-      { value: "48hr", label: "Avg Turnaround" },
+      { value: "Higher", label: "Lead Conversion" },
+      { value: "Optimized", label: "Campaign Pages" },
+      { value: "Responsive", label: "Across Devices" },
     ],
+
     features: [
-      { icon: FiZap, text: "Speed-Optimized" },
-      { icon: FiSearch, text: "Ad Score Friendly" },
-      { icon: HiOutlineCursorArrowRays, text: "CTA-Focused Layout" },
-      { icon: FiShield, text: "A/B Test Ready" },
+      { icon: FiZap, text: "Fast Loading Pages" },
+      { icon: FiSearch, text: "Ad Campaign Optimized" },
+      { icon: HiOutlineCursorArrowRays, text: "Conversion-Focused Layouts" },
+      { icon: FiShield, text: "A/B Testing Ready" },
     ],
   },
+
   {
     id: "seo",
+
     tag: "SEO OPTIMIZATION SERVICES",
-    title: "Improve Google Rankings & Grow Organic Traffic",
+
+    title: "SEO Strategies Designed to Improve Search Visibility",
+
     description:
-      "Technical SEO, on-page optimization, and performance-focused strategies that help your business rank higher and attract targeted customers.",
-    primaryBtn: { label: "Boost SEO Rankings", action: "popup" },
-    secondaryBtn: { label: "Learn More", to: "/portfolio" },
+      "Technical SEO, on-page optimization, website performance improvements, and content-focused strategies to help businesses increase organic visibility.",
+
+    primaryBtn: {
+      label: "Improve SEO",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "Learn More",
+      to: "/portfolio",
+    },
+
     icon: HiOutlineChartBar,
+
     accentColor: "#2563eb",
+
     glowColor: "rgba(37, 99, 235, 0.15)",
+
     stats: [
-      { value: "Top 3", label: "Avg Ranking Goal" },
-      { value: "5x", label: "Organic Traffic Lift" },
-      { value: "30+", label: "Brands Ranked" },
+      { value: "Technical", label: "SEO Optimization" },
+      { value: "Better", label: "Search Visibility" },
+      { value: "Optimized", label: "Website Structure" },
     ],
+
     features: [
-      { icon: FiSearch, text: "Technical SEO Audit" },
-      { icon: FiZap, text: "Core Web Vitals" },
-      { icon: FiShield, text: "On-Page Optimization" },
-      { icon: HiOutlineChartBar, text: "Monthly Reporting" },
+      { icon: FiSearch, text: "Technical SEO Audits" },
+      { icon: FiZap, text: "Core Web Vitals Optimization" },
+      { icon: FiShield, text: "On-Page SEO Improvements" },
+      { icon: HiOutlineChartBar, text: "Performance Tracking" },
     ],
   },
+
   {
     id: "management",
-    tag: "WEBSITE MANAGEMENT",
-    title: "Keep Your Website Fast, Secure & Always Updated",
+
+    tag: "WEBSITE MAINTENANCE & SUPPORT",
+
+    title: "Keep Your Website Secure, Updated & Running Smoothly",
+
     description:
-      "Ongoing website maintenance, security monitoring, performance optimization, backups, and technical support for uninterrupted business operations.",
-    primaryBtn: { label: "Manage My Website", action: "popup" },
-    secondaryBtn: { label: "View Support Plans", to: "/portfolio" },
+      "Ongoing website maintenance, security monitoring, backups, performance optimization, and technical support for business websites.",
+
+    primaryBtn: {
+      label: "Manage My Website",
+      action: "popup",
+    },
+
+    secondaryBtn: {
+      label: "View Support Plans",
+      to: "/portfolio",
+    },
+
     icon: HiOutlineWrenchScrewdriver,
+
     accentColor: "#2563eb",
+
     glowColor: "rgba(37, 99, 235, 0.15)",
+
     stats: [
-      { value: "99.9%", label: "Uptime Guarantee" },
-      { value: "24/7", label: "Monitoring" },
-      { value: "<4hr", label: "Response Time" },
+      { value: "Reliable", label: "Website Support" },
+      { value: "Secure", label: "Monitoring & Backups" },
+      { value: "Optimized", label: "Performance Maintenance" },
     ],
+
     features: [
       { icon: FiShield, text: "Security Monitoring" },
-      { icon: FiZap, text: "Performance Tuning" },
-      { icon: FiSearch, text: "Regular Backups" },
-      { icon: FiSmartphone, text: "Tech Support Included" },
+      { icon: FiZap, text: "Performance Optimization" },
+      { icon: FiSearch, text: "Regular Website Backups" },
+      { icon: FiSmartphone, text: "Technical Support Included" },
     ],
   },
 ];
