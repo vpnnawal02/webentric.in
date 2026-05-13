@@ -9,7 +9,7 @@ const WEBSITE_TYPES = [
     {
         id: 1,
         label: "Landing Pages",
-        badge: "High Conversion",
+        badge: "Landing Page",
         badgeColor: "text-blue-600",
         badgeBorder: "border-blue-100",
         badgeShadow: "0 2px 8px rgba(37,99,235,0.10)",
@@ -19,8 +19,8 @@ const WEBSITE_TYPES = [
     {
         id: 2,
         label: "Corporate Websites",
-        badge: "Enterprise Grade",
-        badgeColor: "text-slate-600",
+        badge: "Corporate Website",
+        badgeColor: "text-blue-600",
         badgeBorder: "border-slate-100",
         badgeShadow: "0 2px 8px rgba(100,116,139,0.10)",
         description: "Professional brand presence",
@@ -29,8 +29,8 @@ const WEBSITE_TYPES = [
     {
         id: 3,
         label: "E-Commerce",
-        badge: "Revenue Ready",
-        badgeColor: "text-emerald-600",
+        badge: "E-Commerce",
+        badgeColor: "text-blue-600",
         badgeBorder: "border-emerald-100",
         badgeShadow: "0 2px 8px rgba(5,150,105,0.10)",
         description: "Scalable online stores",
@@ -39,8 +39,8 @@ const WEBSITE_TYPES = [
     {
         id: 4,
         label: "SaaS Dashboards",
-        badge: "Data Driven",
-        badgeColor: "text-violet-600",
+        badge: "Dashboards",
+        badgeColor: "text-blue-600",
         badgeBorder: "border-violet-100",
         badgeShadow: "0 2px 8px rgba(124,58,237,0.10)",
         description: "Analytics & admin panels",
@@ -49,8 +49,8 @@ const WEBSITE_TYPES = [
     {
         id: 5,
         label: "Portfolio Sites",
-        badge: "Creative First",
-        badgeColor: "text-rose-600",
+        badge: "Portfolio",
+        badgeColor: "text-blue-600",
         badgeBorder: "border-rose-100",
         badgeShadow: "0 2px 8px rgba(225,29,72,0.10)",
         description: "Showcase your best work",
@@ -59,8 +59,8 @@ const WEBSITE_TYPES = [
     {
         id: 6,
         label: "Booking Platforms",
-        badge: "Always Available",
-        badgeColor: "text-amber-600",
+        badge: "Booking Platform",
+        badgeColor: "text-blue-600",
         badgeBorder: "border-amber-100",
         badgeShadow: "0 2px 8px rgba(217,119,6,0.10)",
         description: "Appointments & reservations",
@@ -88,10 +88,6 @@ const ABOUT_STYLES = `
     transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
                 box-shadow  0.35s cubic-bezier(0.16,1,0.3,1);
   }
-  .about-image-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 36px 80px rgba(37,99,235,0.13);
-  }
   .about-progress-bar {
     width: 0%;
     transition: width 1.3s cubic-bezier(0.16,1,0.3,1);
@@ -105,9 +101,6 @@ const ABOUT_STYLES = `
   }
   .ping-dot {
     animation: pulse-dot 1.6s ease-in-out infinite;
-  }
-  .slide-nav-btn {
-    transition: background 0.2s ease, transform 0.2s ease;
   }
 `;
 
@@ -235,7 +228,7 @@ const ImageSlideshow = () => {
 
     return (
         <div
-            className="about-image-card relative overflow-hidden border border-gray-200 bg-gray-100"
+            className="about-image-card relative  bg-transparent"
             style={{
                 boxShadow: "0 16px 48px rgba(0,0,0,0.10)",
                 aspectRatio: "4/3",
@@ -247,10 +240,8 @@ const ImageSlideshow = () => {
                     key={item.id}
                     src={item.image}
                     alt={item.label}
-                    width={900}
-                    height={675}
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-full"
+                    className="absolute inset-0 w-full h-full"
                     style={{
                         opacity: i === current ? 1 : 0,
                         transition: "opacity 0.6s ease",
@@ -259,13 +250,13 @@ const ImageSlideshow = () => {
             ))}
 
             {/* Subtle vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-transparent pointer-events-none" />
+            {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-transparent pointer-events-none" /> */}
 
             {/* Bottom gradient for label contrast */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/55 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
 
             {/* ── Slide label (centered above dots) ── */}
-            <div
+            {/* <div
                 className="absolute bottom-[52px] left-1/2 -translate-x-1/2 text-white text-center pointer-events-none whitespace-nowrap"
                 style={{ transition: "opacity 0.3s ease", opacity: fading ? 0 : 1 }}
             >
@@ -273,10 +264,10 @@ const ImageSlideshow = () => {
                     {slide.description}
                 </p>
                 <h3 className="text-sm font-bold tracking-tight">{slide.label}</h3>
-            </div>
+            </div> */}
 
             {/* ── Floating status badge — bottom left (unchanged) ── */}
-            <div
+            {/* <div
                 className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2"
                 style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.12)" }}
             >
@@ -287,7 +278,7 @@ const ImageSlideshow = () => {
                 <span className="text-[11px] font-bold uppercase tracking-widest text-gray-700">
                     Active Operations
                 </span>
-            </div>
+            </div> */}
 
             {/* ── Floating top-right performance chip — changes per slide ── */}
             <div
@@ -298,7 +289,7 @@ const ImageSlideshow = () => {
                     opacity: fading ? 0 : 1,
                 }}
             >
-                <Zap size={11} className={slide.badgeColor} />
+                {/* <Zap size={11} className={slide.badgeColor} /> */}
                 <span className={`text-[10px] font-bold uppercase tracking-widest ${slide.badgeColor}`}>
                     {slide.badge}
                 </span>
@@ -307,7 +298,7 @@ const ImageSlideshow = () => {
             {/* ── Prev arrow ── */}
             <button
                 onClick={prev}
-                className="slide-nav-btn lg:hidden absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 backdrop-blur-sm border border-gray-200 flex items-center justify-center shadow-sm"
+                className="slide-nav-btn lg:hidden absolute -left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/85 backdrop-blur-sm border border-gray-200 flex items-center justify-center shadow-sm"
                 aria-label="Previous slide"
             >
                 <ChevronLeft size={15} className="text-gray-700" />
@@ -316,7 +307,7 @@ const ImageSlideshow = () => {
             {/* ── Next arrow ── */}
             <button
                 onClick={next}
-                className="slide-nav-btn lg:hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 backdrop-blur-sm border border-gray-200 flex items-center justify-center shadow-sm"
+                className="slide-nav-btn lg:hidden absolute -right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/85 backdrop-blur-sm border border-gray-200 flex items-center justify-center shadow-sm"
                 aria-label="Next slide"
             >
                 <ChevronRight size={15} className="text-gray-700" />
