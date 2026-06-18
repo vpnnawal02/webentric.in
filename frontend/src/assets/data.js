@@ -3,6 +3,14 @@ import { images } from "./imgs/assets.js"
 
 export const projects = [
     {
+        title: "School Website",
+        description:
+            "Modern school website designed to showcase academics, admissions, facilities, achievements, notices, events, and student activities. Provides parents and students with easy access to important information through a professional and user-friendly digital platform.",
+        tech: "React • Tailwind",
+        image: images.school,
+        link: 'https://standrewschoolwebsite.netlify.app/'
+    },
+    {
         title: "Interior Design",
         description:
             "A sleek interior design website showcasing stylish spaces, services, and easy ways to connect with designers.",
@@ -17,6 +25,14 @@ export const projects = [
         tech: "React • Tailwind",
         image: images.salon,
         link: 'https://salonwebsitebywebentric.netlify.app/'
+    },
+    {
+        title: "Box Print Company",
+        description:
+            "Professional website for a box printing company showcasing custom packaging solutions, product catalogs, printing services, quality standards, and easy quote requests. Designed to help businesses present their packaging expertise and generate more customer inquiries online.",
+        tech: "React • Tailwind",
+        image: images.maple_prints,
+        link: 'https://prints-webentric.netlify.app/'
     },
     {
         title: "Cafe Website",

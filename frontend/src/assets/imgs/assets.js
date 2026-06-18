@@ -11,6 +11,8 @@ import salon from './salon.png'
 import my_cafe from './my-cafe.png'
 import dashboard from './dashboard.png'
 import booking_platform from './booking-platform.png'
+import maple_prints from './maple-prints.png'
+import school from './school.png'
 
 // importing icons
 import {
@@ -62,7 +64,9 @@ export const images = {
     salon,
     my_cafe,
     dashboard,
-    booking_platform
+    booking_platform,
+    maple_prints,
+    school
 }
 
 export const icons = {
