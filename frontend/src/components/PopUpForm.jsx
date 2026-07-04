@@ -1,73 +1,100 @@
-import React from 'react'
-import { useEffect, useRef, useState } from "react";
-import { icons } from '../assets/imgs/assets';
-import { supabase } from '../lib/supabase';
+import React, { useEffect, useRef, useState } from "react";
+import { icons } from "../assets/imgs/assets";
+import { supabase } from "../lib/supabase";
 
-// form structure
 export default function PopUpForm({ open, setOpen }) {
     const overlayRef = useRef(null);
-    const [submitted, setSubmitted] = useState(false);
-    const [form, setForm] = useState({
+
+    const initialForm = {
         name: "",
         email: "",
         phone: "",
-        message: "",
-    });
+        details: "",
+    };
 
-    // ── Close on Escape key ──
+    const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [status, setStatus] = useState(null);
+    const [form, setForm] = useState(initialForm);
+
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === "Escape") setOpen(false);
         };
+
         if (open) document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
     }, [open, setOpen]);
 
-    // ── Prevent background scroll ──
     useEffect(() => {
         document.body.style.overflow = open ? "hidden" : "";
-        return () => { document.body.style.overflow = ""; };
+        return () => {
+            document.body.style.overflow = "";
+        };
     }, [open]);
 
-    // ── Reset on close ──
     useEffect(() => {
         if (!open) {
-            setTimeout(() => {
+            const timer = setTimeout(() => {
                 setSubmitted(false);
-                setForm({ name: "", email: "", phone: "", details: "" });
+                setSubmitting(false);
+                setStatus(null);
+                setForm(initialForm);
             }, 300);
+
+            return () => clearTimeout(timer);
         }
     }, [open]);
 
-    const handleChange = (e) =>
+    const handleChange = (e) => {
+        const { name, value } = e.target;
         setForm((prev) => ({
             ...prev,
-            [e.target.name]: e.target.value
-        })
-        );
+            [name]: value,
+        }));
+        setStatus(null);
+    };
 
-    // submit function
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        const { data, error } = await supabase
-            .from("quote_requests")
-            .insert([
+        try {
+            setSubmitting(true);
+            setStatus(null);
+
+            const { error } = await supabase.from("quote_requests").insert([
                 {
-                    name: form.name,
-                    email: form.email,
-                    phone: form.phone,
-                    details: form.details
-                }
-            ])
+                    name: form.name.trim(),
+                    email: form.email.trim() || null,
+                    phone: form.phone.trim(),
+                    details: form.details.trim() || null,
+                },
+            ]);
 
-        if (error) {
-            console.error(error)
-            alert("Submission failed")
-        } else {
-            alert("Request submitted successfully")
+            if (error) {
+                console.error(error);
+                setStatus({
+                    type: "error",
+                    message: "Submission failed. Please try again.",
+                });
+                return;
+            }
+
+            setSubmitted(true);
+            setStatus({
+                type: "success",
+                message: "Request submitted successfully.",
+            });
+        } catch (err) {
+            console.error(err);
+            setStatus({
+                type: "error",
+                message: "Something went wrong. Please try again.",
+            });
+        } finally {
+            setSubmitting(false);
         }
-    }
+    };
 
     const handleOverlayClick = (e) => {
         if (e.target === overlayRef.current) setOpen(false);
@@ -77,72 +104,81 @@ export default function PopUpForm({ open, setOpen }) {
 
     return (
         <div
-
             ref={overlayRef}
             onClick={handleOverlayClick}
-            className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm
-        animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
         >
-            <div data-aos="zoom-in"
-                className="relative w-full max-w-md bg-white rounded-sm shadow-xl
-          animate-in zoom-in-95 fade-in duration-200 max-h-[90vh] overflow-y-auto"
-            >
-                {/* ── Header ── */}
-                <div className="flex items-start justify-between p-6 pb-4 border-b border-gray-100">
+            <div className="relative w-full max-w-md bg-neutral-950 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.45)] animate-in zoom-in-95 fade-in duration-200 max-h-[90vh] overflow-y-auto">
+                <div className="flex items-start justify-between p-6 pb-4 border-b border-white/10">
                     <div>
-                        <h2
-                            id="modal-title"
-                            className="text-xl font-bold text-gray-900"
-                        >
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-white/40 mb-2">
+                            Project Enquiry
+                        </p>
+                        <h2 id="modal-title" className="text-xl font-medium text-white tracking-[-0.03em]">
                             Get a Project Quote
                         </h2>
-                        <p className="text-sm text-gray-500 mt-1 leading-relaxed max-w-xs">
-                            Tell us a few details about your project and we'll get back to you with a customized quote.
+                        <p className="text-sm text-white/45 mt-2 leading-relaxed max-w-xs">
+                            Tell us a few details about your project and we&apos;ll get back to you
+                            with a customized quote.
                         </p>
                     </div>
+
                     <button
                         onClick={() => setOpen(false)}
-                        className="ml-4 mt-0.5 flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-sm text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+                        className="ml-4 mt-0.5 flex-shrink-0 w-9 h-9 flex items-center justify-center border border-white/10 text-white/55 hover:text-white hover:bg-white/5 transition-colors"
                         aria-label="Close modal"
                     >
                         <icons.cross_icon className="w-5 h-5" />
                     </button>
                 </div>
 
-                {/* ── Body ── */}
                 <div className="p-6">
                     {submitted ? (
-                        /* ── Success State ── */
                         <div className="flex flex-col items-center justify-center py-10 text-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-                                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            <div className="w-16 h-16 rounded-full bg-white/6 border border-white/10 flex items-center justify-center">
+                                <svg
+                                    className="w-8 h-8 text-white"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    strokeWidth={1.8}
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M5 13l4 4L19 7"
+                                    />
                                 </svg>
                             </div>
+
                             <div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-1">Quote Request Sent!</h3>
-                                <p className="text-sm text-gray-500">
-                                    Thanks, <span className="font-semibold text-gray-700">{form.name || "there"}</span>! We'll review your project and get back to you within 24 hours.
+                                <h3 className="text-lg font-medium text-white mb-1 tracking-[-0.02em]">
+                                    Quote Request Sent
+                                </h3>
+                                <p className="text-sm text-white/50">
+                                    Thanks,{" "}
+                                    <span className="font-medium text-white/80">
+                                        {form.name || "there"}
+                                    </span>
+                                    . We&apos;ll review your project and get back to you within 24 hours.
                                 </p>
                             </div>
+
                             <button
                                 onClick={() => setOpen(false)}
-                                className="mt-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-sm transition-colors"
+                                className="mt-2 px-6 py-2.5 bg-white text-black text-sm font-medium hover:bg-neutral-200 transition-colors"
                             >
                                 Done
                             </button>
                         </div>
                     ) : (
-                        /* ── Form ── */
                         <form onSubmit={handleSubmit} className="space-y-4">
-
-                            {/* Full Name */}
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                                    Full Name <span className="text-red-500">*</span>
+                                <label className="block text-sm font-medium text-white/75 mb-1.5">
+                                    Full Name <span className="text-white/35">*</span>
                                 </label>
                                 <input
                                     required
@@ -151,15 +187,13 @@ export default function PopUpForm({ open, setOpen }) {
                                     value={form.name}
                                     onChange={handleChange}
                                     placeholder="Enter your name"
-                                    className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900 placeholder-gray-400
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all"
                                 />
                             </div>
 
-                            {/* Phone */}
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                                    Phone / WhatsApp <span className="text-red-500">*</span>
+                                <label className="block text-sm font-medium text-white/75 mb-1.5">
+                                    Phone / WhatsApp <span className="text-white/35">*</span>
                                 </label>
                                 <input
                                     required
@@ -168,14 +202,12 @@ export default function PopUpForm({ open, setOpen }) {
                                     value={form.phone}
                                     onChange={handleChange}
                                     placeholder="Enter phone number"
-                                    className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900 placeholder-gray-400
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all"
                                 />
                             </div>
 
-                            {/* Email */}
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                                <label className="block text-sm font-medium text-white/75 mb-1.5">
                                     Email Address
                                 </label>
                                 <input
@@ -184,14 +216,12 @@ export default function PopUpForm({ open, setOpen }) {
                                     value={form.email}
                                     onChange={handleChange}
                                     placeholder="Enter your email"
-                                    className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900 placeholder-gray-400
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all"
                                 />
                             </div>
 
-                            {/* Project Details */}
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                                <label className="block text-sm font-medium text-white/75 mb-1.5">
                                     Project Details
                                 </label>
                                 <textarea
@@ -200,21 +230,24 @@ export default function PopUpForm({ open, setOpen }) {
                                     onChange={handleChange}
                                     rows={4}
                                     placeholder="Describe your project, features you need, or any references."
-                                    className="w-full border border-gray-300 rounded-sm px-3 py-2 text-sm text-gray-900 placeholder-gray-400
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all resize-none"
                                 />
                             </div>
 
-                            {/* Submit */}
+                            {status?.type === "error" && (
+                                <p className="text-sm text-red-400">{status.message}</p>
+                            )}
+
                             <div className="pt-1">
                                 <button
                                     type="submit"
-                                    className="w-full bg-blue-600 hover:bg-blue-700 active:scale-[0.98] text-white font-semibold
-                    py-2.5 px-4 rounded-sm transition-all duration-200 text-sm"
+                                    disabled={submitting}
+                                    className="w-full bg-white text-black hover:bg-neutral-200 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed font-medium py-3 px-4 transition-all duration-200 text-sm"
                                 >
-                                    Get My Quote
+                                    {submitting ? "Submitting..." : "Get My Quote"}
                                 </button>
-                                <p className="text-center text-xs text-gray-400 mt-3">
+
+                                <p className="text-center text-xs text-white/32 mt-3">
                                     We usually respond within 24 hours.
                                 </p>
                             </div>

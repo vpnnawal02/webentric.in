@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowUpRight, Hexagon } from "lucide-react";
 
 // ─── CSS injected once ────────────────────────────────────────
 const NAVBAR_STYLES = `
@@ -19,18 +19,13 @@ const NAVBAR_STYLES = `
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
   }
-  .nb-drawer.nb-open {
-    transform: translateX(0);
-  }
+  .nb-drawer.nb-open { transform: translateX(0); }
   .nb-backdrop {
     opacity: 0;
     transition: opacity 0.25s ease;
     pointer-events: none;
   }
-  .nb-backdrop.nb-open {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .nb-backdrop.nb-open { opacity: 1; pointer-events: auto; }
   .nb-mobile-link {
     opacity: 0;
     transform: translateX(20px);
@@ -59,10 +54,7 @@ const NAVBAR_STYLES = `
     justify-content: center;
     transition: opacity 0.15s ease, transform 0.15s ease;
   }
-  .nb-icon-wrap.nb-exit {
-    opacity: 0;
-    transform: rotate(90deg) scale(0.7);
-  }
+  .nb-icon-wrap.nb-exit { opacity: 0; transform: rotate(90deg) scale(0.7); }
   .nb-accordion {
     display: grid;
     grid-template-rows: 0fr;
@@ -70,25 +62,20 @@ const NAVBAR_STYLES = `
     transition: grid-template-rows 0.22s cubic-bezier(0.16,1,0.3,1),
                 opacity 0.22s ease;
   }
-  .nb-accordion.nb-open {
-    grid-template-rows: 1fr;
-    opacity: 1;
-  }
+  .nb-accordion.nb-open { grid-template-rows: 1fr; opacity: 1; }
   .nb-accordion > div { overflow: hidden; }
   .nb-nav-active-bar {
     position: absolute;
-    bottom: 4px;
-    left: 12px;
-    right: 12px;
-    height: 2px;
+    bottom: -6px;
+    left: 8px;
+    right: 8px;
+    height: 1.5px;
     border-radius: 9999px;
-    background: #3b82f6;
+    background: #ffffff;
     transform: scaleX(0);
     transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
   }
-  .nb-nav-link-active .nb-nav-active-bar {
-    transform: scaleX(1);
-  }
+  .nb-nav-link-active .nb-nav-active-bar { transform: scaleX(1); }
 `;
 
 let styleInjected = false;
@@ -101,12 +88,17 @@ function injectStyles() {
 }
 
 // ─── Nav Data ─────────────────────────────────────────────────
-const NAV_LINKS = [
+const LEFT_LINKS = [
     { label: "Home", to: "/" },
     { label: "Portfolio", to: "/portfolio" },
+];
+
+const RIGHT_LINKS = [
     { label: "Pricing", to: "/pricing" },
     { label: "Contact", to: "/contact" },
 ];
+
+const NAV_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS]; // used for mobile drawer
 
 const DROPDOWN_LINKS = [
     { label: "Calculate Website Cost", to: "/price-calculator" },
@@ -121,7 +113,6 @@ const Navbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    // Close dropdown on outside click
     useEffect(() => {
         const handler = (e) => {
             if (!dropdownRef.current?.contains(e.target)) setDropdownOpen(false);
@@ -130,7 +121,6 @@ const Navbar = () => {
         return () => document.removeEventListener("mousedown", handler);
     }, []);
 
-    // Lock body scroll when drawer is open
     useEffect(() => {
         document.body.style.overflow = mobileOpen ? "hidden" : "";
         return () => { document.body.style.overflow = ""; };
@@ -141,100 +131,115 @@ const Navbar = () => {
         setDropdownOpen(false);
     };
 
+    const linkClass = ({ isActive }) =>
+        `relative px-3 py-2 text-[11px] sm:text-xs xl:text-[13px] font-medium tracking-[0.15em] uppercase transition-colors duration-200 whitespace-nowrap ${isActive ? "text-white nb-nav-link-active" : "text-gray-400 hover:text-white"
+        }`;
+
     return (
         <>
             {/* ── Sticky Navbar ── */}
-            <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm">
-                <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-                    <div className="flex items-center justify-between h-16">
+            <nav className="sticky top-0 z-50 w-full bg-black border-b border-white/10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+                    <div className="flex items-center justify-between h-16 lg:h-20">
 
-                        {/* Logo */}
-                        <NavLink to="/" className="flex items-center">
-                            <span className="font-extrabold tracking-tight text-2xl">
-                                <span className="text-blue-500">WEB</span>
-                                <span className="text-gray-900">ENTRIC</span>
-                                <span className="text-blue-500">.</span>
+                        {/* Logo — left on mobile/tablet */}
+                        <NavLink to="/" className="flex items-center gap-2 lg:hidden">
+                            <img src="/logo_circle.png" alt="" className="w-10 h-10" />
+                            <span className="font-semibold tracking-[0.2em] text-lg sm:text-base text-white uppercase">
+                                Webentric
                             </span>
                         </NavLink>
 
-                        {/* ── Desktop Nav ── */}
-                        <div className="hidden md:flex items-center gap-1">
-                            {NAV_LINKS.map(({ label, to }) => (
-                                <NavLink
-                                    key={to}
-                                    to={to}
-                                    end={to === "/"}
-                                    className={({ isActive }) =>
-                                        `relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${isActive
-                                            ? "text-gray-900 nb-nav-link-active"
-                                            : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-                                        }`
-                                    }
-                                >
-                                    {label}
-                                    <span className="nb-nav-active-bar" aria-hidden />
-                                </NavLink>
-                            ))}
-
-                            {/* More dropdown */}
-                            <div className="relative" ref={dropdownRef}>
-                                <button
-                                    onClick={() => setDropdownOpen((p) => !p)}
-                                    aria-expanded={dropdownOpen}
-                                    aria-haspopup="true"
-                                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-                                >
-                                    More
-                                    <ChevronDown
-                                        size={15}
-                                        className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
-                                    />
-                                </button>
-
-                                <div className={`nb-dropdown absolute right-0 top-full mt-2 w-58 bg-white rounded-xl border border-gray-100 shadow-xl shadow-gray-200/60 overflow-hidden z-50 py-1 ${dropdownOpen ? "nb-open" : ""}`}>
-                                    {DROPDOWN_LINKS.map(({ label, to }) => (
-                                        <NavLink
-                                            key={to}
-                                            to={to}
-                                            onClick={() => setDropdownOpen(false)}
-                                            className={({ isActive }) =>
-                                                `flex items-center justify-between px-4 py-2.5 text-sm transition-colors duration-150 ${isActive
-                                                    ? "bg-blue-500 text-white font-semibold"
-                                                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                                                }`
-                                            }
-                                        >
-                                            {({ isActive }) => (
-                                                <>
-                                                    {label}
-                                                    <ArrowUpRight size={13} className={isActive ? "text-white/70" : "text-gray-400"} />
-                                                </>
-                                            )}
-                                        </NavLink>
-                                    ))}
-                                </div>
+                        {/* ── Desktop Nav (lg+) — split around centered logo ── */}
+                        <div className="hidden lg:flex items-center justify-between w-full">
+                            <div className="flex items-center gap-2 xl:gap-4">
+                                {LEFT_LINKS.map(({ label, to }) => (
+                                    <NavLink key={to} to={to} end={to === "/"} className={linkClass}>
+                                        {label}
+                                        <span className="nb-nav-active-bar" aria-hidden />
+                                    </NavLink>
+                                ))}
                             </div>
 
-                            {/* CTA */}
-                            <NavLink to="/contact">
-                                <button className="ml-5 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold transition-all duration-200 active:scale-95 shadow-sm shadow-blue-200">
-                                    Get a Quote
-                                </button>
+                            {/* Centered logo */}
+                            <NavLink to="/" className="flex items-center gap-2 mx-6">
+                                <img src="/logo_circle.png" alt="" className="w-10 h-10" />
+                                <span className="font-semibold tracking-[0.25em] text-base xl:text-lg text-white uppercase">
+                                    Webentric
+                                </span>
                             </NavLink>
+
+                            <div className="flex items-center gap-2 xl:gap-4">
+                                {RIGHT_LINKS.map(({ label, to }) => (
+                                    <NavLink key={to} to={to} end={to === "/"} className={linkClass}>
+                                        {label}
+                                        <span className="nb-nav-active-bar" aria-hidden />
+                                    </NavLink>
+                                ))}
+
+                                {/* More dropdown */}
+                                <div className="relative" ref={dropdownRef}>
+                                    <button
+                                        onClick={() => setDropdownOpen((p) => !p)}
+                                        aria-expanded={dropdownOpen}
+                                        aria-haspopup="true"
+                                        className="flex items-center gap-1 px-3 py-2 text-[11px] xl:text-[13px] font-medium tracking-[0.15em] uppercase text-gray-400 hover:text-white transition-colors duration-200"
+                                    >
+                                        More
+                                        <ChevronDown
+                                            size={13}
+                                            className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+
+                                    <div
+                                        className={`nb-dropdown absolute right-0 top-full mt-3 w-56 bg-black border border-white/10 rounded-lg shadow-xl shadow-black/60 overflow-hidden z-50 py-1 ${dropdownOpen ? "nb-open" : ""
+                                            }`}
+                                    >
+                                        {DROPDOWN_LINKS.map(({ label, to }) => (
+                                            <NavLink
+                                                key={to}
+                                                to={to}
+                                                onClick={() => setDropdownOpen(false)}
+                                                className={({ isActive }) =>
+                                                    `flex items-center justify-between px-4 py-2.5 text-xs tracking-wide transition-colors duration-150 ${isActive
+                                                        ? "bg-white text-black font-semibold"
+                                                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                                                    }`
+                                                }
+                                            >
+                                                {({ isActive }) => (
+                                                    <>
+                                                        {label}
+                                                        <ArrowUpRight size={13} className={isActive ? "text-black/70" : "text-gray-500"} />
+                                                    </>
+                                                )}
+                                            </NavLink>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* CTA */}
+                                <NavLink to="/contact">
+                                    <button className="ml-3 px-5 py-2.5 border border-white/30 hover:border-white hover:bg-white hover:text-black text-white text-[11px] xl:text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 active:scale-95">
+                                        Get a Quote
+                                    </button>
+                                </NavLink>
+                            </div>
                         </div>
 
-                        {/* ── Hamburger ── */}
+                        {/* ── Hamburger (below lg) ── */}
                         <button
                             onClick={() => setMobileOpen((p) => !p)}
-                            className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+                            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors relative"
                             aria-label="Toggle menu"
                             aria-expanded={mobileOpen}
                         >
                             <span className={`nb-icon-wrap absolute ${mobileOpen ? "nb-exit" : ""}`} aria-hidden={mobileOpen}>
-                                <Menu size={25} />
+                                <Menu size={24} />
                             </span>
                             <span className={`nb-icon-wrap absolute ${!mobileOpen ? "nb-exit" : ""}`} aria-hidden={!mobileOpen}>
-                                <X size={25} />
+                                <X size={24} />
                             </span>
                         </button>
                     </div>
@@ -243,36 +248,36 @@ const Navbar = () => {
 
             {/* ── Backdrop ── */}
             <div
-                className={`nb-backdrop fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden ${mobileOpen ? "nb-open" : ""}`}
+                className={`nb-backdrop fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden ${mobileOpen ? "nb-open" : ""}`}
                 onClick={closeMobile}
                 aria-hidden
             />
 
-            {/* ── Mobile Drawer ── */}
+            {/* ── Mobile / Tablet Drawer ── */}
             <div
-                className={`nb-drawer fixed inset-0 z-50 w-full h-full bg-white shadow-2xl flex flex-col md:hidden ${mobileOpen ? "nb-open" : ""}`}
+                className={`nb-drawer fixed inset-0 z-50 w-full h-full bg-black shadow-2xl flex flex-col lg:hidden ${mobileOpen ? "nb-open" : ""
+                    }`}
                 aria-modal="true"
                 role="dialog"
                 aria-label="Navigation menu"
             >
-                {/* Drawer header */}
-                <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100">
-                    <span className="text-xl font-extrabold tracking-tight">
-                        <span className="text-blue-500">WEB</span>
-                        <span className="text-gray-900">ENTRIC</span>
-                        <span className="text-blue-500">.</span>
+                <div className="flex items-center justify-between px-5 sm:px-6 pt-6 pb-4 border-b border-white/10">
+                    <span className="flex items-center gap-2">
+                        <img src="/logo_circle.png" alt="" className="w-10 h-10" />
+                        <span className="text-sm sm:text-base font-semibold tracking-[0.2em] text-white uppercase">
+                            Webentric
+                        </span>
                     </span>
                     <button
                         onClick={closeMobile}
-                        className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
+                        className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:bg-white/10 transition-colors"
                         aria-label="Close menu"
                     >
                         <X size={20} />
                     </button>
                 </div>
 
-                {/* Nav links */}
-                <div className="flex flex-col px-4 pt-10 pb-2 gap-1 flex-1 overflow-y-auto">
+                <div className="flex flex-col px-4 sm:px-6 pt-8 pb-2 gap-1 flex-1 overflow-y-auto">
                     {NAV_LINKS.map(({ label, to }) => (
                         <div key={to} className="nb-mobile-link">
                             <NavLink
@@ -280,27 +285,26 @@ const Navbar = () => {
                                 end={to === "/"}
                                 onClick={closeMobile}
                                 className={({ isActive }) =>
-                                    `flex items-center justify-between w-full px-4 py-3 text-sm font-medium transition-all duration-150 ${isActive
-                                        ? "bg-blue-500 text-white font-semibold"
-                                        : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                                    `flex items-center justify-between w-full px-4 py-3 text-sm font-medium tracking-widest uppercase transition-all duration-150 ${isActive
+                                        ? "bg-white text-black font-semibold"
+                                        : "text-gray-300 hover:bg-white/5 hover:text-white"
                                     }`
                                 }
                             >
                                 {({ isActive }) => (
                                     <>
                                         {label}
-                                        {isActive && <ArrowUpRight size={14} className="text-white/70" />}
+                                        {isActive && <ArrowUpRight size={14} className="text-black/70" />}
                                     </>
                                 )}
                             </NavLink>
                         </div>
                     ))}
 
-                    {/* Mobile More accordion */}
                     <div className="nb-mobile-link">
                         <button
                             onClick={() => setDropdownOpen((p) => !p)}
-                            className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                            className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-medium tracking-widest uppercase text-gray-300 hover:bg-white/5 transition-colors"
                             aria-expanded={dropdownOpen}
                         >
                             More
@@ -310,7 +314,7 @@ const Navbar = () => {
                             />
                         </button>
 
-                        <div className={`nb-accordion ml-3 mt-1 border-l-2 border-blue-100 pl-3 ${dropdownOpen ? "nb-open" : ""}`}>
+                        <div className={`nb-accordion ml-3 mt-1 border-l-2 border-white/10 pl-3 ${dropdownOpen ? "nb-open" : ""}`}>
                             <div>
                                 {DROPDOWN_LINKS.map(({ label, to }) => (
                                     <NavLink
@@ -318,16 +322,16 @@ const Navbar = () => {
                                         to={to}
                                         onClick={closeMobile}
                                         className={({ isActive }) =>
-                                            `flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-colors ${isActive
-                                                ? "bg-blue-500 text-white font-semibold"
-                                                : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+                                            `flex items-center justify-between px-3 py-2.5 rounded-lg text-sm tracking-wide transition-colors ${isActive
+                                                ? "bg-white text-black font-semibold"
+                                                : "text-gray-400 hover:text-white hover:bg-white/5"
                                             }`
                                         }
                                     >
                                         {({ isActive }) => (
                                             <>
                                                 {label}
-                                                <ArrowUpRight size={12} className={isActive ? "text-white/70" : "text-gray-400"} />
+                                                <ArrowUpRight size={12} className={isActive ? "text-black/70" : "text-gray-500"} />
                                             </>
                                         )}
                                     </NavLink>
@@ -337,14 +341,13 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Drawer footer */}
-                <div className="nb-drawer-footer px-6 pb-8 pt-4 border-t border-gray-100">
+                <div className="nb-drawer-footer px-5 sm:px-6 pb-8 pt-4 border-t border-white/10">
                     <NavLink to="/contact" onClick={closeMobile}>
-                        <button className="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold transition-all duration-200 active:scale-95 shadow-md shadow-blue-200">
+                        <button className="w-full py-3 border border-white/30 hover:bg-white hover:text-black text-white text-sm font-semibold tracking-[0.15em] uppercase transition-all duration-200 active:scale-95">
                             Get a Free Quote
                         </button>
                     </NavLink>
-                    <p className="text-center text-xs text-gray-400 mt-3">
+                    <p className="text-center text-[11px] text-gray-500 mt-3 tracking-wide">
                         webentric.in · Web Development Agency
                     </p>
                 </div>

@@ -1,49 +1,58 @@
-import React from 'react'
-import { useState } from "react";
-import { CONTACT_ITEMS } from "../assets/data.js"
-
+import React, { useState } from "react";
+import { CONTACT_ITEMS } from "../assets/data.js";
 
 const ContactButtons = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div
-            className="fixed right-0 top-3/4 md:top-60 -translate-y-1/2 z-40 hidden md:flex items-center">
-            {/* Toggle / collapsed handle */}
+            className="fixed right-0 top-3/4 md:top-60 -translate-y-1/2 z-40 hidden md:flex items-center"
+            onMouseLeave={() => setIsOpen(false)}
+        >
+            {/* Contact panel */}
             <div
-
-                onMouseLeave={() => setIsOpen(false)}
-                className={`ml-2 bg-white border border-gray-200 shadow-xl flex flex-col gap-2 px-3 py-3 transition-all duration-300
-                            ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
+                className={`mr-2 border border-white/10 bg-black/90 backdrop-blur-md flex flex-col gap-2 p-3 transition-all duration-300 ease-out
+                ${isOpen ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 translate-x-4 pointer-events-none"}`}
+            >
                 {CONTACT_ITEMS.map((item) => {
                     const Icon = item.icon;
+
                     return (
                         <a
                             key={item.id}
                             href={item.href}
                             target="_blank"
-                            rel="noreferrer"
-                            className="group flex items-center gap-2 text-xs text-gray-700 hover:text-gray-900 min-w-[150px]"
+                            rel="noopener noreferrer"
+                            aria-label={item.label}
+                            className="group flex items-center gap-3 min-w-[180px] text-sm text-white/70 hover:text-white transition-colors"
                         >
                             <span
-                                className={`inline-flex h-8 w-8 items-center justify-center text-white ${item.bg} shadow-md transition-transform group-hover:-translate-y-0.5`}
+                                className={`inline-flex h-9 w-9 items-center justify-center border border-white/10 bg-white/5 text-white transition-all duration-300 group-hover:bg-white group-hover:text-black`}
                             >
-                                <Icon className="text-[14px]" />
+                                <Icon className="text-[15px]" />
                             </span>
-                            <span className="font-medium">{item.label}</span>
+
+                            <span className="font-medium tracking-[-0.01em]">
+                                {item.label}
+                            </span>
                         </a>
                     );
                 })}
             </div>
+
+            {/* Toggle tab */}
             <button
                 type="button"
                 onMouseEnter={() => setIsOpen(true)}
-                className=" h-40 w-10 md:w-15 bg-blue-500/80 text-black text-[10px] font-semibold flex items-center justify-center tracking-[0.12em] uppercase rotate-180 [writing-mode:vertical-rl] shadow-lg hover:bg-blue-700 transition-colors ">
+                onClick={() => setIsOpen((prev) => !prev)}
+                aria-expanded={isOpen}
+                aria-label="Open contact options"
+                className="h-36 w-11 md:w-12 border border-white/10 bg-white text-black text-[10px] font-semibold flex items-center justify-center tracking-[0.18em] uppercase rotate-180 [writing-mode:vertical-rl] transition-all duration-300 hover:bg-white/85"
+            >
                 Contact
             </button>
-
         </div>
     );
-}
+};
 
-export default ContactButtons
+export default ContactButtons;

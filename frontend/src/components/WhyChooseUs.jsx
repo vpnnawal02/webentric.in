@@ -1,81 +1,111 @@
-import React from 'react'
-import { icons } from '../assets/imgs/assets.js'
+import React from "react";
+import { icons } from "../assets/imgs/assets.js";
+
+const benefits = [
+    {
+        title: "Experienced Developers",
+        desc: "Our team builds scalable, reliable websites with a strong focus on maintainable architecture and real business outcomes.",
+        stat: "08+",
+        label: "Years building modern web solutions",
+    },
+    {
+        title: "Modern Technology",
+        desc: "We use current frameworks, clean development practices, and performance-first implementation to keep your website fast and future-ready.",
+        stat: "100%",
+        label: "Responsive, performance-driven builds",
+    },
+    {
+        title: "Fast Delivery",
+        desc: "Our streamlined workflow helps us move quickly without compromising quality, clarity, or long-term scalability.",
+        stat: "Faster",
+        label: "Execution with structured process",
+    },
+];
 
 const WhyChooseUs = () => {
     return (
-        <section className="py-5 bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <section className="bg-black text-white py-20 sm:py-24 lg:py-28">
+            <div className="max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14">
+                <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 lg:gap-20 items-start">
+                    {/* Left */}
+                    <div
+                        className="flex flex-col justify-between h-full"
+                        data-aos="fade-right"
+                    >
+                        <div className="max-w-[540px]">
+                            <p className="text-[15px] uppercase tracking-[0.22em] text-white/45 mb-5">
+                                WHY CHOOSE WEBENTRIC
+                            </p>
 
-                    {/* ── Left: Content ── */}
-                    <div className="lg:pr-8 flex flex-col gap-25" data-aos="fade-right">
-                        <div >
-                            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                                Why Choose Us
+                            <h2 className="text-[clamp(2.2rem,4.6vw,4.2rem)] leading-[1.02] tracking-[-0.04em] font-medium text-white mb-6">
+                                Built with clarity, performance, and long-term reliability.
                             </h2>
-                            <p className="text-md md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg">
-                                We have highly skilled and experienced developers who build modern, reliable, and scalable
-                                websites tailored to business needs. Our focus is delivering high-performance solutions that
-                                help businesses grow online.
+
+                            <p className="text-white/58 text-[15px] sm:text-base leading-relaxed max-w-[520px]">
+                                We create modern websites for businesses that need more than just
+                                design. Every project is approached with a focus on usability,
+                                scalability, performance, and strong technical foundations.
                             </p>
                         </div>
 
-                        <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
-                            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                <icons.code2_icon className="w-4 h-4 text-white" />
+                        <div className="mt-10 pt-8 border-t border-white/30 max-w-[520px]">
+                            <div className="flex items-start gap-4">
+                                <div className="w-11 h-11 border border-white/30 bg-white/5 flex items-center justify-center flex-shrink-0">
+                                    <icons.code2_icon className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                    <p className="text-white text-sm font-medium mb-1">
+                                        Modern tools. Clean execution.
+                                    </p>
+                                    <p className="text-white/48 text-sm leading-relaxed">
+                                        Built using current technologies and practical development
+                                        standards that support growth over time.
+                                    </p>
+                                </div>
                             </div>
-                            <p className="text-sm font-semibold text-gray-700">
-                                Built using modern technologies and industry best practices.
-                            </p>
                         </div>
                     </div>
 
-                    {/* ── Right: Checklist ── */}
-                    <div className="space-y-6 lg:pl-8 relative">
-                        {/* Subtle background pattern */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/2 via-transparent to-violet-500/2 rounded-2xl -z-10" />
-                        <div className="space-y-6">
-                            {[
-                                {
-                                    title: "Experienced Developers",
-                                    desc: "Our team includes experienced developers skilled in building scalable and reliable web solutions.",
-                                    color: "from-blue-600 to-blue-600",
-                                },
-                                {
-                                    title: "Modern Technology",
-                                    desc: "We use modern frameworks and tools to ensure performance, security, and scalability.",
-                                    color: "from-emerald-600 to-teal-600",
-                                },
-                                {
-                                    title: "Fast Development",
-                                    desc: "Our streamlined development workflow helps us deliver high-quality projects efficiently.",
-                                    color: "from-orange-600 to-red-600",
-                                },
-                            ].map((benefit, index) => (
+                    {/* Right */}
+                    <div className="relative" data-aos="fade-left">
+                        <div className="absolute inset-y-0 -left-7 hidden lg:block w-px bg-white/10" />
+
+                        <div className="space-y-5">
+                            {benefits.map((benefit, index) => (
                                 <div
-                                    data-aos="fade-right"
                                     key={benefit.title}
-                                    className="group flex items-start gap-4 p-4 hover:bg-white/50 backdrop-blur-sm rounded-xl transition-all duration-300 hover:shadow-md hover:shadow-blue-100 hover:-translate-x-2 border border-transparent hover:border-blue-100 overflow-hidden"
+                                    className="group border border-white/20 bg-white/[0.03] hover:bg-white/[0.05] transition-all duration-300"
+                                    data-aos="fade-up"
+                                    data-aos-delay={index * 120}
                                 >
+                                    <div className="grid sm:grid-cols-[120px_1fr] gap-6 p-6 sm:p-7 lg:p-8">
+                                        <div className="flex flex-col justify-between">
+                                            <div className="text-[2rem] sm:text-[2.35rem] leading-none tracking-[-0.05em] font-light text-white">
+                                                {benefit.stat}
+                                            </div>
+                                            <div className="text-[11px] uppercase tracking-[0.12em] text-white-50 mt-3 max-w-[110px] leading-relaxed">
+                                                {benefit.label}
+                                            </div>
+                                        </div>
 
-
-                                    {/* Content */}
-                                    <div className="min-w-0 flex-1">
-                                        <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-700 transition-colors mb-1">
-                                            {benefit.title}
-                                        </h3>
-                                        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors">
-                                            {benefit.desc}
-                                        </p>
+                                        <div className="min-w-0">
+                                            <h3 className="text-white text-xl font-medium tracking-[-0.02em] mb-2 group-hover:text-white/90 transition-colors">
+                                                {benefit.title}
+                                            </h3>
+                                            <p className="text-white/56 text-sm sm:text-[15px] leading-relaxed max-w-[54ch]">
+                                                {benefit.desc}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
+
                     </div>
                 </div>
             </div>
         </section>
     );
-}
+};
 
-export default WhyChooseUs
+export default WhyChooseUs;

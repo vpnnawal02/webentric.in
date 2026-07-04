@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
@@ -10,8 +10,7 @@ import {
     HiOutlineWrenchScrewdriver,
     HiOutlineChartBar,
 } from "react-icons/hi2";
-import { FiArrowUpRight } from "react-icons/fi";
-
+import { FiArrowUpRight, FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 // ─── Service Data ─────────────────────────────────────────────────────────────
 const services = [
@@ -22,7 +21,7 @@ const services = [
         description:
             "Professional, high-conversion websites architected to establish authoritative online presence and articulate your value proposition with precision.",
         size: "large",
-        accent: "#3b82f6",
+        accent: "#ffffff",
         to: "/portfolio",
     },
     {
@@ -32,7 +31,7 @@ const services = [
         description:
             "Robust digital storefronts featuring secure transaction pipelines, streamlined inventory management.",
         size: "wide",
-        accent: "#3b82f6",
+        accent: "#ffffff",
         to: "/portfolio",
     },
     {
@@ -42,7 +41,7 @@ const services = [
         description:
             "Modernization of legacy systems, focusing on performance optimization.",
         size: "small",
-        accent: "#3b82f6",
+        accent: "#ffffff",
         to: "/portfolio",
     },
     {
@@ -52,7 +51,7 @@ const services = [
         description:
             "Conversion-optimized landing environments engineered for high-yield campaigns.",
         size: "small",
-        accent: "#3b82f6",
+        accent: "#ffffff",
         to: "/portfolio",
     },
     {
@@ -62,7 +61,7 @@ const services = [
         description:
             "Continuous infrastructure monitoring, security patching, and structural updates.",
         size: "medium",
-        accent: "#3b82f6",
+        accent: "#ffffff",
         to: "/portfolio",
     },
     {
@@ -72,46 +71,38 @@ const services = [
         description:
             "Technical search engine alignment focusing on core web vitals and metadata architecture.",
         size: "medium",
-        accent: "#3b82f6",
+        accent: "#ffffff",
         to: "/portfolio",
     },
 ];
 
-
 // ─── Single Card Component ────────────────────────────────────────────────────
-const ServiceCard = ({ service, className = "", aosDelay = 0 }) => {
+const ServiceCard = ({ service, className = "", aosDelay = 0, mobile = false }) => {
     const Icon = service.icon;
+
     return (
         <div
-            data-aos="fade-up"
-            data-aos-delay={aosDelay}
-            data-aos-duration="550"
-            data-aos-easing="ease-out-quart"
-            data-aos-once="true"
-            className={`group relative flex flex-col justify-end overflow-hidden border border-blue-200 p-6 transition-all duration-300 hover:border-white/20 shadow-sm hover:shadow-lg ${className}`}
+            data-aos={!mobile ? "fade-up" : undefined}
+            data-aos-delay={!mobile ? aosDelay : undefined}
+            data-aos-duration={!mobile ? "550" : undefined}
+            data-aos-easing={!mobile ? "ease-out-quart" : undefined}
+            data-aos-once={!mobile ? "true" : undefined}
+            className={`group relative flex flex-col justify-end overflow-hidden border border-white/20 bg-black p-6 sm:p-7 transition-all duration-300 hover:border-white/30 ${className}`}
         >
-            {/* Ambient glow on hover */}
-            <div
-                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                    background: `radial-gradient(circle at 30% 70%, ${service.accent}14 0%, transparent 65%)`,
-                }}
-            />
+            {/* Ambient hover wash */}
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_70%,rgba(255,255,255,0.06)_0%,transparent_65%)]" />
 
             {/* Icon */}
-            <div
-                className="mb-4 w-10 h-10 flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                style={{ background: `${service.accent}1a`, border: `1px solid ${service.accent}30` }}
-            >
-                <Icon size={20} style={{ color: service.accent }} />
-            </div>
+            {/* <div className="mb-5 w-11 h-11 flex items-center justify-center flex-shrink-0 border border-white/12 bg-white/[0.03] transition-transform duration-300 group-hover:scale-105">
+                <Icon size={19} className="text-white/88" />
+            </div> */}
 
             {/* Text */}
             <div className="flex-1 flex flex-col justify-end">
-                <h3 className="text-black font-bold text-xl leading-snug mb-2">
+                <h3 className="text-white font-medium text-[35px] leading-[1.05] tracking-[-0.04em] mb-3">
                     {service.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                <p className="text-white/60 text-md leading-relaxed line-clamp-3">
                     {service.description}
                 </p>
             </div>
@@ -119,25 +110,22 @@ const ServiceCard = ({ service, className = "", aosDelay = 0 }) => {
             {/* Arrow link */}
             <Link
                 to={service.to}
-                className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0"
-                style={{ color: service.accent }}
+                className="mt-6 inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.16em] text-white/72 group-hover:text-white transition-all duration-300"
                 aria-label={`Learn more about ${service.title}`}
             >
                 See our work <FiArrowUpRight size={13} />
             </Link>
 
             {/* Bottom accent line */}
-            <div
-                className="absolute bottom-0 left-0 w-0 group-hover:w-full h-[2px] transition-all duration-500 rounded-full"
-                style={{ background: `linear-gradient(90deg, ${service.accent}, ${service.accent}40)` }}
-            />
+            <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-px transition-all duration-500 bg-white/70" />
         </div>
     );
 };
 
-
 // ─── Main Services Section ────────────────────────────────────────────────────
 const Services = () => {
+    const sliderRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
         AOS.init({
@@ -148,87 +136,107 @@ const Services = () => {
 
     const [businessWebsite, ecommerce, redesign, landing, maintenance, seo] = services;
 
+    const scrollToCard = (index) => {
+        if (!sliderRef.current) return;
+        const container = sliderRef.current;
+        const card = container.children[index];
+        if (!card) return;
+
+        container.scrollTo({
+            left: card.offsetLeft - 20,
+            behavior: "smooth",
+        });
+        setActiveIndex(index);
+    };
+
+    const nextSlide = () => {
+        const next = (activeIndex + 1) % services.length;
+        scrollToCard(next);
+    };
+
+    const prevSlide = () => {
+        const prev = (activeIndex - 1 + services.length) % services.length;
+        scrollToCard(prev);
+    };
+
+    const handleScroll = () => {
+        if (!sliderRef.current) return;
+        const container = sliderRef.current;
+        const children = [...container.children];
+        const scrollLeft = container.scrollLeft;
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        children.forEach((child, index) => {
+            const distance = Math.abs(child.offsetLeft - scrollLeft - 20);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        setActiveIndex(closestIndex);
+    };
+
     return (
-        <section className="relative py-20 sm:py-28 bg-white overflow-hidden">
-
-            {/* Subtle background grid */}
-            <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="svc-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#6b7280" strokeWidth="0.6" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#svc-grid)" />
-                </svg>
-            </div>
-
-            {/* Ambient glows */}
-            <div className="pointer-events-none absolute top-0 left-1/4 w-[500px] h-[300px] bg-blue-600/10 rounded-full blur-3xl" />
-            <div className="pointer-events-none absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-indigo-600/8 rounded-full blur-3xl" />
-
-            <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-10">
+        <section className="relative py-20 sm:py-24 lg:py-28 bg-black text-white overflow-hidden border-t border-white/30">
+            <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14">
 
                 {/* Header */}
                 <div
-                    className="text-center mb-14"
+                    className="mb-14 lg:mb-16"
                     data-aos="fade-up"
                     data-aos-duration="600"
                     data-aos-once="true"
                 >
-                    <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-blue-400 mb-4">
-                        <span className="w-4 h-px bg-blue-400" />
-                        Our Services
-                        <span className="w-4 h-px bg-blue-400" />
-                    </span>
-                    <h2 className="text-black font-extrabold text-[clamp(2.2rem,4vw,2.8rem)] leading-tight tracking-tight mb-4">
-                        Designed for Modern Businesses
-                    </h2>
-                    <p className="text-gray-800 text-[clamp(0.9rem,1.4vw,1.05rem)] max-w-[520px] mx-auto leading-relaxed">
-                        A complete range of high-performance web development services engineered to
-                        establish, optimize, and scale your digital infrastructure.
-                    </p>
+
+
+                    <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-start">
+                        <h2 className="text-white font-medium text-[clamp(2.5rem,5vw,5.4rem)] leading-[0.95] tracking-[-0.06em] max-w-[9ch]">
+                            Designed for modern businesses
+                        </h2>
+
+                        <p className="text-white/70 text-[15px] sm:text-[18px] max-w-[520px] leading-relaxed lg:pt-3">
+                            A complete range of high-performance web development services
+                            engineered to establish, optimize, and scale your digital
+                            infrastructure.
+                        </p>
+                    </div>
                 </div>
 
-                {/* ─── Bento Grid ──────────────────────────────────────────────── */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-                    {/* Business Website — tall card */}
+                {/* Desktop / Tablet Grid */}
+                <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-4">
                     <ServiceCard
                         service={businessWebsite}
-                        className="sm:row-span-2 min-h-[280px] sm:min-h-0"
+                        className="sm:row-span-2 min-h-[280px] sm:min-h-[380px]"
                         aosDelay={0}
                     />
 
-                    {/* E-Commerce — wide card */}
                     <ServiceCard
                         service={ecommerce}
                         className="lg:col-span-2 min-h-[180px]"
                         aosDelay={90}
                     />
 
-                    {/* Website Redesign */}
                     <ServiceCard
                         service={redesign}
                         className="min-h-[180px]"
                         aosDelay={180}
                     />
 
-                    {/* Landing Pages */}
                     <ServiceCard
                         service={landing}
                         className="min-h-[180px]"
                         aosDelay={270}
                     />
 
-                    {/* Maintenance */}
                     <ServiceCard
                         service={maintenance}
                         className="min-h-[180px]"
                         aosDelay={360}
                     />
 
-                    {/* SEO */}
                     <ServiceCard
                         service={seo}
                         className="sm:col-span-2 lg:col-span-2 min-h-[180px]"
@@ -236,24 +244,89 @@ const Services = () => {
                     />
                 </div>
 
+                {/* Mobile Slider */}
+                <div className="sm:hidden">
+                    <div
+                        ref={sliderRef}
+                        onScroll={handleScroll}
+                        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-2"
+                    >
+                        {services.map((service, index) => (
+                            <div
+                                key={service.id}
+                                className="min-w-[88%] snap-start"
+                            >
+                                <ServiceCard service={service} className="min-h-[280px]" mobile />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Mobile Controls */}
+                    <div className="mt-6 flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-2">
+                            {services.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => scrollToCard(i)}
+                                    className="rounded-full transition-all duration-300"
+                                    style={{
+                                        width: i === activeIndex ? 22 : 6,
+                                        height: 6,
+                                        background: i === activeIndex ? "#ffffff" : "rgba(255,255,255,0.28)",
+                                    }}
+                                    aria-label={`Go to slide ${i + 1}`}
+                                />
+                            ))}
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={prevSlide}
+                                className="w-11 h-11 border border-white/12 flex items-center justify-center text-white/80 hover:bg-white hover:text-black transition-all duration-300"
+                                aria-label="Previous service"
+                            >
+                                <FiArrowLeft size={16} />
+                            </button>
+                            <button
+                                onClick={nextSlide}
+                                className="w-11 h-11 border border-white/12 flex items-center justify-center text-white/80 hover:bg-white hover:text-black transition-all duration-300"
+                                aria-label="Next service"
+                            >
+                                <FiArrowRight size={16} />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 {/* CTA strip */}
                 <div
-                    className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
+                    className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                     data-aos="fade-up"
                     data-aos-delay="650"
                     data-aos-duration="500"
                     data-aos-once="true"
                 >
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-white/70 text-sm">
                         Not sure which service fits your project?
                     </p>
+
                     <Link to="/contact">
-                        <button className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-500 text-white text-sm font-semibold hover:bg-blue-600 transition-colors duration-200 active:scale-95 shadow-lg shadow-blue-500/25">
+                        <button className="inline-flex items-center gap-2 px-0 py-0 text-white text-sm font-medium border-b border-white/30 hover:border-white transition-colors duration-200">
                             Talk to Us <FiArrowUpRight size={14} />
                         </button>
                     </Link>
                 </div>
             </div>
+
+            <style>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
         </section>
     );
 };

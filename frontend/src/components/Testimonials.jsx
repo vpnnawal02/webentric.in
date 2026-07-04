@@ -8,15 +8,13 @@ const Testimonials = () => {
 
     const intervalRef = useRef(null);
 
-    // ================= AUTOPLAY =================
-
     const startAutoPlay = () => {
         if (window.innerWidth < 1024) {
             stopAutoPlay();
 
             intervalRef.current = setInterval(() => {
                 setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-            }, 4000);
+            }, 4500);
         }
     };
 
@@ -30,12 +28,18 @@ const Testimonials = () => {
     useEffect(() => {
         startAutoPlay();
 
+        const handleResize = () => {
+            stopAutoPlay();
+            startAutoPlay();
+        };
+
+        window.addEventListener("resize", handleResize);
+
         return () => {
             stopAutoPlay();
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
-
-    // ================= STARS =================
 
     const renderStars = (rating) => {
         return Array(5)
@@ -43,9 +47,7 @@ const Testimonials = () => {
             .map((_, index) => (
                 <svg
                     key={index}
-                    className={`h-4 w-4 fill-current ${index < rating
-                        ? "text-yellow-400"
-                        : "text-gray-300"
+                    className={`h-4 w-4 fill-current ${index < rating ? "text-white" : "text-white/20"
                         }`}
                     viewBox="0 0 24 24"
                 >
@@ -53,8 +55,6 @@ const Testimonials = () => {
                 </svg>
             ));
     };
-
-    // ================= DOT CLICK =================
 
     const handleDotClick = (index) => {
         stopAutoPlay();
@@ -68,108 +68,89 @@ const Testimonials = () => {
 
             <section
                 id="testimonials"
-                className="bg-gray-50 py-16 overflow-hidden"
+                className="bg-black py-20 sm:py-24 lg:py-28 overflow-hidden text-white"
             >
                 <div className="max-w-[1200px] mx-auto px-6">
+                    {/* Heading */}
+                    <div className="max-w-[760px] mx-auto text-center">
+                        <p className="text-[20px] uppercase tracking-[0.22em] text-white/60 mb-4">
+                            TESTIMONIALS
+                        </p>
 
-                    {/* ================= HEADING ================= */}
-
-                    <div className="max-w-[700px] mx-auto text-center">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.04em] text-white leading-tight">
                             What Our Clients Say
                         </h2>
 
-                        <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                            Businesses trust Webentric to build websites
-                            that are modern, fast, and designed to help
-                            them grow online.
+                        <p className="mt-4 text-base sm:text-lg text-white/55 leading-relaxed max-w-[620px] mx-auto">
+                            Businesses trust Webentric to create websites that are
+                            modern, fast, reliable, and built to support real online growth.
                         </p>
                     </div>
 
-                    {/* ================= DESKTOP GRID ================= */}
-
+                    {/* Desktop Grid */}
                     <div className="hidden lg:grid grid-cols-3 gap-8 mt-16 auto-rows-fr">
-
                         {testimonials.map((testimonial, index) => (
                             <div
                                 key={index}
-                                className="flex flex-col h-min bg-white border border-gray-200 rounded-sm p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-blue-500/40"
+                                className="flex flex-col bg-white/[0.03] border border-white/20 p-7 lg:p-8 transition-colors duration-300 hover:bg-white/[0.05] hover:border-white/20 min-h-[320px]"
                             >
-
-                                {/* Stars */}
                                 <div className="flex items-center mb-5">
                                     {renderStars(testimonial.rating)}
                                 </div>
 
-                                {/* Testimonial */}
-                                <blockquote className="text-gray-700 leading-relaxed text-base flex-1">
+                                <blockquote className="text-white/72 leading-relaxed text-[15px] sm:text-base flex-1">
                                     &ldquo;{testimonial.text}&rdquo;
                                 </blockquote>
 
-                                {/* Footer */}
-                                <div className="mt-8 pt-5 border-t border-gray-100">
-                                    <p className="font-semibold text-gray-900">
+                                <div className="mt-8 pt-5 border-t border-white/10">
+                                    <p className="font-medium text-white text-base">
                                         {testimonial.name}
                                     </p>
 
-                                    <p className="text-sm text-gray-500 mt-1">
+                                    <p className="text-sm text-white/40 mt-1">
                                         {testimonial.role}
                                     </p>
                                 </div>
-
                             </div>
                         ))}
                     </div>
 
-                    {/* ================= MOBILE CAROUSEL ================= */}
-
+                    {/* Mobile Carousel */}
                     <div
-                        className="lg:hidden mt-14 h-min"
+                        className="lg:hidden mt-14"
                         onMouseEnter={stopAutoPlay}
                         onMouseLeave={startAutoPlay}
                     >
-
-                        {/* Slider Wrapper */}
-                        <div className="overflow-hidden h-min">
-
-                            {/* Slider */}
+                        <div className="overflow-hidden">
                             <div
-                                className="flex transition-transform duration-500 ease-in-out"
+                                className="flex transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                 style={{
                                     transform: `translateX(-${currentSlide * 100}%)`,
                                 }}
                             >
-
                                 {testimonials.map((testimonial, index) => (
                                     <div
                                         key={index}
-                                        className="min-w-full px-2 flex max-h-[40vh] overflow-scroll"
+                                        className="min-w-full px-1 sm:px-2"
                                     >
-
-                                        {/* Card */}
-                                        <div className="flex flex-col w-full h-min bg-white border border-gray-200 rounded-sm p-7 shadow-md">
-
-                                            {/* Stars */}
+                                        <div className="flex flex-col w-full bg-white/[0.03] border border-white/10 p-6 sm:p-7 min-h-[300px]">
                                             <div className="flex items-center mb-5">
                                                 {renderStars(testimonial.rating)}
                                             </div>
 
-                                            {/* Testimonial */}
-                                            <blockquote className="text-gray-700 leading-relaxed text-base flex-1">
+                                            <blockquote className="text-white/72 leading-relaxed text-[15px] sm:text-base flex-1">
                                                 &ldquo;{testimonial.text}&rdquo;
                                             </blockquote>
 
-                                            {/* Footer */}
-                                            <div className="mt-8 pt-5 border-t border-gray-100">
-                                                <p className="font-semibold text-gray-900 text-lg">
+                                            <div className="mt-8 pt-5 border-t border-white/10">
+                                                <p className="font-medium text-white text-base sm:text-lg">
                                                     {testimonial.name}
                                                 </p>
 
-                                                <p className="text-sm text-gray-500 mt-1">
+                                                <p className="text-sm text-white/40 mt-1">
                                                     {testimonial.role}
                                                 </p>
                                             </div>
-
                                         </div>
                                     </div>
                                 ))}
@@ -183,33 +164,28 @@ const Testimonials = () => {
                                     key={index}
                                     onClick={() => handleDotClick(index)}
                                     aria-label={`Go to testimonial ${index + 1}`}
-                                    className={`h-3 w-3 rounded-full transition-all duration-300 ${index === currentSlide
-                                        ? "bg-blue-600 scale-125"
-                                        : "bg-gray-300 hover:bg-gray-400"
+                                    className={`h-[6px] rounded-full transition-all duration-300 ${index === currentSlide
+                                        ? "w-10 bg-white"
+                                        : "w-6 bg-white/20 hover:bg-white/35"
                                         }`}
                                 />
                             ))}
                         </div>
-
                     </div>
 
-                    {/* ================= CTA ================= */}
-
+                    {/* CTA */}
                     <div className="mt-20 text-center">
-
-                        <p className="text-gray-700 text-sm sm:text-base mb-6">
+                        <p className="text-white/55 text-sm sm:text-base mb-6">
                             Ready to build your website?
                         </p>
 
                         <button
                             onClick={() => setOpen(true)}
-                            className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-7 py-3.5 rounded-sm transition-colors w-full sm:w-auto"
+                            className="inline-flex items-center justify-center bg-white text-black hover:bg-white/85 font-medium px-7 py-3.5 transition-colors w-full sm:w-auto"
                         >
                             Get a Free Website Quote
                         </button>
-
                     </div>
-
                 </div>
             </section>
         </>
