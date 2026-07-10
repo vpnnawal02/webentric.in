@@ -54,7 +54,7 @@ const Hero = () => {
             </div>
 
             <div className="relative overflow-hidden flex justify-center">
-              <video controls autoPlay muted loop
+              <video controls autoPlay muted playsInline loop
                 className="w-full h-auto"
               >
                 <source src={vid_1} type="video/mp4" />
@@ -91,7 +91,7 @@ const Hero = () => {
             </div>
 
             <div className="relative overflow-hidden">
-              <video controls autoPlay muted loop
+              <video controls autoPlay muted playsInline loop
                 className="w-full h-auto"
               >
                 <source src={vid_2} type="video/mp4" />
