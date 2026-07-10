@@ -67,7 +67,7 @@ const WhyChooseUs = () => {
                     </div>
 
                     {/* Right */}
-                    <div className="relative" data-aos="fade-left">
+                    <div className="relative" data-aos="fade-down">
                         <div className="absolute inset-y-0 -left-7 hidden lg:block w-px bg-white/10" />
 
                         <div className="space-y-5">

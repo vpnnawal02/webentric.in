@@ -1,7 +1,7 @@
 import React from "react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Contact from "./pages/Contact"
@@ -19,8 +19,22 @@ import AdminDashboard from "./admin_dashboard/AdminDashboard"
 import Login from "./pages/Login"
 import OfferPopup from "./utils/OfferPopUp"
 import ScrollToTop from "./utils/ScrollToTop"
+import LoadingScreen from "./utils/LoadingScreen"
+
+
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -29,28 +43,36 @@ function App() {
   }, [])
 
   return (
+
     <>
-    <ScrollToTop />
-      <OfferPopup />
-      <Navbar />
-      <ContactButtons />
-      <Routes>
+      {loading ? (
+        <LoadingScreen />
+      ) : (
+        <div>
+          <ScrollToTop />
+          <OfferPopup />
+          <Navbar />
+          <ContactButtons />
+          <Routes>
 
-        {/* Public Routes  */}
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsOfService />} />
-        <Route path="/price-calculator" element={<CalculateProjectCost />} />
+            {/* Public Routes  */}
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/price-calculator" element={<CalculateProjectCost />} />
 
-        {/* Admin Routes  */}
-        <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-      </Routes>
-      <Footer />
+            {/* Admin Routes  */}
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+          </Routes>
+          <Footer />
+        </div>
+      )}
     </>
+
   )
 }
 
