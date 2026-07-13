@@ -20,6 +20,7 @@ import Login from "./pages/Login"
 import OfferPopup from "./utils/OfferPopUp"
 import ScrollToTop from "./utils/ScrollToTop"
 import LoadingScreen from "./utils/LoadingScreen"
+import BlogsPage from "./pages/Blogs/BlogPage"
 
 
 
@@ -63,6 +64,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/price-calculator" element={<CalculateProjectCost />} />
+            <Route path="/blogs" element={<BlogsPage />} />
 
             {/* Admin Routes  */}
             <Route path="/admin/login" element={<Login />} />

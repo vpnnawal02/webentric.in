@@ -91,6 +91,7 @@ function injectStyles() {
 const LEFT_LINKS = [
     { label: "Home", to: "/" },
     { label: "Portfolio", to: "/portfolio" },
+    { label: "Blogs", to: "/blogs" },
 ];
 
 const RIGHT_LINKS = [
