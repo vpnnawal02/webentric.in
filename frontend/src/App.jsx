@@ -21,6 +21,7 @@ import OfferPopup from "./utils/OfferPopUp"
 import ScrollToTop from "./utils/ScrollToTop"
 import LoadingScreen from "./utils/LoadingScreen"
 import BlogsPage from "./pages/Blogs/BlogPage"
+import BlogDetail from "./pages/Blogs/BlogDetail"
 
 
 
@@ -65,6 +66,7 @@ function App() {
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/price-calculator" element={<CalculateProjectCost />} />
             <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/blogs/:slug" element={<BlogDetail />} />
 
             {/* Admin Routes  */}
             <Route path="/admin/login" element={<Login />} />
