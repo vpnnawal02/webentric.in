@@ -236,7 +236,7 @@ export const pricingPackages = [
             { name: "Up to 5 Pages", desc: "Home, About, Services, Portfolio, Contact pages included." },
             { name: "Mobile Responsive Design", desc: "Fully responsive across all devices and screen sizes." },
             { name: "Basic SEO Setup", desc: "Page titles, meta descriptions, and search indexing." },
-            { name: "Contact Form", desc: "Professional form with email notifications and spam protection." },
+            { name: "Advanced UI/UX", desc: "Interactive elements, smooth animations, modern interactions." },
             { name: "Fast Loading Pages", desc: "Optimized images, minified CSS/JS, performance best practices." },
             { name: "Fast Delivery", desc: "Sites to be delivered within 5 days" }
         ],
@@ -249,7 +249,7 @@ export const pricingPackages = [
         features: [
             { name: "Up to 10 Pages", desc: "Everything in Starter + Blog, Team, FAQ pages." },
             { name: "Custom Design", desc: "Unique design tailored to your brand identity." },
-            { name: "Advanced UI/UX", desc: "Interactive elements, smooth animations, modern interactions." },
+            { name: "Contact Form", desc: "Professional form with email notifications and spam protection." },
             { name: "SEO Optimized Structure", desc: "Complete on-page SEO, schema markup, sitemap." },
             { name: "Speed Optimization", desc: "Core Web Vitals, lazy loading, advanced caching." },
             { name: "Social Media Integration", desc: "Instagram, LinkedIn, WhatsApp, Facebook links." },
@@ -257,8 +257,8 @@ export const pricingPackages = [
     },
     {
         title: "E-Commerce Website",
-        price: "₹25,999",
-        delivery: "10–14 Days",
+        price: "₹29,999",
+        delivery: "14-25 Days",
         features: [
             { name: "Product Catalog", desc: "Unlimited products with categories and filtering." },
             { name: "Shopping Cart", desc: "Persistent cart, quantity controls, wishlist." },
