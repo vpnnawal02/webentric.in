@@ -1,8 +1,10 @@
 import blog_1 from "../../assets/imgs/blog-1.jpeg"
 import blog_2 from "../../assets/imgs/blog-2.jpeg"
 import blog_3 from "../../assets/imgs/blog-3.jpeg"
+import blog_4 from "../../assets/imgs/blog-4.png"
 
 const blogs = [
+    // BLOG 1 [Why your business Needs a Professional Website to Grow in 2026]
     {
         id: 1,
         slug: "why-your-business-needs-a-website",
@@ -111,7 +113,8 @@ const blogs = [
             },
         ],
     },
-    // BLOG 2
+
+    // BLOG 2 [How much Does a Business Website Cost in India in 2026]
     {
         id: 2,
         slug: "business-website-cost-india-2026",
@@ -265,7 +268,8 @@ const blogs = [
             }
         ]
     },
-    // BLOG 3
+
+    // BLOG 3 [Custom Website vs WordPress website]
 
     {
         id: 3,
@@ -526,5 +530,108 @@ const blogs = [
         ],
     },
 
+    //BLOG 4 [Custom CRM vs Excel: When Should Your Business Upgrade?]
+    {
+        id: 4,
+        slug: "custom-crm-vs-excel",
+        title: "Custom CRM vs Excel: When Should Your Business Upgrade?",
+        category: "BUSINESS AUTOMATION",
+        tags: [
+            "CRM",
+            "BUSINESS AUTOMATION",
+            "CUSTOM SOFTWARE",
+            "PRODUCTIVITY"
+        ],
+        date: "August 6, 2026",
+        readTime: "9 min read",
+        author: "Webentric Team",
+        coverImage: blog_4,
+        content: [
+            {
+                type: "paragraph",
+                text: "For many small businesses, Microsoft Excel is the first tool used to manage customers, sales, invoices, and day-to-day operations. While Excel is simple and familiar, it eventually becomes difficult to manage as your business grows. If your team spends more time updating spreadsheets than serving customers, it may be time to upgrade to a Custom CRM."
+            },
+            {
+                type: "heading",
+                text: "Why Businesses Start with Excel"
+            },
+            {
+                type: "paragraph",
+                text: "Excel is an affordable and flexible tool that allows businesses to maintain customer records, sales information, invoices, and reports. For startups and businesses with only a few customers, spreadsheets are often enough."
+            },
+            {
+                type: "heading",
+                text: "The Hidden Problems with Excel"
+            },
+            {
+                type: "paragraph",
+                text: "As your customer base grows, spreadsheets create duplicate data, manual work, version conflicts, reporting challenges, and missed follow-ups. These issues reduce productivity and increase the likelihood of costly mistakes."
+            },
+            {
+                type: "heading",
+                text: "What Is a Custom CRM?"
+            },
+            {
+                type: "paragraph",
+                text: "A Custom CRM (Customer Relationship Management System) is software designed specifically around your business processes. Instead of adapting your workflow to generic software, the CRM is built to match how your business actually operates."
+            },
+            {
+                type: "heading",
+                text: "Excel vs Custom CRM"
+            },
+            {
+                type: "paragraph",
+                text: "Excel is suitable for basic record keeping, while a Custom CRM offers automation, centralized customer data, role-based access, real-time dashboards, lead tracking, payment management, notifications, and seamless collaboration across your entire team."
+            },
+            {
+                type: "heading",
+                text: "Signs It's Time to Upgrade"
+            },
+            {
+                type: "paragraph",
+                text: "You should consider upgrading if your business manages hundreds of customers, multiple employees edit spreadsheets, follow-ups are missed, reporting takes hours, or your administrative work is slowing business growth."
+            },
+            {
+                type: "heading",
+                text: "Benefits of a Custom CRM"
+            },
+            {
+                type: "paragraph",
+                text: "A Custom CRM centralizes customer information, automates repetitive tasks, tracks leads, generates reports, manages invoices, improves collaboration, reduces manual errors, and provides valuable business insights in real time."
+            },
+            {
+                type: "heading",
+                text: "Who Should Invest in a Custom CRM?"
+            },
+            {
+                type: "paragraph",
+                text: "Custom CRM systems are ideal for digital agencies, gyms, coaching institutes, schools, healthcare clinics, manufacturers, real estate companies, logistics businesses, and any organization managing customer relationships or sales."
+            },
+            {
+                type: "heading",
+                text: "Why Choose a Custom CRM Instead of Ready-Made Software?"
+            },
+            {
+                type: "paragraph",
+                text: "Off-the-shelf CRM platforms often include features you never use while lacking workflows your business depends on. A custom CRM is built specifically for your processes, making it easier to use, more scalable, and better suited for long-term growth."
+            },
+            {
+                type: "heading",
+                text: "How Webentric Can Help"
+            },
+            {
+                type: "paragraph",
+                text: "Webentric develops custom CRM solutions tailored to your business requirements. From lead management and customer databases to dashboards, invoicing, employee management, WhatsApp notifications, and analytics, we build software that simplifies operations and supports business growth."
+            },
+            {
+                type: "heading",
+                text: "Final Thoughts"
+            },
+            {
+                type: "paragraph",
+                text: "Excel is an excellent starting point, but it isn't designed to manage a growing business. A Custom CRM helps eliminate repetitive work, improves collaboration, and provides the insights needed to make better business decisions. If spreadsheets are slowing your team down, it's time to invest in software built for growth."
+            }
+        ]
+    }
 ]
 export default blogs;
