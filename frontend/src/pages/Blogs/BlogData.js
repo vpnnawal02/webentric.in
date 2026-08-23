@@ -2,6 +2,7 @@ import blog_1 from "../../assets/imgs/blog-1.jpeg"
 import blog_2 from "../../assets/imgs/blog-2.jpeg"
 import blog_3 from "../../assets/imgs/blog-3.jpeg"
 import blog_4 from "../../assets/imgs/blog-4.png"
+import blog_5 from "../../assets/imgs/blog-5.png"
 
 const blogs = [
     // BLOG 1 [Why your business Needs a Professional Website to Grow in 2026]
@@ -632,6 +633,252 @@ const blogs = [
                 text: "Excel is an excellent starting point, but it isn't designed to manage a growing business. A Custom CRM helps eliminate repetitive work, improves collaboration, and provides the insights needed to make better business decisions. If spreadsheets are slowing your team down, it's time to invest in software built for growth."
             }
         ]
+    },
+    {
+        id: 5,
+        slug: "why-small-business-needs-website",
+        title: "Why Your Small Business Needs a Website From Day One",
+        category: "WEBSITE DEVELOPMENT",
+        tags: [
+            "WEBSITE DESIGN",
+            "SMALL BUSINESS",
+            "BUSINESS WEBSITE",
+            "DIGITAL PRESENCE",
+            "STARTUP",
+            "ONLINE PRESENCE",
+            "BUSINESS GROWTH"
+        ],
+        date: "August 23, 2026",
+        readTime: "8 min read",
+        author: "Webentric Team",
+        coverImage: blog_5,
+        content: [
+            {
+                type: "paragraph",
+                text: "When you start a business, there are already hundreds of things to think about. Finding customers, managing finances, delivering your service, building your brand, and growing your business usually take priority. Because of this, a website can easily become something you plan to build later. But delaying your website can mean delaying one of the most important parts of your business's digital presence."
+            },
+
+            {
+                type: "paragraph",
+                text: "Today, customers often discover businesses online before they ever contact them. They may search for your business on Google, visit your website, check your services, look at your work, and decide whether your business appears trustworthy. Your website can influence that decision before you ever get the opportunity to speak with the customer."
+            },
+
+            {
+                type: "heading",
+                text: "Why Does a New Business Need a Website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website gives your business a permanent home on the internet. Social media platforms are useful for reaching people, but your business is still dependent on another platform's algorithm, policies, and features. A website gives you a digital property that you control and can build around your brand."
+            },
+
+            {
+                type: "paragraph",
+                text: "For a new business, this matters because credibility is often difficult to establish. A professional website can make a small business look more established and give potential customers an easy place to understand what the business does."
+            },
+
+            {
+                type: "heading",
+                text: "Customers Often Check Your Website Before Contacting You"
+            },
+
+            {
+                type: "paragraph",
+                text: "Imagine someone discovers your business through Instagram, Google, a recommendation, or WhatsApp. Their next step may be to search for your business online. They want to know what you offer, where you are located, how your service works, and whether your business is legitimate."
+            },
+
+            {
+                type: "paragraph",
+                text: "If they find a professional website with clear information, your business immediately has another opportunity to build trust. If they find outdated information, an incomplete social media profile, or no online presence at all, you may lose the customer before they ever contact you."
+            },
+
+            {
+                type: "heading",
+                text: "A Website Builds Trust and Credibility"
+            },
+
+            {
+                type: "paragraph",
+                text: "Trust is especially important for small and early-stage businesses. Customers are taking a risk when they buy from a business they do not know. Your website can reduce that uncertainty by clearly presenting your services, business information, previous work, testimonials, contact details, and other relevant information."
+            },
+
+            {
+                type: "paragraph",
+                text: "A website does not automatically make a business trustworthy. Poor design, slow loading speeds, broken pages, outdated information, and confusing navigation can have the opposite effect. The goal is not simply to have a website, but to have a website that represents your business professionally."
+            },
+
+            {
+                type: "heading",
+                text: "Your Website Doesn't Have to Be Complicated"
+            },
+
+            {
+                type: "paragraph",
+                text: "One common misconception among new business owners is that a professional website needs dozens of pages and expensive features. In reality, a small business can start with a simple website that communicates the essentials clearly."
+            },
+
+            {
+                type: "paragraph",
+                text: "A well-designed homepage can explain who you are, what you offer, who you serve, and what customers should do next. Depending on the business, additional pages such as About, Services, Portfolio, Testimonials, Contact, or FAQ can provide more information and help potential customers make a decision."
+            },
+
+            {
+                type: "heading",
+                text: "Instagram Gets Attention. Your Website Builds the Foundation."
+            },
+
+            {
+                type: "paragraph",
+                text: "Social media is extremely useful for growing a new business. Instagram can help people discover your brand, see your products, and engage with your content. WhatsApp can make it easy for interested customers to start a conversation."
+            },
+
+            {
+                type: "paragraph",
+                text: "But neither should be the only place your business exists online. Your website can bring together your brand, services, contact information, portfolio, testimonials, location, and important business information in one place."
+            },
+
+            {
+                type: "heading",
+                text: "A Website Can Help You Get Found on Google"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website can also become an important part of your search engine optimization strategy. When your website is properly structured and contains useful, relevant content, search engines can understand what your business offers and which searches it may be relevant for."
+            },
+
+            {
+                type: "paragraph",
+                text: "For example, a local salon may want to appear for searches related to salon services in its city, while a web development company may target searches such as website development services or website design in Delhi. A properly optimized business website gives you a platform to target these searches over time."
+            },
+
+            {
+                type: "heading",
+                text: "Your Website Works Even When You Don't"
+            },
+
+            {
+                type: "paragraph",
+                text: "Your business may not be available to answer messages at every hour of the day. A website, however, can provide information to potential customers 24/7. Visitors can learn about your services, view your work, read frequently asked questions, find your contact details, or submit an enquiry whenever they are ready."
+            },
+
+            {
+                type: "paragraph",
+                text: "This does not mean a website replaces personal communication. Instead, it handles the basic information customers need before and after they contact you, allowing you to spend more time focusing on the actual business."
+            },
+
+            {
+                type: "heading",
+                text: "What Should a Small Business Website Include?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A small business website should focus on clarity rather than unnecessary features. At a minimum, visitors should quickly understand what your business does, what products or services you provide, who you serve, and how they can contact you."
+            },
+
+            {
+                type: "paragraph",
+                text: "Depending on your industry, useful features may include service pages, product displays, online booking, enquiry forms, WhatsApp integration, testimonials, portfolios, location information, FAQs, social media links, and clear calls to action."
+            },
+
+            {
+                type: "heading",
+                text: "When Should You Build Your Website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "There is no reason to wait until your business becomes large before creating a website. In fact, building your digital presence early allows your brand to establish credibility and gradually build an online footprint as the business grows."
+            },
+
+            {
+                type: "paragraph",
+                text: "Your first website does not need to be the final version. Start with what your customers need today and improve it as your business develops. You can add new services, pages, features, content, booking systems, e-commerce functionality, and automation later."
+            },
+
+            {
+                type: "heading",
+                text: "How Much Should a Small Business Spend on a Website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "The right website budget depends on the type of business and what the website needs to accomplish. A local service business may only need a professional informational website, while an online store may require e-commerce functionality, payment integration, inventory management, and order processing."
+            },
+
+            {
+                type: "paragraph",
+                text: "The important thing is to avoid spending money on features that do not provide value. A simple, fast, mobile-friendly website with strong design and clear messaging is often more useful for an early-stage business than an expensive website filled with unnecessary functionality."
+            },
+
+            {
+                type: "heading",
+                text: "Why Mobile-Friendly Website Design Matters"
+            },
+
+            {
+                type: "paragraph",
+                text: "A large portion of online browsing happens on smartphones, which means your website needs to work properly on mobile devices. Text should be readable, navigation should be simple, pages should load quickly, and important actions such as calling, messaging, booking, or submitting an enquiry should be easy to access."
+            },
+
+            {
+                type: "paragraph",
+                text: "A website that looks good only on a desktop computer is not enough for a modern small business. Responsive website design should be considered a basic requirement rather than an optional feature."
+            },
+
+            {
+                type: "heading",
+                text: "Your Website Is More Than a Digital Brochure"
+            },
+
+            {
+                type: "paragraph",
+                text: "A good business website is not simply a collection of pages containing information about your company. It can become a central part of your marketing and sales process."
+            },
+
+            {
+                type: "paragraph",
+                text: "It can attract visitors through search engines, support your social media campaigns, showcase your products or services, generate enquiries, collect leads, answer customer questions, and guide visitors toward taking action. As your business grows, the website can grow with it."
+            },
+
+            {
+                type: "heading",
+                text: "How Webentric Can Help"
+            },
+
+            {
+                type: "paragraph",
+                text: "Webentric builds modern, responsive websites for small businesses, startups, and growing brands. Our focus is on creating websites that are fast, professional, mobile-friendly, easy to navigate, and designed around the goals of the business."
+            },
+
+            {
+                type: "paragraph",
+                text: "Whether you need a simple business website, a service-based website, an e-commerce store, a landing page, or a more advanced web application, we can help you build a digital presence that supports your business instead of simply existing online."
+            },
+
+            {
+                type: "heading",
+                text: "Final Thoughts"
+            },
+
+            {
+                type: "paragraph",
+                text: "When you're building a business from the ground up, it is easy to think that a website can wait until you have more customers, more revenue, or a bigger team. But your digital presence is part of how customers discover and evaluate your business today."
+            },
+
+            {
+                type: "paragraph",
+                text: "Instagram can bring attention. WhatsApp can start conversations. But your website gives your business a place that you own, control, and can build over time."
+            },
+
+            {
+                type: "paragraph",
+                text: "You do not need to start with the biggest or most expensive website. Start with a website that clearly communicates who you are, what you offer, and why customers should choose you. Small business today. Strong brand tomorrow."
+            }
+        ]
     }
+
 ]
 export default blogs;
