@@ -3,6 +3,7 @@ import blog_2 from "../../assets/imgs/blog-2.jpeg"
 import blog_3 from "../../assets/imgs/blog-3.jpeg"
 import blog_4 from "../../assets/imgs/blog-4.png"
 import blog_5 from "../../assets/imgs/blog-5.png"
+import blog_6 from "../../assets/imgs/blog-6.png"
 
 const blogs = [
     // BLOG 1 [Why your business Needs a Professional Website to Grow in 2026]
@@ -634,6 +635,7 @@ const blogs = [
             }
         ]
     },
+    //BLOG 5 [Why small business needs website]
     {
         id: 5,
         slug: "why-small-business-needs-website",
@@ -878,7 +880,336 @@ const blogs = [
                 text: "You do not need to start with the biggest or most expensive website. Start with a website that clearly communicates who you are, what you offer, and why customers should choose you. Small business today. Strong brand tomorrow."
             }
         ]
+    },
+    //Blog 6 [What does it cost and what does it include]
+    {
+        id: 6,
+        slug: "website-maintenance-cost",
+        title: "Website Maintenance: What Does It Cost and What Does It Include?",
+        category: "WEBSITE DEVELOPMENT",
+        metaTitle: "Website Maintenance Cost in India (2026): What Does It Include?",
+        metaDescription: "Learn how much website maintenance costs in India, what website maintenance includes, and whether your business really needs a monthly maintenance plan.",
+        tags: [
+            "WEBSITE MAINTENANCE",
+            "WEBSITE COST",
+            "BUSINESS WEBSITE",
+            "SMALL BUSINESS",
+            "WEBSITE DEVELOPMENT",
+            "WEBSITE SECURITY",
+            "WEB DEVELOPMENT"
+        ],
+        date: "September 1, 2026",
+        readTime: "7 min read",
+        author: "Webentric Team",
+        coverImage: blog_6,
+        content: [
+            {
+                type: "paragraph",
+                text: "Getting a website built is an important step for any business, but launching the website does not mean the work is completely finished. Just like any other part of your business, a website needs occasional updates, security checks, content changes, and technical maintenance to keep working properly."
+            },
+
+            {
+                type: "paragraph",
+                text: "But what exactly does website maintenance include? How much does it cost? And does every business really need to pay for monthly website maintenance? In this guide, we'll explain what website maintenance means and what you should expect when paying for it."
+            },
+
+            {
+                type: "heading",
+                text: "What Is Website Maintenance?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website maintenance is the ongoing work required to keep a website functional, secure, updated, and useful for its visitors. This can include everything from fixing broken features and updating content to managing hosting, backups, security, and performance."
+            },
+
+            {
+                type: "paragraph",
+                text: "The amount of maintenance a website needs depends on how it was built and what it is used for. A simple business website may only need occasional updates, while an e-commerce website or web application may require regular technical monitoring."
+            },
+
+            {
+                type: "heading",
+                text: "Why Does a Website Need Maintenance?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website may continue working for months without anyone touching it, but that does not mean it should be completely ignored. Software gets updated, third-party services change, security vulnerabilities are discovered, and business information becomes outdated."
+            },
+
+            {
+                type: "paragraph",
+                text: "Regular maintenance helps identify these problems before they affect your customers. A broken contact form, expired SSL certificate, outdated information, or slow-loading page can make a business look less professional and may cause you to lose potential customers."
+            },
+
+            {
+                type: "heading",
+                text: "What Does Website Maintenance Include?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website maintenance is not a single task. It usually involves several different areas depending on the website and the business requirements."
+            },
+
+            {
+                type: "heading",
+                text: "Content Updates"
+            },
+
+            {
+                type: "paragraph",
+                text: "Businesses often need to change information on their websites. This could include updating service details, prices, contact information, business hours, images, team members, offers, or adding new pages and blog posts."
+            },
+
+            {
+                type: "paragraph",
+                text: "These changes may be small, but keeping your website information accurate is important. Customers should be able to trust the information they find on your website."
+            },
+
+            {
+                type: "heading",
+                text: "Security Updates"
+            },
+
+            {
+                type: "paragraph",
+                text: "Security is one of the most important parts of website maintenance. Depending on the technology used, websites may require regular updates to their software, frameworks, plugins, libraries, or other dependencies."
+            },
+
+            {
+                type: "paragraph",
+                text: "Security maintenance can also include checking for suspicious activity, managing access, keeping SSL certificates active, and making sure important parts of the website are properly protected."
+            },
+
+            {
+                type: "heading",
+                text: "Website Backups"
+            },
+
+            {
+                type: "paragraph",
+                text: "Backups provide a way to recover your website if something goes wrong. A failed update, accidental deletion, hosting problem, or security incident can potentially cause data or website files to be lost."
+            },
+
+            {
+                type: "paragraph",
+                text: "A good maintenance process should include regular backups and, more importantly, a clear way to restore those backups when necessary."
+            },
+
+            {
+                type: "heading",
+                text: "Fixing Bugs and Broken Features"
+            },
+
+            {
+                type: "paragraph",
+                text: "Websites can develop problems over time. A contact form may stop working, a page may display incorrectly on mobile devices, an integration may stop responding, or a button may no longer perform the expected action."
+            },
+
+            {
+                type: "paragraph",
+                text: "Website maintenance can include identifying these problems and fixing them before they have a significant impact on customers."
+            },
+
+            {
+                type: "heading",
+                text: "Performance Optimization"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website speed can also change over time. Large images, unnecessary files, outdated code, inefficient database queries, or changes in hosting can affect how quickly pages load."
+            },
+
+            {
+                type: "paragraph",
+                text: "Maintenance can include checking website performance, optimizing images and resources, improving page loading times, and identifying technical issues that may be slowing the website down."
+            },
+
+            {
+                type: "heading",
+                text: "Domain, Hosting and SSL Management"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website depends on more than just its code. Domain registration, hosting, DNS configuration, SSL certificates, email services, and other infrastructure can also require attention."
+            },
+
+            {
+                type: "paragraph",
+                text: "For business owners who do not want to manage these technical details themselves, website maintenance can provide a convenient way to keep everything running without having to deal with technical issues personally."
+            },
+
+            {
+                type: "heading",
+                text: "How Much Does Website Maintenance Cost in India?"
+            },
+
+            {
+                type: "paragraph",
+                text: "There is no fixed website maintenance price because different websites require different levels of support. A simple five-page business website does not need the same maintenance as an online store with hundreds of products and customer accounts."
+            },
+
+            {
+                type: "paragraph",
+                text: "For small businesses in India, basic website maintenance can often start from a few hundred to a few thousand rupees per month. More complex websites, e-commerce stores, and custom web applications can require significantly higher maintenance budgets."
+            },
+
+            {
+                type: "paragraph",
+                text: "The cost usually depends on factors such as the technology used, number of pages, frequency of content updates, hosting requirements, security needs, integrations, traffic, and the amount of technical support required."
+            },
+
+            {
+                type: "heading",
+                text: "Do You Need Monthly Website Maintenance?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Not every website needs someone actively working on it every month. A simple business website that rarely changes may only require occasional updates, backups, and technical checks."
+            },
+
+            {
+                type: "paragraph",
+                text: "However, regular maintenance becomes more valuable when your website is an important part of your business. If your website generates leads, accepts orders, handles bookings, publishes content regularly, or has customer accounts, problems can directly affect your business."
+            },
+
+            {
+                type: "heading",
+                text: "Website Maintenance vs Website Redesign"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website maintenance and website redesign are two different things. Maintenance focuses on keeping your existing website working properly, while a redesign involves making significant changes to the website's appearance, structure, functionality, or technology."
+            },
+
+            {
+                type: "paragraph",
+                text: "For example, changing your phone number, fixing a broken form, updating an image, or adding a small section would normally be considered maintenance. Completely changing the design or rebuilding an outdated website would be considered a redesign or new development."
+            },
+
+            {
+                type: "heading",
+                text: "Can You Maintain Your Website Yourself?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Yes, depending on the website. Business owners with the required technical knowledge can handle many basic updates themselves, especially when using a simple content management system."
+            },
+
+            {
+                type: "paragraph",
+                text: "The problem is that technical maintenance takes time. Someone still needs to check backups, update software, monitor the website, fix problems, and deal with hosting or security issues when they occur."
+            },
+
+            {
+                type: "paragraph",
+                text: "For many business owners, outsourcing website maintenance is less about avoiding technical work completely and more about freeing up time to focus on running the actual business."
+            },
+
+            {
+                type: "heading",
+                text: "What Should a Website Maintenance Plan Include?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Before choosing a website maintenance service, make sure you understand exactly what is included. A low monthly price may sound attractive, but it may only cover basic hosting or minor updates."
+            },
+
+            {
+                type: "paragraph",
+                text: "Depending on your website, a maintenance plan may include security updates, backups, bug fixes, content updates, performance checks, SSL management, hosting support, domain management, and technical assistance."
+            },
+
+            {
+                type: "paragraph",
+                text: "It is also important to understand what is not included. A small content change and a complete new website feature are very different types of work. Good maintenance plans clearly separate regular maintenance from new development."
+            },
+
+            {
+                type: "heading",
+                text: "What Happens If You Don't Maintain Your Website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "You may not notice a problem immediately. A website can continue working normally even when it has outdated software, old content, or technical issues developing in the background."
+            },
+
+            {
+                type: "paragraph",
+                text: "Over time, however, small problems can become bigger ones. A broken integration could stop generating enquiries, outdated information could confuse customers, or an unmaintained website could become more difficult and expensive to repair."
+            },
+
+            {
+                type: "paragraph",
+                text: "Website maintenance is not about constantly changing your website. It is about making sure the important parts continue to work when your customers need them."
+            },
+
+            {
+                type: "heading",
+                text: "How Often Should a Website Be Maintained?"
+            },
+
+            {
+                type: "paragraph",
+                text: "The ideal maintenance schedule depends on the type of website. A simple business website may only need periodic checks, while an e-commerce store or custom web application may require much more frequent monitoring."
+            },
+
+            {
+                type: "paragraph",
+                text: "If your website handles payments, customer accounts, bookings, orders, or other important business processes, regular maintenance is much more important because technical problems can directly affect your operations."
+            },
+
+            {
+                type: "heading",
+                text: "How Webentric Can Help"
+            },
+
+            {
+                type: "paragraph",
+                text: "Webentric provides website development and maintenance services for small businesses, startups, and growing brands. We can help with website updates, technical fixes, performance improvements, security-related maintenance, and ongoing website support."
+            },
+
+            {
+                type: "paragraph",
+                text: "Whether you have a simple business website, an e-commerce store, or a custom web application, our goal is to keep your website reliable, professional, and ready for your customers."
+            },
+
+            {
+                type: "heading",
+                text: "Final Thoughts"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website is not something you build once and completely forget about. As your business grows and technology changes, your website may need updates, improvements, security checks, and occasional technical support."
+            },
+
+            {
+                type: "paragraph",
+                text: "The good news is that not every business needs an expensive monthly maintenance plan. The right approach depends on your website, how often it changes, and how important it is to your business."
+            },
+
+            {
+                type: "paragraph",
+                text: "The goal of website maintenance is simple: keep your website secure, functional, fast, and accurate so that your customers can rely on it."
+            },
+
+            {
+                type: "paragraph",
+                text: "If your website is an important part of your business, maintaining it is not just a technical expense. It is part of protecting your digital presence."
+            }
+        ]
     }
+
 
 ]
 export default blogs;
