@@ -14,6 +14,7 @@ import booking_platform from './booking-platform.png'
 import maple_prints from './maple-prints.png'
 import school from './school.png'
 import about from './about.png'
+import avanza from '../imgs/Projects/avanza.png'
 
 // importing icons
 import {
@@ -68,7 +69,8 @@ export const images = {
     booking_platform,
     maple_prints,
     school,
-    about
+    about,
+    avanza
 }
 
 export const icons = {

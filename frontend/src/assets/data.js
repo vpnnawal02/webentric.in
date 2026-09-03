@@ -11,6 +11,14 @@ export const projects = [
         link: 'https://standrewschoolwebsite.netlify.app/'
     },
     {
+        title: "Avanza Survey",
+        description:
+            "A modern corporate website designed to showcase the company’s services, expertise, leadership, and capabilities through a clean, professional, and responsive digital experience. Built with a focus on performance, usability, and a strong brand presence.",
+        tech: "React • Tailwind • Framer Motion • SMTP • Netlify",
+        image: images.avanza,
+        link: 'https://avanzasurvey.netlify.app/'
+    },
+    {
         title: "Interior Design",
         description:
             "A sleek interior design website showcasing stylish spaces, services, and easy ways to connect with designers.",
