@@ -27,6 +27,14 @@ export const projects = [
         link: 'https://69e1fc47d738729194709684--heartfelt-valkyrie-f8acf5.netlify.app/'
     },
     {
+        title: "Travel Agency",
+        description:
+            "A modern travel agency website showcasing destinations, travel packages, and seamless ways for customers to plan and enquire about their next trip.",
+        tech: "React • Tailwind",
+        image: images.travel_agency,
+        link: "https://travel-agency-webentric.netlify.app/"
+    },
+    {
         title: "Salon Website",
         description:
             "A fully responsive salon landing page built using React, featuring clean UI, smooth animations, and optimized performance for a modern web experience.",
