@@ -6,13 +6,13 @@ const ContactButtons = () => {
 
     return (
         <div
-            className="fixed right-0 top-3/4 md:top-60 -translate-y-1/2 z-40 hidden md:flex items-center"
+            className="fixed right-0 top-3/4 md:top-140 -translate-y-1/2 z-40 hidden md:flex items-center"
             onMouseLeave={() => setIsOpen(false)}
         >
             {/* Contact panel */}
             <div
                 className={`mr-2 border border-white/10 bg-black/90 backdrop-blur-md flex flex-col gap-2 p-3 transition-all duration-300 ease-out
-                ${isOpen ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 translate-x-4 pointer-events-none"}`}
+                ${isOpen ? "opacity-100 translate-x-0 pointer-events-auto visible" : "opacity-0 translate-x-4 pointer-events-none invisible"}`}
             >
                 {CONTACT_ITEMS.map((item) => {
                     const Icon = item.icon;
@@ -47,7 +47,7 @@ const ContactButtons = () => {
                 onClick={() => setIsOpen((prev) => !prev)}
                 aria-expanded={isOpen}
                 aria-label="Open contact options"
-                className="h-36 w-11 md:w-12 border border-white/10 bg-white text-black text-[10px] font-semibold flex items-center justify-center tracking-[0.18em] uppercase rotate-180 [writing-mode:vertical-rl] transition-all duration-300 hover:bg-white/85"
+                className="h-36 w-11 md:w-12 border border-white/10 bg-white text-black text-[10px] font-semibold flex items-center justify-center tracking-[0.18em] uppercase rotate-180 [writing-mode:vertical-rl] transition-all duration-300 hover:bg-white/85 pointer-events-auto"
             >
                 Contact
             </button>

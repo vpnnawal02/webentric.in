@@ -1,10 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { pricingPackages, addons, faqs } from '../assets/data';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Globe, Check } from 'lucide-react';
 import PopUpForm from '../components/PopUpForm';
+
+// Base prices in data.js are in INR.
+// INR selected -> show original value as-is (e.g. ₹10,000 stays ₹10,000).
+// Any other currency -> double the INR value first, then convert
+// (e.g. ₹10,000 -> ₹20,000 base -> $227).
+const CURRENCIES = [
+    { code: 'INR', label: 'INR – Indian Rupee (₹)', locale: 'en-IN', rate: 1 },
+    { code: 'USD', label: 'USD – US Dollar ($)', locale: 'en-US', rate: 1 / 88 },
+    { code: 'EUR', label: 'EUR – Euro (€)', locale: 'de-DE', rate: 1 / 102 },
+    { code: 'GBP', label: 'GBP – British Pound (£)', locale: 'en-GB', rate: 1 / 118.5 },
+    { code: 'AED', label: 'AED – UAE Dirham', locale: 'ar-AE', rate: 1 / 23.97 },
+    { code: 'SAR', label: 'SAR – Saudi Riyal', locale: 'ar-SA', rate: 1 / 23.46 },
+    { code: 'QAR', label: 'QAR – Qatari Riyal', locale: 'ar-QA', rate: 1 / 24.17 },
+    { code: 'KWD', label: 'KWD – Kuwaiti Dinar', locale: 'ar-KW', rate: 1 / 287 },
+    { code: 'AUD', label: 'AUD – Australian Dollar', locale: 'en-AU', rate: 1 / 58.2 },
+    { code: 'CAD', label: 'CAD – Canadian Dollar', locale: 'en-CA', rate: 1 / 64.1 },
+    { code: 'SGD', label: 'SGD – Singapore Dollar', locale: 'en-SG', rate: 1 / 69.1 },
+    { code: 'JPY', label: 'JPY – Japanese Yen (¥)', locale: 'ja-JP', rate: 1.7 },
+    { code: 'CNY', label: 'CNY – Chinese Yuan (¥)', locale: 'zh-CN', rate: 1 / 12.35 },
+    { code: 'KRW', label: 'KRW – South Korean Won (₩)', locale: 'ko-KR', rate: 15.68 },
+    { code: 'CHF', label: 'CHF – Swiss Franc', locale: 'de-CH', rate: 1 / 110.5 },
+    { code: 'NZD', label: 'NZD – New Zealand Dollar', locale: 'en-NZ', rate: 1 / 52.5 },
+    { code: 'ZAR', label: 'ZAR – South African Rand (R)', locale: 'en-ZA', rate: 1 / 5.05 },
+    { code: 'BRL', label: 'BRL – Brazilian Real (R$)', locale: 'pt-BR', rate: 1 / 16.4 },
+    { code: 'MYR', label: 'MYR – Malaysian Ringgit (RM)', locale: 'ms-MY', rate: 1 / 20.95 },
+    { code: 'IDR', label: 'IDR – Indonesian Rupiah (Rp)', locale: 'id-ID', rate: 185.2 },
+    { code: 'THB', label: 'THB – Thai Baht (฿)', locale: 'th-TH', rate: 0.37 },
+    { code: 'HKD', label: 'HKD – Hong Kong Dollar (HK$)', locale: 'en-HK', rate: 1 / 11.29 },
+    { code: 'PHP', label: 'PHP – Philippine Peso (₱)', locale: 'en-PH', rate: 1 / 1.52 },
+];
+
+const parseInrAmount = (priceStr) => Number(String(priceStr).replace(/[^0-9]/g, '')) || 0;
+
+const formatConvertedPrice = (priceStr, currency) => {
+    const isMonthly = String(priceStr).toLowerCase().includes('/month');
+    const baseInr = parseInrAmount(priceStr);
+    // Keep INR exactly as set; only foreign currencies use the doubled base.
+    const inrForConversion = currency.code === 'INR' ? baseInr : baseInr * 3;
+    const converted = inrForConversion * currency.rate;
+
+    try {
+        const formatted = new Intl.NumberFormat(currency.locale, {
+            style: 'currency',
+            currency: currency.code,
+            maximumFractionDigits: 0,
+            minimumFractionDigits: 0,
+        }).format(converted);
+        return isMonthly ? `${formatted}/month` : formatted;
+    } catch {
+        return isMonthly ? `${converted.toFixed(0)} ${currency.code}/month` : `${converted.toFixed(0)} ${currency.code}`;
+    }
+};
 
 const Pricing = () => {
     const [activeFaq, setActiveFaq] = useState(null);
+    const [currencyCode, setCurrencyCode] = useState('INR');
+    const currency = CURRENCIES.find((c) => c.code === currencyCode) || CURRENCIES[0];
+    const [currencyOpen, setCurrencyOpen] = useState(false);
+    const currencyRef = useRef(null);
+
+    useEffect(() => {
+        if (!currencyOpen) return;
+        const handleClickOutside = (e) => {
+            if (currencyRef.current && !currencyRef.current.contains(e.target)) {
+                setCurrencyOpen(false);
+            }
+        };
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') setCurrencyOpen(false);
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('keydown', handleEscape);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keydown', handleEscape);
+        };
+    }, [currencyOpen]);
     const [tooltip, setTooltip] = useState({
         show: false,
         content: '',
@@ -35,12 +109,76 @@ const Pricing = () => {
     };
 
     return (
-        <div className="bg-black min-h-screen text-white">
+        <div className="relative bg-black min-h-screen text-white">
             <PopUpForm open={open} setOpen={setOpen} />
 
+            {/* Currency switcher — absolute top-right, overlays without pushing layout */}
+            <div className="absolute top-3 right-3 sm:top-6 sm:right-6 lg:right-10 z-30">
+                <div ref={currencyRef} className="relative flex flex-col items-end gap-1.5">
+                    <span
+                        id="currency-label"
+                        className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-white/50"
+                    >
+                        Currency
+                    </span>
+                    <button
+                        type="button"
+                        onClick={() => setCurrencyOpen((o) => !o)}
+                        aria-expanded={currencyOpen}
+                        aria-haspopup="listbox"
+                        aria-labelledby="currency-label"
+                        className="w-[172px] sm:w-auto sm:min-w-[240px] max-w-[calc(100vw-1.5rem)] flex items-center gap-2 bg-white/[0.03] border border-white/20 hover:border-white/40 text-white text-xs sm:text-sm font-medium pl-3 pr-3 py-2 sm:py-2.5 outline-none cursor-pointer transition-colors focus:border-white/60"
+                    >
+                        <Globe size={16} className="text-white/50 flex-shrink-0 pointer-events-none" />
+                        <span className="flex-1 text-left truncate pointer-events-none">{currency.label}</span>
+                        <ChevronDown
+                            size={16}
+                            className={`text-white/50 flex-shrink-0 pointer-events-none transition-transform duration-200 ${currencyOpen ? 'rotate-180' : ''}`}
+                        />
+                    </button>
+                    {currencyOpen && (
+                        <ul
+                            role="listbox"
+                            aria-label="Select currency"
+                            className="absolute right-0 top-full mt-2 w-[220px] sm:w-[260px] max-w-[calc(100vw-1.5rem)] max-h-64 overflow-y-auto bg-black border border-white/20 shadow-2xl shadow-black/60 z-30 py-1"
+                        >
+                            {CURRENCIES.map((c) => {
+                                const selected = c.code === currencyCode;
+                                return (
+                                    <li key={c.code} role="presentation">
+                                        <button
+                                            type="button"
+                                            role="option"
+                                            aria-selected={selected}
+                                            onClick={() => {
+                                                setCurrencyCode(c.code);
+                                                setCurrencyOpen(false);
+                                            }}
+                                            className={`w-full flex items-center justify-between gap-2 px-4 py-2.5 text-xs sm:text-sm text-left transition-colors cursor-pointer ${selected
+                                                ? 'bg-white text-black font-semibold'
+                                                : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                                }`}
+                                        >
+                                            <span className="truncate">{c.label}</span>
+                                            {selected && <Check size={15} className="flex-shrink-0" />}
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
+                    <p className="hidden sm:block text-[11px] text-white/35 text-right">
+                        {currencyCode === 'INR'
+                            ? 'Prices in INR as listed'
+                            : 'Converted from doubled INR base'}
+                    </p>
+                </div>
+            </div>
+
             <div className="max-w-7xl mx-auto px-6 py-12 sm:py-16 lg:py-20">
+
                 {/* 1. Pricing Hero */}
-                <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 md:mb-20">
+                <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 md:mb-20 pt-14 sm:pt-0">
                     <p className="text-[20px] uppercase tracking-[0.22em] text-white/60">
                         PRICING
                     </p>
@@ -88,7 +226,7 @@ const Pricing = () => {
                             </p>
 
                             <div className="text-4xl md:text-5xl font-medium tracking-[-0.05em] text-white mb-2 text-center mt-2">
-                                {plan.price}
+                                {formatConvertedPrice(plan.price, currency)}
                             </div>
 
                             <p className="text-white/50 text-sm text-center mb-8">
@@ -166,7 +304,7 @@ const Pricing = () => {
                                     {addon.name}
                                 </h4>
                                 <p className="text-white/55 font-medium text-sm md:text-lg">
-                                    {addon.price}
+                                    {formatConvertedPrice(addon.price, currency)}
                                 </p>
                             </div>
                         ))}
