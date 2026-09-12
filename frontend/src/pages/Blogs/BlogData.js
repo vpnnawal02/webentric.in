@@ -4,6 +4,7 @@ import blog_3 from "../../assets/imgs/blog-3.jpeg"
 import blog_4 from "../../assets/imgs/blog-4.png"
 import blog_5 from "../../assets/imgs/blog-5.png"
 import blog_6 from "../../assets/imgs/blog-6.png"
+import blog_7 from "../../assets/imgs/blog-7.png"
 
 const blogs = [
     // BLOG 1 [Why your business Needs a Professional Website to Grow in 2026]
@@ -1206,6 +1207,284 @@ const blogs = [
             {
                 type: "paragraph",
                 text: "If your website is an important part of your business, maintaining it is not just a technical expense. It is part of protecting your digital presence."
+            }
+        ]
+    },
+    {
+        id: 7,
+        slug: "website-designer",
+        title: "Website Designer: Why Your Business Needs a Professional Website in 2026",
+        category: "WEBSITE DEVELOPMENT",
+        metaTitle: "Website Designer in India (2026): Why Your Business Needs One",
+        metaDescription: "Learn why hiring a professional website designer can improve your business website, user experience, credibility, SEO, and online presence.",
+        tags: [
+            "WEBSITE DESIGNER",
+            "WEBSITE DESIGN",
+            "BUSINESS WEBSITE",
+            "WEB DESIGN",
+            "SMALL BUSINESS",
+            "WEBSITE DEVELOPMENT",
+            "SEO",
+            "WEB DEVELOPMENT"
+        ],
+        date: "September 12, 2026",
+        readTime: "7 min read",
+        author: "Webentric Team",
+        coverImage: blog_7,
+        content: [
+            {
+                type: "paragraph",
+                text: "In 2026, your website is often the first interaction a potential customer has with your business. Before making a purchase, sending an enquiry, booking a service, or contacting your team, people increasingly search for businesses online. When they visit your website, they quickly form an opinion about your brand."
+            },
+
+            {
+                type: "paragraph",
+                text: "This is where a professional website designer can make a significant difference. A well-designed website is not just about attractive colours, images, and animations. It should communicate your brand, provide a smooth user experience, build trust, and help your business achieve its goals."
+            },
+
+            {
+                type: "heading",
+                text: "What Does a Website Designer Do?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website designer is responsible for planning and creating the visual and user experience of a website. This includes decisions related to layout, typography, colours, spacing, navigation, images, calls-to-action, and the overall structure of the website."
+            },
+
+            {
+                type: "paragraph",
+                text: "However, professional website design goes beyond making a website look good. A good website designer also considers how visitors will use the website and how the design can support the business objective behind it."
+            },
+
+            {
+                type: "heading",
+                text: "Why Does Your Business Need a Professional Website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website has become an important part of how customers discover and evaluate businesses. Whether you run a local business, startup, professional service, e-commerce store, or growing brand, your website can influence whether a visitor decides to contact you or move on to another business."
+            },
+
+            {
+                type: "paragraph",
+                text: "A professional website designer can help create an online presence that reflects the quality of your actual business. Your website should make it easy for visitors to understand what you offer, why they should choose you, and what they should do next."
+            },
+
+            {
+                type: "heading",
+                text: "Your Website Creates the First Impression"
+            },
+
+            {
+                type: "paragraph",
+                text: "Customers often judge a business based on its digital presence. An outdated website, confusing navigation, inconsistent branding, or poorly presented information can reduce trust even before a customer contacts you."
+            },
+
+            {
+                type: "paragraph",
+                text: "On the other hand, a clean and professional website can communicate credibility immediately. A website designer helps ensure that your branding, content, visuals, and layout work together to create a consistent first impression."
+            },
+
+            {
+                type: "heading",
+                text: "Good Website Design Is More Than Looks"
+            },
+
+            {
+                type: "paragraph",
+                text: "One of the biggest misconceptions about website design is that a visually attractive website is automatically a successful website. In reality, a website can look impressive and still provide a poor experience for visitors."
+            },
+
+            {
+                type: "paragraph",
+                text: "For example, a website may use impressive animations but have confusing navigation. It may have beautiful images but load slowly. It may have a modern design but make it difficult for customers to find contact information."
+            },
+
+            {
+                type: "paragraph",
+                text: "A professional website designer balances visual design with usability, performance, accessibility, and business objectives. The goal is not to add as many effects as possible. The goal is to create an experience that works."
+            },
+
+            {
+                type: "heading",
+                text: "Mobile-Friendly Design Is Essential"
+            },
+
+            {
+                type: "paragraph",
+                text: "A large portion of website traffic now comes from smartphones. This means your website needs to work properly on smaller screens, not just on desktop computers."
+            },
+
+            {
+                type: "paragraph",
+                text: "A responsive website should allow visitors to read content, browse pages, view products or services, and contact your business comfortably from a mobile device."
+            },
+
+            {
+                type: "paragraph",
+                text: "A website designer considers different screen sizes during the design process so that the website remains usable across smartphones, tablets, laptops, and desktop computers."
+            },
+
+            {
+                type: "heading",
+                text: "Website Design and SEO Work Together"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website should not only be designed for people. It should also be structured in a way that allows search engines to understand its content."
+            },
+
+            {
+                type: "paragraph",
+                text: "Website design and SEO can work together through clear page structures, proper heading hierarchy, mobile responsiveness, fast loading performance, descriptive content, optimised images, internal linking, and user-friendly navigation."
+            },
+
+            {
+                type: "paragraph",
+                text: "A website designer who understands these fundamentals can help create a website that provides a better experience for visitors while also establishing a stronger technical foundation for search engine optimisation."
+            },
+
+            {
+                type: "heading",
+                text: "How a Professional Website Can Generate Leads"
+            },
+
+            {
+                type: "paragraph",
+                text: "Your website should guide visitors toward meaningful actions. Depending on your business, this could mean calling your business, sending an enquiry, booking an appointment, requesting a quotation, purchasing a product, or starting a conversation on WhatsApp."
+            },
+
+            {
+                type: "paragraph",
+                text: "A website designer can strategically position calls-to-action, contact information, forms, service details, and other important elements so visitors can take the next step without unnecessary friction."
+            },
+
+            {
+                type: "heading",
+                text: "Should You Use a Website Builder or Hire a Website Designer?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website builders have made it easier for almost anyone to create a basic website. For a simple personal project or basic landing page, a website builder may be sufficient."
+            },
+
+            {
+                type: "paragraph",
+                text: "However, businesses with specific branding, functionality, SEO, performance, or conversion requirements may benefit from professional website design and development."
+            },
+
+            {
+                type: "paragraph",
+                text: "A professional website designer can help when you need a custom visual identity, better user experience, custom functionality, e-commerce features, integrations, responsive design, or a website built around specific business goals."
+            },
+
+            {
+                type: "heading",
+                text: "How to Choose the Right Website Designer"
+            },
+
+            {
+                type: "paragraph",
+                text: "Choosing a website designer should involve more than looking at a portfolio and selecting the cheapest option. The right designer should understand your business, your customers, and the purpose of your website."
+            },
+
+            {
+                type: "paragraph",
+                text: "Before hiring someone, look at their previous work, mobile designs, user experience, technical capabilities, communication, and understanding of SEO fundamentals."
+            },
+
+            {
+                type: "paragraph",
+                text: "It is also important to understand exactly what you are paying for. Website design, website development, hosting, domain registration, maintenance, content creation, and SEO can be separate services."
+            },
+
+            {
+                type: "heading",
+                text: "How Much Does a Website Designer Cost in India?"
+            },
+
+            {
+                type: "paragraph",
+                text: "There is no single fixed price for hiring a website designer in India. The cost depends on the complexity of the website, number of pages, design requirements, functionality, technology, integrations, content, and level of customisation required."
+            },
+
+            {
+                type: "paragraph",
+                text: "A simple business website may cost significantly less than a custom e-commerce website or web application. Businesses should therefore compare the scope and deliverables of different proposals instead of comparing only the final price."
+            },
+
+            {
+                type: "paragraph",
+                text: "The cheapest website is not necessarily the most cost-effective option. A website that fails to generate enquiries, performs poorly on mobile devices, or requires expensive rebuilding later can ultimately cost more."
+            },
+
+            {
+                type: "heading",
+                text: "When Should You Redesign Your Existing Website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Not every old website needs to be completely rebuilt. Sometimes small improvements to content, design, performance, or functionality may be enough."
+            },
+
+            {
+                type: "paragraph",
+                text: "However, a redesign may be worth considering if your website looks outdated, is difficult to use on mobile devices, loads slowly, has poor navigation, no longer represents your brand, or is failing to support your business goals."
+            },
+
+            {
+                type: "paragraph",
+                text: "A professional website designer can evaluate your existing website and determine whether it needs minor improvements, a visual redesign, or a complete rebuild."
+            },
+
+            {
+                type: "heading",
+                text: "Webentric: Website Design for Modern Businesses"
+            },
+
+            {
+                type: "paragraph",
+                text: "At Webentric, we approach website design as a combination of design, technology, user experience, and business strategy. We believe a website should have a clear purpose rather than simply exist because every business is expected to have one."
+            },
+
+            {
+                type: "paragraph",
+                text: "Different businesses need different digital experiences. A photographer may need an immersive portfolio, a local service business may need a website focused on enquiries, an e-commerce business may need a smooth shopping experience, and an educational business may require structured content and interactive features."
+            },
+
+            {
+                type: "paragraph",
+                text: "Our goal is to create websites that are modern, responsive, purposeful, and aligned with the businesses behind them."
+            },
+
+            {
+                type: "heading",
+                text: "Final Thoughts"
+            },
+
+            {
+                type: "paragraph",
+                text: "Your website is more than an online business card. It is a digital representation of your brand and one of the most important touchpoints between your business and potential customers."
+            },
+
+            {
+                type: "paragraph",
+                text: "Hiring the right website designer can help you create a website that looks professional, works smoothly, communicates your value clearly, and guides visitors toward becoming customers."
+            },
+
+            {
+                type: "paragraph",
+                text: "The best website is not necessarily the one with the most animations or the most complicated design. It is the one that successfully combines visual appeal, usability, performance, technology, and business objectives."
+            },
+
+            {
+                type: "paragraph",
+                text: "If your business needs a website that is designed around your brand and your goals, Webentric can help you build a digital presence that works as a genuine business asset."
             }
         ]
     }
