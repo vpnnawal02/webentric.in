@@ -167,11 +167,7 @@ const Pricing = () => {
                             })}
                         </ul>
                     )}
-                    <p className="hidden sm:block text-[11px] text-white/35 text-right">
-                        {currencyCode === 'INR'
-                            ? 'Prices in INR as listed'
-                            : 'Converted from doubled INR base'}
-                    </p>
+
                 </div>
             </div>
 
