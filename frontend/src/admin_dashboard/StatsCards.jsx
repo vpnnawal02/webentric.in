@@ -13,10 +13,10 @@ export default function StatsCards({ stats }) {
             {cards.map((card) => (
                 <div
                     key={card.label}
-                    className="rounded-sm border border-gray-200 bg-white px-3 py-3"
+                    className="rounded-sm border border-line bg-surface px-3 py-3"
                 >
-                    <p className="text-xs text-gray-500">{card.label}</p>
-                    <p className="mt-2 text-lg font-semibold text-gray-900">
+                    <p className="text-xs text-muted">{card.label}</p>
+                    <p className="mt-2 text-lg font-semibold text-ink">
                         {card.value}
                     </p>
                 </div>

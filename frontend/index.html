@@ -33,6 +33,17 @@
   <!-- Theme -->
   <meta name="theme-color" content="#000000" />
 
+  <!-- Pre-paint theme guard: apply saved theme before first render (no flash) -->
+  <script>
+    try {
+      if (localStorage.getItem('webentric-theme') === 'light') {
+        document.documentElement.classList.add('light');
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', '#fafafa');
+      }
+    } catch (e) {}
+  </script>
+
   <!-- Local SEO -->
   <meta name="geo.region" content="IN-DL" />
   <meta name="geo.placename" content="Delhi" />

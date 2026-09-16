@@ -16,7 +16,7 @@ export default function LeadRow({
 }) {
     const status = lead.status || "new";
     const colorClass =
-        statusColors[status] || "bg-gray-50 text-gray-700 border-gray-100";
+        statusColors[status] || "bg-subtle text-ink/80 border-line";
 
     const createdAt = lead.created_at
         ? new Date(lead.created_at).toLocaleString()
@@ -29,22 +29,22 @@ export default function LeadRow({
         : undefined;
 
     return (
-        <tr className="border-b border-gray-100 hover:bg-gray-50">
-            <td className="px-3 py-2 align-top text-xs text-gray-900">
+        <tr className="border-b border-line hover:bg-subtle">
+            <td className="px-3 py-2 align-top text-xs text-ink">
                 {lead.name || "-"}
             </td>
-            <td className="px-3 py-2 align-top text-xs text-gray-700">
+            <td className="px-3 py-2 align-top text-xs text-ink/80">
                 {lead.email || "-"}
             </td>
-            <td className="px-3 py-2 align-top text-xs text-gray-700">
+            <td className="px-3 py-2 align-top text-xs text-ink/80">
                 {lead.phone || "-"}
             </td>
-            <td className="px-3 py-2 align-top text-xs text-gray-700">
+            <td className="px-3 py-2 align-top text-xs text-ink/80">
                 <p className="line-clamp-2 max-w-xs truncate">
                     {lead.details || "-"}
                 </p>
             </td>
-            <td className="px-3 py-2 align-top text-[11px] text-gray-500">
+            <td className="px-3 py-2 align-top text-[11px] text-muted">
                 {createdAt}
             </td>
             <td className="px-3 py-2 align-top">
@@ -58,7 +58,7 @@ export default function LeadRow({
                 <div className="flex justify-end gap-1">
                     <button
                         onClick={() => onView(lead)}
-                        className="h-7 w-7 rounded-xs border border-gray-300 text-[11px] text-gray-700 hover:bg-gray-100"
+                        className="h-7 w-7 rounded-xs border border-edge text-[11px] text-ink/80 hover:bg-subtle"
                         title="View"
                     >
                         V
@@ -66,7 +66,7 @@ export default function LeadRow({
                     {emailHref && (
                         <a
                             href={emailHref}
-                            className="flex h-7 w-7 items-center justify-center rounded-xs border border-gray-300 text-[11px] text-gray-700 hover:bg-gray-100"
+                            className="flex h-7 w-7 items-center justify-center rounded-xs border border-edge text-[11px] text-ink/80 hover:bg-subtle"
                             title="Email"
                         >
                             @
@@ -75,7 +75,7 @@ export default function LeadRow({
                     {phoneHref && (
                         <a
                             href={phoneHref}
-                            className="flex h-7 w-7 items-center justify-center rounded-xs border border-gray-300 text-[11px] text-gray-700 hover:bg-gray-100"
+                            className="flex h-7 w-7 items-center justify-center rounded-xs border border-edge text-[11px] text-ink/80 hover:bg-subtle"
                             title="Call"
                         >
                             ☎
@@ -86,7 +86,7 @@ export default function LeadRow({
                             href={whatsappHref}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex h-7 w-7 items-center justify-center rounded-xs border border-gray-300 text-[11px] text-gray-700 hover:bg-gray-100"
+                            className="flex h-7 w-7 items-center justify-center rounded-xs border border-edge text-[11px] text-ink/80 hover:bg-subtle"
                             title="WhatsApp"
                         >
                             W
@@ -94,7 +94,7 @@ export default function LeadRow({
                     )}
                     <button
                         onClick={() => onDelete(lead.id)}
-                        className="h-7 w-7 rounded-xs border border-gray-300 text-[11px] text-red-600 hover:bg-red-50"
+                        className="h-7 w-7 rounded-xs border border-edge text-[11px] text-red-600 hover:bg-red-50"
                         title="Delete"
                     >
                         ×

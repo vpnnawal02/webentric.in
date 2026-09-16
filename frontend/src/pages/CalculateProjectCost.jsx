@@ -34,17 +34,17 @@ function ContactModal({ onClose, defaultMessage }) {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
 
-            <div className="bg-white rounded-xs shadow-2xl w-full max-w-lg p-6 relative">
+            <div className="bg-surface rounded-xs shadow-2xl w-full max-w-lg p-6 relative">
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors text-xl font-bold"
+                    className="absolute top-4 right-4 text-muted hover:text-ink/80 transition-colors text-xl font-bold"
                 >✕</button>
 
                 {sent ? (
                     <div className="flex flex-col items-center py-10 gap-4 text-center">
                         <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-3xl">✓</div>
-                        <h3 className="text-xl font-semibold text-gray-800">Estimate Sent!</h3>
-                        <p className="text-gray-500 text-sm">We'll get back to you within 24 hours.</p>
+                        <h3 className="text-xl font-semibold text-ink">Estimate Sent!</h3>
+                        <p className="text-muted text-sm">We'll get back to you within 24 hours.</p>
                         <button
                             onClick={onClose}
                             className="mt-2 px-6 py-2.5 bg-blue-600 text-white rounded-xs text-sm font-semibold hover:bg-blue-700 transition-colors"
@@ -52,23 +52,23 @@ function ContactModal({ onClose, defaultMessage }) {
                     </div>
                 ) : (
                     <>
-                        <h2 className="text-xl font-bold text-gray-900 mb-1">Contact Us With Your Estimate</h2>
-                        <p className="text-sm text-gray-500 mb-5">We'll review your requirements and get back to you shortly.</p>
+                        <h2 className="text-xl font-bold text-ink mb-1">Contact Us With Your Estimate</h2>
+                        <p className="text-sm text-muted mb-5">We'll review your requirements and get back to you shortly.</p>
                         <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="flex flex-col gap-4">
                             <div>
-                                <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Name</label>
+                                <label className="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wide">Name</label>
                                 <input required name="name" value={form.name} onChange={handle} placeholder="Your full name"
-                                    className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                                    className="w-full px-3.5 py-2.5 text-sm border border-line rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
                             </div>
                             <div>
-                                <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Email</label>
+                                <label className="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wide">Email</label>
                                 <input required type="email" name="email" value={form.email} onChange={handle} placeholder="you@example.com"
-                                    className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                                    className="w-full px-3.5 py-2.5 text-sm border border-line rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
                             </div>
                             <div>
-                                <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Project Details</label>
+                                <label className="block text-xs font-semibold text-muted mb-1.5 uppercase tracking-wide">Project Details</label>
                                 <textarea required name="message" value={form.message} onChange={handle} rows={7}
-                                    className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none font-mono" />
+                                    className="w-full px-3.5 py-2.5 text-sm border border-line rounded-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none font-mono" />
                             </div>
                             <button type="submit"
                                 className="w-full py-3 bg-blue-600 text-white rounded-xs font-semibold text-sm hover:bg-blue-700 active:scale-95 transition-all">
@@ -86,19 +86,19 @@ function ContactModal({ onClose, defaultMessage }) {
 function FeatureCard({ label, price, checked, onChange }) {
     return (
         <label className={`flex items-center justify-between gap-3 p-3.5 rounded-xs border cursor-pointer transition-all duration-200 select-none
-      ${checked ? "border-gray-200 shadow-md" : "border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50"}`}>
+      ${checked ? "border-line shadow-md" : "border-line bg-surface hover:border-blue-300 hover:bg-subtle"}`}>
             <div className="flex items-center gap-2.5 min-w-0">
                 <div className={`w-4 h-4 rounded flex-shrink-0 flex items-center justify-center border transition-colors
-          ${checked ? "bg-blue-600 border-blue-600" : "border-gray-300 bg-white"}`}>
+          ${checked ? "bg-blue-600 border-blue-600" : "border-edge bg-surface"}`}>
                     {checked && (
                         <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                     )}
                 </div>
-                <span className="text-sm font-medium text-gray-700 truncate">{label}</span>
+                <span className="text-sm font-medium text-ink/80 truncate">{label}</span>
             </div>
-            <span className={`text-xs font-semibold flex-shrink-0 ${checked ? "text-blue-600" : "text-gray-500"}`}>
+            <span className={`text-xs font-semibold flex-shrink-0 ${checked ? "text-blue-600" : "text-muted"}`}>
                 +{formatINR(price)}
             </span>
             <input type="checkbox" className="hidden" checked={checked} onChange={onChange} />
@@ -111,18 +111,18 @@ function TimelineCard({ option, selected, onChange }) {
     const active = selected === option.key;
     return (
         <label className={`flex items-center justify-between gap-3 p-4 rounded-xs border cursor-pointer transition-all duration-200 select-none
-      ${active ? "border-blue-500 bg-blue-50 shadow-sm" : "border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50"}`}>
+      ${active ? "border-blue-500 bg-blue-500/10 shadow-sm" : "border-line bg-surface hover:border-blue-300 hover:bg-subtle"}`}>
             <div className="flex items-center gap-3">
                 <div className={`w-4 h-4 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors
-          ${active ? "border-blue-600" : "border-gray-300"}`}>
+          ${active ? "border-blue-600" : "border-edge"}`}>
                     {active && <div className="w-2 h-2 rounded-full bg-blue-600" />}
                 </div>
                 <div>
-                    <p className="text-sm font-semibold text-gray-800">{option.label}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">{option.desc}</p>
+                    <p className="text-sm font-semibold text-ink">{option.label}</p>
+                    <p className="text-xs text-muted mt-0.5">{option.desc}</p>
                 </div>
             </div>
-            <span className={`text-xs font-bold flex-shrink-0 ${active ? "text-blue-600" : "text-gray-500"}`}>
+            <span className={`text-xs font-bold flex-shrink-0 ${active ? "text-blue-600" : "text-muted"}`}>
                 {option.price === 0 ? "Free" : `+${formatINR(option.price)}`}
             </span>
             <input type="radio" className="hidden" checked={active} onChange={onChange} />
@@ -133,12 +133,12 @@ function TimelineCard({ option, selected, onChange }) {
 // ─── Summary Row ──────────────────────────────────────────────────────────────
 function SummaryRow({ label, value, sub, highlight }) {
     return (
-        <div className={`flex items-start justify-between py-2 gap-2 ${highlight ? "border-t border-gray-200 mt-1 pt-3" : ""}`}>
+        <div className={`flex items-start justify-between py-2 gap-2 ${highlight ? "border-t border-line mt-1 pt-3" : ""}`}>
             <div>
-                <span className={`text-sm ${highlight ? "font-bold text-gray-900" : "text-gray-600"}`}>{label}</span>
-                {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
+                <span className={`text-sm ${highlight ? "font-bold text-ink" : "text-muted"}`}>{label}</span>
+                {sub && <p className="text-xs text-muted mt-0.5">{sub}</p>}
             </div>
-            <span className={`text-sm font-semibold whitespace-nowrap ${highlight ? "text-blue-700 text-base" : "text-gray-800"}`}>{value}</span>
+            <span className={`text-sm font-semibold whitespace-nowrap ${highlight ? "text-blue-700 text-base" : "text-ink"}`}>{value}</span>
         </div>
     );
 }
@@ -186,10 +186,10 @@ export default function ProjectCostCalculator() {
 
                 {/* ── Header ── */}
                 <div className="text-center mb-10">
-                    <h1 className="text-2xl md:text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
+                    <h1 className="text-2xl md:text-3xl sm:text-4xl font-bold text-ink mb-3 tracking-tight">
                         Calculate Your Project Cost
                     </h1>
-                    <p className="text-gray-500 hidden md:flex text-base max-w-xl mx-auto">
+                    <p className="text-muted hidden md:flex text-base max-w-xl mx-auto">
                         Select the features you need to estimate the cost of your website or web application.
                     </p>
                 </div>
@@ -198,9 +198,9 @@ export default function ProjectCostCalculator() {
                     {/* ══ LEFT: Calculator ══ */}
                     <div className="w-full lg:flex-1 flex flex-col gap-5">
                         {/* ── SECTION 1: Website Type Selector ── */}
-                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
-                            <h2 className="text-base font-bold text-gray-900 mb-1">Choose Website Type</h2>
-                            <p className="text-xs text-gray-500 mb-4">Select the type that best fits your project needs.</p>
+                        <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
+                            <h2 className="text-base font-bold text-ink mb-1">Choose Website Type</h2>
+                            <p className="text-xs text-muted mb-4">Select the type that best fits your project needs.</p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 {WEBSITE_TYPES.map((type) => {
@@ -209,11 +209,11 @@ export default function ProjectCostCalculator() {
                                         <button
                                             key={type.key}
                                             onClick={() => handleTypeChange(type.key)}
-                                            className={`relative flex flex-col items-start text-left p-4 rounded-xs border-2 transition-all duration-200 group
+                                             className={`relative flex flex-col items-start text-left p-4 rounded-xs border-2 transition-all duration-200 group
                         ${active
-                                                    ? "border-blue-500 bg-blue-50 shadow-md shadow-blue-100"
-                                                    : "border-gray-200 bg-white hover:border-blue-300 hover:bg-gray-50"
-                                                }`}
+                                                     ? "border-blue-500 bg-blue-500/10 shadow-md shadow-blue-100"
+                                                     : "border-line bg-surface hover:border-blue-300 hover:bg-subtle"
+                                                 }`}
                                         >
                                             {active && (
                                                 <span className="absolute top-3 right-3 w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
@@ -223,17 +223,17 @@ export default function ProjectCostCalculator() {
                                                 </span>
                                             )}
                                             <span className="text-2xl mb-2">{type.icon}</span>
-                                            <p className={`text-sm font-bold mb-0.5 ${active ? "text-blue-700" : "text-gray-800"}`}>
+                                            <p className={`text-sm font-bold mb-0.5 ${active ? "text-blue-700" : "text-ink"}`}>
                                                 {type.label}
                                             </p>
-                                            <p className="text-xs text-gray-400 mb-3 leading-snug">{type.desc}</p>
-                                            <p className={`text-lg font-extrabold ${active ? "text-blue-600" : "text-gray-700"}`}>
+                                            <p className="text-xs text-muted mb-3 leading-snug">{type.desc}</p>
+                                            <p className={`text-lg font-extrabold ${active ? "text-blue-600" : "text-ink/80"}`}>
                                                 {formatINR(type.price)}
                                             </p>
                                             <ul className="mt-2.5 flex flex-col gap-1">
                                                 {type.highlights.map((h) => (
-                                                    <li key={h} className="flex items-center gap-1.5 text-xs text-gray-500">
-                                                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${active ? "bg-blue-400" : "bg-gray-300"}`} />
+                                                    <li key={h} className="flex items-center gap-1.5 text-xs text-muted">
+                                                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${active ? "bg-blue-400" : "bg-ink/20"}`} />
                                                         {h}
                                                     </li>
                                                 ))}
@@ -245,16 +245,16 @@ export default function ProjectCostCalculator() {
                         </div>
 
                         {/* ── SECTION 3: Additional Pages ── */}
-                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
-                            <h2 className="text-base font-bold text-gray-900 mb-1">Number of Pages</h2>
-                            <p className="text-xs text-gray-500 mb-4">
+                        <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
+                            <h2 className="text-base font-bold text-ink mb-1">Number of Pages</h2>
+                            <p className="text-xs text-muted mb-4">
                                 First 5 pages are free. Additional pages cost {formatINR(PRICE_PER_EXTRA_PAGE)}/page.
                             </p>
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => handlePages(pages - 1)}
                                     disabled={pages <= BASE_PAGES}
-                                    className="w-9 h-9 rounded-xs border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-blue-50 hover:border-blue-300 disabled:opacity-30 disabled:cursor-not-allowed transition-all font-bold text-lg"
+                                    className="w-9 h-9 rounded-xs border border-line flex items-center justify-center text-muted hover:bg-blue-500/10 hover:border-blue-300 disabled:opacity-30 disabled:cursor-not-allowed transition-all font-bold text-lg"
                                 >−</button>
                                 <input
                                     type="number"
@@ -262,11 +262,11 @@ export default function ProjectCostCalculator() {
                                     min={BASE_PAGES}
                                     max={50}
                                     onChange={(e) => handlePages(e.target.value)}
-                                    className="w-16 text-center text-lg font-bold text-gray-800 border border-gray-200 rounded-xs py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-16 text-center text-lg font-bold text-ink border border-line rounded-xs py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                                 <button
                                     onClick={() => handlePages(pages + 1)}
-                                    className="w-9 h-9 rounded-xs border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-blue-50 hover:border-blue-300 transition-all font-bold text-lg"
+                                    className="w-9 h-9 rounded-xs border border-line flex items-center justify-center text-muted hover:bg-blue-500/10 hover:border-blue-300 transition-all font-bold text-lg"
                                 >+</button>
                                 <div className="ml-2 flex-1">
                                     <input
@@ -277,7 +277,7 @@ export default function ProjectCostCalculator() {
                                         onChange={(e) => handlePages(e.target.value)}
                                         className="w-full accent-blue-600 h-2 cursor-pointer"
                                     />
-                                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                                    <div className="flex justify-between text-xs text-muted mt-1">
                                         <span>5</span><span>15</span><span>25</span>
                                     </div>
                                 </div>
@@ -293,11 +293,11 @@ export default function ProjectCostCalculator() {
                         </div>
 
                         {/* ── SECTION 4: Optional Features ── */}
-                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
+                        <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
-                                    <h2 className="text-base font-bold text-gray-900">Optional Features</h2>
-                                    <p className="text-xs text-gray-500 mt-0.5">Add capabilities to your project</p>
+                                    <h2 className="text-base font-bold text-ink">Optional Features</h2>
+                                    <p className="text-xs text-muted mt-0.5">Add capabilities to your project</p>
                                 </div>
                                 {featureCost > 0 && (
                                     <span className="text-xs bg-blue-100 text-blue-700 font-semibold px-2.5 py-1 rounded-full">
@@ -319,9 +319,9 @@ export default function ProjectCostCalculator() {
                         </div>
 
                         {/* ── SECTION 5: Delivery Timeline ── */}
-                        <div className="bg-white rounded-xs border border-gray-200 shadow-sm p-5">
-                            <h2 className="text-base font-bold text-gray-900 mb-1">Delivery Timeline</h2>
-                            <p className="text-xs text-gray-500 mb-4">How fast do you need your project?</p>
+                        <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
+                            <h2 className="text-base font-bold text-ink mb-1">Delivery Timeline</h2>
+                            <p className="text-xs text-muted mb-4">How fast do you need your project?</p>
                             <div className="flex flex-col gap-2.5">
                                 {TIMELINE_OPTIONS.map((opt) => (
                                     <TimelineCard
@@ -337,9 +337,9 @@ export default function ProjectCostCalculator() {
 
                     {/* ══ RIGHT: Sticky Summary ══ */}
                     <div className="w-full lg:w-80 xl:w-96 self-start sticky top-21">
-                        <div className="bg-white rounded-xs border border-gray-200 shadow-lg overflow-hidden">
-                            <div className="bg-white border-b border-gray-200 px-5 py-4 ">
-                                <h2 className="text-black font-bold text-base">Cost Summary</h2>
+                        <div className="bg-surface rounded-xs border border-line shadow-lg overflow-hidden">
+                            <div className="bg-surface border-b border-line px-5 py-4 ">
+                                <h2 className="text-ink font-bold text-base">Cost Summary</h2>
                             </div>
 
                             <div className="px-5 py-4 flex flex-col gap-0.5">
@@ -370,11 +370,11 @@ export default function ProjectCostCalculator() {
                             {/* Selected Feature Tags */}
                             {FEATURE_LIST.some((f) => features[f.key]) && (
                                 <div className="px-5 pb-4">
-                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Selected Features</p>
+                                    <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Selected Features</p>
                                     <div className="flex flex-wrap gap-1.5">
                                         {FEATURE_LIST.filter((f) => features[f.key]).map((f) => (
                                             <span key={f.key}
-                                                className="text-xs bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 rounded-xs font-medium">
+                                                className="text-xs bg-blue-500/10 text-blue-700 border border-blue-200 px-2 py-0.5 rounded-xs font-medium">
                                                 {f.label}
                                             </span>
                                         ))}
@@ -384,7 +384,7 @@ export default function ProjectCostCalculator() {
 
                             <div className="px-5">
                                 <div className="mb-4 ">
-                                    <p className="text-xs text-gray-500 leading-relaxed text-right">
+                                    <p className="text-xs text-muted leading-relaxed text-right">
                                         This is an estimate. Final price may vary based on detailed project requirements.
                                     </p>
                                 </div>

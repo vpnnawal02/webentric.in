@@ -18,11 +18,11 @@ export default function BlogPage() {
             : blogs.filter((blog) => blog.tags.includes(activeCategory));
 
     return (
-        <section className="min-h-screen bg-black text-white px-4 sm:px-8 md:px-16 lg:px-24 pt-28 pb-20">
+        <section className="min-h-screen bg-page text-ink px-4 sm:px-8 md:px-16 lg:px-24 pt-28 pb-20">
             <div className="max-w-6xl mx-auto">
 
                 {/* Header */}
-                <p className="text-xs sm:text-sm tracking-widest text-gray-400 mb-3">
+                <p className="text-xs sm:text-sm tracking-widest text-muted mb-3">
                     INSIGHTS &amp; ARTICLES
                 </p>
 
@@ -46,8 +46,8 @@ export default function BlogPage() {
                                 transition-colors
                                 duration-200
                                 ${activeCategory === cat
-                                    ? "bg-white text-black border-white"
-                                    : "bg-transparent text-gray-300 border-gray-600 hover:border-white hover:text-white"
+                                    ? "bg-accent text-on-accent border-accent"
+                                    : "bg-transparent text-ink/80 border-edge hover:border-ink hover:text-ink"
                                 }
                             `}
                         >
@@ -68,7 +68,7 @@ export default function BlogPage() {
 
                 {/* Empty State */}
                 {filteredBlogs.length === 0 && (
-                    <p className="text-gray-500 mt-10 text-sm">
+                    <p className="text-muted mt-10 text-sm">
                         No articles found in this category yet.
                     </p>
                 )}

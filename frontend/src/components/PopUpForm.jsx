@@ -111,16 +111,16 @@ export default function PopUpForm({ open, setOpen }) {
             aria-modal="true"
             aria-labelledby="modal-title"
         >
-            <div className="relative w-full max-w-md bg-neutral-950 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.45)] animate-in zoom-in-95 fade-in duration-200 max-h-[90vh] overflow-y-auto">
-                <div className="flex items-start justify-between p-6 pb-4 border-b border-white/10">
+            <div className="relative w-full max-w-md bg-surface border border-line shadow-[0_20px_80px_rgba(0,0,0,0.45)] animate-in zoom-in-95 fade-in duration-200 max-h-[90vh] overflow-y-auto">
+                <div className="flex items-start justify-between p-6 pb-4 border-b border-line">
                     <div>
-                        <p className="text-[11px] uppercase tracking-[0.2em] text-white/40 mb-2">
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-ink/40 mb-2">
                             Project Enquiry
                         </p>
-                        <h2 id="modal-title" className="text-xl font-medium text-white tracking-[-0.03em]">
+                        <h2 id="modal-title" className="text-xl font-medium text-ink tracking-[-0.03em]">
                             Get a Project Quote
                         </h2>
-                        <p className="text-sm text-white/45 mt-2 leading-relaxed max-w-xs">
+                        <p className="text-sm text-ink/45 mt-2 leading-relaxed max-w-xs">
                             Tell us a few details about your project and we&apos;ll get back to you
                             with a customized quote.
                         </p>
@@ -128,7 +128,7 @@ export default function PopUpForm({ open, setOpen }) {
 
                     <button
                         onClick={() => setOpen(false)}
-                        className="ml-4 mt-0.5 flex-shrink-0 w-9 h-9 flex items-center justify-center border border-white/10 text-white/55 hover:text-white hover:bg-white/5 transition-colors"
+                        className="ml-4 mt-0.5 flex-shrink-0 w-9 h-9 flex items-center justify-center border border-line text-ink/55 hover:text-ink hover:bg-ink/5 transition-colors"
                         aria-label="Close modal"
                     >
                         <icons.cross_icon className="w-5 h-5" />
@@ -138,9 +138,9 @@ export default function PopUpForm({ open, setOpen }) {
                 <div className="p-6">
                     {submitted ? (
                         <div className="flex flex-col items-center justify-center py-10 text-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-white/6 border border-white/10 flex items-center justify-center">
+                            <div className="w-16 h-16 rounded-full bg-surface border border-line flex items-center justify-center">
                                 <svg
-                                    className="w-8 h-8 text-white"
+                                    className="w-8 h-8 text-ink"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -155,12 +155,12 @@ export default function PopUpForm({ open, setOpen }) {
                             </div>
 
                             <div>
-                                <h3 className="text-lg font-medium text-white mb-1 tracking-[-0.02em]">
+                                <h3 className="text-lg font-medium text-ink mb-1 tracking-[-0.02em]">
                                     Quote Request Sent
                                 </h3>
-                                <p className="text-sm text-white/50">
+                                <p className="text-sm text-ink/50">
                                     Thanks,{" "}
-                                    <span className="font-medium text-white/80">
+                                    <span className="font-medium text-ink/80">
                                         {form.name || "there"}
                                     </span>
                                     . We&apos;ll review your project and get back to you within 24 hours.
@@ -169,7 +169,7 @@ export default function PopUpForm({ open, setOpen }) {
 
                             <button
                                 onClick={() => setOpen(false)}
-                                className="mt-2 px-6 py-2.5 bg-white text-black text-sm font-medium hover:bg-neutral-200 transition-colors"
+                                className="mt-2 px-6 py-2.5 bg-accent text-on-accent text-sm font-medium hover:bg-accent/85 transition-colors"
                             >
                                 Done
                             </button>
@@ -177,8 +177,8 @@ export default function PopUpForm({ open, setOpen }) {
                     ) : (
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-white/75 mb-1.5">
-                                    Full Name <span className="text-white/35">*</span>
+                                <label className="block text-sm font-medium text-ink/75 mb-1.5">
+                                    Full Name <span className="text-ink/35">*</span>
                                 </label>
                                 <input
                                     required
@@ -187,13 +187,13 @@ export default function PopUpForm({ open, setOpen }) {
                                     value={form.name}
                                     onChange={handleChange}
                                     placeholder="Enter your name"
-                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all"
+                                    className="w-full border border-line bg-page px-3.5 py-3 text-sm text-ink placeholder:text-ink/25 focus:outline-none focus:border-edge focus:bg-page transition-all"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-white/75 mb-1.5">
-                                    Phone / WhatsApp <span className="text-white/35">*</span>
+                                <label className="block text-sm font-medium text-ink/75 mb-1.5">
+                                    Phone / WhatsApp <span className="text-ink/35">*</span>
                                 </label>
                                 <input
                                     required
@@ -202,12 +202,12 @@ export default function PopUpForm({ open, setOpen }) {
                                     value={form.phone}
                                     onChange={handleChange}
                                     placeholder="Enter phone number"
-                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all"
+                                    className="w-full border border-line bg-page px-3.5 py-3 text-sm text-ink placeholder:text-ink/25 focus:outline-none focus:border-edge focus:bg-page transition-all"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-white/75 mb-1.5">
+                                <label className="block text-sm font-medium text-ink/75 mb-1.5">
                                     Email Address
                                 </label>
                                 <input
@@ -216,12 +216,12 @@ export default function PopUpForm({ open, setOpen }) {
                                     value={form.email}
                                     onChange={handleChange}
                                     placeholder="Enter your email"
-                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all"
+                                    className="w-full border border-line bg-page px-3.5 py-3 text-sm text-ink placeholder:text-ink/25 focus:outline-none focus:border-edge focus:bg-page transition-all"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-white/75 mb-1.5">
+                                <label className="block text-sm font-medium text-ink/75 mb-1.5">
                                     Project Details
                                 </label>
                                 <textarea
@@ -230,7 +230,7 @@ export default function PopUpForm({ open, setOpen }) {
                                     onChange={handleChange}
                                     rows={4}
                                     placeholder="Describe your project, features you need, or any references."
-                                    className="w-full border border-white/10 bg-black/30 px-3.5 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 focus:bg-black/40 transition-all resize-none"
+                                    className="w-full border border-line bg-page px-3.5 py-3 text-sm text-ink placeholder:text-ink/25 focus:outline-none focus:border-edge focus:bg-page transition-all resize-none"
                                 />
                             </div>
 
@@ -242,12 +242,12 @@ export default function PopUpForm({ open, setOpen }) {
                                 <button
                                     type="submit"
                                     disabled={submitting}
-                                    className="w-full bg-white text-black hover:bg-neutral-200 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed font-medium py-3 px-4 transition-all duration-200 text-sm"
+                                    className="w-full bg-accent text-on-accent hover:bg-accent/85 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed font-medium py-3 px-4 transition-all duration-200 text-sm"
                                 >
                                     {submitting ? "Submitting..." : "Get My Quote"}
                                 </button>
 
-                                <p className="text-center text-xs text-white/32 mt-3">
+                                <p className="text-center text-xs text-ink/32 mt-3">
                                     We usually respond within 24 hours.
                                 </p>
                             </div>

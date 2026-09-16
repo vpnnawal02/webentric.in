@@ -112,14 +112,14 @@ export default function AdminDashboard() {
 
 
     return (
-        <div className="min-h-screen bg-gray-50 text-gray-900">
+        <div className="min-h-screen bg-subtle text-ink">
             <div className="mx-auto max-w-6xl px-4 py-6">
                 <header className="mb-6 flex items-center justify-between">
                     <div>
                         <h1 className="text-xl font-semibold tracking-tight">
                             Webentric Admin Dashboard
                         </h1>
-                        <p className="mt-1 text-xs text-gray-500">
+                        <p className="mt-1 text-xs text-muted">
                             {session?.user?.email || "Loading..."}
                         </p>
                     </div>
@@ -127,13 +127,13 @@ export default function AdminDashboard() {
                         <button
                             onClick={handleRefresh}
                             disabled={loading}
-                            className="inline-flex items-center rounded-sm border border-gray-300 px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100 disabled:opacity-50"
+                            className="inline-flex items-center rounded-sm border border-edge px-2.5 py-1 text-xs font-medium text-ink/80 hover:bg-subtle disabled:opacity-50"
                         >
                             {loading ? "Loading..." : "Refresh"}
                         </button>
                         <button
                             onClick={handleLogout}
-                            className="inline-flex items-center rounded-sm border border-gray-300 px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100"
+                            className="inline-flex items-center rounded-sm border border-edge px-2.5 py-1 text-xs font-medium text-ink/80 hover:bg-subtle"
                         >
                             Logout
                         </button>
@@ -143,7 +143,7 @@ export default function AdminDashboard() {
                 {loading ? (
                     <div className="text-center py-12">
                         <div className="text-lg mb-2 animate-pulse">Loading dashboard...</div>
-                        <div className="text-sm text-gray-500">Please wait</div>
+                        <div className="text-sm text-muted">Please wait</div>
                     </div>
                 ) : (
                     <>

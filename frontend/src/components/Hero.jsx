@@ -7,20 +7,20 @@ import vid_2 from "../assets/videos/vid-2.mp4"
 
 const Hero = () => {
   return (
-    <section className="bg-black text-white border-t border-white/10">
+    <section className="bg-page text-ink border-t border-line">
       <div className="w-full">
         {/* Top layout */}
-        <div className="flex flex-col-reverse md:flex-row justify-center lg:gap-30 border-b border-white/40 lg:h-[50vh]">
+        <div className="flex flex-col-reverse md:flex-row justify-center lg:gap-30 border-b border-ink/40 lg:h-[50vh]">
 
           {/* Left intro block | Lower Block for Mobile */}
-          <div className="border-b lg:border-b-0 lg:border-r border-white/40 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14 flex items-center">
+          <div className="border-b lg:border-b-0 lg:border-r border-ink/40 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14 flex items-center">
             <div className="max-w-[360px]">
-              <p className="text-white/70 text-[18px] leading-6 mb-5 sm:mb-6">
+              <p className="text-ink/70 text-[18px] leading-6 mb-5 sm:mb-6">
                 We’re a full-service website design and development agency crafting modern
                 brands, websites, and products that drive results.
               </p>
               <Link to='/contact'>
-                <button className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 text-sm font-medium hover:bg-neutral-200 transition-all duration-300">
+                <button className="inline-flex items-center gap-2 bg-accent text-on-accent px-5 py-2.5 text-sm font-medium hover:bg-accent/85 transition-all duration-300">
                   Get Started
                   <FiArrowUpRight size={14} />
                 </button></Link>
@@ -43,12 +43,12 @@ const Hero = () => {
         {/* Bottom cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
           {/* Card 1 */}
-          <article className="group border-b lg:border-b-0 lg:border-r border-white/30 lg:px-20">
-            <div className="px-5 sm:px-8 lg:px-10 py-4 border-b border-white/20">
-              <span className="inline-block text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-white/70 border border-white/20 px-3 py-1">
+          <article className="group border-b lg:border-b-0 lg:border-r border-edge lg:px-20">
+            <div className="px-5 sm:px-8 lg:px-10 py-4 border-b border-edge">
+              <span className="inline-block text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ink/70 border border-edge px-3 py-1">
                 Web Development
               </span>
-              <span className="inline-block ml-2 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-white/70 border border-white/20 px-3 py-1">
+              <span className="inline-block ml-2 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ink/70 border border-edge px-3 py-1">
                 UX/UI Design
               </span>
             </div>
@@ -70,7 +70,7 @@ const Hero = () => {
                   Project
                 </h2>
                 <Link to='/portfolio'>
-                  <button className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-black flex items-center justify-center shrink-0 hover:scale-105 transition">
+                  <button className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-accent text-on-accent flex items-center justify-center shrink-0 hover:scale-105 transition">
                     <FiArrowUpRight size={16} />
                   </button>
                 </Link>
@@ -80,12 +80,12 @@ const Hero = () => {
           </article>
 
           {/* Card 2 */}
-          <article className="group border-white/20 lg:px-20">
+          <article className="group border-edge lg:px-20">
             <div className="px-5 sm:px-8 lg:px-10 py-4 ">
-              <span className="inline-block text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-white/70 border border-white/20 px-3 py-1">
+              <span className="inline-block text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ink/70 border border-edge px-3 py-1">
                 Brand Identity
               </span>
-              <span className="inline-block ml-2 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-white/70 border border-white/20 px-3 py-1">
+              <span className="inline-block ml-2 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ink/70 border border-edge px-3 py-1">
                 Web Development
               </span>
             </div>
@@ -108,7 +108,7 @@ const Hero = () => {
                 </h2>
 
                 <Link to='/portfolio'>
-                  <button className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-black flex items-center justify-center shrink-0 hover:scale-105 transition">
+                  <button className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-accent text-on-accent flex items-center justify-center shrink-0 hover:scale-105 transition">
                     <FiArrowUpRight size={16} />
                   </button>
                 </Link>

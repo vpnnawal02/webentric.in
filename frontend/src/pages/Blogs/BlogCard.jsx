@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function BlogCard({ blog }) {
     return (
-        <article className="group bg-neutral-900 border border-neutral-800 overflow-hidden flex flex-col">
+        <article className="group bg-surface border border-line overflow-hidden flex flex-col">
 
             {/* Image */}
             <Link
                 to={`/blogs/${blog.slug}`}
-                className="relative block w-full aspect-[4/3] overflow-hidden bg-neutral-800"
+                className="relative block w-full aspect-[4/3] overflow-hidden bg-subtle"
             >
                 <img
                     src={blog.coverImage}
@@ -16,7 +16,7 @@ export default function BlogCard({ blog }) {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
-                <span className="absolute top-3 left-3 text-[10px] sm:text-[11px] tracking-wide bg-black/70 backdrop-blur px-2.5 py-1 rounded-full border border-white/10">
+                <span className="absolute top-3 left-3 text-[10px] sm:text-[11px] tracking-wide text-white bg-black/70 backdrop-blur px-2.5 py-1 rounded-full border border-white/10">
                     {blog.category}
                 </span>
             </Link>
@@ -25,7 +25,7 @@ export default function BlogCard({ blog }) {
             <div className="p-4 sm:p-5 flex flex-col flex-1">
 
                 {/* Meta */}
-                <div className="flex items-center gap-2 text-[11px] sm:text-xs text-gray-500 mb-2">
+                <div className="flex items-center gap-2 text-[11px] sm:text-xs text-muted mb-2">
                     <span>{blog.date}</span>
 
                     <span>•</span>
@@ -46,7 +46,7 @@ export default function BlogCard({ blog }) {
                 {/* Read Article */}
                 <Link
                     to={`/blogs/${blog.slug}`}
-                    className="mt-auto text-xs sm:text-sm inline-flex items-center gap-1 text-white/80 hover:text-white"
+                    className="mt-auto text-xs sm:text-sm inline-flex items-center gap-1 text-ink/80 hover:text-ink"
                 >
                     Read article
 

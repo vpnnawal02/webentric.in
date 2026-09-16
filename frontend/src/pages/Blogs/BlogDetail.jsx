@@ -100,10 +100,10 @@ export default function BlogDetail() {
      */
     if (!blog) {
         return (
-            <main className="min-h-screen bg-black text-white flex items-center justify-center px-4">
+            <main className="min-h-screen bg-page text-ink flex items-center justify-center px-4">
                 <div className="text-center">
 
-                    <p className="text-sm tracking-widest text-gray-500 mb-4">
+                    <p className="text-sm tracking-widest text-muted mb-4">
                         404
                     </p>
 
@@ -111,13 +111,13 @@ export default function BlogDetail() {
                         Article not found
                     </h1>
 
-                    <p className="text-gray-400 mb-8">
+                    <p className="text-muted mb-8">
                         The article you're looking for doesn't exist.
                     </p>
 
                     <Link
                         to="/blogs"
-                        className="inline-flex border border-white/30 px-6 py-3 text-sm hover:bg-white hover:text-black transition-colors"
+                        className="inline-flex border border-edge px-6 py-3 text-sm hover:bg-accent hover:text-on-accent transition-colors"
                     >
                         Back to Blogs
                     </Link>
@@ -128,7 +128,7 @@ export default function BlogDetail() {
     }
 
     return (
-        <article className="min-h-screen bg-black text-white">
+        <article className="min-h-screen bg-page text-ink">
 
             {/* Article Header */}
             <header className="px-4 sm:px-8 md:px-16 lg:px-24 pt-5  md:pt-10">
@@ -138,7 +138,7 @@ export default function BlogDetail() {
                     {/* Back Link */}
                     <Link
                         to="/blogs"
-                        className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors mb-10"
+                        className="inline-flex items-center gap-2 text-xs sm:text-sm text-muted hover:text-ink transition-colors mb-10"
                     >
                         <span>←</span>
 
@@ -149,7 +149,7 @@ export default function BlogDetail() {
 
                     {/* Category */}
                     <div className="mb-5">
-                        <span className="text-[11px] sm:text-xs tracking-wide bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
+                        <span className="text-[11px] sm:text-xs tracking-wide bg-subtle px-3 py-1.5 rounded-full border border-line">
                             {blog.category}
                         </span>
                     </div>
@@ -160,7 +160,7 @@ export default function BlogDetail() {
                     </h1>
 
                     {/* Metadata */}
-                    <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-gray-400 mb-10">
+                    <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted mb-10">
 
                         <span>
                             {blog.author}
@@ -189,7 +189,7 @@ export default function BlogDetail() {
 
                 <div className="max-w-5xl mx-auto">
 
-                    <div className="w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-neutral-900">
+                    <div className="w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-subtle">
 
                         <img
                             src={blog.coverImage}
@@ -220,7 +220,7 @@ export default function BlogDetail() {
                                     return (
                                         <h2
                                             key={index}
-                                            className="text-2xl sm:text-3xl font-medium mt-12 mb-5 text-white leading-tight"
+                                            className="text-2xl sm:text-3xl font-medium mt-12 mb-5 text-ink leading-tight"
                                         >
                                             {block.text}
                                         </h2>
@@ -234,7 +234,7 @@ export default function BlogDetail() {
                                     return (
                                         <p
                                             key={index}
-                                            className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6"
+                                            className="text-ink/80 text-base sm:text-lg leading-relaxed mb-6"
                                         >
                                             {block.text}
                                         </p>
@@ -248,11 +248,11 @@ export default function BlogDetail() {
                     </div>
 
                     {/* Bottom Divider */}
-                    <div className="border-t border-white/10 mt-16 pt-10">
+                    <div className="border-t border-line mt-16 pt-10">
 
                         <Link
                             to="/blogs"
-                            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                            className="inline-flex items-center gap-2 text-sm text-muted hover:text-ink transition-colors"
                         >
                             ← View all articles
                         </Link>

@@ -97,26 +97,26 @@ const Contact = () => {
     };
 
     return (
-        <section className="bg-black text-white min-h-screen">
+        <section className="bg-page text-ink min-h-screen">
             <div className="max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14 py-14 md:py-20">
                 <div className="max-w-3xl mb-12 md:mb-16">
 
-                    <h1 className="text-[clamp(2.2rem,5vw,4.5rem)] leading-[1.02] tracking-[-0.04em] font-medium text-white max-w-[12ch]">
+                    <h1 className="text-[clamp(2.2rem,5vw,4.5rem)] leading-[1.02] tracking-[-0.04em] font-medium text-ink max-w-[12ch]">
                         Let&apos;s build something clear, fast, and memorable.
                     </h1>
-                    <p className="mt-5 text-sm md:text-base text-white/58 max-w-[56ch] leading-relaxed">
+                    <p className="mt-5 text-sm md:text-base text-ink/58 max-w-[56ch] leading-relaxed">
                         Tell us what you&apos;re building, what you need, and where you want to go next.
                         We reply within 24 hours on business days.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-8 lg:gap-10 items-start">
-                    <div className="bg-white/[0.03] border border-white/20 p-6 md:p-8 lg:p-10">
-                        <div className="flex items-center justify-between gap-4 mb-8 border-b border-white/40 pb-5">
-                            <h2 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-white">
+                    <div className="bg-surface border border-edge p-6 md:p-8 lg:p-10">
+                        <div className="flex items-center justify-between gap-4 mb-8 border-b border-ink/40 pb-5">
+                            <h2 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-ink">
                                 Send a project enquiry
                             </h2>
-                            <span className="text-[20px] uppercase tracking-[0.18em] text-white/60">
+                            <span className="text-[20px] uppercase tracking-[0.18em] text-ink/60">
                                 Webentric
                             </span>
                         </div>
@@ -134,8 +134,8 @@ const Contact = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
-                                    <label className="block text-[12px] uppercase tracking-[0.14em] text-white/55 mb-2">
-                                        Name <span className="text-white/90">*</span>
+                                    <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+                                        Name <span className="text-ink/90">*</span>
                                     </label>
                                     <input
                                         required
@@ -144,9 +144,9 @@ const Contact = () => {
                                         value={form.name}
                                         onChange={handleChange}
                                         placeholder="Your full name"
-                                        className={`w-full bg-transparent border px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none transition-colors ${errors.name
+                                        className={`w-full bg-transparent border px-4 py-3 text-sm text-ink placeholder:text-ink/25 outline-none transition-colors ${errors.name
                                             ? "border-red-400/70 focus:border-red-400"
-                                            : "border-white/30 focus:border-white/40"
+                                            : "border-edge focus:border-ink/40"
                                             }`}
                                     />
                                     {errors.name && (
@@ -155,8 +155,8 @@ const Contact = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-[12px] uppercase tracking-[0.14em] text-white/55 mb-2">
-                                        Phone <span className="text-white/90">*</span>
+                                    <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+                                        Phone <span className="text-ink/90">*</span>
                                     </label>
                                     <input
                                         required
@@ -165,9 +165,9 @@ const Contact = () => {
                                         value={form.phone}
                                         onChange={handleChange}
                                         placeholder="+91 98765 43210"
-                                        className={`w-full bg-transparent border px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none transition-colors ${errors.phone
+                                        className={`w-full bg-transparent border px-4 py-3 text-sm text-ink placeholder:text-ink/25 outline-none transition-colors ${errors.phone
                                             ? "border-red-400/70 focus:border-red-400"
-                                            : "border-white/30 focus:border-white/40"
+                                            : "border-edge focus:border-ink/40"
                                             }`}
                                     />
                                     {errors.phone && (
@@ -177,7 +177,7 @@ const Contact = () => {
                             </div>
 
                             <div>
-                                <label className="block text-[12px] uppercase tracking-[0.14em] text-white/55 mb-2">
+                                <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
                                     Email
                                 </label>
                                 <input
@@ -186,9 +186,9 @@ const Contact = () => {
                                     value={form.email}
                                     onChange={handleChange}
                                     placeholder="you@company.com"
-                                    className={`w-full bg-transparent border px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none transition-colors ${errors.email
+                                    className={`w-full bg-transparent border px-4 py-3 text-sm text-ink placeholder:text-ink/25 outline-none transition-colors ${errors.email
                                         ? "border-red-400/70 focus:border-red-400"
-                                        : "border-white/30 focus:border-white/40"
+                                        : "border-edge focus:border-ink/40"
                                         }`}
                                 />
                                 {errors.email && (
@@ -197,8 +197,8 @@ const Contact = () => {
                             </div>
 
                             <div>
-                                <label className="block text-[12px] uppercase tracking-[0.14em] text-white/55 mb-2">
-                                    Message <span className="text-white/90">*</span>
+                                <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+                                    Message <span className="text-ink/90">*</span>
                                 </label>
                                 <textarea
                                     name="message"
@@ -206,9 +206,9 @@ const Contact = () => {
                                     value={form.message}
                                     onChange={handleChange}
                                     placeholder="Tell us about your project, goals, required pages or features, timeline, and budget range..."
-                                    className={`w-full bg-transparent border px-4 py-3 text-sm text-white placeholder:text-white/25 outline-none resize-none transition-colors ${errors.message
+                                    className={`w-full bg-transparent border px-4 py-3 text-sm text-ink placeholder:text-ink/25 outline-none resize-none transition-colors ${errors.message
                                         ? "border-red-400/70 focus:border-red-400"
-                                        : "border-white/30 focus:border-white/40"
+                                        : "border-edge focus:border-ink/40"
                                         }`}
                                 />
                                 {errors.message && (
@@ -229,7 +229,7 @@ const Contact = () => {
                                 <button
                                     type="submit"
                                     disabled={submitting}
-                                    className="inline-flex items-center justify-center px-6 py-3.5 bg-white text-black text-sm font-medium hover:bg-neutral-200 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                                    className="inline-flex items-center justify-center px-6 py-3.5 bg-accent text-on-accent text-sm font-medium hover:bg-accent/85 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                                 >
                                     {submitting ? "Sending..." : "Send Message"}
                                 </button>
@@ -238,45 +238,45 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-6">
-                        <div className="bg-white/[0.03] border border-white/10 p-6 md:p-7">
-                            <h3 className="text-sm font-medium tracking-[0.08em] uppercase text-white/70 mb-6">
+                        <div className="bg-surface border border-line p-6 md:p-7">
+                            <h3 className="text-sm font-medium tracking-[0.08em] uppercase text-ink/70 mb-6">
                                 Quick Contact
                             </h3>
 
                             <div className="space-y-5 text-sm">
                                 <div>
-                                    <p className="text-[11px] uppercase tracking-[0.18em] text-white/35 mb-1">
+                                    <p className="text-[11px] uppercase tracking-[0.18em] text-ink/35 mb-1">
                                         Email
                                     </p>
                                     <a
                                         href="mailto:webentric2026@gmail.com"
-                                        className="text-white hover:text-white/70 transition-colors break-all"
+                                        className="text-ink hover:text-ink/70 transition-colors break-all"
                                     >
                                         webentric2026@gmail.com
                                     </a>
                                 </div>
 
                                 <div>
-                                    <p className="text-[11px] uppercase tracking-[0.18em] text-white/35 mb-1">
+                                    <p className="text-[11px] uppercase tracking-[0.18em] text-ink/35 mb-1">
                                         Phone / WhatsApp
                                     </p>
-                                    <p className="text-white/82">+91 9560342636</p>
+                                    <p className="text-ink/82">+91 9560342636</p>
                                 </div>
 
                                 <div>
-                                    <p className="text-[11px] uppercase tracking-[0.18em] text-white/35 mb-1">
+                                    <p className="text-[11px] uppercase tracking-[0.18em] text-ink/35 mb-1">
                                         Availability
                                     </p>
-                                    <p className="text-white/82">Mon–Fri, 10 AM – 6 PM IST</p>
+                                    <p className="text-ink/82">Mon–Fri, 10 AM – 6 PM IST</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-4 pt-7 mt-7 border-t border-white/10 text-white/72">
+                            <div className="flex items-center gap-4 pt-7 mt-7 border-t border-line text-ink/72">
                                 <a
                                     href="https://www.linkedin.com/company/webentric"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hover:text-white transition-colors"
+                                    className="hover:text-ink transition-colors"
                                     aria-label="LinkedIn"
                                 >
                                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -288,7 +288,7 @@ const Contact = () => {
                                     href="https://www.instagram.com/webentric.in/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hover:text-white transition-colors"
+                                    className="hover:text-ink transition-colors"
                                     aria-label="Instagram"
                                 >
                                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -300,7 +300,7 @@ const Contact = () => {
                                     href="https://wa.me/message/IK7VVIWKOELZL1"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hover:text-white transition-colors"
+                                    className="hover:text-ink transition-colors"
                                     aria-label="WhatsApp"
                                 >
                                     <img
@@ -312,11 +312,11 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white/[0.03] border border-white/10 p-6 md:p-7">
-                            <h3 className="text-sm font-medium tracking-[0.08em] uppercase text-white/70 mb-4">
+                        <div className="bg-surface border border-line p-6 md:p-7">
+                            <h3 className="text-sm font-medium tracking-[0.08em] uppercase text-ink/70 mb-4">
                                 What to include
                             </h3>
-                            <ul className="space-y-3 text-sm text-white/68">
+                            <ul className="space-y-3 text-sm text-ink/68">
                                 <li>Type of website or web application</li>
                                 <li>Key features and pages you need</li>
                                 <li>Ideal timeline or launch date</li>

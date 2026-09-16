@@ -47,7 +47,7 @@ const Testimonials = () => {
             .map((_, index) => (
                 <svg
                     key={index}
-                    className={`h-4 w-4 fill-current ${index < rating ? "text-white" : "text-white/20"
+                    className={`h-4 w-4 fill-current ${index < rating ? "text-ink" : "text-ink/20"
                         }`}
                     viewBox="0 0 24 24"
                 >
@@ -68,20 +68,20 @@ const Testimonials = () => {
 
             <section
                 id="testimonials"
-                className="bg-black py-20 sm:py-24 lg:py-28 overflow-hidden text-white"
+                className="bg-page py-20 sm:py-24 lg:py-28 overflow-hidden text-ink"
             >
                 <div className="max-w-[1200px] mx-auto px-6">
                     {/* Heading */}
                     <div className="max-w-[760px] mx-auto text-center">
-                        <p className="text-[20px] uppercase tracking-[0.22em] text-white/60 mb-4">
+                        <p className="text-[20px] uppercase tracking-[0.22em] text-ink/60 mb-4">
                             TESTIMONIALS
                         </p>
 
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.04em] text-white leading-tight">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.04em] text-ink leading-tight">
                             What Our Clients Say
                         </h2>
 
-                        <p className="mt-4 text-base sm:text-lg text-white/55 leading-relaxed max-w-[620px] mx-auto">
+                        <p className="mt-4 text-base sm:text-lg text-ink/55 leading-relaxed max-w-[620px] mx-auto">
                             Businesses trust Webentric to create websites that are
                             modern, fast, reliable, and built to support real online growth.
                         </p>
@@ -92,22 +92,22 @@ const Testimonials = () => {
                         {testimonials.map((testimonial, index) => (
                             <div
                                 key={index}
-                                className="flex flex-col bg-white/[0.03] border border-white/20 p-7 lg:p-8 transition-colors duration-300 hover:bg-white/[0.05] hover:border-white/20 min-h-[320px]"
+                                className="flex flex-col bg-surface border border-edge p-7 lg:p-8 transition-colors duration-300 hover:bg-raised hover:border-edge min-h-[320px]"
                             >
                                 <div className="flex items-center mb-5">
                                     {renderStars(testimonial.rating)}
                                 </div>
 
-                                <blockquote className="text-white/72 leading-relaxed text-[15px] sm:text-base flex-1">
+                                <blockquote className="text-ink/72 leading-relaxed text-[15px] sm:text-base flex-1">
                                     &ldquo;{testimonial.text}&rdquo;
                                 </blockquote>
 
-                                <div className="mt-8 pt-5 border-t border-white/10">
-                                    <p className="font-medium text-white text-base">
+                                <div className="mt-8 pt-5 border-t border-line">
+                                    <p className="font-medium text-ink text-base">
                                         {testimonial.name}
                                     </p>
 
-                                    <p className="text-sm text-white/40 mt-1">
+                                    <p className="text-sm text-ink/40 mt-1">
                                         {testimonial.role}
                                     </p>
                                 </div>
@@ -133,21 +133,21 @@ const Testimonials = () => {
                                         key={index}
                                         className="min-w-full px-1 sm:px-2"
                                     >
-                                        <div className="flex flex-col w-full bg-white/[0.03] border border-white/10 p-6 sm:p-7 min-h-[300px]">
+                                        <div className="flex flex-col w-full bg-surface border border-line p-6 sm:p-7 min-h-[300px]">
                                             <div className="flex items-center mb-5">
                                                 {renderStars(testimonial.rating)}
                                             </div>
 
-                                            <blockquote className="text-white/72 leading-relaxed text-[15px] sm:text-base flex-1">
+                                            <blockquote className="text-ink/72 leading-relaxed text-[15px] sm:text-base flex-1">
                                                 &ldquo;{testimonial.text}&rdquo;
                                             </blockquote>
 
-                                            <div className="mt-8 pt-5 border-t border-white/10">
-                                                <p className="font-medium text-white text-base sm:text-lg">
+                                            <div className="mt-8 pt-5 border-t border-line">
+                                                <p className="font-medium text-ink text-base sm:text-lg">
                                                     {testimonial.name}
                                                 </p>
 
-                                                <p className="text-sm text-white/40 mt-1">
+                                                <p className="text-sm text-ink/40 mt-1">
                                                     {testimonial.role}
                                                 </p>
                                             </div>
@@ -165,8 +165,8 @@ const Testimonials = () => {
                                     onClick={() => handleDotClick(index)}
                                     aria-label={`Go to testimonial ${index + 1}`}
                                     className={`h-[6px] rounded-full transition-all duration-300 ${index === currentSlide
-                                        ? "w-10 bg-white"
-                                        : "w-6 bg-white/20 hover:bg-white/35"
+                                        ? "w-10 bg-ink"
+                                        : "w-6 bg-ink/20 hover:bg-ink/35"
                                         }`}
                                 />
                             ))}
@@ -175,13 +175,13 @@ const Testimonials = () => {
 
                     {/* CTA */}
                     <div className="mt-20 text-center">
-                        <p className="text-white/55 text-sm sm:text-base mb-6">
+                        <p className="text-ink/55 text-sm sm:text-base mb-6">
                             Ready to build your website?
                         </p>
 
                         <button
                             onClick={() => setOpen(true)}
-                            className="inline-flex items-center justify-center bg-white text-black hover:bg-white/85 font-medium px-7 py-3.5 transition-colors w-full sm:w-auto"
+                            className="inline-flex items-center justify-center bg-accent text-on-accent hover:bg-accent/85 font-medium px-7 py-3.5 transition-colors w-full sm:w-auto"
                         >
                             Get a Free Website Quote
                         </button>

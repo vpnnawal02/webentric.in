@@ -109,7 +109,7 @@ const Pricing = () => {
     };
 
     return (
-        <div className="relative bg-black min-h-screen text-white">
+        <div className="relative bg-page min-h-screen text-ink">
             <PopUpForm open={open} setOpen={setOpen} />
 
             {/* Currency switcher — absolute top-right, overlays without pushing layout */}
@@ -117,7 +117,7 @@ const Pricing = () => {
                 <div ref={currencyRef} className="relative flex flex-col items-end gap-1.5">
                     <span
                         id="currency-label"
-                        className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-white/50"
+                        className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-ink/50"
                     >
                         Currency
                     </span>
@@ -127,20 +127,20 @@ const Pricing = () => {
                         aria-expanded={currencyOpen}
                         aria-haspopup="listbox"
                         aria-labelledby="currency-label"
-                        className="w-[172px] sm:w-auto sm:min-w-[240px] max-w-[calc(100vw-1.5rem)] flex items-center gap-2 bg-white/[0.03] border border-white/20 hover:border-white/40 text-white text-xs sm:text-sm font-medium pl-3 pr-3 py-2 sm:py-2.5 outline-none cursor-pointer transition-colors focus:border-white/60"
+                        className="w-[172px] sm:w-auto sm:min-w-[240px] max-w-[calc(100vw-1.5rem)] flex items-center gap-2 bg-surface border border-edge hover:border-ink/40 text-ink text-xs sm:text-sm font-medium pl-3 pr-3 py-2 sm:py-2.5 outline-none cursor-pointer transition-colors focus:border-ink/60"
                     >
-                        <Globe size={16} className="text-white/50 flex-shrink-0 pointer-events-none" />
+                        <Globe size={16} className="text-ink/50 flex-shrink-0 pointer-events-none" />
                         <span className="flex-1 text-left truncate pointer-events-none">{currency.label}</span>
                         <ChevronDown
                             size={16}
-                            className={`text-white/50 flex-shrink-0 pointer-events-none transition-transform duration-200 ${currencyOpen ? 'rotate-180' : ''}`}
+                            className={`text-ink/50 flex-shrink-0 pointer-events-none transition-transform duration-200 ${currencyOpen ? 'rotate-180' : ''}`}
                         />
                     </button>
                     {currencyOpen && (
                         <ul
                             role="listbox"
                             aria-label="Select currency"
-                            className="absolute right-0 top-full mt-2 w-[220px] sm:w-[260px] max-w-[calc(100vw-1.5rem)] max-h-64 overflow-y-auto bg-black border border-white/20 shadow-2xl shadow-black/60 z-30 py-1"
+                            className="absolute right-0 top-full mt-2 w-[220px] sm:w-[260px] max-w-[calc(100vw-1.5rem)] max-h-64 overflow-y-auto bg-surface border border-edge shadow-2xl shadow-black/60 z-30 py-1"
                         >
                             {CURRENCIES.map((c) => {
                                 const selected = c.code === currencyCode;
@@ -155,8 +155,8 @@ const Pricing = () => {
                                                 setCurrencyOpen(false);
                                             }}
                                             className={`w-full flex items-center justify-between gap-2 px-4 py-2.5 text-xs sm:text-sm text-left transition-colors cursor-pointer ${selected
-                                                ? 'bg-white text-black font-semibold'
-                                                : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                                ? 'bg-accent text-on-accent font-semibold'
+                                                : 'text-muted hover:text-ink hover:bg-ink/5'
                                                 }`}
                                         >
                                             <span className="truncate">{c.label}</span>
@@ -175,20 +175,20 @@ const Pricing = () => {
 
                 {/* 1. Pricing Hero */}
                 <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 md:mb-20 pt-14 sm:pt-0">
-                    <p className="text-[20px] uppercase tracking-[0.22em] text-white/60">
+                    <p className="text-[20px] uppercase tracking-[0.22em] text-ink/60">
                         PRICING
                     </p>
 
-                    <h1 className="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white leading-tight">
+                    <h1 className="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-ink leading-tight">
                         Transparent pricing for professional websites
                     </h1>
 
-                    <p className="text-base md:text-lg text-white/58 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-base md:text-lg text-ink/58 leading-relaxed max-w-2xl mx-auto">
                         Choose a website package that fits your business needs. Every build is modern,
                         responsive, and optimized for performance, clarity, and long-term scalability.
                     </p>
 
-                    <p className="text-sm text-white/38">
+                    <p className="text-sm text-ink/38">
                         Custom projects and advanced features are also available.
                     </p>
                 </div>
@@ -203,29 +203,29 @@ const Pricing = () => {
                             key={index}
                             className={`
                                 relative border p-8 transition-all duration-300
-                                bg-white/[0.03] border-white/20 hover:bg-white/[0.05] hover:border-white/40
-                                ${plan.popular ? 'bg-white/[0.05] border-white/50' : ''}
+                                bg-surface border-edge hover:bg-raised hover:border-ink/40
+                                ${plan.popular ? 'bg-surface border-ink/50' : ''}
                             `}
                         >
                             {plan.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]">
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-on-accent px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]">
                                     Most Popular
                                 </div>
                             )}
 
-                            <h3 className="text-xl font-medium tracking-[-0.02em] text-white mb-4 text-center">
+                            <h3 className="text-xl font-medium tracking-[-0.02em] text-ink mb-4 text-center">
                                 {plan.title}
                             </h3>
 
-                            <p className="text-center text-white/50 text-sm uppercase tracking-[0.14em]">
+                            <p className="text-center text-ink/50 text-sm uppercase tracking-[0.14em]">
                                 Starting from
                             </p>
 
-                            <div className="text-4xl md:text-5xl font-medium tracking-[-0.05em] text-white mb-2 text-center mt-2">
+                            <div className="text-4xl md:text-5xl font-medium tracking-[-0.05em] text-ink mb-2 text-center mt-2">
                                 {formatConvertedPrice(plan.price, currency)}
                             </div>
 
-                            <p className="text-white/50 text-sm text-center mb-8">
+                            <p className="text-ink/50 text-sm text-center mb-8">
                                 {plan.delivery}
                             </p>
 
@@ -233,7 +233,7 @@ const Pricing = () => {
                                 {plan.features.map((feature, fIndex) => (
                                     <li
                                         key={fIndex}
-                                        className="flex items-start gap-3 px-3 py-3 border border-transparent hover:border-white/20 hover:bg-white/[0.03] cursor-help transition-all group"
+                                        className="flex items-start gap-3 px-3 py-3 border border-transparent hover:border-edge hover:bg-raised cursor-help transition-all group"
                                         onMouseEnter={(e) => handleFeatureHover(e, feature.desc, index, fIndex)}
                                         onFocus={(e) => handleFeatureHover(e, feature.desc, index, fIndex)}
                                         onMouseLeave={handleFeatureLeave}
@@ -242,7 +242,7 @@ const Pricing = () => {
                                         aria-describedby={tooltip.show && tooltip.id === `tooltip-${index}-${fIndex}` ? tooltip.id : undefined}
                                     >
                                         <div className="w-5 h-5 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg className="w-3 h-3 text-ink" fill="currentColor" viewBox="0 0 20 20">
                                                 <path
                                                     fillRule="evenodd"
                                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -251,7 +251,7 @@ const Pricing = () => {
                                             </svg>
                                         </div>
 
-                                        <span className="text-white/80 text-sm md:text-[15px] font-medium flex-1 leading-relaxed">
+                                        <span className="text-ink/80 text-sm md:text-[15px] font-medium flex-1 leading-relaxed">
                                             {feature.name}
                                         </span>
                                     </li>
@@ -260,7 +260,7 @@ const Pricing = () => {
 
                             <button
                                 onClick={() => setOpen(true)}
-                                className="w-full bg-white text-black py-3 px-6 font-medium hover:bg-white/85 transition-all duration-200"
+                                className="w-full bg-accent text-on-accent py-3 px-6 font-medium hover:bg-accent/85 transition-all duration-200"
                             >
                                 {plan.popular ? "Start Your Project" : "Get Started"}
                             </button>
@@ -286,7 +286,7 @@ const Pricing = () => {
 
                 {/* 3. Add-ons */}
                 <div className="mb-20">
-                    <h3 className="text-3xl font-medium tracking-[-0.03em] text-white text-center mb-10 md:mb-12">
+                    <h3 className="text-3xl font-medium tracking-[-0.03em] text-ink text-center mb-10 md:mb-12">
                         Optional Add-ons
                     </h3>
 
@@ -294,12 +294,12 @@ const Pricing = () => {
                         {addons.map((addon, index) => (
                             <div
                                 key={index}
-                                className="bg-white/[0.03] border border-white/20 px-6 py-4 text-center hover:bg-white/[0.05] hover:border-white/40 transition-all"
+                                className="bg-surface border border-edge px-6 py-4 text-center hover:bg-raised hover:border-ink/40 transition-all"
                             >
-                                <h4 className="font-medium text-white mb-1 text-sm md:text-base">
+                                <h4 className="font-medium text-ink mb-1 text-sm md:text-base">
                                     {addon.name}
                                 </h4>
-                                <p className="text-white/55 font-medium text-sm md:text-lg">
+                                <p className="text-ink/55 font-medium text-sm md:text-lg">
                                     {formatConvertedPrice(addon.price, currency)}
                                 </p>
                             </div>
@@ -309,7 +309,7 @@ const Pricing = () => {
 
                 {/* 4. FAQ */}
                 <div className="mb-12">
-                    <h3 className="text-3xl font-medium tracking-[-0.03em] text-white text-center mb-12">
+                    <h3 className="text-3xl font-medium tracking-[-0.03em] text-ink text-center mb-12">
                         Frequently Asked Questions
                     </h3>
 
@@ -317,28 +317,28 @@ const Pricing = () => {
                         {faqs.map((faq, index) => (
                             <div
                                 key={index}
-                                className="bg-white/[0.03] border border-white/10 overflow-hidden transition-all"
+                                className="bg-surface border border-line overflow-hidden transition-all"
                             >
                                 <button
                                     type="button"
                                     onClick={() => toggleFaq(index)}
-                                    className="w-full p-6 flex items-center justify-between text-left hover:bg-white/[0.03] transition-colors"
+                                    className="w-full p-6 flex items-center justify-between text-left hover:bg-raised transition-colors"
                                     aria-expanded={activeFaq === index}
                                 >
-                                    <h4 className="font-medium text-white text-lg pr-4">
+                                    <h4 className="font-medium text-ink text-lg pr-4">
                                         {faq.question}
                                     </h4>
 
                                     {activeFaq === index ? (
-                                        <ChevronUp size={22} className="text-white/45 flex-shrink-0" />
+                                        <ChevronUp size={22} className="text-ink/45 flex-shrink-0" />
                                     ) : (
-                                        <ChevronDown size={22} className="text-white/45 flex-shrink-0" />
+                                        <ChevronDown size={22} className="text-ink/45 flex-shrink-0" />
                                     )}
                                 </button>
 
                                 {activeFaq === index && (
                                     <div className="px-6 pb-6 pt-0">
-                                        <p className="text-white/60 leading-relaxed">
+                                        <p className="text-ink/60 leading-relaxed">
                                             {faq.answer}
                                         </p>
                                     </div>

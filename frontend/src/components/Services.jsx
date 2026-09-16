@@ -87,10 +87,10 @@ const ServiceCard = ({ service, className = "", aosDelay = 0, mobile = false }) 
             data-aos-duration={!mobile ? "550" : undefined}
             data-aos-easing={!mobile ? "ease-out-quart" : undefined}
             data-aos-once={!mobile ? "true" : undefined}
-            className={`group relative flex flex-col justify-end overflow-hidden border border-white/20 bg-black p-6 sm:p-7 transition-all duration-300 hover:border-white/30 ${className}`}
+            className={`group relative flex flex-col justify-end overflow-hidden border border-edge bg-page p-6 sm:p-7 transition-all duration-300 hover:border-edge ${className}`}
         >
             {/* Ambient hover wash */}
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_70%,rgba(255,255,255,0.06)_0%,transparent_65%)]" />
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_70%,color-mix(in_srgb,var(--wt-ink)_6%,transparent)_0%,transparent_65%)]" />
 
             {/* Icon */}
             {/* <div className="mb-5 w-11 h-11 flex items-center justify-center flex-shrink-0 border border-white/12 bg-white/[0.03] transition-transform duration-300 group-hover:scale-105">
@@ -99,10 +99,10 @@ const ServiceCard = ({ service, className = "", aosDelay = 0, mobile = false }) 
 
             {/* Text */}
             <div className="flex-1 flex flex-col justify-end">
-                <h3 className="text-white font-medium text-[35px] leading-[1.05] tracking-[-0.04em] mb-3">
+                <h3 className="text-ink font-medium text-[35px] leading-[1.05] tracking-[-0.04em] mb-3">
                     {service.title}
                 </h3>
-                <p className="text-white/60 text-md leading-relaxed line-clamp-3">
+                <p className="text-ink/60 text-md leading-relaxed line-clamp-3">
                     {service.description}
                 </p>
             </div>
@@ -110,14 +110,14 @@ const ServiceCard = ({ service, className = "", aosDelay = 0, mobile = false }) 
             {/* Arrow link */}
             <Link
                 to={service.to}
-                className="mt-6 inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.16em] text-white/72 group-hover:text-white transition-all duration-300"
+                className="mt-6 inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.16em] text-ink/72 group-hover:text-ink transition-all duration-300"
                 aria-label={`Learn more about ${service.title}`}
             >
                 See our work <FiArrowUpRight size={13} />
             </Link>
 
             {/* Bottom accent line */}
-            <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-px transition-all duration-500 bg-white/70" />
+            <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-px transition-all duration-500 bg-ink/70" />
         </div>
     );
 };
@@ -180,7 +180,7 @@ const Services = () => {
     };
 
     return (
-        <section className="relative py-20 sm:py-24 lg:py-28 bg-black text-white overflow-hidden border-t border-white/30">
+        <section className="relative py-20 sm:py-24 lg:py-28 bg-page text-ink overflow-hidden border-t border-edge">
             <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14">
 
                 {/* Header */}
@@ -193,11 +193,11 @@ const Services = () => {
 
 
                     <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-start">
-                        <h2 className="text-white font-medium text-[clamp(2.5rem,5vw,5.4rem)] leading-[0.95] tracking-[-0.06em] max-w-[9ch]">
+                        <h2 className="text-ink font-medium text-[clamp(2.5rem,5vw,5.4rem)] leading-[0.95] tracking-[-0.06em] max-w-[9ch]">
                             Designed for modern businesses
                         </h2>
 
-                        <p className="text-white/70 text-[15px] sm:text-[18px] max-w-[520px] leading-relaxed lg:pt-3">
+                        <p className="text-ink/70 text-[15px] sm:text-[18px] max-w-[520px] leading-relaxed lg:pt-3">
                             A complete range of high-performance web development services
                             engineered to establish, optimize, and scale your digital
                             infrastructure.
@@ -272,7 +272,9 @@ const Services = () => {
                                     style={{
                                         width: i === activeIndex ? 22 : 6,
                                         height: 6,
-                                        background: i === activeIndex ? "#ffffff" : "rgba(255,255,255,0.28)",
+                                        background: i === activeIndex
+                                            ? 'var(--wt-ink)'
+                                            : 'color-mix(in srgb, var(--wt-ink) 28%, transparent)',
                                     }}
                                     aria-label={`Go to slide ${i + 1}`}
                                 />
@@ -282,14 +284,14 @@ const Services = () => {
                         <div className="flex items-center gap-2">
                             <button
                                 onClick={prevSlide}
-                                className="w-11 h-11 border border-white/12 flex items-center justify-center text-white/80 hover:bg-white hover:text-black transition-all duration-300"
+                                className="w-11 h-11 border border-line flex items-center justify-center text-ink/80 hover:bg-accent/85 hover:text-on-accent transition-all duration-300"
                                 aria-label="Previous service"
                             >
                                 <FiArrowLeft size={16} />
                             </button>
                             <button
                                 onClick={nextSlide}
-                                className="w-11 h-11 border border-white/12 flex items-center justify-center text-white/80 hover:bg-white hover:text-black transition-all duration-300"
+                                className="w-11 h-11 border border-line flex items-center justify-center text-ink/80 hover:bg-accent/85 hover:text-on-accent transition-all duration-300"
                                 aria-label="Next service"
                             >
                                 <FiArrowRight size={16} />
@@ -300,18 +302,18 @@ const Services = () => {
 
                 {/* CTA strip */}
                 <div
-                    className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                    className="mt-12 pt-8 border-t border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                     data-aos="fade-up"
                     data-aos-delay="650"
                     data-aos-duration="500"
                     data-aos-once="true"
                 >
-                    <p className="text-white/70 text-sm">
+                    <p className="text-ink/70 text-sm">
                         Not sure which service fits your project?
                     </p>
 
                     <Link to="/contact">
-                        <button className="inline-flex items-center gap-2 px-0 py-0 text-white text-sm font-medium border-b border-white/30 hover:border-white transition-colors duration-200">
+                        <button className="inline-flex items-center gap-2 px-0 py-0 text-ink text-sm font-medium border-b border-edge hover:border-ink transition-colors duration-200">
                             Talk to Us <FiArrowUpRight size={14} />
                         </button>
                     </Link>

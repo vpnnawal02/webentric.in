@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, ArrowUpRight, Hexagon } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 // ─── CSS injected once ────────────────────────────────────────
 const NAVBAR_STYLES = `
@@ -71,7 +72,7 @@ const NAVBAR_STYLES = `
     right: 8px;
     height: 1.5px;
     border-radius: 9999px;
-    background: #ffffff;
+    background: var(--wt-ink);
     transform: scaleX(0);
     transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
   }
@@ -133,20 +134,20 @@ const Navbar = () => {
     };
 
     const linkClass = ({ isActive }) =>
-        `relative px-3 py-2 text-[11px] sm:text-xs xl:text-[13px] font-medium tracking-[0.15em] uppercase transition-colors duration-200 whitespace-nowrap ${isActive ? "text-white nb-nav-link-active" : "text-gray-400 hover:text-white"
+        `relative px-3 py-2 text-[11px] sm:text-xs xl:text-[13px] font-medium tracking-[0.15em] uppercase transition-colors duration-200 whitespace-nowrap ${isActive ? "text-ink nb-nav-link-active" : "text-muted hover:text-ink"
         }`;
 
     return (
         <>
             {/* ── Sticky Navbar ── */}
-            <nav className="sticky top-0 z-50 w-full bg-black border-b border-white/10">
+            <nav className="sticky top-0 z-50 w-full bg-page border-b border-line">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="flex items-center justify-between h-16 lg:h-20">
 
                         {/* Logo — left on mobile/tablet */}
                         <NavLink to="/" className="flex items-center gap-2 lg:hidden">
                             <img src="/logo_circle.png" alt="" className="w-10 h-10" />
-                            <span className="font-semibold tracking-[0.2em] text-lg sm:text-base text-white uppercase">
+                            <span className="font-semibold tracking-[0.2em] text-lg sm:text-base text-ink uppercase">
                                 Webentric
                             </span>
                         </NavLink>
@@ -165,7 +166,7 @@ const Navbar = () => {
                             {/* Centered logo */}
                             <NavLink to="/" className="flex items-center gap-2 mx-6">
                                 <img src="/logo_circle.png" alt="" className="w-10 h-10" />
-                                <span className="font-semibold tracking-[0.25em] text-base xl:text-lg text-white uppercase">
+                                <span className="font-semibold tracking-[0.25em] text-base xl:text-lg text-ink uppercase">
                                     Webentric
                                 </span>
                             </NavLink>
@@ -184,7 +185,7 @@ const Navbar = () => {
                                         onClick={() => setDropdownOpen((p) => !p)}
                                         aria-expanded={dropdownOpen}
                                         aria-haspopup="true"
-                                        className="flex items-center gap-1 px-3 py-2 text-[11px] xl:text-[13px] font-medium tracking-[0.15em] uppercase text-gray-400 hover:text-white transition-colors duration-200"
+                                        className="flex items-center gap-1 px-3 py-2 text-[11px] xl:text-[13px] font-medium tracking-[0.15em] uppercase text-muted hover:text-ink transition-colors duration-200"
                                     >
                                         More
                                         <ChevronDown
@@ -194,7 +195,7 @@ const Navbar = () => {
                                     </button>
 
                                     <div
-                                        className={`nb-dropdown absolute right-0 top-full mt-3 w-56 bg-black border border-white/10 rounded-lg shadow-xl shadow-black/60 overflow-hidden z-50 py-1 ${dropdownOpen ? "nb-open" : ""
+                                        className={`nb-dropdown absolute right-0 top-full mt-3 w-56 bg-surface border border-line rounded-lg shadow-xl shadow-black/60 overflow-hidden z-50 py-1 ${dropdownOpen ? "nb-open" : ""
                                             }`}
                                     >
                                         {DROPDOWN_LINKS.map(({ label, to }) => (
@@ -204,15 +205,15 @@ const Navbar = () => {
                                                 onClick={() => setDropdownOpen(false)}
                                                 className={({ isActive }) =>
                                                     `flex items-center justify-between px-4 py-2.5 text-xs tracking-wide transition-colors duration-150 ${isActive
-                                                        ? "bg-white text-black font-semibold"
-                                                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                                                        ? "bg-accent text-on-accent font-semibold"
+                                                        : "text-muted hover:text-ink hover:bg-ink/5"
                                                     }`
                                                 }
                                             >
                                                 {({ isActive }) => (
                                                     <>
                                                         {label}
-                                                        <ArrowUpRight size={13} className={isActive ? "text-black/70" : "text-gray-500"} />
+                                                        <ArrowUpRight size={13} className={isActive ? "text-on-accent/70" : "text-muted"} />
                                                     </>
                                                 )}
                                             </NavLink>
@@ -220,29 +221,35 @@ const Navbar = () => {
                                     </div>
                                 </div>
 
+                                {/* Theme toggle */}
+                                <ThemeToggle />
+
                                 {/* CTA */}
                                 <NavLink to="/contact">
-                                    <button className="ml-3 px-5 py-2.5 border border-white/30 hover:border-white hover:bg-white hover:text-black text-white text-[11px] xl:text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 active:scale-95">
+                                    <button className="ml-3 px-5 py-2.5 border border-edge hover:border-ink hover:bg-accent hover:text-on-accent text-ink text-[11px] xl:text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-200 active:scale-95">
                                         Get a Quote
                                     </button>
                                 </NavLink>
                             </div>
                         </div>
 
-                        {/* ── Hamburger (below lg) ── */}
-                        <button
-                            onClick={() => setMobileOpen((p) => !p)}
-                            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-white hover:bg-white/10 transition-colors relative"
-                            aria-label="Toggle menu"
-                            aria-expanded={mobileOpen}
-                        >
-                            <span className={`nb-icon-wrap absolute ${mobileOpen ? "nb-exit" : ""}`} aria-hidden={mobileOpen}>
-                                <Menu size={24} />
-                            </span>
-                            <span className={`nb-icon-wrap absolute ${!mobileOpen ? "nb-exit" : ""}`} aria-hidden={!mobileOpen}>
-                                <X size={24} />
-                            </span>
-                        </button>
+                        {/* ── Theme toggle + Hamburger (below lg) ── */}
+                        <div className="lg:hidden flex items-center gap-2.5">
+                            <ThemeToggle />
+                            <button
+                                onClick={() => setMobileOpen((p) => !p)}
+                                className="w-10 h-10 flex items-center justify-center rounded-lg text-ink hover:bg-ink/10 transition-colors relative"
+                                aria-label="Toggle menu"
+                                aria-expanded={mobileOpen}
+                            >
+                                <span className={`nb-icon-wrap absolute ${mobileOpen ? "nb-exit" : ""}`} aria-hidden={mobileOpen}>
+                                    <Menu size={24} />
+                                </span>
+                                <span className={`nb-icon-wrap absolute ${!mobileOpen ? "nb-exit" : ""}`} aria-hidden={!mobileOpen}>
+                                    <X size={24} />
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -256,26 +263,29 @@ const Navbar = () => {
 
             {/* ── Mobile / Tablet Drawer ── */}
             <div
-                className={`nb-drawer fixed inset-0 z-50 w-full h-full bg-black shadow-2xl flex flex-col lg:hidden ${mobileOpen ? "nb-open" : ""
+                className={`nb-drawer fixed inset-0 z-50 w-full h-full bg-page shadow-2xl flex flex-col lg:hidden ${mobileOpen ? "nb-open" : ""
                     }`}
                 aria-modal="true"
                 role="dialog"
                 aria-label="Navigation menu"
             >
-                <div className="flex items-center justify-between px-5 sm:px-6 pt-6 pb-4 border-b border-white/10">
+                <div className="flex items-center justify-between px-5 sm:px-6 pt-6 pb-4 border-b border-line">
                     <span className="flex items-center gap-2">
                         <img src="/logo_circle.png" alt="" className="w-10 h-10" />
-                        <span className="text-sm sm:text-base font-semibold tracking-[0.2em] text-white uppercase">
+                        <span className="text-sm sm:text-base font-semibold tracking-[0.2em] text-ink uppercase">
                             Webentric
                         </span>
                     </span>
-                    <button
-                        onClick={closeMobile}
-                        className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:bg-white/10 transition-colors"
-                        aria-label="Close menu"
-                    >
-                        <X size={20} />
-                    </button>
+                    <div className="flex items-center gap-2.5">
+                        <ThemeToggle />
+                        <button
+                            onClick={closeMobile}
+                            className="w-9 h-9 flex items-center justify-center rounded-lg text-muted hover:bg-ink/10 transition-colors"
+                            aria-label="Close menu"
+                        >
+                            <X size={20} />
+                        </button>
+                    </div>
                 </div>
 
                 <div className="flex flex-col px-4 sm:px-6 pt-8 pb-2 gap-1 flex-1 overflow-y-auto">
@@ -287,15 +297,15 @@ const Navbar = () => {
                                 onClick={closeMobile}
                                 className={({ isActive }) =>
                                     `flex items-center justify-between w-full px-4 py-3 text-sm font-medium tracking-widest uppercase transition-all duration-150 ${isActive
-                                        ? "bg-white text-black font-semibold"
-                                        : "text-gray-300 hover:bg-white/5 hover:text-white"
+                                        ? "bg-accent text-on-accent font-semibold"
+                                        : "text-muted hover:bg-ink/5 hover:text-ink"
                                     }`
                                 }
                             >
                                 {({ isActive }) => (
                                     <>
                                         {label}
-                                        {isActive && <ArrowUpRight size={14} className="text-black/70" />}
+                                        {isActive && <ArrowUpRight size={14} className="text-on-accent/70" />}
                                     </>
                                 )}
                             </NavLink>
@@ -305,7 +315,7 @@ const Navbar = () => {
                     <div className="nb-mobile-link">
                         <button
                             onClick={() => setDropdownOpen((p) => !p)}
-                            className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-medium tracking-widest uppercase text-gray-300 hover:bg-white/5 transition-colors"
+                            className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-medium tracking-widest uppercase text-muted hover:bg-ink/5 transition-colors"
                             aria-expanded={dropdownOpen}
                         >
                             More
@@ -315,7 +325,7 @@ const Navbar = () => {
                             />
                         </button>
 
-                        <div className={`nb-accordion ml-3 mt-1 border-l-2 border-white/10 pl-3 ${dropdownOpen ? "nb-open" : ""}`}>
+                        <div className={`nb-accordion ml-3 mt-1 border-l-2 border-line pl-3 ${dropdownOpen ? "nb-open" : ""}`}>
                             <div>
                                 {DROPDOWN_LINKS.map(({ label, to }) => (
                                     <NavLink
@@ -324,15 +334,15 @@ const Navbar = () => {
                                         onClick={closeMobile}
                                         className={({ isActive }) =>
                                             `flex items-center justify-between px-3 py-2.5 rounded-lg text-sm tracking-wide transition-colors ${isActive
-                                                ? "bg-white text-black font-semibold"
-                                                : "text-gray-400 hover:text-white hover:bg-white/5"
+                                                ? "bg-accent text-on-accent font-semibold"
+                                                : "text-muted hover:text-ink hover:bg-ink/5"
                                             }`
                                         }
                                     >
                                         {({ isActive }) => (
                                             <>
                                                 {label}
-                                                <ArrowUpRight size={12} className={isActive ? "text-black/70" : "text-gray-500"} />
+                                                <ArrowUpRight size={12} className={isActive ? "text-on-accent/70" : "text-muted"} />
                                             </>
                                         )}
                                     </NavLink>
@@ -342,13 +352,13 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="nb-drawer-footer px-5 sm:px-6 pb-8 pt-4 border-t border-white/10">
+                <div className="nb-drawer-footer px-5 sm:px-6 pb-8 pt-4 border-t border-line">
                     <NavLink to="/contact" onClick={closeMobile}>
-                        <button className="w-full py-3 border border-white/30 hover:bg-white hover:text-black text-white text-sm font-semibold tracking-[0.15em] uppercase transition-all duration-200 active:scale-95">
+                        <button className="w-full py-3 border border-edge hover:bg-accent hover:text-on-accent text-ink text-sm font-semibold tracking-[0.15em] uppercase transition-all duration-200 active:scale-95">
                             Get a Free Quote
                         </button>
                     </NavLink>
-                    <p className="text-center text-[11px] text-gray-500 mt-3 tracking-wide">
+                    <p className="text-center text-[11px] text-muted mt-3 tracking-wide">
                         webentric.in · Web Development Agency
                     </p>
                 </div>

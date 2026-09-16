@@ -8,11 +8,11 @@ export default function LeadsTable({
     onStatusChange,
 }) {
     return (
-        <section className="rounded-sm border border-gray-200 bg-white">
+        <section className="rounded-sm border border-line bg-surface">
             <div className="max-h-[70vh] overflow-auto">
                 <table className="min-w-full border-collapse text-xs">
-                    <thead className="sticky top-0 bg-gray-50">
-                        <tr className="border-b border-gray-200 text-left text-[11px] uppercase tracking-wide text-gray-500">
+                    <thead className="sticky top-0 bg-subtle">
+                        <tr className="border-b border-line text-left text-[11px] uppercase tracking-wide text-muted">
                             <th className="px-3 py-2">Name</th>
                             <th className="px-3 py-2">Email</th>
                             <th className="px-3 py-2">Phone</th>
@@ -27,7 +27,7 @@ export default function LeadsTable({
                             <tr>
                                 <td
                                     colSpan={7}
-                                    className="px-3 py-6 text-center text-xs text-gray-500"
+                                    className="px-3 py-6 text-center text-xs text-muted"
                                 >
                                     No leads found.
                                 </td>

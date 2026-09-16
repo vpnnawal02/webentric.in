@@ -1,6 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────
+   Theme tokens — semantic colors usable as Tailwind utilities:
+   bg-page, bg-surface, bg-raised, bg-subtle,
+   text-ink, text-muted, border-line, border-edge,
+   bg-accent, text-on-accent (+ all hover:/opacity variants)
+   ───────────────────────────────────────────────────────────── */
+@theme inline {
+    --color-page: var(--wt-page);
+    --color-surface: var(--wt-surface);
+    --color-raised: var(--wt-raised);
+    --color-subtle: var(--wt-subtle);
+    --color-ink: var(--wt-ink);
+    --color-muted: var(--wt-muted);
+    --color-line: var(--wt-line);
+    --color-edge: var(--wt-edge);
+    --color-accent: var(--wt-accent);
+    --color-on-accent: var(--wt-on-accent);
+}
+
+/* Dark theme (default) */
+:root {
+    color-scheme: dark;
+    --wt-page: #000000;
+    --wt-surface: #0a0a0a;
+    --wt-raised: #171717;
+    --wt-subtle: #1c1c1c;
+    --wt-ink: #ffffff;
+    --wt-muted: #a3a3a3;
+    --wt-line: #242424;
+    --wt-edge: #404040;
+    --wt-accent: #ffffff;
+    --wt-on-accent: #000000;
+}
+
+/* Light theme — enabled via `light` class on <html> */
+html.light {
+    color-scheme: light;
+    --wt-page: #fafafa;
+    --wt-surface: #ffffff;
+    --wt-raised: #ededed;
+    --wt-subtle: #f1f1f2;
+    --wt-ink: #101010;
+    --wt-muted: #616161;
+    --wt-line: #e6e6e6;
+    --wt-edge: #d2d2d2;
+    --wt-accent: #0a0a0a;
+    --wt-on-accent: #ffffff;
+}
+
 .arimo-font {
     font-family: "Arimo", sans-serif;
     font-optical-sizing: auto;
@@ -9,8 +58,125 @@
 }
 
 body {
-    background-color: rgba(240, 248, 255, 0.527);
+    background-color: var(--wt-page);
+    color: var(--wt-ink);
     font-family: "Arimo";
+}
+
+::selection {
+    background: var(--wt-ink);
+    color: var(--wt-page);
+}
+
+:focus-visible {
+    outline: 1.5px solid var(--wt-muted);
+    outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Theme-change animation (fallback path) — enabled on <html>
+   for ~500ms while the theme flips, so every surface/text/
+   border cross-fades together in one calm, minimal motion.
+   Primary path uses ::view-transition circular reveal below.
+   ───────────────────────────────────────────────────────────── */
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+    transition-property: background-color, border-color, color, fill, stroke,
+        outline-color, box-shadow, text-decoration-color !important;
+    transition-duration: 0.45s !important;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Circular theme reveal — the new theme wipes in as an expanding
+   circle from the toggle position (top-right). Driven via WAAPI
+   in ThemeContext; these rules just freeze the snapshots so the
+   scripted clip-path is the only motion.
+   ───────────────────────────────────────────────────────────── */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    z-index: 1;
+}
+
+::view-transition-new(root) {
+    z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.theme-anim,
+    html.theme-anim *,
+    html.theme-anim *::before,
+    html.theme-anim *::after {
+        transition: none !important;
+    }
+
+    .theme-toggle .tt-sun,
+    .theme-toggle .tt-moon {
+        transition: none !important;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Theme toggle button — minimal circle; sun & moon share the
+   center and rotate/scale through each other on theme change.
+   ───────────────────────────────────────────────────────────── */
+.theme-toggle {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--wt-edge);
+    border-radius: 0;
+    background: transparent;
+    color: var(--wt-ink);
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--wt-raised);
+    border-color: var(--wt-muted);
+}
+
+.theme-toggle:active {
+    transform: scale(0.9);
+}
+
+.theme-toggle svg {
+    position: absolute;
+    transition: transform 0.55s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.3s ease;
+}
+
+/* Dark mode: sun faces you · Light mode: moon faces you */
+.theme-toggle .tt-sun {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+.theme-toggle .tt-moon {
+    transform: rotate(-120deg) scale(0.35);
+    opacity: 0;
+}
+
+html.light .theme-toggle .tt-sun {
+    transform: rotate(120deg) scale(0.35);
+    opacity: 0;
+}
+
+html.light .theme-toggle .tt-moon {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
 }
 
 
