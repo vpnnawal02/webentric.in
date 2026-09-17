@@ -4,13 +4,22 @@ import { Link } from "react-router-dom";
 import { images } from "../assets/imgs/assets.js"
 import vid_1 from "../assets/videos/vid-1.mp4"
 import vid_2 from "../assets/videos/vid-2.mp4"
+import { Tick } from "./SectionGraphics.jsx";
 
 const Hero = () => {
   return (
     <section className="bg-page text-ink border-t border-line">
       <div className="w-full">
         {/* Top layout */}
-        <div className="flex flex-col-reverse md:flex-row justify-center lg:gap-30 border-b border-ink/40 lg:h-[50vh]">
+        <div className="relative flex flex-col-reverse md:flex-row justify-center lg:gap-30 border-b border-ink/40 lg:h-[50vh]">
+
+          {/* Registration marks */}
+          <div aria-hidden="true" className="pointer-events-none select-none absolute inset-0 z-10">
+            <Tick className="absolute top-3 left-4 sm:left-6 text-ink/25" />
+            <Tick className="absolute top-3 right-4 sm:right-6 text-ink/25" />
+            <Tick className="absolute bottom-3 left-4 sm:left-6 text-ink/25" />
+            <Tick className="absolute bottom-3 right-4 sm:right-6 text-ink/25" />
+          </div>
 
           {/* Left intro block | Lower Block for Mobile */}
           <div className="border-b lg:border-b-0 lg:border-r border-ink/40 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14 flex items-center">
@@ -29,8 +38,14 @@ const Hero = () => {
           </div>
 
           {/* Right intro block | Upper Block for Mobile */}
-          <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-14 lg:py-16 flex items-center">
-            <div className="max-w-[560px]">
+          <div className="relative overflow-hidden px-5 sm:px-8 lg:px-12 py-12 sm:py-14 lg:py-16 flex items-center">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none select-none absolute -right-14 -bottom-24 hidden md:block h-60 w-60 rounded-full border border-ink/15"
+            >
+              <span className="absolute -top-[3px] left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-ink/50" />
+            </div>
+            <div className="relative max-w-[560px]">
               <p className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-ink/55 mb-5">
                 Website Design &amp; Development Company — Delhi, India
               </p>

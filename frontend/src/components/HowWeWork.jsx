@@ -1,12 +1,17 @@
 import React from 'react'
 import { processSteps } from '../assets/data.js';
+import { CornerTicks, Glow, SectionIndex } from "./SectionGraphics.jsx";
 
 const HowWeWork = () => {
     return (
-        <section className="bg-page py-20 sm:py-24 lg:py-28 text-ink" id="process">
+        <section className="relative bg-page py-20 sm:py-24 lg:py-28 text-ink" id="process">
+            <CornerTicks />
             <div className="max-w-[1200px] mx-auto px-6">
                 {/* Heading */}
                 <div data-aos="fade-right" className="text-center max-w-[700px] mx-auto overflow-hidden">
+                    <div className="mb-5 flex items-center justify-center gap-4">
+                        <SectionIndex no="04" />
+                    </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight tracking-[-0.04em] text-ink">
                         How We Turn <span className='text-ink/70 underline underline-offset-4 decoration-ink/30'>Your Idea</span> Into a Powerful Website
                     </h2>
@@ -18,10 +23,11 @@ const HowWeWork = () => {
 
                 {/* Process grid */}
                 <div className="relative mt-16">
+                    <Glow className="hidden md:block h-[300px] w-[300px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
                     {/* Desktop connector lines */}
                     <div className="hidden lg:flex absolute top-1/2 left-16 right-16 -translate-y-1/2 h-px bg-ink/12" />
 
-                    <div data-aos="fade-right" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                    <div data-aos="fade-right" className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                         {processSteps.map((step, index) => {
                             const Icon = step.icon;
                             const isFirst = index === 0;

@@ -11,6 +11,7 @@ import {
     HiOutlineChartBar,
 } from "react-icons/hi2";
 import { FiArrowUpRight, FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { CornerTicks, GridFade, SectionIndex } from "./SectionGraphics.jsx";
 
 // ─── Service Data ─────────────────────────────────────────────────────────────
 const services = [
@@ -181,18 +182,24 @@ const Services = () => {
 
     return (
         <section className="relative py-20 sm:py-24 lg:py-28 bg-page text-ink overflow-hidden border-t border-edge">
+            <CornerTicks />
             <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14">
 
                 {/* Header */}
                 <div
-                    className="mb-14 lg:mb-16"
+                    className="relative mb-14 lg:mb-16"
                     data-aos="fade-up"
                     data-aos-duration="600"
                     data-aos-once="true"
                 >
+                    <GridFade className="hidden md:block" />
+
+                    <div className="relative mb-6 flex items-center gap-4">
+                        <SectionIndex no="02" />
+                    </div>
 
 
-                    <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-start">
+                    <div className="relative grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-start">
                         <h2 className="text-ink font-medium text-[clamp(2.5rem,5vw,5.4rem)] leading-[0.95] tracking-[-0.06em] max-w-[9ch]">
                             Designed for modern businesses
                         </h2>
