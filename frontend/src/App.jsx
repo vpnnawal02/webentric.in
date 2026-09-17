@@ -17,8 +17,9 @@ import CustomWebsitePage from "./pages/CustomWebsitePage"
 import PopUpForm from "./components/PopUpForm"
 import AdminDashboard from "./admin_dashboard/AdminDashboard"
 import Login from "./pages/Login"
-import OfferPopup from "./utils/OfferPopUp"
 import ScrollToTop from "./utils/ScrollToTop"
+// Offer popup temporarily disabled — uncomment to re-enable.
+// import OfferPopup from "./utils/OfferPopUp"
 import LoadingScreen from "./utils/LoadingScreen"
 import BlogsPage from "./pages/Blogs/BlogPage"
 import BlogDetail from "./pages/Blogs/BlogDetail"
@@ -52,7 +53,8 @@ function App() {
       ) : (
         <div>
           <ScrollToTop />
-          <OfferPopup />
+          {/* Offer popup disabled — uncomment to re-enable. */}
+          {/* <OfferPopup /> */}
           <Navbar />
           <ContactButtons />
           <Routes>
