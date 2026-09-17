@@ -5,6 +5,7 @@ import StatsCards from "./StatsCards";
 import SearchFilters from "./SearchFilters";
 import LeadsTable from "./LeadsTable";
 import LeadModal from "./LeadModal";
+import SEO from "../components/SEO.jsx";
 
 const STATUS_OPTIONS = ["new", "contacted", "negotiation", "closed", "lost"];
 
@@ -113,6 +114,7 @@ export default function AdminDashboard() {
 
     return (
         <div className="min-h-screen bg-subtle text-ink">
+            <SEO title="Admin Dashboard | Webentric" description="Restricted admin dashboard for Webentric." robots="noindex, nofollow" />
             <div className="mx-auto max-w-6xl px-4 py-6">
                 <header className="mb-6 flex items-center justify-between">
                     <div>

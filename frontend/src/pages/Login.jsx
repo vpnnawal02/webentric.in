@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
+import SEO from "../components/SEO.jsx";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -31,6 +32,7 @@ export default function Login() {
 
     return (
         <div className="min-h-screen bg-page flex items-center justify-center px-4">
+            <SEO title="Admin Login | Webentric" description="Restricted admin sign-in for Webentric." robots="noindex, nofollow" />
             <div className="max-w-md w-full space-y-8 bg-surface rounded-sm border border-line p-8">
                 <div>
                     <h2 className="mt-6 text-center text-2xl font-semibold text-ink">

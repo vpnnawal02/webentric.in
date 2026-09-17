@@ -20,7 +20,7 @@
 
   <!-- Optional / Low Impact -->
   <meta name="keywords"
-    content="web design in delhi, website design in delhi, web development services in delhi, website development services in delhi, web design company delhi, website developer delhi, web development agency delhi" />
+    content="website development company in Delhi, web design services Delhi, website designer Delhi, website development services India, ecommerce website development Delhi, business website design India, landing page design Delhi, website cost India, website maintenance Delhi" />
 
   <meta name="author" content="Webentric" />
 
@@ -76,25 +76,80 @@
 
   <meta name="twitter:url" content="https://webentric.in/" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data: sitewide entities (Organization, WebSite, LocalBusiness).
+       Page-specific schemas (Article, FAQ, Breadcrumb, ItemList) are injected
+       per route via the SEO component. -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Webentric",
-      "url": "https://webentric.in",
-      "logo": "https://webentric.in/logo_circle.png",
-      "image": "https://webentric.in/social-media-cover.png",
-      "description": "Web design and website development services in Delhi.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Delhi",
-        "addressCountry": "IN"
-      },
-      "areaServed": "Delhi",
-      "sameAs": [
-        "https://www.instagram.com/webentric.in/",
-        "https://www.linkedin.com/company/webentric/"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://webentric.in/#organization",
+          "name": "Webentric",
+          "url": "https://webentric.in",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://webentric.in/logo_circle.png"
+          },
+          "description": "Web design and website development company in New Delhi, India.",
+          "sameAs": [
+            "https://www.instagram.com/webentric.in/",
+            "https://www.linkedin.com/company/webentric",
+            "https://www.facebook.com/profile.php?id=61574354051186"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-9560342636",
+            "contactType": "sales",
+            "areaServed": "IN",
+            "availableLanguage": ["English", "Hindi"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://webentric.in/#website",
+          "name": "Webentric",
+          "url": "https://webentric.in",
+          "inLanguage": "en-IN",
+          "publisher": { "@id": "https://webentric.in/#organization" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://webentric.in/#local-business",
+          "name": "Webentric — Web Design & Development Company in Delhi",
+          "url": "https://webentric.in",
+          "image": "https://webentric.in/logo_circle.png",
+          "description": "Web design and website development services in Delhi.",
+          "telephone": "+91-9560342636",
+          "priceRange": "₹₹",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "New Delhi",
+            "addressRegion": "Delhi",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.6139,
+            "longitude": 77.2090
+          },
+          "areaServed": [
+            { "@type": "City", "name": "New Delhi" },
+            { "@type": "AdministrativeArea", "name": "Delhi NCR" },
+            { "@type": "Country", "name": "India" }
+          ],
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "09:00",
+            "closes": "19:00"
+          },
+          "sameAs": [
+            "https://www.instagram.com/webentric.in/",
+            "https://www.linkedin.com/company/webentric/"
+          ]
+        }
       ]
     }
   </script>

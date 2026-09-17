@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import blogs from "./BlogData.js";
+import BlogCard from "./BlogCard.jsx";
+import SEO from "../../components/SEO.jsx";
+import { SITE, toAbsolute, toISODate, articleSchema, breadcrumbSchema } from "../../utils/seoMeta.js";
+import { getExcerpt } from "./blogUtils.js";
 
 export default function BlogDetail() {
     const { slug } = useParams();
@@ -16,84 +20,6 @@ export default function BlogDetail() {
             behavior: "instant",
         });
     }, [slug]);
-
-    /*
-     * Basic dynamic SEO metadata.
-     */
-    useEffect(() => {
-        if (!blog) return;
-
-        const defaultTitle =
-            `${blog.title} | Webentric`;
-
-        const description =
-            blog.metaDescription ||
-            blog.content?.find(
-                (block) => block.type === "paragraph"
-            )?.text?.slice(0, 155) ||
-            "Read the latest web development insights from Webentric.";
-
-        /*
-         * Title
-         */
-        document.title =
-            blog.metaTitle || defaultTitle;
-
-        /*
-         * Meta Description
-         */
-        let metaDescription =
-            document.querySelector(
-                'meta[name="description"]'
-            );
-
-        if (!metaDescription) {
-            metaDescription =
-                document.createElement("meta");
-
-            metaDescription.setAttribute(
-                "name",
-                "description"
-            );
-
-            document.head.appendChild(
-                metaDescription
-            );
-        }
-
-        metaDescription.setAttribute(
-            "content",
-            description
-        );
-
-        /*
-         * Canonical
-         */
-        let canonical =
-            document.querySelector(
-                'link[rel="canonical"]'
-            );
-
-        if (!canonical) {
-            canonical =
-                document.createElement("link");
-
-            canonical.setAttribute(
-                "rel",
-                "canonical"
-            );
-
-            document.head.appendChild(
-                canonical
-            );
-        }
-
-        canonical.setAttribute(
-            "href",
-            `https://webentric.in/blogs/${blog.slug}`
-        );
-
-    }, [blog]);
 
     /*
      * Blog not found
@@ -127,8 +53,21 @@ export default function BlogDetail() {
         );
     }
 
+    const excerpt = getExcerpt(blog, 155);
+    const isoDate = toISODate(blog.date);
+
     return (
         <article className="min-h-screen bg-page text-ink">
+            <SEO
+                title={blog.metaTitle || `${blog.title} | Webentric`}
+                description={blog.metaDescription || excerpt}
+                keywords={[...(blog.tags || []), "Webentric", "Delhi", "India"]}
+                canonical={`${SITE.url}/blogs/${blog.slug}`}
+                ogType="article"
+                ogImage={toAbsolute(blog.coverImage)}
+                article={{ publishedTime: isoDate, modifiedTime: isoDate, author: "Webentric", tags: blog.tags || [] }}
+                schema={[articleSchema(blog, excerpt), breadcrumbSchema([{ name: "Home", url: SITE.url }, { name: "Blogs", url: `${SITE.url}/blogs` }, { name: blog.title, url: `${SITE.url}/blogs/${blog.slug}` }])]}
+            />
 
             {/* Article Header */}
             <header className="px-4 sm:px-8 md:px-16 lg:px-24 pt-5  md:pt-10">
@@ -241,11 +180,71 @@ export default function BlogDetail() {
                                     );
                                 }
 
+                                if (
+                                    block.type === "list" &&
+                                    Array.isArray(block.items)
+                                ) {
+                                    return (
+                                        <ul
+                                            key={index}
+                                            className="my-6 rounded-sm border border-line bg-surface px-5 py-5 sm:px-6 space-y-2.5"
+                                        >
+                                            {block.items.map((item, itemIndex) => (
+                                                <li
+                                                    key={itemIndex}
+                                                    className="flex items-start gap-3 text-ink/80 text-base sm:text-lg leading-relaxed"
+                                                >
+                                                    <span
+                                                        aria-hidden="true"
+                                                        className="mt-[0.55em] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink/60"
+                                                    />
+                                                    <span>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    );
+                                }
+
                                 return null;
                             }
                         )}
 
                     </div>
+
+                    <div className="mt-14 md:mt-20 rounded-sm border border-line bg-surface px-6 py-7 sm:px-8">
+                        <h2 className="text-lg sm:text-xl font-medium mb-2">Planning a website for your business?</h2>
+                        <p className="text-sm text-muted leading-relaxed mb-5">Get a fast, SEO-friendly website designed for Indian businesses — priced transparently in rupees.</p>
+                        <div className="flex flex-wrap gap-3">
+                            <Link to="/contact" className="px-5 py-2.5 bg-accent text-on-accent text-sm font-medium hover:bg-accent/85 transition-colors">Get a free quote</Link>
+                            <Link to="/price-calculator" className="px-5 py-2.5 border border-edge text-sm text-ink hover:border-ink transition-colors">Estimate your cost</Link>
+                            <Link to="/pricing" className="px-5 py-2.5 border border-edge text-sm text-ink hover:border-ink transition-colors">See pricing</Link>
+                        </div>
+                    </div>
+
+                    {/* Related articles */}
+                    {blogs.filter(
+                        (item) =>
+                            item.slug !== blog.slug &&
+                            item.category === blog.category
+                    ).length > 0 && (
+                        <section className="mt-14 md:mt-20">
+                            <h2 className="text-xl sm:text-2xl font-medium mb-6">
+                                Related articles
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                {blogs
+                                    .filter(
+                                        (item) =>
+                                            item.slug !== blog.slug &&
+                                            item.category === blog.category
+                                    )
+                                    .slice(0, 2)
+                                    .map((related) => (
+                                        <BlogCard key={related.id} blog={related} />
+                                    ))}
+                            </div>
+                        </section>
+                    )}
 
                     {/* Bottom Divider */}
                     <div className="border-t border-line mt-16 pt-10">

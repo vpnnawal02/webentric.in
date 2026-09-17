@@ -1,8 +1,16 @@
 import React from 'react'
+import SEO from "../components/SEO.jsx";
+import { SITE, webPageSchema } from "../utils/seoMeta.js";
 
 const PrivacyPolicy = () => {
     return (
         <div className="bg-page min-h-screen">
+            <SEO
+                title="Privacy Policy | Webentric"
+                description="Read Webentric's privacy policy — how a website development company in Delhi collects, uses and protects your information."
+                canonical={`${SITE.url}/privacy-policy`}
+                schema={[webPageSchema({ name: "Privacy Policy — Webentric", url: `${SITE.url}/privacy-policy`, description: "Privacy policy of Webentric, a website development company in Delhi, India." })]}
+            />
             <div className="max-w-[900px] mx-auto px-6 py-20">
                 {/* Page Header */}
                 <div className="text-center mb-16">

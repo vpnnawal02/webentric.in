@@ -31,6 +31,9 @@ const Hero = () => {
           {/* Right intro block | Upper Block for Mobile */}
           <div className="px-5 sm:px-8 lg:px-12 py-12 sm:py-14 lg:py-16 flex items-center">
             <div className="max-w-[560px]">
+              <p className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-ink/55 mb-5">
+                Website Design &amp; Development Company — Delhi, India
+              </p>
               <h1 className="text-[40px] md:text-[60px] text-left leading-[0.98] tracking-[-0.05em] font-medium">
                 Your Next Great
                 <br />

@@ -1,6 +1,8 @@
 import { FiArrowRight } from "react-icons/fi";
 import { projects } from "../assets/data.js";
 import PopUpForm from "../components/PopUpForm.jsx";
+import SEO from "../components/SEO.jsx";
+import { SITE, webPageSchema, itemListSchema, breadcrumbSchema } from "../utils/seoMeta.js";
 import React, { useState } from "react";
 
 const Portfolio = () => {
@@ -8,6 +10,13 @@ const Portfolio = () => {
 
     return (
         <section className="bg-page py-10 md:py-14" id="portfolio">
+            <SEO
+                title="Our Web Design Work in Delhi, India | Webentric"
+                description="Explore websites designed & developed by Webentric — schools, salons, cafes, stores & startups across Delhi NCR and India."
+                keywords={["web design portfolio Delhi", "website examples India", "web development projects Delhi"]}
+                canonical={`${SITE.url}/portfolio`}
+                schema={[webPageSchema({ name: "Webentric Portfolio — Web Design Work in Delhi, India", url: `${SITE.url}/portfolio`, description: "Selected website design and development projects across Delhi NCR and India." }), itemListSchema({ name: "Webentric portfolio", url: `${SITE.url}/portfolio`, items: projects.map((p) => ({ name: p.title, url: p.link || `${SITE.url}/portfolio`, description: p.description, image: p.image })) }), breadcrumbSchema([{ name: "Home", url: SITE.url }, { name: "Portfolio", url: `${SITE.url}/portfolio` }])]}
+            />
             <PopUpForm open={open} setOpen={setOpen} />
 
             <div className="max-w-full mx-auto md:px-20 px-5">
@@ -15,9 +24,9 @@ const Portfolio = () => {
                 <div className="text-center max-w-[700px] mx-auto">
 
 
-                    <h2 className="text-[40px] md:text-[5   0px] sm:text-4xl font-medium leading-tight tracking-[-0.03em] text-ink">
+                    <h1 className="text-[40px] md:text-[5   0px] sm:text-4xl font-medium leading-tight tracking-[-0.03em] text-ink">
                         Projects That Help Businesses Succeed Online
-                    </h2>
+                    </h1>
 
                     <p className="mt-4 text-sm md:text-md lg:text-lg text-ink/58">
                         Explore some of the websites and digital experiences we've built for

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
+import SEO from "../components/SEO.jsx";
+import { SITE, webPageSchema, localBusinessSchema, breadcrumbSchema } from "../utils/seoMeta.js";
 
 const Contact = () => {
     const [form, setForm] = useState({
@@ -98,6 +100,13 @@ const Contact = () => {
 
     return (
         <section className="bg-page text-ink min-h-screen">
+            <SEO
+                title="Contact Website Developers in Delhi | Webentric"
+                description="Get a free quote for website design & development in Delhi, India. Call, WhatsApp or send an enquiry — we reply within 24 hours on business days."
+                keywords={["contact web designer Delhi", "hire website developer Delhi", "website quote India"]}
+                canonical={`${SITE.url}/contact`}
+                schema={[webPageSchema({ name: "Contact Webentric — Website Developers in Delhi", url: `${SITE.url}/contact`, description: "Contact Webentric for website design and development in Delhi, India." }), localBusinessSchema(), breadcrumbSchema([{ name: "Home", url: SITE.url }, { name: "Contact", url: `${SITE.url}/contact` }])]}
+            />
             <div className="max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14 py-14 md:py-20">
                 <div className="max-w-3xl mb-12 md:mb-16">
 
@@ -108,6 +117,7 @@ const Contact = () => {
                         Tell us what you&apos;re building, what you need, and where you want to go next.
                         We reply within 24 hours on business days.
                     </p>
+                    <p className="mt-3 text-xs uppercase tracking-[0.18em] text-ink/45">Based in New Delhi · Serving clients across India</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-8 lg:gap-10 items-start">

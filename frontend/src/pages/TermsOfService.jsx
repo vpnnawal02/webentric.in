@@ -1,8 +1,16 @@
 import React from 'react'
+import SEO from "../components/SEO.jsx";
+import { SITE, webPageSchema } from "../utils/seoMeta.js";
 
 const TermsOfService = () => {
     return (
         <div className="bg-page min-h-screen">
+            <SEO
+                title="Terms of Service | Webentric"
+                description="Terms of service for Webentric's website design & development services in Delhi, India."
+                canonical={`${SITE.url}/terms`}
+                schema={[webPageSchema({ name: "Terms of Service — Webentric", url: `${SITE.url}/terms`, description: "Terms of service for Webentric's web design and development services." })]}
+            />
             <div className="max-w-[900px] mx-auto px-6 py-20">
                 {/* Page Header */}
                 <div className="text-center mb-16">

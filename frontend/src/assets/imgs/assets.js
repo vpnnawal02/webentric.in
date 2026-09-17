@@ -1,21 +1,20 @@
 // importing images 
 import navbar_logo from './webentric_logo_with_name_hr.png'
-import hero_img from './hero_img.png'
-import interior_design from './interior-design-project.png'
-import ecommerce from './ecommerce.png'
-import portfolio from './portfolio.png'
-import business from './business.png'
-import cafe from './cats-cafe.png'
-import dental_clinic from './dental_clinic.png'
-import salon from './salon.png'
-import my_cafe from './my-cafe.png'
-import dashboard from './dashboard.png'
-import booking_platform from './booking-platform.png'
-import maple_prints from './maple-prints.png'
-import school from './school.png'
-import about from './about.png'
-import avanza from '../imgs/Projects/avanza.png'
-import travel_agency from '../imgs/Projects/travel_agency.png'
+import about from './about.webp'
+
+// project images
+import interior_design from './Portfolio/interior-design-project.webp'
+import ecommerce from './Portfolio/ecommerce.webp'
+import portfolio from './Portfolio/portfolio.webp'
+import business from './Portfolio/business.webp'
+import cafe from './Portfolio/cats-cafe.webp'
+import dental_clinic from './Portfolio/dental_clinic.webp'
+import salon from './Portfolio/salon.webp'
+import my_cafe from './Portfolio/my-cafe.webp'
+import maple_prints from './Portfolio/maple-prints.webp'
+import school from './Portfolio/school.webp'
+import avanza from './Portfolio/avanza.webp'
+import travel_agency from './Portfolio/travel_agency.webp'
 
 // importing icons
 import {
@@ -57,7 +56,6 @@ import {
 
 export const images = {
     navbar_logo,
-    hero_img,
     interior_design,
     ecommerce,
     portfolio,
@@ -66,8 +64,6 @@ export const images = {
     dental_clinic,
     salon,
     my_cafe,
-    dashboard,
-    booking_platform,
     maple_prints,
     school,
     about,

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { getExcerpt } from "./blogUtils.js";
 
 export default function BlogCard({ blog }) {
+    const excerpt = getExcerpt(blog, 130);
     return (
         <article className="group bg-surface border border-line overflow-hidden flex flex-col">
 
@@ -34,7 +36,7 @@ export default function BlogCard({ blog }) {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-base sm:text-lg font-medium mb-4 leading-snug">
+                <h2 className="text-base sm:text-lg font-medium mb-2 leading-snug line-clamp-2">
                     <Link
                         to={`/blogs/${blog.slug}`}
                         className="hover:underline"
@@ -42,6 +44,13 @@ export default function BlogCard({ blog }) {
                         {blog.title}
                     </Link>
                 </h2>
+
+                {/* Excerpt */}
+                {excerpt && (
+                    <p className="text-sm text-muted leading-relaxed line-clamp-2 mb-4">
+                        {excerpt}
+                    </p>
+                )}
 
                 {/* Read Article */}
                 <Link

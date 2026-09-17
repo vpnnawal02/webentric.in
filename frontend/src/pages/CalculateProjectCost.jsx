@@ -2,6 +2,8 @@
 import { useState, useMemo } from "react";
 import { WEBSITE_TYPES, PRICE_PER_EXTRA_PAGE, BASE_PAGES, FEATURE_LIST, TIMELINE_OPTIONS } from "../assets/data";
 import PopUpForm from "../components/PopUpForm";
+import SEO from "../components/SEO.jsx";
+import { SITE, webPageSchema, breadcrumbSchema } from "../utils/seoMeta.js";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const formatINR = (n) =>
@@ -181,6 +183,13 @@ export default function ProjectCostCalculator() {
 
     return (
         <section className="min-h-screen bg-transparent from-slate-50 to-blue-50/30 py-5 px-4">
+            <SEO
+                title="Website Cost Calculator India (2026) | Webentric"
+                description="Estimate your website development cost in India instantly — pick a website type, features & timeline for transparent pricing in rupees."
+                keywords={["website cost calculator India", "website price estimator Delhi", "ecommerce website cost India"]}
+                canonical={`${SITE.url}/price-calculator`}
+                schema={[webPageSchema({ name: "Website Cost Calculator India", url: `${SITE.url}/price-calculator`, description: "Interactive calculator to estimate website development cost in India." }), breadcrumbSchema([{ name: "Home", url: SITE.url }, { name: "Website Cost Calculator", url: `${SITE.url}/price-calculator` }])]}
+            />
             <PopUpForm open={open} setOpen={setOpen} />
             <div className="max-w-6xl mx-auto">
 
@@ -190,7 +199,7 @@ export default function ProjectCostCalculator() {
                         Calculate Your Project Cost
                     </h1>
                     <p className="text-muted hidden md:flex text-base max-w-xl mx-auto">
-                        Select the features you need to estimate the cost of your website or web application.
+                        Select the features you need to estimate your website development cost in India — transparent pricing in rupees.
                     </p>
                 </div>
 

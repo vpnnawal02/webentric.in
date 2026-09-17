@@ -1,10 +1,11 @@
-import blog_1 from "../../assets/imgs/blog-1.jpeg"
-import blog_2 from "../../assets/imgs/blog-2.jpeg"
-import blog_3 from "../../assets/imgs/blog-3.jpeg"
-import blog_4 from "../../assets/imgs/blog-4.png"
-import blog_5 from "../../assets/imgs/blog-5.png"
-import blog_6 from "../../assets/imgs/blog-6.png"
-import blog_7 from "../../assets/imgs/blog-7.png"
+import blog_1 from "../../assets/imgs/blogs/blog-1.webp"
+import blog_2 from "../../assets/imgs/blogs/blog-2.webp"
+import blog_3 from "../../assets/imgs/blogs/blog-3.webp"
+import blog_4 from "../../assets/imgs/blogs/blog-4.webp"
+import blog_5 from "../../assets/imgs/blogs/blog-5.webp"
+import blog_6 from "../../assets/imgs/blogs/blog-6.webp"
+import blog_7 from "../../assets/imgs/blogs/blog-7.webp"
+import blog_8 from "../../assets/imgs/blogs/blog-8.webp"
 
 const blogs = [
     // BLOG 1 [Why your business Needs a Professional Website to Grow in 2026]
@@ -1210,6 +1211,7 @@ const blogs = [
             }
         ]
     },
+    //Blog 7
     {
         id: 7,
         slug: "website-designer",
@@ -1485,6 +1487,453 @@ const blogs = [
             {
                 type: "paragraph",
                 text: "If your business needs a website that is designed around your brand and your goals, Webentric can help you build a digital presence that works as a genuine business asset."
+            }
+        ]
+    },
+    //Blog 8
+    {
+        id: 8,
+        slug: "website-development-company-delhi",
+        title: "Website Development Company in Delhi: Complete Guide to Web Development Services",
+        category: "WEBSITE DEVELOPMENT",
+        metaTitle: "Website Development Company in Delhi | Web Development Services",
+        metaDescription: "Looking for a website development company in Delhi? Explore professional web development services in Delhi NCR for business websites, e-commerce, custom web applications and more.",
+        tags: [
+            "WEBSITE DEVELOPMENT COMPANY",
+            "WEBSITE DEVELOPMENT COMPANY IN DELHI",
+            "WEB DEVELOPMENT",
+            "WEB DEVELOPMENT SERVICES",
+            "WEB DEVELOPMENT SERVICES IN DELHI NCR",
+            "WEB DESIGN",
+            "WEB DESIGN COMPANY",
+            "DELHI NCR",
+            "BUSINESS WEBSITE",
+            "E-COMMERCE",
+            "SEO"
+        ],
+        date: "September 17, 2026",
+        readTime: "8 min read",
+        author: "Webentric Team",
+        coverImage: blog_8,
+        content: [
+            {
+                type: "paragraph",
+                text: "In today's digital-first business environment, your website is often the first interaction a potential customer has with your company. Before making a purchase, requesting a quotation, booking a service, or contacting your team, customers increasingly search for businesses online."
+            },
+
+            {
+                type: "paragraph",
+                text: "This makes choosing the right website development company in Delhi an important decision for businesses that want to build a strong and reliable online presence. A professional website should not simply look attractive. It should communicate your brand, provide a smooth user experience, perform well across devices, and support your business objectives."
+            },
+
+            {
+                type: "heading",
+                text: "What Is a Website Development Company?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website development company designs, develops, tests, deploys, and maintains websites and web applications for businesses and organizations. Depending on the requirements, this can range from a simple business website to a complex e-commerce platform or custom web application."
+            },
+
+            {
+                type: "paragraph",
+                text: "A professional development team can work across different areas including UI/UX design, frontend development, backend development, database integration, APIs, authentication, performance optimization, deployment, and website maintenance."
+            },
+
+            {
+                type: "heading",
+                text: "Why Businesses in Delhi Need Professional Website Development"
+            },
+
+            {
+                type: "paragraph",
+                text: "Delhi and the wider NCR region have businesses across almost every industry, from local service providers and retailers to startups, manufacturers, educational institutions, professional firms, and growing technology companies."
+            },
+
+            {
+                type: "paragraph",
+                text: "For many of these businesses, the website is an important part of how potential customers discover and evaluate the company. An outdated, slow, confusing, or poorly designed website can make it harder for visitors to understand what the business offers."
+            },
+
+            {
+                type: "paragraph",
+                text: "Professional website development focuses on creating a digital experience that is fast, responsive, accessible, easy to navigate, and aligned with the company's goals."
+            },
+
+            {
+                type: "heading",
+                text: "Web Development Services in Delhi NCR"
+            },
+
+            {
+                type: "paragraph",
+                text: "Businesses have different requirements, which is why web development services in Delhi NCR can cover everything from standard business websites to highly customized digital platforms."
+            },
+
+            {
+                type: "heading",
+                text: "Business Website Development"
+            },
+
+            {
+                type: "paragraph",
+                text: "A business website provides customers with essential information about your company, services, products, location, team, and contact details. It can also act as a lead generation channel by guiding visitors toward enquiries, calls, bookings, or other actions."
+            },
+
+            {
+                type: "paragraph",
+                text: "A typical business website may include pages such as Home, About, Services, Products, Portfolio, Testimonials, Blog, and Contact. The exact structure should depend on the business and its target audience."
+            },
+
+            {
+                type: "heading",
+                text: "E-Commerce Website Development"
+            },
+
+            {
+                type: "paragraph",
+                text: "E-commerce websites require considerably more functionality than standard business websites. Customers need to be able to browse products, search for items, add products to their cart, complete payments, and track orders."
+            },
+
+            {
+                type: "paragraph",
+                text: "Professional e-commerce development can include product catalogues, shopping carts, payment gateways, customer accounts, inventory management, order management, coupons, shipping integrations, and administrative dashboards."
+            },
+
+            {
+                type: "heading",
+                text: "Custom Web Application Development"
+            },
+
+            {
+                type: "paragraph",
+                text: "Some businesses need more than a conventional website. They may require a custom web application designed around a specific workflow or business process."
+            },
+
+            {
+                type: "paragraph",
+                text: "Custom web applications can include CRM systems, gym management systems, student management platforms, booking systems, customer portals, dashboards, internal business tools, and SaaS products."
+            },
+
+            {
+                type: "paragraph",
+                text: "These projects usually require backend development, database architecture, APIs, authentication, authorization, security controls, and carefully planned application architecture."
+            },
+
+            {
+                type: "heading",
+                text: "Website Redesign and Development"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website redesign is not simply about changing colors, fonts, or images. A successful redesign should address the problems that make the existing website difficult to use or ineffective."
+            },
+
+            {
+                type: "paragraph",
+                text: "A redesign can improve navigation, visual hierarchy, mobile responsiveness, page speed, content structure, calls-to-action, accessibility, and overall user experience."
+            },
+
+            {
+                type: "paragraph",
+                text: "Businesses should also consider existing search traffic, URLs, backlinks, and valuable content before making major structural changes to an established website."
+            },
+
+            {
+                type: "heading",
+                text: "What Makes a Good Website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A good website is not necessarily the website with the most animations, effects, or features. A successful website combines visual design with usability, performance, accessibility, technology, and business objectives."
+            },
+
+            {
+                type: "heading",
+                text: "1. Responsive Design"
+            },
+
+            {
+                type: "paragraph",
+                text: "A modern website needs to work properly across smartphones, tablets, laptops, and desktop computers. Mobile visitors should be able to read content, navigate pages, view products, complete forms, and contact the business without unnecessary friction."
+            },
+
+            {
+                type: "heading",
+                text: "2. Website Performance"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website speed directly affects the user experience. Large images, unnecessary scripts, inefficient code, and poor hosting can make a website slow."
+            },
+
+            {
+                type: "paragraph",
+                text: "A professional development process should consider image optimization, efficient code, caching, asset loading, hosting infrastructure, and other performance factors."
+            },
+
+            {
+                type: "heading",
+                text: "3. User Experience"
+            },
+
+            {
+                type: "paragraph",
+                text: "Visitors should be able to understand what your business does and find the information they need without having to work for it. Clear navigation, readable typography, logical page structures, consistent design, and visible calls-to-action all contribute to a better user experience."
+            },
+
+            {
+                type: "heading",
+                text: "4. Search Engine Optimization"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website development and SEO are closely connected. A technically well-structured website can provide a stronger foundation for search engine optimization."
+            },
+
+            {
+                type: "paragraph",
+                text: "Important technical considerations can include clean URLs, proper heading hierarchy, mobile responsiveness, descriptive page titles, optimized images, internal linking, XML sitemaps, canonical URLs, structured content, and website performance."
+            },
+
+            {
+                type: "paragraph",
+                text: "However, development alone does not guarantee search rankings. Useful content, relevance, authority, technical quality, and other SEO factors also contribute to organic search performance."
+            },
+
+            {
+                type: "heading",
+                text: "How to Choose a Website Development Company in Delhi"
+            },
+
+            {
+                type: "paragraph",
+                text: "There are many agencies and freelancers offering website development in Delhi. Comparing them only on price can be misleading because two companies may quote completely different prices for very different scopes of work."
+            },
+
+            {
+                type: "paragraph",
+                text: "Before choosing a development company, businesses should evaluate its portfolio, technical capabilities, communication, development process, project scope, maintenance options, and understanding of SEO and user experience."
+            },
+
+            {
+                type: "heading",
+                text: "Check Their Portfolio"
+            },
+
+            {
+                type: "paragraph",
+                text: "A portfolio can provide useful information about a company's design and development capabilities. Whenever possible, visit the actual websites instead of looking only at screenshots."
+            },
+
+            {
+                type: "paragraph",
+                text: "Check how the websites perform on mobile devices, how quickly pages load, how easy they are to navigate, and whether the overall experience feels consistent and purposeful."
+            },
+
+            {
+                type: "heading",
+                text: "Understand What Is Included"
+            },
+
+            {
+                type: "paragraph",
+                text: "Before starting a project, clarify exactly what the proposal includes. Website design, development, hosting, domain registration, content creation, SEO, maintenance, and third-party services may be separate components."
+            },
+
+            {
+                type: "paragraph",
+                text: "A clear scope helps prevent misunderstandings later and makes it easier to compare different proposals."
+            },
+
+            {
+                type: "heading",
+                text: "Ask About Post-Launch Support"
+            },
+
+            {
+                type: "paragraph",
+                text: "Launching a website is not necessarily the end of the development process. Businesses may need bug fixes, security updates, content changes, performance optimization, new features, backups, or technical support after launch."
+            },
+
+            {
+                type: "paragraph",
+                text: "Understanding the maintenance and support arrangement before development begins can prevent problems later."
+            },
+
+            {
+                type: "heading",
+                text: "How Much Does Website Development Cost in Delhi?"
+            },
+
+            {
+                type: "paragraph",
+                text: "There is no fixed price for website development in Delhi because every project has different requirements. The final cost can depend on the number of pages, design complexity, functionality, technology, integrations, e-commerce requirements, backend systems, content, SEO requirements, hosting, and maintenance."
+            },
+
+            {
+                type: "paragraph",
+                text: "A simple business website can cost considerably less than a custom e-commerce platform or web application. Businesses should therefore compare scope, deliverables, technology, timeline, and support instead of comparing only the final quotation."
+            },
+
+            {
+                type: "heading",
+                text: "Website Design vs Website Development"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website design and website development are related but different disciplines. Web design primarily focuses on visual presentation and user experience, including layout, typography, colors, spacing, navigation, and visual hierarchy."
+            },
+
+            {
+                type: "paragraph",
+                text: "Web development focuses on implementing the design and making the website function. This can involve frontend code, backend systems, databases, APIs, authentication, integrations, and deployment."
+            },
+
+            {
+                type: "paragraph",
+                text: "For businesses, working with a team that understands both design and development can help create a more consistent digital experience."
+            },
+
+            {
+                type: "heading",
+                text: "Why Custom Web Development Can Be Useful"
+            },
+
+            {
+                type: "paragraph",
+                text: "Templates and website builders can be useful for simple projects, but they may not always provide the flexibility required by a growing business."
+            },
+
+            {
+                type: "paragraph",
+                text: "Custom development can be useful when a business requires unique functionality, custom workflows, integrations, specialized dashboards, complex databases, or a user experience that cannot be easily achieved with a standard template."
+            },
+
+            {
+                type: "heading",
+                text: "Best Web Design and Development Company in India: What Should You Look For?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Businesses searching for the best web design and development company in India should avoid making the decision based on a single factor. There is no development company that is the right fit for every type of project."
+            },
+
+            {
+                type: "paragraph",
+                text: "Instead, evaluate companies based on factors such as relevant experience, portfolio quality, technical expertise, communication, development process, project transparency, pricing structure, maintenance, and ability to understand your business requirements."
+            },
+
+            {
+                type: "paragraph",
+                text: "The right partner should be able to explain technical decisions clearly and build a website around the actual needs of the business rather than simply applying the same template to every project."
+            },
+
+            {
+                type: "heading",
+                text: "Webentric: Website Design and Development for Modern Businesses"
+            },
+
+            {
+                type: "paragraph",
+                text: "At Webentric, we approach website development as a combination of design, technology, user experience, performance, and business objectives."
+            },
+
+            {
+                type: "paragraph",
+                text: "We build digital experiences for businesses that need more than a generic template. Depending on the project, our services include business website development, e-commerce development, website redesign, landing page development, custom web applications, website maintenance, and SEO."
+            },
+
+            {
+                type: "paragraph",
+                text: "Every business has different requirements. A local service business may need a website focused on generating enquiries, an e-commerce company may need a streamlined shopping experience, while a growing organization may require a custom platform or internal business application."
+            },
+
+            {
+                type: "paragraph",
+                text: "Our approach is to understand the purpose of the website first and then build the design and technology around that objective."
+            },
+
+            {
+                type: "heading",
+                text: "Frequently Asked Questions"
+            },
+
+            {
+                type: "heading",
+                text: "What does a website development company in Delhi provide?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A website development company can provide services such as website design, frontend development, backend development, database integration, e-commerce development, custom web applications, deployment, maintenance, and technical support."
+            },
+
+            {
+                type: "heading",
+                text: "How long does it take to develop a website?"
+            },
+
+            {
+                type: "paragraph",
+                text: "The development timeline depends on the project's scope. A simple business website may require significantly less development time than an e-commerce platform or custom web application. Content availability, design revisions, integrations, and testing can also affect the timeline."
+            },
+
+            {
+                type: "heading",
+                text: "Should I hire a freelancer or a website development company?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Both can work depending on the project. A freelancer may be suitable for smaller projects, while a development company may provide a broader combination of design, development, project management, testing, deployment, and ongoing support."
+            },
+
+            {
+                type: "heading",
+                text: "Can website development improve SEO?"
+            },
+
+            {
+                type: "paragraph",
+                text: "A technically well-developed website can provide a stronger foundation for SEO through factors such as mobile responsiveness, website performance, crawlability, clean URLs, structured content, internal linking, and proper metadata. However, technical development is only one part of an effective SEO strategy."
+            },
+
+            {
+                type: "heading",
+                text: "Do you provide website maintenance?"
+            },
+
+            {
+                type: "paragraph",
+                text: "Website maintenance can include updates, bug fixes, security improvements, content changes, performance optimization, backups, and new functionality depending on the support requirements of the project."
+            },
+
+            {
+                type: "heading",
+                text: "Final Thoughts"
+            },
+
+            {
+                type: "paragraph",
+                text: "Your website is more than an online business card. It is a digital representation of your company and an important touchpoint between your business and potential customers."
+            },
+
+            {
+                type: "paragraph",
+                text: "Choosing the right website development company in Delhi means looking beyond design and price. Technology, performance, user experience, SEO, security, scalability, and ongoing support should all be considered before starting a project."
+            },
+
+            {
+                type: "paragraph",
+                text: "If your business is looking for professional web development services in Delhi NCR, Webentric can help you plan, design, develop, and maintain a website built around your business requirements."
             }
         ]
     }

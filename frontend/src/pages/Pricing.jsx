@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { pricingPackages, addons, faqs } from '../assets/data';
 import { ChevronDown, ChevronUp, Globe, Check } from 'lucide-react';
 import PopUpForm from '../components/PopUpForm';
+import SEO from "../components/SEO.jsx";
+import { SITE, webPageSchema, faqSchema, breadcrumbSchema } from "../utils/seoMeta.js";
 
 // Base prices in data.js are in INR.
 // INR selected -> show original value as-is (e.g. ₹10,000 stays ₹10,000).
@@ -110,6 +112,13 @@ const Pricing = () => {
 
     return (
         <div className="relative bg-page min-h-screen text-ink">
+            <SEO
+                title="Website Design Cost in Delhi, India (2026) | Webentric"
+                description="Transparent website design pricing in Delhi, India — business websites, e-commerce stores & add-ons with timelines. Get a custom quote within 24 hours."
+                keywords={["website design cost Delhi", "website development pricing India", "business website price India", "ecommerce website cost Delhi"]}
+                canonical={`${SITE.url}/pricing`}
+                schema={[webPageSchema({ name: "Website Design Pricing in Delhi, India", url: `${SITE.url}/pricing`, description: "Website design pricing for businesses in Delhi, India." }), faqSchema(faqs), breadcrumbSchema([{ name: "Home", url: SITE.url }, { name: "Pricing", url: `${SITE.url}/pricing` }])]}
+            />
             <PopUpForm open={open} setOpen={setOpen} />
 
             {/* Currency switcher — absolute top-right, overlays without pushing layout */}
