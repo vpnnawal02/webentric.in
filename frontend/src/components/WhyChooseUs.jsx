@@ -1,6 +1,5 @@
 import React from "react";
 import { icons } from "../assets/imgs/assets.js";
-import { CornerTicks, RingDot, SectionIndex } from "./SectionGraphics.jsx";
 
 const benefits = [
     {
@@ -25,8 +24,7 @@ const benefits = [
 
 const WhyChooseUs = () => {
     return (
-        <section className="relative bg-page text-ink py-20 sm:py-24 lg:py-28">
-            <CornerTicks />
+        <section className="bg-page text-ink py-20 sm:py-24 lg:py-28">
             <div className="max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14">
                 <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-14 lg:gap-20 items-start">
                     {/* Left */}
@@ -35,12 +33,9 @@ const WhyChooseUs = () => {
                         data-aos="fade-right"
                     >
                         <div className="max-w-[540px]">
-                            <div className="flex items-center gap-4 mb-5">
-                                <p className="text-[15px] uppercase tracking-[0.22em] text-ink/45">
-                                    WHY CHOOSE WEBENTRIC
-                                </p>
-                                <SectionIndex no="03" />
-                            </div>
+                            <p className="text-[15px] uppercase tracking-[0.22em] text-ink/45 mb-5">
+                                WHY CHOOSE WEBENTRIC
+                            </p>
 
                             <h2 className="text-[clamp(2.2rem,4.6vw,4.2rem)] leading-[1.02] tracking-[-0.04em] font-medium text-ink mb-6">
                                 Built with clarity, performance, and long-term reliability.
@@ -73,7 +68,6 @@ const WhyChooseUs = () => {
 
                     {/* Right */}
                     <div className="relative" data-aos="fade-down">
-                        <RingDot className="hidden lg:block -top-10 -right-6 h-28 w-28" />
                         <div className="absolute inset-y-0 -left-7 hidden lg:block w-px bg-ink/10" />
 
                         <div className="space-y-5">

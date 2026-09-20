@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { testimonials } from "../assets/data.js";
 import PopUpForm from "./PopUpForm.jsx";
-import { CornerTicks, SectionIndex } from "./SectionGraphics.jsx";
 
 const Testimonials = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -69,19 +68,14 @@ const Testimonials = () => {
 
             <section
                 id="testimonials"
-                className="relative bg-page py-20 sm:py-24 lg:py-28 overflow-hidden text-ink"
+                className="bg-page py-20 sm:py-24 lg:py-28 overflow-hidden text-ink"
             >
-                <CornerTicks />
                 <div className="max-w-[1200px] mx-auto px-6">
                     {/* Heading */}
-                    <div className="relative max-w-[760px] mx-auto text-center">
-                        <span aria-hidden="true" className="pointer-events-none select-none absolute -top-10 left-0 sm:left-4 text-[140px] sm:text-[200px] leading-none text-ink/[0.06] font-[Georgia,serif]">“</span>
-                        <div className="flex items-center justify-center gap-4 mb-4">
-                            <p className="text-[20px] uppercase tracking-[0.22em] text-ink/60">
-                                TESTIMONIALS
-                            </p>
-                            <SectionIndex no="05" />
-                        </div>
+                    <div className="max-w-[760px] mx-auto text-center">
+                        <p className="text-[20px] uppercase tracking-[0.22em] text-ink/60 mb-4">
+                            TESTIMONIALS
+                        </p>
 
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.04em] text-ink leading-tight">
                             What Our Clients Say

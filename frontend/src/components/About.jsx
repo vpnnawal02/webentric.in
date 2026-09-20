@@ -1,21 +1,15 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { images } from "../assets/imgs/assets.js";
-import { CornerTicks, RingDot, SectionIndex } from "./SectionGraphics.jsx";
 
 const About = () => {
     return (
-        <section className="relative bg-page text-ink overflow-hidden">
-            <CornerTicks />
+        <section className="bg-page text-ink overflow-hidden">
             <div className="w-full max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14 py-14 sm:py-16 lg:py-20">
                 <div className="flex flex-col md:flex-row gap-12 lg:gap-14 xl:gap-20 items-center min-h-[78vh]">
 
                     {/* Left content */}
                     <div className="lg:w-[750px]">
-
-                        <div className="mb-5 flex items-center gap-4">
-                            <SectionIndex no="01" />
-                        </div>
 
                         <h2 className="text-[40px] md:text-[60px] leading-[1.03] tracking-[-0.05em] font-medium max-w-[11ch]">
                             We design, build, and scale digital products that make an impact
@@ -31,7 +25,6 @@ const About = () => {
 
                     {/* Right visual layout */}
                     <div className="relative w-full">
-                        <RingDot className="hidden lg:block -right-10 -top-10 h-48 w-48" />
 
                         <div className=" gap-4 sm:gap-5 pt-10 sm:pt-12">
                             <div className="col-span-7">
