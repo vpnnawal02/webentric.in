@@ -176,7 +176,7 @@ const PrivacyPolicy = () => {
                 <div className="border-t border-line mt-20 pt-12">
                     <div className="flex flex-wrap gap-6 justify-center text-sm text-muted">
                         <a href="/" className="hover:text-blue-600 transition-colors font-medium">Home</a>
-                        <a href="#services" className="hover:text-blue-600 transition-colors font-medium">Services</a>
+                        <a href="/website-development" className="hover:text-blue-600 transition-colors font-medium">Services</a>
                         <a href="#contact" className="hover:text-blue-600 transition-colors font-medium">Contact</a>
                         <a href="/terms" className="hover:text-blue-600 transition-colors font-medium">Terms of Service</a>
                     </div>

@@ -1,4 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import { projects } from "../assets/data.js";
 import PopUpForm from "../components/PopUpForm.jsx";
 import SEO from "../components/SEO.jsx";
@@ -92,6 +93,22 @@ const Portfolio = () => {
                     >
                         Start Your Project
                     </button>
+
+                    <p className="mt-6 text-xs sm:text-sm text-ink/45">
+                        Or explore our{" "}
+                        <Link to="/website-development" className="text-ink/70 hover:text-ink underline underline-offset-4 transition-colors">
+                            website development
+                        </Link>
+                        {", "}
+                        <Link to="/ecommerce-development" className="text-ink/70 hover:text-ink underline underline-offset-4 transition-colors">
+                            ecommerce development
+                        </Link>
+                        {" "}and{" "}
+                        <Link to="/website-redesign" className="text-ink/70 hover:text-ink underline underline-offset-4 transition-colors">
+                            website redesign
+                        </Link>
+                        {" "}services.
+                    </p>
                 </div>
             </div>
         </section>

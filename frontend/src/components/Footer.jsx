@@ -52,11 +52,11 @@ const Footer = () => {
                             Quick Links
                         </h3>
                         <nav className="space-y-3">
-                            <a href="#home" className="text-sm text-ink/55 hover:text-ink transition-colors block">Home</a>
-                            <a href="#services" className="text-sm text-ink/55 hover:text-ink transition-colors block">Services</a>
+                            <a href="/" className="text-sm text-ink/55 hover:text-ink transition-colors block">Home</a>
                             <a href="/portfolio" className="text-sm text-ink/55 hover:text-ink transition-colors block">Portfolio</a>
-                            <a href="#process" className="text-sm text-ink/55 hover:text-ink transition-colors block">How We Work</a>
-                            <a href="/#testimonials" className="text-sm text-ink/55 hover:text-ink transition-colors block">Testimonials</a>
+                            <a href="/pricing" className="text-sm text-ink/55 hover:text-ink transition-colors block">Pricing</a>
+                            <a href="/blogs" className="text-sm text-ink/55 hover:text-ink transition-colors block">Blogs</a>
+                            <a href="/price-calculator" className="text-sm text-ink/55 hover:text-ink transition-colors block">Cost Calculator</a>
                             <a href="/contact" className="text-sm text-ink/55 hover:text-ink transition-colors block">Contact</a>
                         </nav>
                     </div>
@@ -67,12 +67,15 @@ const Footer = () => {
                             Services
                         </h3>
                         <nav className="space-y-3">
-                            <a href="#" className="text-sm text-ink/55 hover:text-ink transition-colors block">Business Website Development</a>
-                            <a href="#" className="text-sm text-ink/55 hover:text-ink transition-colors block">E-Commerce Development</a>
-                            <a href="#" className="text-sm text-ink/55 hover:text-ink transition-colors block">Website Redesign</a>
-                            <a href="#" className="text-sm text-ink/55 hover:text-ink transition-colors block">Landing Page Development</a>
-                            <a href="#" className="text-sm text-ink/55 hover:text-ink transition-colors block">Website Maintenance</a>
-                            <a href="#" className="text-sm text-ink/55 hover:text-ink transition-colors block">SEO Optimization</a>
+                            <a href="/website-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Website Development</a>
+                            <a href="/web-design" className="text-sm text-ink/55 hover:text-ink transition-colors block">Web Design</a>
+                            <a href="/ecommerce-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">E-Commerce Development</a>
+                            <a href="/custom-software-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Custom Software</a>
+                            <a href="/web-application-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Web Applications</a>
+                            <a href="/landing-page-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Landing Pages</a>
+                            <a href="/website-redesign" className="text-sm text-ink/55 hover:text-ink transition-colors block">Website Redesign</a>
+                            <a href="/website-maintenance" className="text-sm text-ink/55 hover:text-ink transition-colors block">Maintenance &amp; Support</a>
+                            <a href="/seo-services" className="text-sm text-ink/55 hover:text-ink transition-colors block">SEO Services</a>
                         </nav>
                     </div>
 
