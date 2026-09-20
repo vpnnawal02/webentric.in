@@ -179,6 +179,37 @@ html.light .theme-toggle .tt-moon {
 }
 
 
+/* Hero marquee — infinite drift, pause on hover/focus */
+.hero-marquee-track {
+    animation-name: hero-marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes hero-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-hover:hover .hero-marquee-track,
+.marquee-hover:focus-within .hero-marquee-track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-marquee-track {
+        animation: none;
+    }
+
+    .marquee-viewport {
+        overflow-x: auto;
+    }
+}
+
 @layer utilities {
 
     /* Chrome, Safari and Opera */

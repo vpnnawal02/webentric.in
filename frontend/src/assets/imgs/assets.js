@@ -15,6 +15,7 @@ import maple_prints from './Portfolio/maple-prints.webp'
 import school from './Portfolio/school.webp'
 import avanza from './Portfolio/avanza.webp'
 import travel_agency from './Portfolio/travel_agency.webp'
+import gym from "./Portfolio/gym.webp"
 
 // importing icons
 import {
@@ -68,7 +69,8 @@ export const images = {
     school,
     about,
     avanza,
-    travel_agency
+    travel_agency,
+    gym
 }
 
 export const icons = {
