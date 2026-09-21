@@ -353,3 +353,22 @@ html.light .theme-toggle .tt-moon {
 .nb-nav-link-active .nb-nav-active-bar {
     transform: scaleX(1);
 }
+
+/* Same-element variant (used by the "More" button, where the bar lives
+   inside the relatively-positioned button itself). */
+.nb-nav-active-bar.nb-nav-on {
+    transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nb-dropdown,
+    .nb-drawer,
+    .nb-backdrop,
+    .nb-mobile-link,
+    .nb-drawer-footer,
+    .nb-icon-wrap,
+    .nb-accordion,
+    .nb-nav-active-bar {
+        transition: none;
+    }
+}

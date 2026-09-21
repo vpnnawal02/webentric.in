@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
@@ -15,23 +15,113 @@ const RIGHT_LINKS = [
   { label: 'Contact', href: '/contact' },
 ];
 const NAV_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS];
-const DROPDOWN_LINKS = [
-  { label: 'Calculate Website Cost', href: '/price-calculator' },
-  { label: 'Admin Login', href: '/admin/login' },
+
+// Organized "More" menu — every link verified against app/ routes.
+// Only pages lacking primary-navbar access. Private/legal pages excluded:
+// /admin, /admin/login (private), 404, /privacy-policy + /terms (footer).
+const MORE_SECTIONS = [
+  {
+    heading: 'Services',
+    links: [
+      { label: 'Website Development', href: '/website-development' },
+      { label: 'Web Design', href: '/web-design' },
+      { label: 'Ecommerce Development', href: '/ecommerce-development' },
+      { label: 'Custom Software', href: '/custom-software-development' },
+      { label: 'Web Applications', href: '/web-application-development' },
+      { label: 'Landing Pages', href: '/landing-page-development' },
+      { label: 'Website Redesign', href: '/website-redesign' },
+      { label: 'Maintenance & Support', href: '/website-maintenance' },
+      { label: 'SEO Services', href: '/seo-services' },
+    ],
+  },
+  {
+    heading: 'Industries',
+    links: [
+      { label: 'Small Business', href: '/industries/small-business' },
+      { label: 'Startups', href: '/industries/startups' },
+      { label: 'Education', href: '/industries/education' },
+      { label: 'Restaurants & Cafes', href: '/industries/restaurants-cafes' },
+      { label: 'Fitness', href: '/industries/fitness' },
+    ],
+  },
+  {
+    heading: 'Locations',
+    links: [
+      { label: 'Delhi', href: '/locations/delhi' },
+      { label: 'Delhi NCR', href: '/locations/delhi-ncr' },
+      { label: 'Noida', href: '/locations/noida' },
+      { label: 'Gurgaon', href: '/locations/gurgaon' },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [{ label: 'Cost Calculator', href: '/price-calculator' }],
+  },
 ];
+const MORE_HREFS = new Set(MORE_SECTIONS.flatMap((s) => s.links.map((l) => l.href)));
+
+const OPEN_DELAY = 120;
+const CLOSE_DELAY = 180;
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const hoverTimer = useRef(null);
+
+  const clearHoverTimer = () => {
+    if (hoverTimer.current) {
+      clearTimeout(hoverTimer.current);
+      hoverTimer.current = null;
+    }
+  };
+  const scheduleOpen = () => {
+    clearHoverTimer();
+    hoverTimer.current = setTimeout(() => setDropdownOpen(true), OPEN_DELAY);
+  };
+  const scheduleClose = () => {
+    clearHoverTimer();
+    hoverTimer.current = setTimeout(() => setDropdownOpen(false), CLOSE_DELAY);
+  };
   const closeMobile = () => {
     setMobileOpen(false);
     setDropdownOpen(false);
   };
+  const onMoreKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      clearHoverTimer();
+      setDropdownOpen(false);
+    }
+  };
+
+  const moreActive = MORE_HREFS.has(pathname);
   const linkClass = (href) =>
     `relative px-3 py-2 text-[11px] sm:text-xs xl:text-[13px] font-medium tracking-[0.15em] uppercase transition-colors duration-200 whitespace-nowrap ${
       pathname === href ? 'text-ink nb-nav-link-active' : 'text-muted hover:text-ink'
     }`;
+  const moreButtonClass = `relative flex items-center gap-1 px-3 py-2 text-[11px] xl:text-[13px] font-medium tracking-[0.15em] uppercase transition-colors duration-200 ${
+    moreActive ? 'text-ink' : 'text-muted hover:text-ink'
+  }`;
+
+  const renderMoreLink = ({ label, href }) => {
+    const active = pathname === href;
+    return (
+      <Link
+        key={href}
+        href={href}
+        onClick={() => {
+          clearHoverTimer();
+          setDropdownOpen(false);
+        }}
+        className={`flex items-center justify-between gap-2 px-3 py-2 text-xs tracking-wide transition-colors duration-150 ${
+          active ? 'bg-accent text-on-accent font-semibold' : 'text-muted hover:text-ink hover:bg-ink/5'
+        }`}
+      >
+        <span className="truncate">{label}</span>
+        <ArrowUpRight size={13} className={`shrink-0 ${active ? 'text-on-accent/70' : 'text-muted'}`} />
+      </Link>
+    );
+  };
 
   return (
     <>
@@ -62,40 +152,50 @@ export default function Navbar() {
                     <span className="nb-nav-active-bar" aria-hidden />
                   </Link>
                 ))}
-                <div className="relative">
+                {/* More — hover opens on desktop, click toggles (touch/keyboard) */}
+                <div
+                  className="relative"
+                  onMouseEnter={scheduleOpen}
+                  onMouseLeave={scheduleClose}
+                  onKeyDown={onMoreKeyDown}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                      clearHoverTimer();
+                      setDropdownOpen(false);
+                    }
+                  }}
+                >
                   <button
-                    onClick={() => setDropdownOpen((p) => !p)}
-                    onBlur={(e) => {
-                      if (!e.currentTarget.parentElement.contains(e.relatedTarget)) setDropdownOpen(false);
+                    onClick={() => {
+                      clearHoverTimer();
+                      setDropdownOpen((p) => !p);
                     }}
                     aria-expanded={dropdownOpen}
                     aria-haspopup="true"
-                    className="flex items-center gap-1 px-3 py-2 text-[11px] xl:text-[13px] font-medium tracking-[0.15em] uppercase text-muted hover:text-ink transition-colors duration-200"
+                    className={moreButtonClass}
                   >
                     More
                     <ChevronDown size={13} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                    {moreActive && <span className="nb-nav-active-bar nb-nav-on" aria-hidden />}
                   </button>
+
                   <div
-                    className={`nb-dropdown absolute right-0 top-full mt-3 w-56 bg-surface border border-line rounded-lg shadow-xl shadow-black/60 overflow-hidden z-50 py-1 ${
+                    className={`nb-dropdown absolute right-0 top-full mt-3 w-[44rem] max-w-[calc(100vw-2rem)] bg-surface border border-line rounded-lg shadow-xl shadow-black/60 z-50 p-5 ${
                       dropdownOpen ? 'nb-open' : ''
                     }`}
                   >
-                    {DROPDOWN_LINKS.map(({ label, href }) => {
-                      const active = pathname === href;
-                      return (
-                        <Link
-                          key={href}
-                          href={href}
-                          onClick={() => setDropdownOpen(false)}
-                          className={`flex items-center justify-between px-4 py-2.5 text-xs tracking-wide transition-colors duration-150 ${
-                            active ? 'bg-accent text-on-accent font-semibold' : 'text-muted hover:text-ink hover:bg-ink/5'
-                          }`}
-                        >
-                          {label}
-                          <ArrowUpRight size={13} className={active ? 'text-on-accent/70' : 'text-muted'} />
-                        </Link>
-                      );
-                    })}
+                    <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-6">
+                      {MORE_SECTIONS.map((section) => (
+                        <div key={section.heading} className="min-w-0">
+                          <p className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/40">
+                            {section.heading}
+                          </p>
+                          <div className="flex flex-col gap-0.5">
+                            {section.links.map(renderMoreLink)}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 <ThemeToggle />
@@ -170,33 +270,45 @@ export default function Navbar() {
               </div>
             );
           })}
+          {/* Mobile More — tap to expand/collapse */}
           <div className="nb-mobile-link">
             <button
               onClick={() => setDropdownOpen((p) => !p)}
+              onKeyDown={onMoreKeyDown}
               className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-medium tracking-widest uppercase text-muted hover:bg-ink/5 transition-colors"
               aria-expanded={dropdownOpen}
+              aria-haspopup="true"
             >
               More
               <ChevronDown size={15} className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`nb-accordion ml-3 mt-1 border-l-2 border-line pl-3 ${dropdownOpen ? 'nb-open' : ''}`}>
-              <div>
-                {DROPDOWN_LINKS.map(({ label, href }) => {
-                  const active = pathname === href;
-                  return (
-                    <Link
-                      key={href}
-                      href={href}
-                      onClick={closeMobile}
-                      className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm tracking-wide transition-colors ${
-                        active ? 'bg-accent text-on-accent font-semibold' : 'text-muted hover:text-ink hover:bg-ink/5'
-                      }`}
-                    >
-                      {label}
-                      <ArrowUpRight size={12} className={active ? 'text-on-accent/70' : 'text-muted'} />
-                    </Link>
-                  );
-                })}
+            <div className={`nb-accordion mt-1 ${dropdownOpen ? 'nb-open' : ''}`}>
+              <div className="flex flex-col gap-4 py-2">
+                {MORE_SECTIONS.map((section) => (
+                  <div key={section.heading}>
+                    <p className="px-4 mb-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/40">
+                      {section.heading}
+                    </p>
+                    <div className="ml-3 border-l-2 border-line pl-3 flex flex-col">
+                      {section.links.map(({ label, href }) => {
+                        const active = pathname === href;
+                        return (
+                          <Link
+                            key={href}
+                            href={href}
+                            onClick={closeMobile}
+                            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm tracking-wide transition-colors ${
+                              active ? 'bg-accent text-on-accent font-semibold' : 'text-muted hover:text-ink hover:bg-ink/5'
+                            }`}
+                          >
+                            {label}
+                            <ArrowUpRight size={12} className={active ? 'text-on-accent/70' : 'text-muted'} />
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
