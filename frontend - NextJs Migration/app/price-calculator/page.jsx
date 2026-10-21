@@ -183,14 +183,14 @@ export default function PriceCalculatorPage() {
     };
 
     return (
-        <section className="min-h-screen bg-transparent from-slate-50 to-blue-50/30 py-5 px-4">
+        <main className="min-h-screen bg-transparent from-slate-50 to-blue-50/30 py-5 px-4">
             <JsonLd
                 data={[
                     webPageSchema({ name: 'Website Cost Calculator India', url: `${SITE.url}/price-calculator`, description: 'Interactive calculator to estimate website development cost in India.' }),
                     breadcrumbSchema([{ name: 'Home', url: SITE.url }, { name: 'Website Cost Calculator', url: `${SITE.url}/price-calculator` }]),
                 ]}
             />
-            <PopUpForm open={open} setOpen={setOpen} />
+            <PopUpForm open={open} setOpen={setOpen} source="Cost calculator" />
             <div className="max-w-6xl mx-auto">
 
                 {/* ── Header ── */}
@@ -417,6 +417,6 @@ export default function PriceCalculatorPage() {
                     defaultMessage={buildMessage(siteType, pages, features, timeline, total)}
                 />
             )}
-        </section>
+        </main>
     );
 }

@@ -22,12 +22,13 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Our Web Design Work in Delhi, India',
     description: 'Explore websites designed & developed by Webentric — schools, salons, cafes, stores & startups across Delhi NCR and India.',
+    images: ["https://webentric.in/social-media-cover.png"],
   },
 };
 
 export default function PortfolioPage() {
   return (
-    <section className="bg-page py-10 md:py-14" id="portfolio">
+    <main className="bg-page py-10 md:py-14" id="portfolio">
       <JsonLd
         data={[
           webPageSchema({ name: 'Webentric Portfolio — Web Design Work in Delhi, India', url: `${SITE.url}/portfolio`, description: 'Selected website design and development projects across Delhi NCR and India.' }),
@@ -50,7 +51,7 @@ export default function PortfolioPage() {
         </div>
 
         {/* Projects grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -122,6 +123,6 @@ export default function PortfolioPage() {
           </p>
         </div>
       </div>
-    </section>
+    </main>
   );
 }
