@@ -9,13 +9,29 @@ import ThemeToggle from './ThemeToggle';
 const LEFT_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Reviews', href: '/reviews' },
 ];
 const RIGHT_LINKS = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Contact', href: '/contact' },
 ];
 const NAV_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS];
+
+const PRODUCT_LINKS = [
+  { label: 'All Products', href: '/products', desc: 'Browse all 12 systems', accent: '#ffffff' },
+  { label: 'Gym Management', href: '/products/gym-management-system', desc: 'Members, plans & renewals', accent: '#22d3ee' },
+  { label: 'Clinic Management', href: '/products/doctor-clinic-management-system', desc: 'OPD, queue & Rx', accent: '#34d399' },
+  { label: 'School Management', href: '/products/school-management-system', desc: 'ERP, fees & exams', accent: '#818cf8' },
+  { label: 'Coaching Institute', href: '/products/coaching-institute-management-system', desc: 'Batches & test series', accent: '#f472b6' },
+  { label: 'Sports Academy', href: '/products/sports-academy-management-system', desc: 'Players & tournaments', accent: '#fbbf24' },
+  { label: 'Salon & Spa', href: '/products/salon-spa-management-system', desc: 'Bookings & loyalty', accent: '#f0abfc' },
+  { label: 'Retail Shop', href: '/products/retail-shop-management-system', desc: 'POS & barcode billing', accent: '#38bdf8' },
+  { label: 'Inventory', href: '/products/inventory-management-system', desc: 'Stock & warehouses', accent: '#a3e635' },
+  { label: 'Restaurant & Cafe', href: '/products/restaurant-cafe-management-system', desc: 'KOT, tables & food cost', accent: '#fb923c' },
+  { label: 'PG, Hostel & Rent', href: '/products/pg-hostel-rent-management-system', desc: 'Beds, rent & dues', accent: '#2dd4bf' },
+  { label: 'Invoice & Billing', href: '/products/invoice-billing-management-system', desc: 'GST invoices in seconds', accent: '#c084fc' },
+  { label: 'AI Support System', href: '/products/ai-customer-support-system', desc: '24×7 AI chat & leads', accent: '#67e8f9' },
+];
+const PRODUCT_HREFS = new Set(PRODUCT_LINKS.map((l) => l.href));
 
 // Organized "More" menu — every link verified against app/ routes.
 // Only pages lacking primary-navbar access. Private/legal pages excluded:
@@ -73,7 +89,9 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const hoverTimer = useRef(null);
+  const prodTimer = useRef(null);
 
   const clearHoverTimer = () => {
     if (hoverTimer.current) {
@@ -92,6 +110,7 @@ export default function Navbar() {
   const closeMobile = () => {
     setMobileOpen(false);
     setDropdownOpen(false);
+    setProductsOpen(false);
   };
   const onMoreKeyDown = (e) => {
     if (e.key === 'Escape') {
@@ -101,6 +120,7 @@ export default function Navbar() {
   };
 
   const moreActive = MORE_HREFS.has(pathname);
+  const productsActive = pathname === '/products' || pathname.startsWith('/products/');
   const linkClass = (href) =>
     `relative px-3 py-2 text-[11px] sm:text-xs xl:text-[13px] font-medium tracking-[0.15em] uppercase transition-colors duration-200 whitespace-nowrap ${
       pathname === href ? 'text-ink nb-nav-link-active' : 'text-muted hover:text-ink'
@@ -119,12 +139,12 @@ export default function Navbar() {
           clearHoverTimer();
           setDropdownOpen(false);
         }}
-        className={`flex items-center justify-between gap-2 px-3 py-2 text-xs tracking-wide transition-colors duration-150 ${
+        className={`flex items-center justify-between gap-2 px-4 py-3 text-[13px] tracking-wide transition-colors duration-150 ${
           active ? 'bg-accent text-on-accent font-semibold' : 'text-muted hover:text-ink hover:bg-ink/5'
         }`}
       >
         <span className="truncate">{label}</span>
-        <ArrowUpRight size={13} className={`shrink-0 ${active ? 'text-on-accent/70' : 'text-muted'}`} />
+        <ArrowUpRight size={14} className={`shrink-0 ${active ? 'text-on-accent/70' : 'text-muted'}`} />
       </Link>
     );
   };
@@ -146,6 +166,79 @@ export default function Navbar() {
                     <span className="nb-nav-active-bar" aria-hidden />
                   </Link>
                 ))}
+                {/* Products — hover opens on desktop, click toggles */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (prodTimer.current) clearTimeout(prodTimer.current);
+                    prodTimer.current = setTimeout(() => setProductsOpen(true), OPEN_DELAY);
+                  }}
+                  onMouseLeave={() => {
+                    if (prodTimer.current) clearTimeout(prodTimer.current);
+                    prodTimer.current = setTimeout(() => setProductsOpen(false), CLOSE_DELAY);
+                  }}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) setProductsOpen(false);
+                  }}
+                >
+                  <div
+                    className={`relative flex items-center px-3 py-2 text-[11px] sm:text-xs xl:text-[13px] font-medium tracking-[0.15em] uppercase transition-colors duration-200 whitespace-nowrap ${
+                      productsActive ? 'text-ink nb-nav-link-active' : 'text-muted hover:text-ink'
+                    }`}
+                  >
+                    <Link href="/products" onClick={() => setProductsOpen(false)}>
+                      Products
+                    </Link>
+                    <button
+                      onClick={() => setProductsOpen((p) => !p)}
+                      aria-expanded={productsOpen}
+                      aria-haspopup="true"
+                      aria-label="Toggle products menu"
+                      className="ml-1 p-0.5 flex items-center"
+                      tabIndex={0}
+                    >
+                      <ChevronDown size={13} className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <span className="nb-nav-active-bar" aria-hidden />
+                  </div>
+                  <div
+                    className={`nb-dropdown absolute left-0 top-full mt-3 w-[42rem] max-w-[calc(100vw-2rem)] bg-surface border border-line shadow-xl shadow-black/60 z-50 p-5 ${
+                      productsOpen ? 'nb-open' : ''
+                    }`}
+                  >
+                    <Link
+                      href="/products"
+                      onClick={() => setProductsOpen(false)}
+                      className="pf-nav-featured group"
+                    >
+                      <span className="pf-nav-featured-text">
+                        <span className="block text-sm font-semibold tracking-wide">All Products</span>
+                        <span className="block text-xs text-muted mt-0.5">Browse all 12 ready-to-deploy systems →</span>
+                      </span>
+                      <ArrowUpRight size={16} className="shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+                    <div className="pf-nav-grid">
+                      {PRODUCT_LINKS.slice(1).map(({ label, href, desc, accent }) => {
+                        const active = pathname === href;
+                        return (
+                          <Link
+                            key={href}
+                            href={href}
+                            onClick={() => setProductsOpen(false)}
+                            className={`pf-nav-item ${active ? 'pf-nav-active' : ''}`}
+                          >
+                            <span className="pf-nav-dot" style={{ background: accent }} />
+                            <span className="min-w-0">
+                              <span className="block text-[13px] font-medium truncate">{label}</span>
+                              <span className="block text-xs text-muted truncate">{desc}</span>
+                            </span>
+                            <ArrowUpRight size={14} className="shrink-0 text-muted" />
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
               </div>
               <Link href="/" className="flex items-center gap-2 mx-6">
                 <Image src="/logo_circle.png" alt="Webentric — website development company in Delhi" width={40} height={40} className="w-10 h-10" priority={false} />
@@ -186,17 +279,17 @@ export default function Navbar() {
                   </button>
 
                   <div
-                    className={`nb-dropdown absolute right-0 top-full mt-3 w-[44rem] max-w-[calc(100vw-2rem)] bg-surface border border-line rounded-lg shadow-xl shadow-black/60 z-50 p-5 ${
+                    className={`nb-dropdown absolute right-0 top-full mt-3 w-[52rem] max-w-[calc(100vw-2rem)] bg-surface border border-line shadow-xl shadow-black/60 z-50 p-7 ${
                       dropdownOpen ? 'nb-open' : ''
                     }`}
                   >
-                    <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-6">
+                    <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-8">
                       {MORE_SECTIONS.map((section) => (
                         <div key={section.heading} className="min-w-0">
-                          <p className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/40">
+                          <p className="nb-section-heading">
                             {section.heading}
                           </p>
-                          <div className="flex flex-col gap-0.5">
+                          <div className="flex flex-col gap-1">
                             {section.links.map(renderMoreLink)}
                           </div>
                         </div>
@@ -276,6 +369,53 @@ export default function Navbar() {
               </div>
             );
           })}
+          {/* Mobile Products — tap to expand/collapse, header links to /products */}
+          <div className="nb-mobile-link">
+            <div className="flex items-center justify-between w-full px-4 py-3 rounded-xl">
+              <Link
+                href="/products"
+                onClick={closeMobile}
+                className={`flex-1 text-sm font-medium tracking-widest uppercase transition-colors ${
+                  productsActive ? 'text-ink font-semibold' : 'text-muted'
+                }`}
+              >
+                Products
+              </Link>
+              <button
+                onClick={() => setProductsOpen((p) => !p)}
+                className="p-1 text-muted hover:text-ink transition-colors"
+                aria-expanded={productsOpen}
+                aria-haspopup="true"
+                aria-label="Toggle products menu"
+              >
+                <ChevronDown size={15} className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+            <div className={`nb-accordion mt-1 ${productsOpen ? 'nb-open' : ''}`}>
+              <div className="flex flex-col gap-4 py-2">
+                <div>
+                  <div className="ml-3 border-l-2 border-line pl-3 flex flex-col">
+                    {PRODUCT_LINKS.map(({ label, href }) => {
+                      const active = pathname === href;
+                      return (
+                        <Link
+                          key={href}
+                          href={href}
+                          onClick={closeMobile}
+                          className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm tracking-wide transition-colors ${
+                            active ? 'bg-accent text-on-accent font-semibold' : 'text-muted hover:text-ink hover:bg-ink/5'
+                          }`}
+                        >
+                          {label}
+                          <ArrowUpRight size={12} className={active ? 'text-on-accent/70' : 'text-muted'} />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           {/* Mobile More — tap to expand/collapse */}
           <div className="nb-mobile-link">
             <button

@@ -93,7 +93,7 @@ const Hero = () => {
               <h1 className="text-[40px] md:text-[60px] text-left leading-[0.98] tracking-[-0.05em] font-medium">
                 Your Next Great
                 <br />
-                Design Partnership
+                <span className="pf-gradient-text">Design Partnership</span>
               </h1>
             </div>
 

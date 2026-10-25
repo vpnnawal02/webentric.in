@@ -1,7 +1,9 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { pricingPackages, addons, faqs } from '../../lib/data';
-import { ChevronDown, ChevronUp, Globe, Check } from 'lucide-react';
+import { PRODUCTS } from '../../lib/products-data';
+import { ChevronDown, ChevronUp, Globe, Check, ArrowUpRight } from 'lucide-react';
 import PopUpForm from '../../components/PopUpForm';
 import JsonLd from '../../components/JsonLd';
 import { SITE, webPageSchema, faqSchema, breadcrumbSchema } from '../../lib/seo';
@@ -39,7 +41,8 @@ const CURRENCIES = [
 const parseInrAmount = (priceStr) => Number(String(priceStr).replace(/[^0-9]/g, '')) || 0;
 
 const formatConvertedPrice = (priceStr, currency) => {
-    const isMonthly = String(priceStr).toLowerCase().includes('/month');
+    const lower = String(priceStr).toLowerCase();
+    const suffix = lower.includes('/month') ? '/month' : lower.includes('/year') ? '/year' : '';
     const baseInr = parseInrAmount(priceStr);
     // Keep INR exactly as set; only foreign currencies use the doubled base.
     const inrForConversion = currency.code === 'INR' ? baseInr : baseInr * 3;
@@ -52,11 +55,30 @@ const formatConvertedPrice = (priceStr, currency) => {
             maximumFractionDigits: 0,
             minimumFractionDigits: 0,
         }).format(converted);
-        return isMonthly ? `${formatted}/month` : formatted;
+        return `${formatted}${suffix}`;
     } catch {
-        return isMonthly ? `${converted.toFixed(0)} ${currency.code}/month` : `${converted.toFixed(0)} ${currency.code}`;
+        return `${converted.toFixed(0)} ${currency.code}${suffix}`;
     }
 };
+
+// Monthly / yearly subscription (INR) for each ready-to-deploy product.
+// Yearly works out to ~10 months of monthly — i.e. 2 months free.
+const PRODUCT_PRICING = [
+    { slug: 'gym-management-system', monthly: 499, yearly: 4999 },
+    { slug: 'doctor-clinic-management-system', monthly: 699, yearly: 6999 },
+    { slug: 'school-management-system', monthly: 999, yearly: 9999 },
+    { slug: 'coaching-institute-management-system', monthly: 399, yearly: 3999 },
+    { slug: 'sports-academy-management-system', monthly: 399, yearly: 3999 },
+    { slug: 'salon-spa-management-system', monthly: 399, yearly: 3999 },
+    { slug: 'retail-shop-management-system', monthly: 499, yearly: 4999 },
+    { slug: 'inventory-management-system', monthly: 499, yearly: 4999 },
+    { slug: 'restaurant-cafe-management-system', monthly: 699, yearly: 6999 },
+    { slug: 'pg-hostel-rent-management-system', monthly: 499, yearly: 4999 },
+    { slug: 'invoice-billing-management-system', monthly: 199, yearly: 1999 },
+    { slug: 'ai-customer-support-system', monthly: 999, yearly: 9999 },
+];
+
+const productBySlug = (slug) => PRODUCTS.find((p) => p.slug === slug);
 
 export default function PricingPage() {
     const [activeFaq, setActiveFaq] = useState(null);
@@ -275,6 +297,103 @@ export default function PricingPage() {
                             </button>
                         </div>
                     ))}
+                </div>
+
+                {/* 2b. Product Pricing — ready-to-deploy software subscriptions */}
+                <div className="mb-24">
+                    <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+                        <p className="text-[12px] uppercase tracking-[0.22em] text-ink/60 mb-3">
+                            Products
+                        </p>
+                        <h2 className="text-3xl font-medium tracking-[-0.03em] text-ink mb-4">
+                            Ready-to-deploy software, <span className="pf-gradient-text">simple pricing</span>
+                        </h2>
+                        <p className="text-ink/60 leading-relaxed">
+                            Every product includes setup with your branding, team training and support.
+                            Yearly plans cost ~10 months of monthly — <span className="text-ink font-medium">2 months free</span>.
+                        </p>
+                    </div>
+
+                    {/* Desktop table */}
+                    <div className="hidden md:block border border-edge bg-surface overflow-x-auto">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="border-b border-edge bg-raised">
+                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold">Product</th>
+                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold">Monthly</th>
+                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold">
+                                        Yearly <span className="ml-1 normal-case tracking-normal bg-accent text-on-accent px-2 py-0.5 text-[10px] font-semibold">2 months free</span>
+                                    </th>
+                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {PRODUCT_PRICING.map(({ slug, monthly, yearly }) => {
+                                    const product = productBySlug(slug);
+                                    if (!product) return null;
+                                    return (
+                                        <tr key={slug} className="border-b border-line last:border-b-0 hover:bg-raised transition-colors">
+                                            <td className="px-6 py-4">
+                                                <Link href={`/products/${slug}`} className="group inline-flex items-center gap-1.5 font-medium text-ink">
+                                                    {product.name}
+                                                    <ArrowUpRight size={14} className="text-ink/40 group-hover:text-ink transition-colors" />
+                                                </Link>
+                                                <p className="text-xs text-ink/50 mt-0.5">{product.tagline}</p>
+                                            </td>
+                                            <td className="px-6 py-4 font-medium text-ink whitespace-nowrap">
+                                                {formatConvertedPrice(`₹${monthly}/month`, currency)}
+                                            </td>
+                                            <td className="px-6 py-4 font-medium text-ink whitespace-nowrap">
+                                                {formatConvertedPrice(`₹${yearly}/year`, currency)}
+                                            </td>
+                                            <td className="px-6 py-4 text-right">
+                                                <Link
+                                                    href="/contact"
+                                                    className="inline-block bg-accent text-on-accent py-2 px-5 text-sm font-medium hover:bg-accent/85 transition-all duration-200"
+                                                >
+                                                    Contact Team
+                                                </Link>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Mobile cards */}
+                    <div className="grid grid-cols-1 gap-4 md:hidden">
+                        {PRODUCT_PRICING.map(({ slug, monthly, yearly }) => {
+                            const product = productBySlug(slug);
+                            if (!product) return null;
+                            return (
+                                <div key={slug} className="bg-surface border border-edge p-5">
+                                    <Link href={`/products/${slug}`} className="font-medium text-ink leading-snug flex items-center gap-1.5">
+                                        {product.name}
+                                        <ArrowUpRight size={14} className="text-ink/40 flex-shrink-0" />
+                                    </Link>
+                                    <p className="text-xs text-ink/50 mt-1 mb-4">{product.tagline}</p>
+                                    <div className="flex items-end gap-6 mb-4">
+                                        <div>
+                                            <p className="text-[10px] uppercase tracking-[0.18em] text-ink/50">Monthly</p>
+                                            <p className="text-xl font-medium text-ink">{formatConvertedPrice(`₹${monthly}/month`, currency)}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] uppercase tracking-[0.18em] text-ink/50">Yearly</p>
+                                            <p className="text-xl font-medium text-ink">{formatConvertedPrice(`₹${yearly}/year`, currency)}</p>
+                                        </div>
+                                        <span className="ml-auto bg-accent text-on-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide whitespace-nowrap">−2 mo</span>
+                                    </div>
+                                    <Link
+                                        href="/contact"
+                                        className="block text-center w-full bg-accent text-on-accent py-2.5 px-6 text-sm font-medium hover:bg-accent/85 transition-all duration-200"
+                                    >
+                                        Contact Team
+                                    </Link>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 {/* Tooltip Overlay */}

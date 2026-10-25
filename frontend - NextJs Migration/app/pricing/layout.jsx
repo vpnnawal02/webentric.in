@@ -1,8 +1,8 @@
 import { SITE } from '../../lib/seo';
 
-const TITLE = 'Website Design Cost in Delhi, India (2026) | Webentric';
+const TITLE = 'Pricing — Websites & Ready-to-Deploy Software (2026) | Webentric';
 const DESCRIPTION =
-  'Transparent website pricing in India: Starter from ₹7,999, Business from ₹14,999, E-commerce from ₹29,999. Fixed quotes in rupees within 24 hours on business days.';
+  'Transparent pricing in India: websites from ₹7,999, plus ready-to-deploy software — gym, clinic, school, salon, retail, restaurant, billing & AI support from ₹199/month. Fixed quotes within 24 hours on business days.';
 
 export const metadata = {
   title: TITLE,
