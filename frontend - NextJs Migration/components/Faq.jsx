@@ -14,7 +14,7 @@ export default function Faq({ items = [], title = 'Frequently Asked Questions' }
   if (!items.length) return null;
   return (
     <section className="mt-16 md:mt-24" aria-label={title}>
-      <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">{title}</h2>
+      <h2 className="t-h2 mb-8">{title}</h2>
       <div className="space-y-3 md:space-y-4">
         {items.map((faq, i) => {
           const isOpen = open === i;
@@ -45,7 +45,7 @@ export default function Faq({ items = [], title = 'Frequently Asked Questions' }
               >
                 <div className="overflow-hidden">
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0">
-                    <p className="text-muted text-sm sm:text-[15px] leading-relaxed">{faq.answer}</p>
+                    <p className="t-small">{faq.answer}</p>
                   </div>
                 </div>
               </div>

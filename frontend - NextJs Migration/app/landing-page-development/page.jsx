@@ -90,11 +90,11 @@ export default function LandingPageDevelopmentPage() {
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-28 pb-20">
         <Breadcrumbs items={[{ label: 'Services' }, { label: 'Landing Pages', to: '/landing-page-development' }]} />
-        <p className="text-xs uppercase tracking-[0.22em] text-muted mb-4">Services — Campaign Pages</p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] mb-6">
+        <p className="t-eyebrow mb-4">Services — Campaign Pages</p>
+        <h1 className="t-h1 mb-6">
           Landing Pages Designed to Convert
         </h1>
-        <div className="max-w-3xl space-y-4 text-muted text-[15px] sm:text-base leading-relaxed mb-14 md:mb-20">
+        <div className="max-w-3xl space-y-4 t-body mb-14 md:mb-20">
           <p>
             Advertisements earn the click; the page earns the enquiry. When someone arrives from a campaign and meets
             a slow, generic homepage, most of that ad spend quietly leaves. A dedicated page keeps one promise, one
@@ -108,41 +108,41 @@ export default function LandingPageDevelopmentPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">What&apos;s included</h2>
+          <h2 className="t-h2 mb-8">What&apos;s included</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Campaign alignment</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Campaign alignment</h3>
+              <p className="t-small">
                 Headline, offer and visuals matched to the ad or message that sent the visitor, so nothing feels like a wrong turn.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Hero &amp; copy structure</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Hero &amp; copy structure</h3>
+              <p className="t-small">
                 A clear promise above the fold, benefits in the visitor&apos;s words, and one repeated call to action.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Lead forms + WhatsApp</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Lead forms + WhatsApp</h3>
+              <p className="t-small">
                 Short forms that ask only what you need, with instant WhatsApp handover and email alerts for every enquiry.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Fast by default</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Fast by default</h3>
+              <p className="t-small">
                 Lean React and Tailwind builds tuned for quick loads on mobile networks, where most campaign traffic arrives.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">A/B-test-ready structure</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">A/B-test-ready structure</h3>
+              <p className="t-small">
                 Sections built as swappable blocks, so headlines, offers and layouts can be tested without rebuilding.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Analytics events</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Analytics events</h3>
+              <p className="t-small">
                 Clicks, scrolls and form starts tracked as events, so you can see which section earns its place.
               </p>
             </div>
@@ -150,59 +150,59 @@ export default function LandingPageDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Benefits</h2>
+          <h2 className="t-h2 mb-8">Benefits</h2>
           <div className="border border-line divide-y divide-line">
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">One page, one job</h3>
-              <p className="text-sm text-muted leading-relaxed">No menus pulling visitors away — every section moves toward the same enquiry.</p>
+              <h3 className="t-h3 mb-1">One page, one job</h3>
+              <p className="t-small">No menus pulling visitors away — every section moves toward the same enquiry.</p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">Built for the click it receives</h3>
-              <p className="text-sm text-muted leading-relaxed">Message match between ad and page keeps visitors oriented from the first second.</p>
+              <h3 className="t-h3 mb-1">Built for the click it receives</h3>
+              <p className="t-small">Message match between ad and page keeps visitors oriented from the first second.</p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">Speed your ads deserve</h3>
-              <p className="text-sm text-muted leading-relaxed">Lightweight builds hold attention on mobile data instead of losing it to a spinner.</p>
+              <h3 className="t-h3 mb-1">Speed your ads deserve</h3>
+              <p className="t-small">Lightweight builds hold attention on mobile data instead of losing it to a spinner.</p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">Decisions from data, not opinion</h3>
-              <p className="text-sm text-muted leading-relaxed">Event tracking and test-ready blocks show what works, so changes are evidence-led.</p>
+              <h3 className="t-h3 mb-1">Decisions from data, not opinion</h3>
+              <p className="t-small">Event tracking and test-ready blocks show what works, so changes are evidence-led.</p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">Reusable across campaigns</h3>
-              <p className="text-sm text-muted leading-relaxed">Swap the offer and headline to relaunch for the next campaign without starting over.</p>
+              <h3 className="t-h3 mb-1">Reusable across campaigns</h3>
+              <p className="t-small">Swap the offer and headline to relaunch for the next campaign without starting over.</p>
             </div>
           </div>
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">How we work</h2>
+          <h2 className="t-h2 mb-8">How we work</h2>
           <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">01</p>
-              <h3 className="font-medium mb-2">Study the offer &amp; audience</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">01</p>
+              <h3 className="t-h3 mb-2">Study the offer &amp; audience</h3>
+              <p className="t-small">
                 We learn what you are promoting, who should respond, and which ad or message brings them in.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">02</p>
-              <h3 className="font-medium mb-2">Structure the argument</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">02</p>
+              <h3 className="t-h3 mb-2">Structure the argument</h3>
+              <p className="t-small">
                 Hero promise, objections answered in order, proof, then the ask — agreed with you before design starts.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">03</p>
-              <h3 className="font-medium mb-2">Design, build &amp; connect</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">03</p>
+              <h3 className="t-h3 mb-2">Design, build &amp; connect</h3>
+              <p className="t-small">
                 The page is built in React and Tailwind, with forms, WhatsApp handover and analytics events wired in.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">04</p>
-              <h3 className="font-medium mb-2">Launch, measure &amp; refine</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">04</p>
+              <h3 className="t-h3 mb-2">Launch, measure &amp; refine</h3>
+              <p className="t-small">
                 Your campaign goes live on a tracked page, and early data guides the first round of refinements.
               </p>
             </div>
@@ -210,7 +210,7 @@ export default function LandingPageDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Useful for</h2>
+          <h2 className="t-h2 mb-8">Useful for</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/industries/startups" className="border border-line px-5 py-2.5 text-sm hover:border-ink transition-colors">
               Startups
@@ -228,17 +228,17 @@ export default function LandingPageDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Guides &amp; resources</h2>
+          <h2 className="t-h2 mb-8">Guides &amp; resources</h2>
           <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
             <Link href="/blogs/why-small-business-needs-website" className="bg-surface border border-line p-6 hover:border-ink transition-colors block">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-muted mb-3">Guide</p>
-              <h3 className="font-medium mb-2">Why Your Small Business Needs a Website From Day One</h3>
-              <p className="text-sm text-muted leading-relaxed">Where a focused campaign page fits inside your first online presence.</p>
+              <p className="t-eyebrow mb-3">Guide</p>
+              <h3 className="t-h3 mb-2">Why Your Small Business Needs a Website From Day One</h3>
+              <p className="t-small">Where a focused campaign page fits inside your first online presence.</p>
             </Link>
             <Link href="/blogs/business-website-cost-india-2026" className="bg-surface border border-line p-6 hover:border-ink transition-colors block">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-muted mb-3">Guide</p>
-              <h3 className="font-medium mb-2">How Much Does a Business Website Cost in India in 2026?</h3>
-              <p className="text-sm text-muted leading-relaxed">Planning budgets before you brief a campaign page.</p>
+              <p className="t-eyebrow mb-3">Guide</p>
+              <h3 className="t-h3 mb-2">How Much Does a Business Website Cost in India in 2026?</h3>
+              <p className="t-small">Planning budgets before you brief a campaign page.</p>
             </Link>
           </div>
         </section>
@@ -246,7 +246,7 @@ export default function LandingPageDevelopmentPage() {
         <Faq items={FAQS} />
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Related services</h2>
+          <h2 className="t-h2 mb-8">Related services</h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {RELATED.map((item) => (
               <Link key={item.to} href={item.to} className="border border-line p-6 hover:border-ink transition-colors font-medium">

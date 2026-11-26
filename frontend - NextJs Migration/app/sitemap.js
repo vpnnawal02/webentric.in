@@ -1,6 +1,7 @@
 import blogs from "../lib/blog-data.js";
 import { SITE, toISODate } from "../lib/seo.js";
 import { PRODUCT_SLUGS } from "../lib/products-data.js";
+import { PORTFOLIO_PROJECTS } from "../lib/portfolio-data.js";
 
 const SERVICES = [
     "/website-development",
@@ -43,6 +44,7 @@ export default function sitemap() {
         { route: "/price-calculator", priority: 0.8, changeFrequency: "monthly" },
         { route: "/products", priority: 0.9, changeFrequency: "weekly" },
         ...PRODUCT_SLUGS.map((s) => ({ route: `/products/${s}`, priority: 0.85, changeFrequency: "monthly" })),
+        ...PORTFOLIO_PROJECTS.map((p) => ({ route: `/portfolio/${p.slug}`, priority: 0.75, changeFrequency: "monthly" })),
         ...SERVICES.map((r) => ({ route: r, priority: 0.9, changeFrequency: "monthly" })),
         ...LOCATIONS.map((r) => ({ route: r, priority: 0.7, changeFrequency: "monthly" })),
         ...INDUSTRIES.map((r) => ({ route: r, priority: 0.7, changeFrequency: "monthly" })),

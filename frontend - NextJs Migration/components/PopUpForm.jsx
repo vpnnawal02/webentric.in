@@ -166,7 +166,7 @@ export default function PopUpForm({ open, setOpen, source = 'Quote popup' }) {
                             </div>
 
                             <div>
-                                <h3 className="text-lg font-medium text-ink mb-1 tracking-[-0.02em]">
+                                <h3 className="t-h3 mb-1">
                                     Quote Request Sent
                                 </h3>
                                 <p className="text-sm text-ink/50">

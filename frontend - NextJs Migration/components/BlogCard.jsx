@@ -29,7 +29,7 @@ export default function BlogCard({ blog }) {
             <div className="p-4 sm:p-5 flex flex-col flex-1">
 
                 {/* Meta */}
-                <div className="flex items-center gap-2 text-[11px] sm:text-xs text-muted mb-2">
+                <div className="flex items-center gap-2 t-small mb-2">
                     <span>{blog.date}</span>
 
                     <span>•</span>

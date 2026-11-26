@@ -64,14 +64,14 @@ export default function ProductsPage() {
         <div className="pf-grid-bg" aria-hidden />
         <div className="max-w-6xl mx-auto relative">
           <Reveal delay={80}>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight leading-[1.02] mb-6">
+            <h1 className="t-h1 mb-6">
               Software that runs
               <br />
               <span className="pf-gradient-text">your business for you.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>
-            <p className="max-w-2xl text-muted text-[15px] sm:text-lg leading-relaxed mb-8">
+            <p className="t-lead max-w-2xl mb-8">
               Stop managing registers, spreadsheets and missed payments. Pick a Webentric product — gym, clinic,
               school, salon, retail, restaurant, PG, billing, inventory, sports or AI support — and go live in weeks
               with automation your staff will actually use.
@@ -89,7 +89,7 @@ export default function ProductsPage() {
                 <div className="pf-perk">
                   <p.icon size={18} className="text-ink/80" />
                   <p className="font-medium text-sm mt-2">{p.title}</p>
-                  <p className="text-xs text-muted leading-relaxed mt-1">{p.text}</p>
+                  <p className="t-small mt-1">{p.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -111,8 +111,8 @@ export default function ProductsPage() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4 mb-8 md:mb-10">
             <div>
-              <p className="text-xs tracking-[0.22em] text-muted mb-2">THE COLLECTION</p>
-              <h2 className="text-2xl sm:text-4xl font-medium tracking-tight">All 12 products</h2>
+              <p className="t-eyebrow mb-2">THE COLLECTION</p>
+              <h2 className="t-h2">All 12 products</h2>
             </div>
             <p className="text-sm text-muted max-w-sm">Hover a card to preview. Tap to open the full SEO guide — features, benefits, FAQs and live-demo CTA.</p>
           </div>
@@ -127,10 +127,10 @@ export default function ProductsPage() {
                   <span className="pf-glow" aria-hidden />
                 </div>
                 <div className="p-5 md:p-6">
-                  <p className="text-[11px] tracking-[0.2em] uppercase mb-1" style={{ color: p.accent }}>{String(i + 1).padStart(2, '0')} · {p.shortName}</p>
-                  <h3 className="font-medium text-lg leading-snug mb-1 group-hover:underline underline-offset-4">{p.name}</h3>
-                  <p className="text-sm text-muted leading-relaxed mb-3">{p.tagline}</p>
-                  <p className="text-xs text-muted mb-4">{p.features.slice(0, 3).join(' · ')} +{p.features.length - 3} more</p>
+                  <p className="t-micro mb-1" style={{ color: p.accent }}>{String(i + 1).padStart(2, '0')} · {p.shortName}</p>
+                  <h3 className="t-h3 leading-snug mb-1 group-hover:underline underline-offset-4">{p.name}</h3>
+                  <p className="t-small mb-3">{p.tagline}</p>
+                  <p className="t-small mb-4">{p.features.slice(0, 3).join(' · ')} +{p.features.length - 3} more</p>
                   <span className="pf-card-link">Explore product <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>
                 </div>
               </Link>
@@ -144,7 +144,7 @@ export default function ProductsPage() {
         <Reveal>
           <div className="pf-cta-panel">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">Not sure which fits?</h2>
+              <h2 className="t-h2 mb-2">Not sure which fits?</h2>
               <p className="text-sm text-muted max-w-xl leading-relaxed">Tell us your business type on WhatsApp — we reply within hours with the right product, pricing and a free live demo link.</p>
             </div>
             <div className="flex flex-wrap gap-3">

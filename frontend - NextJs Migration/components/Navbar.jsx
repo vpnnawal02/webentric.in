@@ -8,11 +8,11 @@ import ThemeToggle from './ThemeToggle';
 
 const LEFT_LINKS = [
   { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
   { label: 'Portfolio', href: '/portfolio' },
 ];
 const RIGHT_LINKS = [
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Contact', href: '/contact' },
 ];
 const NAV_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS];
 
@@ -73,7 +73,6 @@ const MORE_SECTIONS = [
   {
     heading: 'Resources',
     links: [
-      { label: 'About', href: '/about' },
       { label: 'Blogs', href: '/blogs' },
       { label: 'Cost Calculator', href: '/price-calculator' },
       { label: 'Careers', href: '/careers' },
@@ -166,6 +165,12 @@ export default function Navbar() {
                     <span className="nb-nav-active-bar" aria-hidden />
                   </Link>
                 ))}
+              </div>
+              <Link href="/" className="flex items-center gap-2 mx-6">
+                <Image src="/logo_circle.png" alt="Webentric — website development company in Delhi" width={40} height={40} className="w-10 h-10" priority={false} />
+                <span className="font-semibold tracking-[0.25em] text-base xl:text-lg text-ink uppercase">Webentric</span>
+              </Link>
+              <div className="flex items-center gap-2 xl:gap-4">
                 {/* Products — hover opens on desktop, click toggles */}
                 <div
                   className="relative"
@@ -202,7 +207,7 @@ export default function Navbar() {
                     <span className="nb-nav-active-bar" aria-hidden />
                   </div>
                   <div
-                    className={`nb-dropdown absolute left-0 top-full mt-3 w-[42rem] max-w-[calc(100vw-2rem)] bg-surface border border-line shadow-xl shadow-black/60 z-50 p-5 ${
+                    className={`nb-dropdown absolute right-0 top-full mt-3 w-[42rem] max-w-[calc(100vw-2rem)] bg-surface border border-line shadow-xl shadow-black/60 z-50 p-5 ${
                       productsOpen ? 'nb-open' : ''
                     }`}
                   >
@@ -239,12 +244,6 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
-              </div>
-              <Link href="/" className="flex items-center gap-2 mx-6">
-                <Image src="/logo_circle.png" alt="Webentric — website development company in Delhi" width={40} height={40} className="w-10 h-10" priority={false} />
-                <span className="font-semibold tracking-[0.25em] text-base xl:text-lg text-ink uppercase">Webentric</span>
-              </Link>
-              <div className="flex items-center gap-2 xl:gap-4">
                 {RIGHT_LINKS.map(({ label, href }) => (
                   <Link key={href} href={href} className={linkClass(href)}>
                     {label}
@@ -432,7 +431,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-4 py-2">
                 {MORE_SECTIONS.map((section) => (
                   <div key={section.heading}>
-                    <p className="px-4 mb-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/40">
+                    <p className="px-4 mb-1 t-micro font-semibold">
                       {section.heading}
                     </p>
                     <div className="ml-3 border-l-2 border-line pl-3 flex flex-col">

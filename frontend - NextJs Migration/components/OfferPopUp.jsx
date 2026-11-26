@@ -39,7 +39,7 @@ export default function OfferPopup() {
                         [ LIMITED OFFER ]
                     </p>
 
-                    <h2 className="text-2xl sm:text-[2rem] leading-tight tracking-[-0.04em] font-medium text-ink mb-3">
+                    <h2 className="t-h2 mb-3">
                         Exclusive launch offer for new website projects.
                     </h2>
 

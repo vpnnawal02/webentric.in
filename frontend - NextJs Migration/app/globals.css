@@ -227,6 +227,83 @@ html.light .theme-toggle .tt-moon {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Type scale — single source of truth for all public content.
+   Eyebrow / H1 / H2 / H3 / lead / body / small / micro / stat.
+   Margins stay as utilities at usage. Colors resolve via theme
+   vars so light/dark modes keep working.
+   ───────────────────────────────────────────────────────────── */
+@layer components {
+    .t-eyebrow {
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--wt-muted);
+    }
+    .t-h1 {
+        font-size: 1.875rem;
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+        font-weight: 500;
+        color: var(--wt-ink);
+    }
+    .t-h2 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        font-weight: 500;
+        color: var(--wt-ink);
+    }
+    .t-h3 {
+        font-size: 1.125rem;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+        font-weight: 500;
+        color: var(--wt-ink);
+    }
+    .t-lead {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--wt-muted);
+    }
+    .t-body {
+        font-size: 0.9375rem;
+        line-height: 1.7;
+        color: var(--wt-muted);
+    }
+    .t-small {
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: var(--wt-muted);
+    }
+    .t-micro {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--wt-muted);
+    }
+    .t-stat {
+        font-size: 1.875rem;
+        line-height: 1;
+        letter-spacing: -0.025em;
+        font-weight: 500;
+        color: var(--wt-ink);
+    }
+    @media (min-width: 640px) {
+        .t-eyebrow { font-size: 12px; }
+        .t-h1 { font-size: 2.25rem; }
+        .t-h2 { font-size: 1.875rem; }
+        .t-lead { font-size: 1.125rem; }
+        .t-body { font-size: 1rem; }
+        .t-stat { font-size: 2.25rem; }
+    }
+    @media (min-width: 768px) {
+        .t-h1 { font-size: 3rem; }
+        .t-stat { font-size: 3rem; }
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
    Navbar — dropdown, mobile drawer, accordion, active states.
    (Ported from the Vite version, which injected these via JS;
    they now live in the stylesheet. Without them the "More"

@@ -149,7 +149,7 @@ export default function PricingPage() {
                 <div ref={currencyRef} className="relative flex flex-col items-end gap-1.5">
                     <span
                         id="currency-label"
-                        className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-ink/50"
+                        className="t-micro"
                     >
                         Currency
                     </span>
@@ -207,20 +207,20 @@ export default function PricingPage() {
 
                 {/* 1. Pricing Hero */}
                 <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 md:mb-20 pt-14 sm:pt-0">
-                    <p className="text-[20px] uppercase tracking-[0.22em] text-ink/60">
+                    <p className="t-eyebrow">
                         PRICING
                     </p>
 
-                    <h1 className="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-ink leading-tight">
+                    <h1 className="t-h1">
                         Transparent pricing for professional websites
                     </h1>
 
-                    <p className="text-base md:text-lg text-ink/58 leading-relaxed max-w-2xl mx-auto">
+                    <p className="t-lead max-w-2xl mx-auto">
                         Choose a website package that fits your business needs. Every build is modern,
                         responsive, and optimized for performance, clarity, and long-term scalability.
                     </p>
 
-                    <p className="text-sm text-ink/38">
+                    <p className="t-small">
                         Custom projects and advanced features are also available.
                     </p>
                 </div>
@@ -239,24 +239,24 @@ export default function PricingPage() {
                             `}
                         >
                             {plan.popular && (
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-on-accent px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]">
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-on-accent px-4 py-1 t-micro font-semibold">
                                     Most Popular
                                 </div>
                             )}
 
-                            <h3 className="text-xl font-medium tracking-[-0.02em] text-ink mb-4 text-center">
+                            <h3 className="t-h2 mb-4 text-center">
                                 {plan.title}
                             </h3>
 
-                            <p className="text-center text-ink/50 text-sm uppercase tracking-[0.14em]">
+                            <p className="t-micro text-center">
                                 Starting from
                             </p>
 
-                            <div className="text-4xl md:text-5xl font-medium tracking-[-0.05em] text-ink mb-2 text-center mt-2">
+                            <div className="t-stat mb-2 text-center mt-2">
                                 {formatConvertedPrice(plan.price, currency)}
                             </div>
 
-                            <p className="text-ink/50 text-sm text-center mb-8">
+                            <p className="t-small text-center mb-8">
                                 {plan.delivery}
                             </p>
 
@@ -302,13 +302,13 @@ export default function PricingPage() {
                 {/* 2b. Product Pricing — ready-to-deploy software subscriptions */}
                 <div className="mb-24">
                     <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
-                        <p className="text-[12px] uppercase tracking-[0.22em] text-ink/60 mb-3">
+                        <p className="t-eyebrow mb-3">
                             Products
                         </p>
-                        <h2 className="text-3xl font-medium tracking-[-0.03em] text-ink mb-4">
+                        <h2 className="t-h2 mb-4">
                             Ready-to-deploy software, <span className="pf-gradient-text">simple pricing</span>
                         </h2>
-                        <p className="text-ink/60 leading-relaxed">
+                        <p className="t-body">
                             Every product includes setup with your branding, team training and support.
                             Yearly plans cost ~10 months of monthly — <span className="text-ink font-medium">2 months free</span>.
                         </p>
@@ -319,12 +319,12 @@ export default function PricingPage() {
                         <table className="w-full text-left border-collapse">
                             <thead>
                                 <tr className="border-b border-edge bg-raised">
-                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold">Product</th>
-                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold">Monthly</th>
-                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold">
+                                    <th className="px-6 py-4 t-micro font-semibold">Product</th>
+                                    <th className="px-6 py-4 t-micro font-semibold">Monthly</th>
+                                    <th className="px-6 py-4 t-micro font-semibold">
                                         Yearly <span className="ml-1 normal-case tracking-normal bg-accent text-on-accent px-2 py-0.5 text-[10px] font-semibold">2 months free</span>
                                     </th>
-                                    <th className="px-6 py-4 text-[11px] uppercase tracking-[0.18em] text-ink/50 font-semibold text-right">Action</th>
+                                    <th className="px-6 py-4 t-micro font-semibold text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -338,7 +338,7 @@ export default function PricingPage() {
                                                     {product.name}
                                                     <ArrowUpRight size={14} className="text-ink/40 group-hover:text-ink transition-colors" />
                                                 </Link>
-                                                <p className="text-xs text-ink/50 mt-0.5">{product.tagline}</p>
+                                                <p className="t-small mt-0.5">{product.tagline}</p>
                                             </td>
                                             <td className="px-6 py-4 font-medium text-ink whitespace-nowrap">
                                                 {formatConvertedPrice(`₹${monthly}/month`, currency)}
@@ -372,14 +372,14 @@ export default function PricingPage() {
                                         {product.name}
                                         <ArrowUpRight size={14} className="text-ink/40 flex-shrink-0" />
                                     </Link>
-                                    <p className="text-xs text-ink/50 mt-1 mb-4">{product.tagline}</p>
+                                    <p className="t-small mt-1 mb-4">{product.tagline}</p>
                                     <div className="flex items-end gap-6 mb-4">
                                         <div>
-                                            <p className="text-[10px] uppercase tracking-[0.18em] text-ink/50">Monthly</p>
+                                            <p className="t-micro">Monthly</p>
                                             <p className="text-xl font-medium text-ink">{formatConvertedPrice(`₹${monthly}/month`, currency)}</p>
                                         </div>
                                         <div>
-                                            <p className="text-[10px] uppercase tracking-[0.18em] text-ink/50">Yearly</p>
+                                            <p className="t-micro">Yearly</p>
                                             <p className="text-xl font-medium text-ink">{formatConvertedPrice(`₹${yearly}/year`, currency)}</p>
                                         </div>
                                         <span className="ml-auto bg-accent text-on-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide whitespace-nowrap">−2 mo</span>
@@ -414,7 +414,7 @@ export default function PricingPage() {
 
                 {/* 3. Add-ons */}
                 <div className="mb-20">
-                    <h3 className="text-3xl font-medium tracking-[-0.03em] text-ink text-center mb-10 md:mb-12">
+                    <h3 className="t-h2 text-center mb-10 md:mb-12">
                         Optional Add-ons
                     </h3>
 
@@ -427,7 +427,7 @@ export default function PricingPage() {
                                 <h4 className="font-medium text-ink mb-1 text-sm md:text-base">
                                     {addon.name}
                                 </h4>
-                                <p className="text-ink/55 font-medium text-sm md:text-lg">
+                                <p className="t-lead font-medium">
                                     {formatConvertedPrice(addon.price, currency)}
                                 </p>
                             </div>
@@ -437,7 +437,7 @@ export default function PricingPage() {
 
                 {/* 4. FAQ */}
                 <div className="mb-12">
-                    <h3 className="text-3xl font-medium tracking-[-0.03em] text-ink text-center mb-12">
+                    <h3 className="t-h2 text-center mb-12">
                         Frequently Asked Questions
                     </h3>
 
@@ -475,7 +475,7 @@ export default function PricingPage() {
                                 >
                                     <div className="overflow-hidden">
                                         <div className="px-6 pb-6 pt-0">
-                                            <p className="text-ink/60 leading-relaxed">
+                                            <p className="t-body">
                                                 {faq.answer}
                                             </p>
                                         </div>

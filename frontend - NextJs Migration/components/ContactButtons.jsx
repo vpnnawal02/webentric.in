@@ -25,7 +25,7 @@ const ContactButtons = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={item.label}
-                            className="group flex items-center gap-3 min-w-[180px] text-sm text-ink/70 hover:text-ink transition-colors"
+                            className="group flex items-center gap-3 min-w-[180px] t-small hover:text-ink transition-colors"
                         >
                             <span
                                 className={`inline-flex h-9 w-9 items-center justify-center border border-line bg-ink/5 text-ink transition-all duration-300 group-hover:bg-accent group-hover:text-on-accent`}

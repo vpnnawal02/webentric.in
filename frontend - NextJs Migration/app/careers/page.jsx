@@ -91,11 +91,11 @@ export default async function CareersPage() {
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-28 pb-20">
         <Breadcrumbs items={[{ label: 'Careers' }]} />
-        <p className="text-xs tracking-[0.22em] text-muted mb-4">CAREERS — WEBENTRIC · NEW DELHI</p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] mb-6">
+        <p className="t-eyebrow mb-4">CAREERS — WEBENTRIC · NEW DELHI</p>
+        <h1 className="t-h1 mb-6">
           Build the web with us
         </h1>
-        <div className="max-w-3xl space-y-4 text-muted text-[15px] sm:text-base leading-relaxed mb-14 md:mb-20">
+        <div className="max-w-3xl space-y-4 t-body mb-14 md:mb-20">
           <p>
             Webentric is a website development company based in New Delhi. We&apos;re a small,
             hands-on team of designers and developers building fast, modern websites for

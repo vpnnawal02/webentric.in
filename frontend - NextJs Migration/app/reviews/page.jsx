@@ -156,11 +156,11 @@ export default function ReviewsPage() {
 
         {/* Heading */}
         <div className="text-center max-w-[720px] mx-auto">
-          <p className="text-[12px] uppercase tracking-[0.22em] text-ink/60 mb-4">Reviews</p>
-          <h1 className="text-[36px] md:text-[50px] font-medium leading-tight tracking-[-0.03em]">
+          <p className="t-eyebrow mb-4">Reviews</p>
+          <h1 className="t-h1">
             What clients say about Webentric
           </h1>
-          <p className="mt-4 text-sm md:text-base lg:text-lg text-ink/60 leading-relaxed">
+          <p className="mt-4 t-lead">
             Real Google reviews from businesses we&apos;ve built websites for — smooth process,
             clear communication, and websites delivered on time.
           </p>
@@ -169,10 +169,10 @@ export default function ReviewsPage() {
         {/* Rating summary */}
         <div className="mt-10 bg-surface border border-edge p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            <span className="text-5xl md:text-6xl font-medium tracking-tight">{avgRating}</span>
+            <span className="t-stat">{avgRating}</span>
             <div>
               <Stars rating={5} />
-              <p className="mt-2 text-sm text-ink/60">
+              <p className="mt-2 t-small">
                 {totalReviews} Google reviews · all 5-star
               </p>
             </div>
@@ -204,17 +204,17 @@ export default function ReviewsPage() {
             >
               <div className="flex items-center justify-between gap-3 mb-4">
                 <Stars rating={review.rating} />
-                <span className="text-[11px] uppercase tracking-[0.14em] text-ink/40 shrink-0">
+                <span className="t-micro shrink-0">
                   {review.time}
                 </span>
               </div>
 
               {review.text ? (
-                <blockquote className="text-[15px] text-ink/75 leading-relaxed flex-1">
+                <blockquote className="t-body flex-1">
                   &ldquo;{review.text}&rdquo;
                 </blockquote>
               ) : (
-                <p className="text-[15px] text-ink/50 leading-relaxed flex-1 italic">
+                <p className="t-body flex-1 italic">
                   5-star Google rating — no written comment left.
                 </p>
               )}
@@ -239,7 +239,7 @@ export default function ReviewsPage() {
 
         {/* Bottom CTA */}
         <div className="mt-14 text-center">
-          <p className="text-sm sm:text-base text-ink/70 mb-4">
+          <p className="t-body mb-4">
             Want a website your customers will rave about?
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

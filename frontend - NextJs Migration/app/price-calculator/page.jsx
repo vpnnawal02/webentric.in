@@ -55,7 +55,7 @@ function ContactModal({ onClose, defaultMessage }) {
                     </div>
                 ) : (
                     <>
-                        <h2 className="text-xl font-bold text-ink mb-1">Contact Us With Your Estimate</h2>
+                        <h2 className="t-h2 mb-1">Contact Us With Your Estimate</h2>
                         <p className="text-sm text-muted mb-5">We&apos;ll review your requirements and get back to you shortly.</p>
                         <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="flex flex-col gap-4">
                             <div>
@@ -195,7 +195,7 @@ export default function PriceCalculatorPage() {
 
                 {/* ── Header ── */}
                 <div className="text-center mb-10">
-                    <h1 className="text-2xl md:text-3xl sm:text-4xl font-bold text-ink mb-3 tracking-tight">
+                    <h1 className="t-h1 mb-3">
                         Calculate Your Project Cost
                     </h1>
                     <p className="text-muted hidden md:flex text-base max-w-xl mx-auto">
@@ -208,8 +208,8 @@ export default function PriceCalculatorPage() {
                     <div className="w-full lg:flex-1 flex flex-col gap-5">
                         {/* ── SECTION 1: Website Type Selector ── */}
                         <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
-                            <h2 className="text-base font-bold text-ink mb-1">Choose Website Type</h2>
-                            <p className="text-xs text-muted mb-4">Select the type that best fits your project needs.</p>
+                            <h2 className="t-h3 mb-1">Choose Website Type</h2>
+                            <p className="t-small mb-4">Select the type that best fits your project needs.</p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 {WEBSITE_TYPES.map((type) => {
@@ -255,8 +255,8 @@ export default function PriceCalculatorPage() {
 
                         {/* ── SECTION 3: Additional Pages ── */}
                         <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
-                            <h2 className="text-base font-bold text-ink mb-1">Number of Pages</h2>
-                            <p className="text-xs text-muted mb-4">
+                            <h2 className="t-h3 mb-1">Number of Pages</h2>
+                            <p className="t-small mb-4">
                                 First 5 pages are free. Additional pages cost {formatINR(PRICE_PER_EXTRA_PAGE)}/page.
                             </p>
                             <div className="flex items-center gap-3">
@@ -305,7 +305,7 @@ export default function PriceCalculatorPage() {
                         <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
-                                    <h2 className="text-base font-bold text-ink">Optional Features</h2>
+                                    <h2 className="t-h3">Optional Features</h2>
                                     <p className="text-xs text-muted mt-0.5">Add capabilities to your project</p>
                                 </div>
                                 {featureCost > 0 && (
@@ -329,8 +329,8 @@ export default function PriceCalculatorPage() {
 
                         {/* ── SECTION 5: Delivery Timeline ── */}
                         <div className="bg-surface rounded-xs border border-line shadow-sm p-5">
-                            <h2 className="text-base font-bold text-ink mb-1">Delivery Timeline</h2>
-                            <p className="text-xs text-muted mb-4">How fast do you need your project?</p>
+                            <h2 className="t-h3 mb-1">Delivery Timeline</h2>
+                            <p className="t-small mb-4">How fast do you need your project?</p>
                             <div className="flex flex-col gap-2.5">
                                 {TIMELINE_OPTIONS.map((opt) => (
                                     <TimelineCard
@@ -348,7 +348,7 @@ export default function PriceCalculatorPage() {
                     <div className="w-full lg:w-80 xl:w-96 self-start sticky top-21">
                         <div className="bg-surface rounded-xs border border-line shadow-lg overflow-hidden">
                             <div className="bg-surface border-b border-line px-5 py-4 ">
-                                <h2 className="text-ink font-bold text-base">Cost Summary</h2>
+                                <h2 className="t-h3">Cost Summary</h2>
                             </div>
 
                             <div className="px-5 py-4 flex flex-col gap-0.5">

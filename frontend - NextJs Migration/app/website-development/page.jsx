@@ -185,11 +185,11 @@ export default function WebsiteDevelopmentPage() {
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-28 pb-20">
         <Breadcrumbs items={[{ label: 'Services' }, { label: 'Development', to: '/website-development' }]} />
-        <p className="text-xs tracking-[0.22em] text-muted mb-4">WEBSITE DEVELOPMENT SERVICES</p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] mb-6">
+        <p className="t-eyebrow mb-4">WEBSITE DEVELOPMENT SERVICES</p>
+        <h1 className="t-h1 mb-6">
           Custom Website Development for Growing Businesses
         </h1>
-        <div className="max-w-3xl space-y-4 text-muted text-[15px] sm:text-base leading-relaxed mb-14 md:mb-20">
+        <div className="max-w-3xl space-y-4 t-body mb-14 md:mb-20">
           <p>
             If you run a growing business in Delhi or elsewhere in India, your site is often the first meeting.
             People check your services, your work, and how to reach you before they ever call. We create clear,
@@ -204,47 +204,47 @@ export default function WebsiteDevelopmentPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">What&apos;s included</h2>
+          <h2 className="t-h2 mb-8">What&apos;s included</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {INCLUDED.map((item) => (
               <div key={item.title} className="bg-surface border border-line p-6">
-                <h3 className="font-medium mb-2">{item.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{item.text}</p>
+                <h3 className="t-h3 mb-2">{item.title}</h3>
+                <p className="t-small">{item.text}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Benefits</h2>
+          <h2 className="t-h2 mb-8">Benefits</h2>
           <div className="border-t border-line">
             {BENEFITS.map((b) => (
               <div
                 key={b.title}
                 className="border-b border-line py-5 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-8"
               >
-                <h3 className="sm:w-64 shrink-0 font-medium">{b.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{b.text}</p>
+                <h3 className="sm:w-64 shrink-0 t-h3">{b.title}</h3>
+                <p className="t-small">{b.text}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">How we work</h2>
+          <h2 className="t-h2 mb-8">How we work</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {STEPS.map((s) => (
               <div key={s.n} className="bg-surface border border-line p-6">
-                <p className="text-xs tracking-[0.22em] text-muted mb-3">{s.n}</p>
-                <h3 className="font-medium mb-2">{s.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{s.text}</p>
+                <p className="t-eyebrow mb-3">{s.n}</p>
+                <h3 className="t-h3 mb-2">{s.title}</h3>
+                <p className="t-small">{s.text}</p>
               </div>
             ))}
           </div>
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Useful for</h2>
+          <h2 className="t-h2 mb-8">Useful for</h2>
           <div className="flex flex-wrap gap-3">
             {INDUSTRIES.map((i) => (
               <Link
@@ -265,7 +265,7 @@ export default function WebsiteDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Guides &amp; resources</h2>
+          <h2 className="t-h2 mb-8">Guides &amp; resources</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {GUIDES.map((g) => (
               <Link
@@ -273,9 +273,9 @@ export default function WebsiteDevelopmentPage() {
                 href={g.to}
                 className="bg-surface border border-line p-6 hover:border-ink transition-colors"
               >
-                <p className="text-[11px] uppercase tracking-[0.22em] text-muted mb-3">Guide</p>
-                <h3 className="font-medium leading-snug mb-2">{g.title}</h3>
-                <p className="text-sm text-muted leading-relaxed mb-4">{g.text}</p>
+                <p className="t-eyebrow mb-3">Guide</p>
+                <h3 className="t-h3 leading-snug mb-2">{g.title}</h3>
+                <p className="t-small mb-4">{g.text}</p>
                 <span className="text-sm text-ink">Read guide &rarr;</span>
               </Link>
             ))}
@@ -285,7 +285,7 @@ export default function WebsiteDevelopmentPage() {
         <Faq items={FAQS} />
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Related services</h2>
+          <h2 className="t-h2 mb-8">Related services</h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {RELATED.map((r) => (
               <Link

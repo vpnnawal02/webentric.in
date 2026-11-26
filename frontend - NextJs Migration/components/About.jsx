@@ -5,13 +5,13 @@ import { images } from '../lib/assets.js';
 const About = () => {
     return (
         <section className="bg-page text-ink overflow-hidden">
-            <div className="w-full max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14 py-14 sm:py-16 lg:py-20">
+            <div className="w-full max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-14 py-14 sm:py-16 lg:py-0">
                 <div className="flex flex-col md:flex-row gap-12 lg:gap-14 xl:gap-20 items-center min-h-[78vh]">
 
                     {/* Left content */}
-                    <div className="lg:w-[750px]">
+                    <div className="lg:w-200">
 
-                        <h2 className="text-[40px] md:text-[60px] leading-[1.03] tracking-[-0.05em] font-medium max-w-[11ch]">
+                        <h2 className="text-[40px] md:text-[40px] leading-[1.03] tracking-[-0.05em] font-medium max-w-[15ch]">
                             We design, build, and scale digital products that make an impact
                         </h2>
 
@@ -29,7 +29,7 @@ const About = () => {
                     {/* Right visual layout */}
                     <div className="relative w-full">
 
-                        <div className=" gap-4 sm:gap-5 pt-10 sm:pt-12">
+                        <div className=" gap-4 sm:gap-5 pt-5 sm:pt-0">
                             <div className="col-span-7">
                                 <div className="overflow-hidden bg-subtle w-full h-[230px] sm:h-[360px] md:h-[260px] lg:h-[390px]">
                                     <Image
@@ -50,7 +50,7 @@ const About = () => {
                 </div>
 
                 {/* Bottom stats */}
-                <div className="mt-14 sm:mt-16 lg:mt-18 pt-8 border-t border-edge flex justify-center">
+                <div className=" sm:my-5 py-5 md:py-10  border-t border-edge flex justify-center">
                     <div className="flex justify-around gap-8 sm:gap-10 lg:gap-12 w-full overflow-scroll no-scrollbar">
                         <div className="flex gap-4 flex items-center ">
                             <span className="text-[2rem] sm:text-[2.3rem] lg:text-[2.5rem] leading-none font-light tracking-[-0.04em] text-ink ">

@@ -110,12 +110,12 @@ export default async function BlogDetailPage({ params }) {
                     </div>
 
                     {/* H1 */}
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight mb-6">
+                    <h1 className="t-h1 mb-6">
                         {blog.title}
                     </h1>
 
                     {/* Metadata */}
-                    <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-muted mb-10">
+                    <div className="flex flex-wrap items-center gap-2 t-small mb-10">
                         <span>{blog.author}</span>
                         <span>•</span>
                         <time>{blog.date}</time>
@@ -151,7 +151,7 @@ export default async function BlogDetailPage({ params }) {
                                 return (
                                     <h2
                                         key={index}
-                                        className="text-2xl sm:text-3xl font-medium mt-12 mb-5 text-ink leading-tight"
+                                        className="t-h2 mt-12 mb-5"
                                     >
                                         {block.text}
                                     </h2>
@@ -162,7 +162,7 @@ export default async function BlogDetailPage({ params }) {
                                 return (
                                     <p
                                         key={index}
-                                        className="text-ink/80 text-base sm:text-lg leading-relaxed mb-6"
+                                        className="t-lead mb-6"
                                     >
                                         {block.text}
                                     </p>
@@ -200,7 +200,7 @@ export default async function BlogDetailPage({ params }) {
                         <h2 className="text-lg sm:text-xl font-medium mb-2">
                             Planning a website for your business?
                         </h2>
-                        <p className="text-sm text-muted leading-relaxed mb-5">
+                        <p className="t-small mb-5">
                             Get a fast, SEO-friendly website designed for Indian
                             businesses — priced transparently in rupees.
                         </p>
@@ -229,7 +229,7 @@ export default async function BlogDetailPage({ params }) {
                     {/* Related articles */}
                     {related.length > 0 && (
                         <section className="mt-14 md:mt-20">
-                            <h2 className="text-xl sm:text-2xl font-medium mb-6">
+                            <h2 className="t-h2 mb-6">
                                 Related articles
                             </h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

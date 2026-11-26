@@ -4,7 +4,7 @@ import { FiArrowRight } from 'react-icons/fi';
 import PortfolioCtaButton from './PortfolioCtaButton';
 import JsonLd from '../../components/JsonLd';
 import { SITE, webPageSchema, itemListSchema, breadcrumbSchema } from '../../lib/seo';
-import { projects } from '../../lib/data.js';
+import { PORTFOLIO_PROJECTS } from '../../lib/portfolio-data';
 
 export const metadata = {
   title: 'Our Web Design Work in Delhi, India',
@@ -32,7 +32,7 @@ export default function PortfolioPage() {
       <JsonLd
         data={[
           webPageSchema({ name: 'Webentric Portfolio — Web Design Work in Delhi, India', url: `${SITE.url}/portfolio`, description: 'Selected website design and development projects across Delhi NCR and India.' }),
-          itemListSchema({ name: 'Webentric portfolio', url: `${SITE.url}/portfolio`, items: projects.map((p) => ({ name: p.title, url: p.link || `${SITE.url}/portfolio`, description: p.description, image: p.image })) }),
+          itemListSchema({ name: 'Webentric portfolio', url: `${SITE.url}/portfolio`, items: PORTFOLIO_PROJECTS.map((p) => ({ name: p.title, url: `${SITE.url}/portfolio/${p.slug}`, description: p.description, image: p.cover })) }),
           breadcrumbSchema([{ name: 'Home', url: SITE.url }, { name: 'Portfolio', url: `${SITE.url}/portfolio` }]),
         ]}
       />
@@ -40,11 +40,11 @@ export default function PortfolioPage() {
       <div className="max-w-full mx-auto md:px-20 px-5">
         {/* Heading */}
         <div className="text-center max-w-[700px] mx-auto">
-          <h1 className="text-[40px] md:text-[50px] sm:text-4xl font-medium leading-tight tracking-[-0.03em] text-ink">
+          <h1 className="t-h1">
             Projects That Help Businesses Succeed Online
           </h1>
 
-          <p className="mt-4 text-sm md:text-md lg:text-lg text-ink/58">
+          <p className="mt-4 t-lead">
             Explore some of the websites and digital experiences we&apos;ve built for
             startups and growing businesses.
           </p>
@@ -52,16 +52,18 @@ export default function PortfolioPage() {
 
         {/* Projects grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <div
+          {PORTFOLIO_PROJECTS.map((project, index) => (
+            <Link
               key={index}
-              className="group bg-surface border border-edge rounded-none overflow-hidden hover:bg-raised hover:border-edge transition-all duration-300"
+              href={`/portfolio/${project.slug}`}
+              aria-label={`View ${project.shortName} case study`}
+              className="group bg-surface border border-edge rounded-none overflow-hidden hover:bg-raised hover:border-edge transition-all duration-300 flex flex-col"
             >
               {/* Project image */}
               <div className="relative overflow-hidden aspect-auto bg-surface">
                 <Image
-                  src={project.image}
-                  alt={`${project.title} — website designed and developed by Webentric`}
+                  src={project.cover}
+                  alt={`${project.shortName} — website designed and developed by Webentric`}
                   width={800}
                   height={500}
                   loading="lazy"
@@ -71,52 +73,50 @@ export default function PortfolioPage() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-lg font-medium tracking-[-0.02em] text-ink mb-2">
-                  {project.title}
+              <div className="p-6 flex flex-col flex-1">
+                <p className="t-micro mb-2">{project.category}</p>
+                <h3 className="t-h3 mb-2">
+                  {project.shortName}
                 </h3>
 
-                <p className="text-[15px] text-ink/70 mb-3 leading-relaxed">
+                <p className="t-body mb-3">
                   {project.description}
                 </p>
 
-                <p className="text-xs uppercase tracking-[0.14em] text-ink/35 mb-4">
-                  {project.tech}
+                <p className="t-micro mb-4">
+                  {project.tech.join(' • ')}
                 </p>
 
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-ink/70 transition-colors"
-                >
-                  View Project
-                  <FiArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+                <div className="mt-auto">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-ink group-hover:text-ink/70 transition-colors">
+                    View Case Study
+                    <FiArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-sm sm:text-base text-ink/70 mb-4">
+          <p className="t-body mb-4">
             Want a website like these for your business?
           </p>
 
           <PortfolioCtaButton />
 
-          <p className="mt-6 text-xs sm:text-sm text-ink/45">
+          <p className="t-small mt-6">
             Or explore our{' '}
-            <Link href="/website-development" className="text-ink/70 hover:text-ink underline underline-offset-4 transition-colors">
+            <Link href="/website-development" className="text-muted hover:text-ink underline underline-offset-4 transition-colors">
               website development
             </Link>
             {', '}
-            <Link href="/ecommerce-development" className="text-ink/70 hover:text-ink underline underline-offset-4 transition-colors">
+            <Link href="/ecommerce-development" className="text-muted hover:text-ink underline underline-offset-4 transition-colors">
               ecommerce development
             </Link>
             {' '}and{' '}
-            <Link href="/website-redesign" className="text-ink/70 hover:text-ink underline underline-offset-4 transition-colors">
+            <Link href="/website-redesign" className="text-muted hover:text-ink underline underline-offset-4 transition-colors">
               website redesign
             </Link>
             {' '}services.

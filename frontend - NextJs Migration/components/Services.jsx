@@ -186,7 +186,7 @@ const Services = () => {
 
 
                     <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-start">
-                        <h2 className="text-ink font-medium text-[clamp(2.5rem,5vw,5.4rem)] leading-[0.95] tracking-[-0.06em] max-w-[9ch]">
+                        <h2 className="text-ink font-medium text-[45px] leading-[0.95] tracking-[-0.06em] max-w-[15ch]">
                             Designed for modern businesses
                         </h2>
 

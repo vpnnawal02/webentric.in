@@ -55,10 +55,10 @@ export default function BlogsPage() {
                     INSIGHTS &amp; ARTICLES
                 </p>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-4 max-w-2xl leading-tight">
+                <h1 className="t-h1 mb-4 max-w-2xl">
                     Thoughts on Design, Development &amp; Growth
                 </h1>
-                <p className="text-sm md:text-base text-ink/58 max-w-2xl leading-relaxed mb-8 md:mb-10">
+                <p className="t-body max-w-2xl mb-8 md:mb-10">
                     Practical guides on website design, cost, SEO and maintenance —
                     written for businesses in Delhi &amp; across India.
                 </p>

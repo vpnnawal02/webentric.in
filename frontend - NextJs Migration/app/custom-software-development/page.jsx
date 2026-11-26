@@ -90,11 +90,11 @@ export default function CustomSoftwareDevelopmentPage() {
       />
       <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-28 pb-20">
         <Breadcrumbs items={[{ label: 'Services' }, { label: 'Custom Software', to: '/custom-software-development' }]} />
-        <p className="text-xs uppercase tracking-[0.22em] text-muted mb-4">Services — Tailored Business Systems</p>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] mb-6">
+        <p className="t-eyebrow mb-4">Services — Tailored Business Systems</p>
+        <h1 className="t-h1 mb-6">
           Custom Software Built Around Your Business
         </h1>
-        <div className="max-w-3xl space-y-4 text-muted text-[15px] sm:text-base leading-relaxed mb-14 md:mb-20">
+        <div className="max-w-3xl space-y-4 t-body mb-14 md:mb-20">
           <p>
             Most of our systems work starts the same way: a business running on spreadsheets, chat threads and
             memory. Orders live in one sheet, payments in another, follow-ups nowhere at all. It holds together
@@ -108,45 +108,45 @@ export default function CustomSoftwareDevelopmentPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">What&apos;s included</h2>
+          <h2 className="t-h2 mb-8">What&apos;s included</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Workflow automation</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Workflow automation</h3>
+              <p className="t-small">
                 Recurring steps — assignments, approvals, follow-up reminders — run on rules you define, so routine
                 work moves without chasing.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Dashboards &amp; reports</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Dashboards &amp; reports</h3>
+              <p className="t-small">
                 Daily numbers, pending tasks and team activity in one view, with simple reports you can read without
                 exporting sheets.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Login, roles &amp; permissions</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Login, roles &amp; permissions</h3>
+              <p className="t-small">
                 Secure sign-in with role-based access, so owners, managers and staff each see exactly what their job needs.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Database &amp; API foundation</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Database &amp; API foundation</h3>
+              <p className="t-small">
                 Structured data on Firebase or Supabase with REST API integration, so records stay consistent as you
                 add modules.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Payments &amp; notifications</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Payments &amp; notifications</h3>
+              <p className="t-small">
                 Razorpay, Stripe, UPI or PayPal collection wired into your flow, with WhatsApp and SMTP updates for
                 your team and customers.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <h3 className="font-medium mb-2">Lead management &amp; billing basics</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-2">Lead management &amp; billing basics</h3>
+              <p className="t-small">
                 CRM-style lead tracking from first enquiry to closure, plus straightforward invoicing and reporting basics.
               </p>
             </div>
@@ -154,35 +154,35 @@ export default function CustomSoftwareDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Benefits</h2>
+          <h2 className="t-h2 mb-8">Benefits</h2>
           <div className="border border-line divide-y divide-line">
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">Shaped to your process</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-1">Shaped to your process</h3>
+              <p className="t-small">
                 No adapting your team to someone else&apos;s fields and menus — the system mirrors how you already work.
               </p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">One place for the whole team</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-1">One place for the whole team</h3>
+              <p className="t-small">
                 Orders, payments, tasks and follow-ups stop living across five sheets and three chat groups.
               </p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">Fewer errors from manual entry</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-1">Fewer errors from manual entry</h3>
+              <p className="t-small">
                 Structured forms, validations and automation replace copy-paste between files.
               </p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">Grows module by module</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-1">Grows module by module</h3>
+              <p className="t-small">
                 Start with the most painful process, then add inventory, billing or reporting when the business is ready.
               </p>
             </div>
             <div className="px-6 py-5">
-              <h3 className="font-medium mb-1">You own the system</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="t-h3 mb-1">You own the system</h3>
+              <p className="t-small">
                 Built for your business and maintained by people you can reach — no subscription holding your data hostage.
               </p>
             </div>
@@ -190,33 +190,33 @@ export default function CustomSoftwareDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">How we work</h2>
+          <h2 className="t-h2 mb-8">How we work</h2>
           <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">01</p>
-              <h3 className="font-medium mb-2">Map the process</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">01</p>
+              <h3 className="t-h3 mb-2">Map the process</h3>
+              <p className="t-small">
                 We study how work actually flows — sheets, calls, registers — and agree what the system must do first.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">02</p>
-              <h3 className="font-medium mb-2">Design the structure</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">02</p>
+              <h3 className="t-h3 mb-2">Design the structure</h3>
+              <p className="t-small">
                 Screens, roles and data fields are sketched around your team, and you approve them before anything is built.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">03</p>
-              <h3 className="font-medium mb-2">Build &amp; connect</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">03</p>
+              <h3 className="t-h3 mb-2">Build &amp; connect</h3>
+              <p className="t-small">
                 We develop in React with Firebase or Supabase behind it, wiring payments, notifications and APIs as needed.
               </p>
             </div>
             <div className="bg-surface border border-line p-6">
-              <p className="text-xs tracking-[0.22em] text-muted mb-3">04</p>
-              <h3 className="font-medium mb-2">Launch &amp; support</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">04</p>
+              <h3 className="t-h3 mb-2">Launch &amp; support</h3>
+              <p className="t-small">
                 Your team learns the system with guided handover, and we stay on for fixes, changes and upkeep.
               </p>
             </div>
@@ -224,7 +224,7 @@ export default function CustomSoftwareDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Useful for</h2>
+          <h2 className="t-h2 mb-8">Useful for</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/industries/small-business" className="border border-line px-5 py-2.5 text-sm hover:border-ink transition-colors">
               Small Businesses
@@ -242,12 +242,12 @@ export default function CustomSoftwareDevelopmentPage() {
         </section>
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Guides &amp; resources</h2>
+          <h2 className="t-h2 mb-8">Guides &amp; resources</h2>
           <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
             <Link href="/blogs/custom-crm-vs-excel" className="bg-surface border border-line p-6 hover:border-ink transition-colors block">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-muted mb-3">Guide</p>
-              <h3 className="font-medium mb-2">Custom CRM vs Excel: When Should Your Business Upgrade?</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="t-eyebrow mb-3">Guide</p>
+              <h3 className="t-h3 mb-2">Custom CRM vs Excel: When Should Your Business Upgrade?</h3>
+              <p className="t-small">
                 A plain-language guide to knowing when spreadsheets stop being enough.
               </p>
             </Link>
@@ -257,7 +257,7 @@ export default function CustomSoftwareDevelopmentPage() {
         <Faq items={FAQS} />
 
         <section className="mt-16 md:mt-20">
-          <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Related services</h2>
+          <h2 className="t-h2 mb-8">Related services</h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {RELATED.map((item) => (
               <Link key={item.to} href={item.to} className="border border-line p-6 hover:border-ink transition-colors font-medium">

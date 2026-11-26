@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="text-2xl font-medium tracking-[-0.04em] text-ink mb-4">
               Webentric<span className="text-ink/45">.</span>
             </div>
-            <p className="text-sm leading-relaxed text-ink/55 mb-6 max-w-[280px]">
+            <p className="t-small mb-6 max-w-[280px]">
               Webentric builds modern, high-performance websites that help businesses establish a strong online
               presence and grow digitally.
             </p>
@@ -39,50 +39,50 @@ const Footer = () => {
             </div>
           </div>
           <nav aria-label="Quick links">
-            <h2 className="text-ink font-medium text-lg tracking-[-0.02em] mb-6">Quick Links</h2>
+            <h2 className="t-h3 mb-6">Quick Links</h2>
             <div className="space-y-3">
-              <Link href="/" className="text-sm text-ink/55 hover:text-ink transition-colors block">Home</Link>
-              <Link href="/about" className="text-sm text-ink/55 hover:text-ink transition-colors block">About Webentric</Link>
-              <Link href="/portfolio" className="text-sm text-ink/55 hover:text-ink transition-colors block">Portfolio</Link>
-              <Link href="/pricing" className="text-sm text-ink/55 hover:text-ink transition-colors block">Pricing</Link>
-              <Link href="/reviews" className="text-sm text-ink/55 hover:text-ink transition-colors block">Reviews</Link>
-              <Link href="/blogs" className="text-sm text-ink/55 hover:text-ink transition-colors block">Blogs</Link>
-              <Link href="/price-calculator" className="text-sm text-ink/55 hover:text-ink transition-colors block">Cost Calculator</Link>
-              <Link href="/careers" className="text-sm text-ink/55 hover:text-ink transition-colors block">Careers</Link>
-              <Link href="/contact" className="text-sm text-ink/55 hover:text-ink transition-colors block">Contact</Link>
+              <Link href="/" className="t-small hover:text-ink transition-colors block">Home</Link>
+              <Link href="/about" className="t-small hover:text-ink transition-colors block">About Webentric</Link>
+              <Link href="/portfolio" className="t-small hover:text-ink transition-colors block">Portfolio</Link>
+              <Link href="/pricing" className="t-small hover:text-ink transition-colors block">Pricing</Link>
+              <Link href="/reviews" className="t-small hover:text-ink transition-colors block">Reviews</Link>
+              <Link href="/blogs" className="t-small hover:text-ink transition-colors block">Blogs</Link>
+              <Link href="/price-calculator" className="t-small hover:text-ink transition-colors block">Cost Calculator</Link>
+              <Link href="/careers" className="t-small hover:text-ink transition-colors block">Careers</Link>
+              <Link href="/contact" className="t-small hover:text-ink transition-colors block">Contact</Link>
             </div>
           </nav>
           <nav aria-label="Services">
-            <h2 className="text-ink font-medium text-lg tracking-[-0.02em] mb-6">Services</h2>
+            <h2 className="t-h3 mb-6">Services</h2>
             <div className="space-y-3">
-              <Link href="/website-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Website Development</Link>
-              <Link href="/web-design" className="text-sm text-ink/55 hover:text-ink transition-colors block">Web Design</Link>
-              <Link href="/ecommerce-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">E-Commerce Development</Link>
-              <Link href="/custom-software-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Custom Software</Link>
-              <Link href="/web-application-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Web Applications</Link>
-              <Link href="/landing-page-development" className="text-sm text-ink/55 hover:text-ink transition-colors block">Landing Pages</Link>
-              <Link href="/website-redesign" className="text-sm text-ink/55 hover:text-ink transition-colors block">Website Redesign</Link>
-              <Link href="/website-maintenance" className="text-sm text-ink/55 hover:text-ink transition-colors block">Maintenance &amp; Support</Link>
-              <Link href="/seo-services" className="text-sm text-ink/55 hover:text-ink transition-colors block">SEO Services</Link>
+              <Link href="/website-development" className="t-small hover:text-ink transition-colors block">Website Development</Link>
+              <Link href="/web-design" className="t-small hover:text-ink transition-colors block">Web Design</Link>
+              <Link href="/ecommerce-development" className="t-small hover:text-ink transition-colors block">E-Commerce Development</Link>
+              <Link href="/custom-software-development" className="t-small hover:text-ink transition-colors block">Custom Software</Link>
+              <Link href="/web-application-development" className="t-small hover:text-ink transition-colors block">Web Applications</Link>
+              <Link href="/landing-page-development" className="t-small hover:text-ink transition-colors block">Landing Pages</Link>
+              <Link href="/website-redesign" className="t-small hover:text-ink transition-colors block">Website Redesign</Link>
+              <Link href="/website-maintenance" className="t-small hover:text-ink transition-colors block">Maintenance &amp; Support</Link>
+              <Link href="/seo-services" className="t-small hover:text-ink transition-colors block">SEO Services</Link>
             </div>
           </nav>
           <div>
-            <h2 className="text-ink font-medium text-lg tracking-[-0.02em] mb-6">Contact</h2>
+            <h2 className="t-h3 mb-6">Contact</h2>
             <div className="space-y-4 mb-6">
               <div>
-                <p className="text-xs uppercase tracking-[0.14em] text-ink/35 mb-1">Phone</p>
-                <a href="tel:+919560342636" className="text-sm text-ink/60 hover:text-ink transition-colors">+91 9560342636</a>
+                <p className="t-micro mb-1">Phone</p>
+                <a href="tel:+919560342636" className="t-small hover:text-ink transition-colors">+91 9560342636</a>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.14em] text-ink/35 mb-1">Email</p>
-                <a href="mailto:webentric2026@gmail.com" className="text-sm text-ink/60 hover:text-ink transition-colors">webentric2026@gmail.com</a>
+                <p className="t-micro mb-1">Email</p>
+                <a href="mailto:webentric2026@gmail.com" className="t-small hover:text-ink transition-colors">webentric2026@gmail.com</a>
               </div>
               <address className="not-italic">
-                <p className="text-xs uppercase tracking-[0.14em] text-ink/35 mb-1">Location</p>
-                <p className="text-sm text-ink/60">
+                <p className="t-micro mb-1">Location</p>
+                <p className="t-small">
                   D94, Madipur, New Delhi – 110063
                 </p>
-                <p className="text-sm text-ink/60 mt-1">
+                <p className="t-small mt-1">
                   <Link href="/locations/delhi" className="hover:text-ink transition-colors">Delhi</Link>, India ·{' '}
                   <Link href="/about" className="hover:text-ink transition-colors">About us</Link>
                 </p>

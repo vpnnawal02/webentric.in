@@ -51,6 +51,7 @@ export const images = {
   salon: '/images/portfolio/salon.webp',
   my_cafe: '/images/portfolio/my-cafe.webp',
   maple_prints: '/images/portfolio/maple-prints.webp',
+  founder: '/images/founder.png',
   school: '/images/portfolio/school.webp',
   avanza: '/images/portfolio/avanza.webp',
   travel_agency: '/images/portfolio/travel_agency.webp',

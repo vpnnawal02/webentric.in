@@ -66,13 +66,13 @@ export default async function ProductDetailPage({ params }) {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-6">
             <div>
               <Reveal delay={70}>
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight leading-[1.03] mb-4">{p.name}</h1>
+                <h1 className="t-h1 mb-4">{p.name}</h1>
               </Reveal>
               <Reveal delay={140}>
                 <p className="text-lg sm:text-xl mb-4" style={{ color: p.accent }}>{p.tagline}</p>
               </Reveal>
               <Reveal delay={200}>
-                <p className="text-muted text-[15px] sm:text-base leading-relaxed mb-7 max-w-xl">{p.description}</p>
+                <p className="t-body mb-7 max-w-xl">{p.description}</p>
               </Reveal>
               <Reveal delay={260}>
                 <div className="flex flex-wrap gap-3">
@@ -92,7 +92,7 @@ export default async function ProductDetailPage({ params }) {
                 <Image src={p.image} alt={`${p.name} dashboard — ${p.tagline}`} width={900} height={600} className="w-full h-64 sm:h-80 lg:h-[380px] object-cover" priority />
                 <div className="pf-hero-img-bar">
                   <span className="pf-dot" /><span className="pf-dot" /><span className="pf-dot" />
-                  <span className="text-[11px] tracking-[0.18em] text-muted ml-2">{p.shortName} · LIVE PREVIEW</span>
+                  <span className="t-micro ml-2">{p.shortName} · LIVE PREVIEW</span>
                 </div>
               </div>
             </Reveal>
@@ -104,9 +104,9 @@ export default async function ProductDetailPage({ params }) {
       <section className="max-w-6xl mx-auto px-4 sm:px-8 py-12 md:py-16">
         <div className="grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3">
-            <Reveal><h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-5">What this {p.shortName.toLowerCase().includes('os') ? 'system' : 'software'} does</h2></Reveal>
+            <Reveal><h2 className="t-h2 mb-5">What this {p.shortName.toLowerCase().includes('os') ? 'system' : 'software'} does</h2></Reveal>
             {p.intro.map((t, i) => (
-              <Reveal key={i} delay={i * 70}><p className="text-muted text-[15px] sm:text-base leading-relaxed mb-4">{t}</p></Reveal>
+              <Reveal key={i} delay={i * 70}><p className="t-body mb-4">{t}</p></Reveal>
             ))}
             <Reveal delay={120}>
               <div className="pf-note">
@@ -117,7 +117,7 @@ export default async function ProductDetailPage({ params }) {
           <div className="lg:col-span-2">
             <Reveal delay={100}>
               <div className="pf-toc">
-                <p className="text-xs tracking-[0.2em] text-muted mb-4">ON THIS PAGE</p>
+                <p className="t-eyebrow mb-4">ON THIS PAGE</p>
                 {[['#features', `All ${p.features.length} features`], ['#benefits', 'How it helps you'], ['#faq', 'FAQs'], ['#related', 'More products']].map(([href, label]) => (
                   <a key={href} href={href} className="pf-toc-link">{label} <ArrowUpRight size={14} /></a>
                 ))}
@@ -130,8 +130,8 @@ export default async function ProductDetailPage({ params }) {
 
       {/* FEATURES */}
       <section id="features" className="max-w-6xl mx-auto px-4 sm:px-8 pb-12 md:pb-16 scroll-mt-24">
-        <Reveal><p className="text-xs tracking-[0.22em] text-muted mb-2">EVERYTHING INCLUDED</p></Reveal>
-        <Reveal delay={60}><h2 className="text-2xl sm:text-4xl font-medium tracking-tight mb-3">All {p.features.length} modules, one login</h2></Reveal>
+        <Reveal><p className="t-eyebrow mb-2">EVERYTHING INCLUDED</p></Reveal>
+        <Reveal delay={60}><h2 className="t-h2 mb-3">All {p.features.length} modules, one login</h2></Reveal>
         <Reveal delay={120}><p className="text-muted text-sm sm:text-base max-w-2xl mb-8">Every module below is included — no hidden add-ons. We configure naming, pricing and roles to match your business during setup.</p></Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {p.features.map((f, i) => (
@@ -140,7 +140,7 @@ export default async function ProductDetailPage({ params }) {
                 <span className="pf-check"><Check size={14} /></span>
                 <div>
                   <p className="font-medium text-sm leading-snug">{f}</p>
-                  <p className="text-[11px] text-muted mt-0.5">Module {String(i + 1).padStart(2, '0')}</p>
+                  <p className="t-micro mt-0.5">Module {String(i + 1).padStart(2, '0')}</p>
                 </div>
               </div>
             </Reveal>
@@ -151,15 +151,15 @@ export default async function ProductDetailPage({ params }) {
       {/* BENEFITS */}
       <section id="benefits" className="border-y border-line bg-surface/60 scroll-mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-12 md:py-16">
-          <Reveal><p className="text-xs tracking-[0.22em] text-muted mb-2">WHY CLIENTS LOVE IT</p></Reveal>
-          <Reveal delay={60}><h2 className="text-2xl sm:text-4xl font-medium tracking-tight mb-8">How it helps your business grow</h2></Reveal>
+          <Reveal><p className="t-eyebrow mb-2">WHY CLIENTS LOVE IT</p></Reveal>
+          <Reveal delay={60}><h2 className="t-h2 mb-8">How it helps your business grow</h2></Reveal>
           <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
             {p.benefits.map((b, i) => (
               <Reveal key={b.title} delay={(i % 2) * 90}>
                 <article className="pf-benefit" style={{ '--pf-accent': p.accent }}>
                   <p className="pf-benefit-n">0{i + 1}</p>
-                  <h3 className="font-medium text-lg mb-2">{b.title}</h3>
-                  <p className="text-sm text-muted leading-relaxed">{b.text}</p>
+                  <h3 className="t-h3 mb-2">{b.title}</h3>
+                  <p className="t-small">{b.text}</p>
                 </article>
               </Reveal>
             ))}
@@ -176,11 +176,11 @@ export default async function ProductDetailPage({ params }) {
       <section className="max-w-6xl mx-auto px-4 sm:px-8 pb-6">
         <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
           <Link href={`/products/${prev.slug}`} className="pf-pn">
-            <span className="text-[11px] tracking-[0.2em] text-muted flex items-center gap-1"><ArrowLeft size={12} /> PREVIOUS</span>
+            <span className="t-micro flex items-center gap-1"><ArrowLeft size={12} /> PREVIOUS</span>
             <span className="font-medium mt-1">{prev.name}</span>
           </Link>
           <Link href={`/products/${next.slug}`} className="pf-pn text-right">
-            <span className="text-[11px] tracking-[0.2em] text-muted flex items-center gap-1 justify-end">NEXT <ArrowRight size={12} /></span>
+            <span className="t-micro flex items-center gap-1 justify-end">NEXT <ArrowRight size={12} /></span>
             <span className="font-medium mt-1">{next.name}</span>
           </Link>
         </div>
@@ -188,7 +188,7 @@ export default async function ProductDetailPage({ params }) {
 
       {/* RELATED */}
       <section id="related" className="max-w-6xl mx-auto px-4 sm:px-8 pb-14 scroll-mt-24">
-        <Reveal><h2 className="text-2xl sm:text-3xl font-medium tracking-tight mb-6">You may also need</h2></Reveal>
+        <Reveal><h2 className="t-h2 mb-6">You may also need</h2></Reveal>
         <div className="grid sm:grid-cols-3 gap-4">
           {related.map((r) => (
             <Link key={r.slug} href={`/products/${r.slug}`} className="pf-card group">
@@ -196,7 +196,7 @@ export default async function ProductDetailPage({ params }) {
                 <Image src={r.image} alt={r.name} width={480} height={300} className="w-full h-36 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
               <div className="p-5">
-                <h3 className="font-medium mb-1">{r.name}</h3>
+                <h3 className="t-h3 mb-1">{r.name}</h3>
                 <p className="text-xs text-muted mb-3">{r.tagline}</p>
                 <span className="pf-card-link text-sm">View <ArrowUpRight size={14} /></span>
               </div>

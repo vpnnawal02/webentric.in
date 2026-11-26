@@ -37,20 +37,20 @@ export default function ContactPage() {
         <Breadcrumbs items={[{ label: 'Contact' }]} />
         <div className="max-w-3xl mb-12 md:mb-16">
 
-          <h1 className="text-[clamp(2.2rem,5vw,4.5rem)] leading-[1.02] tracking-[-0.04em] font-medium text-ink max-w-[12ch]">
+          <h1 className="t-h1 max-w-[12ch]">
             Let&apos;s build something clear, fast, and memorable.
           </h1>
-          <p className="mt-5 text-sm md:text-base text-ink/58 max-w-[56ch] leading-relaxed">
+          <p className="mt-5 t-body max-w-[56ch]">
             Tell us what you&apos;re building, what you need, and where you want to go next.
             We reply within 24 hours on business days.
           </p>
-          <p className="mt-3 text-xs uppercase tracking-[0.18em] text-ink/45">D94, Madipur, New Delhi – 110063 · Serving clients across India</p>
+          <p className="mt-3 t-micro">D94, Madipur, New Delhi – 110063 · Serving clients across India</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-8 lg:gap-10 items-start">
           <div className="bg-surface border border-edge p-6 md:p-8 lg:p-10">
             <div className="flex items-center justify-between gap-4 mb-8 border-b border-ink/40 pb-5">
-              <h2 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-ink">
+              <h2 className="t-h2">
                 Send a project enquiry
               </h2>
               <span className="text-[20px] uppercase tracking-[0.18em] text-ink/60">
@@ -63,13 +63,13 @@ export default function ContactPage() {
 
           <div className="space-y-6">
             <div className="bg-surface border border-line p-6 md:p-7">
-              <h3 className="text-sm font-medium tracking-[0.08em] uppercase text-ink/70 mb-6">
+              <h3 className="t-micro mb-6">
                 Quick Contact
               </h3>
 
               <div className="space-y-5 text-sm">
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-ink/35 mb-1">
+                  <p className="t-micro mb-1">
                     Email
                   </p>
                   <a
@@ -81,28 +81,28 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-ink/35 mb-1">
+                  <p className="t-micro mb-1">
                     Phone / WhatsApp
                   </p>
                   <a href="tel:+919560342636" className="text-ink hover:text-ink/70 transition-colors">+91 9560342636</a>
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-ink/35 mb-1">
+                  <p className="t-micro mb-1">
                     Availability
                   </p>
-                  <p className="text-ink/82">Mon–Fri, 10 AM – 6 PM IST</p>
+                  <p className="text-muted">Mon–Fri, 10 AM – 6 PM IST</p>
                 </div>
 
                 <address className="not-italic">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-ink/35 mb-1">
+                  <p className="t-micro mb-1">
                     Address
                   </p>
-                  <p className="text-ink/82">D94, Madipur, New Delhi – 110063</p>
+                  <p className="text-muted">D94, Madipur, New Delhi – 110063</p>
                 </address>
               </div>
 
-              <div className="flex items-center gap-4 pt-7 mt-7 border-t border-line text-ink/72">
+              <div className="flex items-center gap-4 pt-7 mt-7 border-t border-line text-muted">
                 <a
                   href="https://www.linkedin.com/company/webentric"
                   target="_blank"
@@ -148,7 +148,7 @@ export default function ContactPage() {
             </div>
 
             <div className="bg-surface border border-line p-6 md:p-7">
-              <h3 className="text-sm font-medium tracking-[0.08em] uppercase text-ink/70 mb-4">
+              <h3 className="t-micro mb-4">
                 What to include
               </h3>
               <ul className="space-y-3 text-sm text-ink/68">

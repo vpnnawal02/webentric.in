@@ -98,11 +98,11 @@ export default function SmallBusinessPage() {
             />
             <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-28 pb-20">
                 <Breadcrumbs items={[{ label: "Industries" }, { label: "Small Business", to: "/industries/small-business" }]} />
-                <p className="text-xs tracking-[0.22em] text-muted mb-4">INDUSTRIES — WEBENTRIC</p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] mb-6">
+                <p className="t-eyebrow mb-4">INDUSTRIES — WEBENTRIC</p>
+                <h1 className="t-h1 mb-6">
                     Website Development for Small Businesses
                 </h1>
-                <div className="max-w-3xl space-y-4 text-muted text-[15px] sm:text-base leading-relaxed mb-14 md:mb-20">
+                <div className="max-w-3xl space-y-4 t-body mb-14 md:mb-20">
                     <p>
                         A small business is usually judged against larger competitors on a
                         five-inch screen: whoever answers questions clearly — what you do,
@@ -128,24 +128,24 @@ export default function SmallBusinessPage() {
                 </div>
 
                 <section>
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">
+                    <h2 className="t-h2 mb-8">
                         What your website needs
                     </h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         {NEEDS.map((item) => (
                             <div key={item.title} className="bg-surface border border-line p-6">
-                                <h3 className="font-medium mb-2">{item.title}</h3>
-                                <p className="text-sm text-muted leading-relaxed">{item.text}</p>
+                                <h3 className="t-h3 mb-2">{item.title}</h3>
+                                <p className="t-small">{item.text}</p>
                             </div>
                         ))}
                     </div>
                 </section>
 
                 <section className="mt-16 md:mt-20">
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">
+                    <h2 className="t-h2 mb-8">
                         Relevant work
                     </h2>
-                    <p className="text-muted max-w-3xl text-[15px] sm:text-base leading-relaxed">
+                    <p className="t-body max-w-3xl">
                         For Neha&apos;s salon we built service listings with a gallery and
                         direct booking paths; for cafe sites such as my-cafe and cats-cafe
                         we created menu, hours, location, and photo-led layouts; and for a
@@ -162,7 +162,7 @@ export default function SmallBusinessPage() {
                 </section>
 
                 <section className="mt-16 md:mt-20">
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">
+                    <h2 className="t-h2 mb-8">
                         Related services
                     </h2>
                     <div className="grid sm:grid-cols-3 gap-4">

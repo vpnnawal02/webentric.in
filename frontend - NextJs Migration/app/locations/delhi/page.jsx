@@ -144,11 +144,11 @@ export default function DelhiLocationPage() {
             />
             <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 pt-24 md:pt-28 pb-20">
                 <Breadcrumbs items={[{ label: "Locations" }, { label: "Delhi", to: "/locations/delhi" }]} />
-                <p className="text-xs tracking-[0.22em] text-muted mb-4">WEBENTRIC — DELHI · NCR · INDIA</p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] mb-6">
+                <p className="t-eyebrow mb-4">WEBENTRIC — DELHI · NCR · INDIA</p>
+                <h1 className="t-h1 mb-6">
                     Website Development Company in Delhi
                 </h1>
-                <div className="max-w-3xl space-y-4 text-muted text-[15px] sm:text-base leading-relaxed mb-14 md:mb-20">
+                <div className="max-w-3xl space-y-4 t-body mb-14 md:mb-20">
                     <p>
                         Delhi is our home ground. Webentric is based in New Delhi, and the businesses we build for here
                         are the ones we know best — South Delhi clinics, boutiques, and consultancies that live on
@@ -168,7 +168,7 @@ export default function DelhiLocationPage() {
                 </div>
 
                 <section>
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Services in Delhi</h2>
+                    <h2 className="t-h2 mb-8">Services in Delhi</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {SERVICES.map((s) => (
                             <Link
@@ -176,9 +176,9 @@ export default function DelhiLocationPage() {
                                 href={s.to}
                                 className="group block bg-surface border border-line p-6 hover:border-ink/40 transition-colors"
                             >
-                                <h3 className="text-lg font-medium tracking-[-0.01em] mb-2">{s.label}</h3>
+                                <h3 className="t-h3 mb-2">{s.label}</h3>
                                 <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
-                                <span className="inline-block mt-4 text-xs uppercase tracking-[0.18em] text-muted group-hover:text-ink transition-colors">
+                                <span className="inline-block mt-4 t-micro group-hover:text-ink transition-colors">
                                     Learn more
                                 </span>
                             </Link>
@@ -187,16 +187,16 @@ export default function DelhiLocationPage() {
                 </section>
 
                 <section className="mt-16 md:mt-20">
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">
+                    <h2 className="t-h2 mb-8">
                         How working together works
                     </h2>
                     <ol className="border-t border-line">
                         {STEPS.map((step) => (
                             <li key={step.n} className="grid sm:grid-cols-[64px_1fr] gap-2 sm:gap-6 py-6 border-b border-line">
-                                <span className="text-xs tracking-[0.22em] text-muted pt-1">{step.n}</span>
+                                <span className="t-eyebrow pt-1">{step.n}</span>
                                 <div>
-                                    <h3 className="text-lg font-medium tracking-[-0.01em] mb-1">{step.title}</h3>
-                                    <p className="text-muted text-sm sm:text-[15px] leading-relaxed max-w-2xl">{step.text}</p>
+                                    <h3 className="t-h3 mb-1">{step.title}</h3>
+                                    <p className="t-small max-w-2xl">{step.text}</p>
                                 </div>
                             </li>
                         ))}
@@ -204,8 +204,8 @@ export default function DelhiLocationPage() {
                 </section>
 
                 <section className="mt-16 md:mt-20">
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-6">Recent work</h2>
-                    <p className="text-muted text-[15px] sm:text-base leading-relaxed max-w-3xl">
+                    <h2 className="t-h2 mb-6">Recent work</h2>
+                    <p className="t-body max-w-3xl">
                         Recent builds include a school website with admissions and notices, the Avanza Survey corporate
                         site, and a salon landing page with booking-led sections.{" "}
                         <Link href="/portfolio" className="text-ink underline underline-offset-4 hover:text-muted transition-colors">

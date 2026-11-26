@@ -120,7 +120,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+          <label className="block t-micro mb-2">
             Name <span className="text-ink/90">*</span>
           </label>
           <input
@@ -141,7 +141,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+          <label className="block t-micro mb-2">
             Phone <span className="text-ink/90">*</span>
           </label>
           <input
@@ -163,7 +163,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+        <label className="block t-micro mb-2">
           Email
         </label>
         <input
@@ -183,7 +183,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+        <label className="block t-micro mb-2">
           Message <span className="text-ink/90">*</span>
         </label>
         <textarea

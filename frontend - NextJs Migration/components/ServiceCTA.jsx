@@ -11,8 +11,8 @@ export default function ServiceCTA({
 }) {
   return (
     <section className="mt-16 md:mt-24 border border-edge bg-surface px-6 py-10 sm:px-10 sm:py-12 text-center">
-      <p className="text-[11px] uppercase tracking-[0.22em] text-muted mb-4">Start your project</p>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-[-0.03em] mb-4">{title}</h2>
+      <p className="t-eyebrow mb-4">Start your project</p>
+      <h2 className="t-h2 mb-4">{title}</h2>
       <p className="text-muted text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-8">{text}</p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
         <Link

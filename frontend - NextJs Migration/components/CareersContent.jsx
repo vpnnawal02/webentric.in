@@ -95,11 +95,11 @@ export default function CareersContent({ jobs }) {
   return (
     <>
       <section aria-label="Open positions">
-        <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-8">Open positions</h2>
+        <h2 className="t-h2 mb-8">Open positions</h2>
         {jobs.length === 0 ? (
           <div className="bg-surface border border-line p-8 text-center">
             <p className="font-medium mb-2">No open positions right now</p>
-            <p className="text-sm text-muted leading-relaxed max-w-md mx-auto">
+            <p className="t-small max-w-md mx-auto">
               We hire as we grow. Send a general application below and we&apos;ll reach out
               when something fits your skills.
             </p>
@@ -110,7 +110,7 @@ export default function CareersContent({ jobs }) {
               <article key={job.id} className="bg-surface border border-line p-6 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                   <div>
-                    <h3 className="text-xl font-medium tracking-[-0.01em]">{job.title}</h3>
+                    <h3 className="t-h3">{job.title}</h3>
                     <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted">
                       {job.location} · {job.type}
                     </p>
@@ -124,14 +124,14 @@ export default function CareersContent({ jobs }) {
                   </button>
                 </div>
                 {job.description && (
-                  <p className="mt-4 text-sm text-muted leading-relaxed max-w-3xl">{job.description}</p>
+                  <p className="mt-4 t-small max-w-3xl">{job.description}</p>
                 )}
                 {job.requirements && (
                   <details className="mt-4 group">
                     <summary className="text-sm text-ink underline underline-offset-4 decoration-line hover:decoration-ink transition-colors cursor-pointer">
                       Requirements
                     </summary>
-                    <p className="mt-3 text-sm text-muted leading-relaxed whitespace-pre-line max-w-3xl">
+                    <p className="mt-3 t-small whitespace-pre-line max-w-3xl">
                       {job.requirements}
                     </p>
                   </details>
@@ -143,15 +143,15 @@ export default function CareersContent({ jobs }) {
       </section>
 
       <section ref={formRef} aria-label="Job application form" className="mt-16 md:mt-20 scroll-mt-24">
-        <h2 className="text-2xl sm:text-3xl font-medium tracking-[-0.02em] mb-3">Apply now</h2>
-        <p className="text-sm md:text-base text-ink/58 max-w-2xl leading-relaxed mb-8">
+        <h2 className="t-h2 mb-3">Apply now</h2>
+        <p className="t-body max-w-2xl mb-8">
           Fill in your details and we&apos;ll get back to you within a few business days.
         </p>
 
         {status === 'success' ? (
           <div role="status" className="bg-surface border border-line p-8 text-center max-w-2xl">
             <p className="font-medium mb-2">Application received</p>
-            <p className="text-sm text-muted leading-relaxed">
+            <p className="t-small">
               Thanks for applying! We review every application and reply within a few business days.
             </p>
           </div>
@@ -168,7 +168,7 @@ export default function CareersContent({ jobs }) {
               aria-hidden="true"
             />
             <div>
-              <label htmlFor="careers-position" className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+              <label htmlFor="careers-position" className="block t-micro mb-2">
                 Position
               </label>
               <select
@@ -188,7 +188,7 @@ export default function CareersContent({ jobs }) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label htmlFor="careers-name" className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+                <label htmlFor="careers-name" className="block t-micro mb-2">
                   Name <span className="text-ink/90">*</span>
                 </label>
                 <input
@@ -203,7 +203,7 @@ export default function CareersContent({ jobs }) {
                 />
               </div>
               <div>
-                <label htmlFor="careers-phone" className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+                <label htmlFor="careers-phone" className="block t-micro mb-2">
                   Phone <span className="text-ink/90">*</span>
                 </label>
                 <input
@@ -220,7 +220,7 @@ export default function CareersContent({ jobs }) {
               </div>
             </div>
             <div>
-              <label htmlFor="careers-email" className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+              <label htmlFor="careers-email" className="block t-micro mb-2">
                 Email <span className="text-ink/90">*</span>
               </label>
               <input
@@ -236,7 +236,7 @@ export default function CareersContent({ jobs }) {
               />
             </div>
             <div>
-              <label htmlFor="careers-resume-file" className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+              <label htmlFor="careers-resume-file" className="block t-micro mb-2">
                 Resume file <span className="text-ink/90">(PDF or Word, max 5 MB)</span>
               </label>
               <input
@@ -248,11 +248,11 @@ export default function CareersContent({ jobs }) {
                 className="w-full bg-transparent border border-edge px-4 py-3 text-sm text-ink/80 outline-none transition-colors focus:border-ink/40 file:mr-4 file:border-0 file:bg-ink/10 file:px-4 file:py-1.5 file:text-xs file:font-medium file:text-ink hover:file:bg-ink/15 file:transition-colors file:cursor-pointer"
               />
               {resumeFile && (
-                <p className="mt-2 text-xs text-ink/60">Selected: {resumeFile.name}</p>
+                <p className="mt-2 t-small">Selected: {resumeFile.name}</p>
               )}
             </div>
             <div>
-              <label htmlFor="careers-resume" className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+              <label htmlFor="careers-resume" className="block t-micro mb-2">
                 Or resume link
               </label>
               <input
@@ -266,7 +266,7 @@ export default function CareersContent({ jobs }) {
               />
             </div>
             <div>
-              <label htmlFor="careers-message" className="block text-[12px] uppercase tracking-[0.14em] text-ink/55 mb-2">
+              <label htmlFor="careers-message" className="block t-micro mb-2">
                 Cover note
               </label>
               <textarea

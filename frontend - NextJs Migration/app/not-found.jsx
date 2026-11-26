@@ -11,10 +11,10 @@ export default function NotFound() {
     return (
         <main className="min-h-screen bg-page text-ink flex items-center justify-center px-4">
             <div className="text-center max-w-xl py-20">
-                <p className="text-sm tracking-[0.22em] text-muted mb-4">
+                <p className="t-eyebrow mb-4">
                     404
                 </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight mb-4">
+                <h1 className="t-h1 mb-4">
                     This page went offline
                 </h1>
                 <p className="text-muted text-sm sm:text-base leading-relaxed mb-8">
